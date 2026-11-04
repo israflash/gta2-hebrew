@@ -23,12 +23,16 @@ function readGxt(file) {
   return entries;
 }
 
-const gxt = readGxt(path.join(root, 'game/data/e.gxt'));
+// Commercial game data is intentionally excluded from GitHub. When it exists locally,
+// perform exact source matching; on CI, validate catalog shape and runtime-hook coverage.
+const gxtPath = process.env.GTA2_GXT_PATH || path.join(root, 'game/data/e.gxt');
+const gxt = fs.existsSync(gxtPath) ? readGxt(gxtPath) : null;
 const titles = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-titles.he.json'), 'utf8')).titles;
 assert.equal(Object.keys(titles).length, 88, 'all original, active title, and HUD result keys are cataloged');
 const namedSources = { 9001: 'mfail', 9002: 'kfstart', 9003: 'kfpass', 9004: 'kffail' };
 for (const [key, row] of Object.entries(titles)) {
-  assert.equal(gxt.get(namedSources[key] || key), row.source, `title source mismatch: ${key}`);
+  assert.ok(row.source && row.text, `title source/translation is empty: ${key}`);
+  if (gxt) assert.equal(gxt.get(namedSources[key] || key), row.source, `title source mismatch: ${key}`);
 }
 
 const messages = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-translations.he.json'), 'utf8')).records;
@@ -36,7 +40,8 @@ for (const key of ['1989', '2910', '2911', '3489', '3752', '3753', '1125', '1150
   '1262', '1271', '1647', '1699', '7005', '7006', '7010', '6146', '6181', '6182', '6183']) {
   const row = messages.find((r) => r.gxtKey === key);
   assert.ok(row, `new gameplay message missing: ${key}`);
-  assert.equal(gxt.get(key), row.source, `gameplay message source mismatch: ${key}`);
+  assert.ok(row.source && row.text, `gameplay message source/translation is empty: ${key}`);
+  if (gxt) assert.equal(gxt.get(key), row.source, `gameplay message source mismatch: ${key}`);
 }
 assert.equal(messages.length, 1175);
 assert.equal(new Set(messages.map((r) => `${r.area}:${r.gxtKey}`)).size, messages.length);
@@ -45,4 +50,4 @@ const hook = fs.readFileSync(path.join(root, 'port/platform/jobs_web.cpp'), 'utf
 assert.match(hook, /\{ 3840, 3861 \}/);
 assert.match(hook, /\{ 2954, 2959 \}/);
 assert.match(hook, /static int keys\[88\]/);
-console.log(`test_gameplay_translation_additions: OK (${messages.length} active briefs, ${Object.keys(titles).length} source-matched titles and status messages)`);
+console.log(`test_gameplay_translation_additions: OK (${messages.length} active briefs, ${Object.keys(titles).length} titles/status; ${gxt ? 'exact GXT sources matched' : 'catalog validated; exact GXT source matching skipped (game data not present)'})`);
