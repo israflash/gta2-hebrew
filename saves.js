@@ -1,8 +1,8 @@
 // The Saves screen (single player): the autosave and six slots, each a card with a picture of
 // the moment, the area, district, cash and wanted level. Save here, load or delete; the game is
 // paused while it is open. Opened (and closed) with Ctrl+S / ⌘S or F5, or the toolbar's Saves button.
-import { LOAD_KEY, SAVE_KEY, SAVE_MIN_COST, SLOTS, deleteSave, listSaves, money, num, saveCost, slotName } from './savestate.js?v=d0dc1c0689';
-import { lang, onLangChange, registerDict, t } from './strings.js?v=d0dc1c0689';
+import { LOAD_KEY, SAVE_KEY, SAVE_MIN_COST, SLOTS, deleteSave, listSaves, money, num, saveCost, slotName } from './savestate.js?v=45fdea3e72';
+import { lang, onLangChange, registerDict, t } from './strings.js?v=45fdea3e72';
 
 registerDict({
   en: {
@@ -25,6 +25,27 @@ registerDict({
     'ui.saves.oldVersionTitle': 'Made by an older version of the game',
     'ui.saves.olderVersion': '{how} · older version',
     'ui.saves.somewhere': 'Somewhere in the city',
+  },
+  he: {
+    'ui.saves.keysHint': 'פתיחה וסגירה: {saveKey} או {loadKey} · Esc לסגירה',
+    'ui.saves.close': 'סגירה',
+    'ui.saves.startToSave': 'התחל משחק כדי לשמור. אפשר לטעון מכאן שמירה בכל עת.',
+    'ui.saves.stillLoad': '{why} עדיין אפשר לטעון שמירה.',
+    'ui.saves.note': 'שמירה עולה {cost} (20% מהמזומן שלך, לפחות {min}); אפשר לשמור פעם בשתי דקות. אי אפשר לשמור כשהמשטרה בעקבותיך או במהלך משימה. הצלחה במשימה או באתגר Kill Frenzy יוצרת שמירה אוטומטית בחינם.',
+    'ui.saves.stay': 'השמירות נשמרות בדפדפן הזה. שמירה שנוצרה בגרסת משחק קודמת נפתחת בגרסה שיצרה אותה.',
+    'ui.saves.empty': 'ריק',
+    'ui.saves.save': 'שמירה',
+    'ui.saves.saveHere': 'שמירה כאן',
+    'ui.saves.overwrite': 'לדרוס את השמירה תמורת {price}?',
+    'ui.saves.pay': 'לשלם {price}?',
+    'ui.saves.load': 'טעינה',
+    'ui.saves.delete': 'מחיקה',
+    'ui.saves.deleteAsk': 'למחוק?',
+    'ui.saves.openInVersion': 'פתיחה בגרסה המקורית',
+    'ui.saves.openInVersionTitle': 'פותח בלשונית חדשה את גרסת המשחק שיצרה את השמירה',
+    'ui.saves.oldVersionTitle': 'השמירה נוצרה בגרסת משחק ישנה',
+    'ui.saves.olderVersion': '{how} · גרסה ישנה',
+    'ui.saves.somewhere': 'מקום כלשהו בעיר',
   },
   es: {
     'ui.saves.keysHint': 'Abrir y cerrar con {saveKey} o {loadKey} · Esc cierra',
@@ -104,7 +125,7 @@ export function describe(save) {
 export class SavesScreen {
   /**
    * @param {object} opts
-   * @param {import('./savestate.js?v=d0dc1c0689').SaveStates} opts.states
+   * @param {import('./savestate.js?v=45fdea3e72').SaveStates} opts.states
    * @param {(paused: boolean) => void} opts.pause pauses the game and its sound (as the map screen does)
    * @param {() => void} opts.onClose gives the keyboard back to the game
    */

@@ -4,8 +4,8 @@
 // downloaded. Read-only towards the game, apart from pausing it while the map
 // screen is open.
 
-import { lang, registerDict, t } from './strings.js?v=d0dc1c0689';
-import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=d0dc1c0689';
+import { lang, registerDict, t } from './strings.js?v=45fdea3e72';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=45fdea3e72';
 
 loadMissionTranslations().catch((err) => console.error(err));
 loadMissionTitles().catch((err) => console.error(err));
@@ -75,6 +75,39 @@ registerDict({
     'ui.map.help.revealOn': 'show everything',
     'ui.map.help.revealOff': 'only what you have seen',
     'ui.map.help.waypointDist': ' · waypoint {n} blocks away',
+  },
+  he: {
+    'ui.map.weapons.pistol': 'אקדח', 'ui.map.weapons.machineGun': 'מקלע',
+    'ui.map.weapons.rocketLauncher': 'מטול רקטות', 'ui.map.weapons.electroGun': 'אקדח חשמלי',
+    'ui.map.weapons.molotov': 'בקבוקי תבערה', 'ui.map.weapons.grenades': 'רימונים',
+    'ui.map.weapons.shotgun': 'רובה ציד', 'ui.map.weapons.electroBaton': 'אלה חשמלית',
+    'ui.map.weapons.flamethrower': 'להביור', 'ui.map.weapons.silenced': 'מקלע משתיק קול',
+    'ui.map.weapons.dualPistol': 'שני אקדחים', 'ui.map.powerups.multiplier': 'מכפיל +1',
+    'ui.map.powerups.extraLife': 'חיים נוספים', 'ui.map.powerups.health': 'בריאות',
+    'ui.map.powerups.armour': 'שריון', 'ui.map.powerups.jailCard': 'יציאה חינם מהכלא',
+    'ui.map.powerups.copBribe': 'שוחד לשוטר', 'ui.map.powerups.invulnerability': 'חסינות',
+    'ui.map.powerups.doubleDamage': 'נזק כפול', 'ui.map.powerups.fastReload': 'טעינה מהירה',
+    'ui.map.powerups.electroFingers': 'אצבעות חשמליות', 'ui.map.powerups.respect': 'כבוד',
+    'ui.map.powerups.invisibility': 'אי־נראות', 'ui.map.powerups.instantGang': 'כנופיה מיידית',
+    'ui.map.poi.save': 'נקודות שמירה', 'ui.map.poi.garage': 'מוסכים', 'ui.map.poi.crusher': 'מגרסות רכב',
+    'ui.map.poi.frenzy': 'אתגרי Kill Frenzy', 'ui.map.poi.weapon': 'נשקים', 'ui.map.poi.powerup': 'בונוסים',
+    'ui.map.poi.token': 'אסימונים', 'ui.map.police': 'משטרה', 'ui.map.jobs.easy': 'משימה קלה',
+    'ui.map.jobs.medium': 'משימה בינונית', 'ui.map.jobs.hard': 'משימה קשה',
+    'ui.map.jobs.info': 'טלפון מידע', 'ui.map.jobNamed': '{gang} · {job}',
+    'ui.map.garage.machineGun': 'מקלע לרכב', 'ui.map.garage.oilSlick': 'כתם שמן',
+    'ui.map.garage.mines': 'מוקשים לרכב', 'ui.map.garage.bomb': 'פצצה לרכב',
+    'ui.map.garage.respray': 'צביעה מחדש', 'ui.map.garageName': 'מוסך: {services}',
+    'ui.map.frenzy': 'אתגר Kill Frenzy', 'ui.map.weaponN': 'נשק {n}', 'ui.map.powerup': 'בונוס',
+    'ui.map.token': 'אסימון', 'ui.map.savePointChurch': 'נקודת שמירה (כנסייה)',
+    'ui.map.carCrusher': 'מגרסת רכב', 'ui.map.missionTarget': 'יעד המשימה',
+    'ui.map.missionTargetsN': 'יעדי המשימה ({n})', 'ui.map.drawing': 'המפה בטעינה…',
+    'ui.map.legend.showingAll': 'הכול מוצג', 'ui.map.legend.foundSoFar': 'אזורים שכבר גילית',
+    'ui.map.legend.onMission': 'במהלך משימה', 'ui.map.legend.gangJobs': 'משימות כנופיות (לחץ לסימון נקודת ציון)',
+    'ui.map.legend.jobs': 'משימות', 'ui.map.briefs.currentJob': 'המשימה הנוכחית',
+    'ui.map.briefs.messages': 'הודעות אחרונות',
+    'ui.map.help.line': 'M / Esc לסגירה · גרור או WASD לתנועה · גלגלת או Q/E לשינוי זום · לחיצה: נקודת ציון · לחיצה ימנית: מחיקה · Space: מיקום השחקן · F: {mode}{dist}',
+    'ui.map.help.revealOn': 'הצגת הכול', 'ui.map.help.revealOff': 'הצגת אזורים שכבר ראית',
+    'ui.map.help.waypointDist': ' · נקודת הציון במרחק {n} רחובות',
   },
   es: {
     'ui.map.weapons.pistol': 'Pistola',

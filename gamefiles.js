@@ -5,7 +5,7 @@
 // like any other site data. A "complete" marker is written last, so an
 // interrupted copy is never used. "Forget game files" deletes the copy.
 
-import { lang, registerDict, t } from './strings.js?v=d0dc1c0689';
+import { lang, registerDict, t } from './strings.js?v=45fdea3e72';
 
 // ui.files.badSize / checksum / unpackFailed / noFiles are the keys web/installer-worker.js
 // sends back; the worker has no access to the language, so they are translated here.
@@ -23,6 +23,18 @@ registerDict({
     'ui.files.checksum': 'The installer does not match the GTA2 freeware release (checksum mismatch).',
     'ui.files.unpackFailed': 'Unpacking failed (unshield {rc}): {log}',
     'ui.files.noFiles': 'Unpacking produced no game files: {log}',
+  },
+  he: {
+    'ui.files.notInstaller': 'זה אינו מתקין ה־freeware של GTA2: גודל GTA2INSTALLER.exe הוא {size} בתים.',
+    'ui.files.workerFailed': 'תהליך חילוץ הקבצים נכשל.', 'ui.files.txAborted': 'הפעולה בוטלה',
+    'ui.files.downloadFailed': 'ההורדה נכשלה (HTTP {status})', 'ui.files.tooLarge': 'הקובץ שהורד גדול ממתקין GTA2.',
+    'ui.files.stoppedEarly': 'ההורדה נעצרה לפני סיומה ({got} מתוך {total} בתים).',
+    'ui.files.stalled': 'Internet Archive לא שלח נתונים במשך {n} שניות.',
+    'ui.files.unreachable': 'לא ניתן להתחבר ל־Internet Archive ({err}).',
+    'ui.files.badSize': 'גודל המתקין אינו תקין ({n} בתים).',
+    'ui.files.checksum': 'המתקין אינו תואם לגרסת ה־freeware של GTA2 (סכום הביקורת שונה).',
+    'ui.files.unpackFailed': 'חילוץ הקבצים נכשל (unshield {rc}): {log}',
+    'ui.files.noFiles': 'החילוץ לא הפיק קובצי משחק: {log}',
   },
   es: {
     'ui.files.notInstaller': 'Ese no es el instalador freeware de GTA2: GTA2INSTALLER.exe ocupa {size} bytes.',
@@ -118,7 +130,7 @@ export async function unpackInstallerFile(file, onProgress) {
 }
 
 async function unpackInstaller(buf, onProgress) {
-  const worker = new Worker(new URL('./installer-worker.js?v=d0dc1c0689', import.meta.url), { type: 'module' });
+  const worker = new Worker(new URL('./installer-worker.js?v=45fdea3e72', import.meta.url), { type: 'module' });
   try {
     const files = await new Promise((resolve, reject) => {
       worker.onmessage = (e) => {

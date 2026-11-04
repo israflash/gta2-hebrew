@@ -24,7 +24,7 @@
 // catch games drifting apart), and chat {text}. Game messages
 // are binary and go straight to the core (gta2_port_net_receive).
 
-import { LANGS, lang, onLangChange, registerDict, t } from './strings.js?v=d0dc1c0689';
+import { LANGS, lang, onLangChange, registerDict, t } from './strings.js?v=45fdea3e72';
 
 registerDict({
   en: {
@@ -36,6 +36,14 @@ registerDict({
     'ui.net.threeCrews': 'Gang Wars has room for three crews (one per street gang).',
     'ui.net.waitingGang': 'Waiting for {names} to pick a gang.',
     'ui.net.and': 'and',
+  },
+  he: {
+    'ui.net.serverNoAnswer': 'שרת המשחק לא הגיב', 'ui.net.noAnswer': 'לא התקבלה תשובה',
+    'ui.net.waitingPlayer': 'ממתין להצטרפות של שחקן אחד לפחות.',
+    'ui.net.needCrew': 'כל המשתתפים צריכים לבחור כנופיה במצב מלחמת כנופיות.',
+    'ui.net.twoCrews': 'במלחמת כנופיות דרושות לפחות שתי כנופיות.',
+    'ui.net.threeCrews': 'במלחמת כנופיות אפשר לשחק עם עד שלוש כנופיות.',
+    'ui.net.waitingGang': 'ממתין לכך ש־{names} יבחרו כנופיה.', 'ui.net.and': 'וגם',
   },
   es: {
     'ui.net.serverNoAnswer': 'el servidor del juego no respondió',
@@ -198,7 +206,7 @@ const APP_ID = 'gta2-browser-port-coop-1';
 export class WebRtcTransport {
   /** The room code is also the password that encrypts the connection set-up. */
   static async create(room) {
-    const { joinRoom, selfId } = await import('./vendor/trystero/torrent.mjs?v=d0dc1c0689');
+    const { joinRoom, selfId } = await import('./vendor/trystero/torrent.mjs?v=45fdea3e72');
     return new WebRtcTransport(joinRoom, selfId, room);
   }
 

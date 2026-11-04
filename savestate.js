@@ -16,7 +16,7 @@
 // core rebuild what lives in the browser (textures, sounds, clock; savestate_web.cpp). A snapshot
 // only fits the build that made it, so each one records a hash of gta2.wasm.
 
-import { lang, registerDict, t } from './strings.js?v=d0dc1c0689';
+import { lang, registerDict, t } from './strings.js?v=45fdea3e72';
 
 const DB_NAME = 'gta2-port-states';
 const STORE = 'states';
@@ -52,6 +52,37 @@ registerDict({
     'ui.time.hoursAgo': '{n} h ago',
     'ui.time.minutes': '{n} min',
     'ui.time.seconds': '{n} s',
+  },
+  he: {
+    'ui.save.quick': 'שמירה מהירה',
+    'ui.save.auto': 'שמירה אוטומטית',
+    'ui.save.slot': 'משבצת {n}',
+    'ui.save.singlePlayerOnly': 'שמירה זמינה במשחק לשחקן יחיד.',
+    'ui.save.jobDone': 'המשימה הושלמה',
+    'ui.save.frenzyPassed': 'אתגר Kill Frenzy הושלם',
+    'ui.save.autosaved': '{what}: נשמר אוטומטית',
+    'ui.save.savedTo': 'נשמר במשבצת {slot} · ‎-{cost}',
+    'ui.save.couldNotSave': 'השמירה נכשלה: {err}',
+    'ui.save.empty': 'המשבצת {slot} ריקה.',
+    'ui.save.otherVersion': 'השמירה נוצרה בגרסת משחק אחרת.',
+    'ui.save.loaded': 'נטענה שמירה: {slot}',
+    'ui.save.couldNotLoad': 'טעינת השמירה נכשלה: {err}',
+    'ui.save.damaged': 'קובץ השמירה פגום',
+    'ui.save.noMemory': 'אין מספיק זיכרון',
+    'ui.save.refused': 'הדפדפן סירב לשמור את הנתונים',
+    'ui.save.buildId': 'לא ניתן לקרוא את מזהה הגרסה (HTTP {status})',
+    'ui.save.onFeet': 'אפשר לשמור כשתחזור לעמוד על הרגליים.',
+    'ui.save.wanted': 'קודם היפטר מהמשטרה: אי אפשר לשמור כשהיא בעקבותיך.',
+    'ui.save.onJob': 'סיים או נכשל במשימה לפני השמירה.',
+    'ui.save.cooldown': 'אפשר לשמור פעם בשתי דקות; השמירה הבאה בעוד {left}.',
+    'ui.save.tooPoor': 'שמירה עולה לפחות {min}. יש לך {cash}.',
+    'ui.district.bonus': 'שלב בונוס',
+    'ui.time.justNow': 'הרגע',
+    'ui.time.yesterday': 'אתמול',
+    'ui.time.minutesAgo': 'לפני {n} דקות',
+    'ui.time.hoursAgo': 'לפני {n} שעות',
+    'ui.time.minutes': '{n} דקות',
+    'ui.time.seconds': '{n} שניות',
   },
   es: {
     'ui.save.quick': 'Guardado rápido',
@@ -167,7 +198,7 @@ let buildPromise = null;
 /** This build's identity: the SHA-256 of gta2.wasm (the snapshot's memory layout depends on it). */
 function buildId() {
   if (!buildPromise) {
-    buildPromise = fetch(new URL('gta2.wasm?v=d0dc1c0689', import.meta.url))
+    buildPromise = fetch(new URL('gta2.wasm?v=45fdea3e72', import.meta.url))
       .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(t('ui.save.buildId', { status: r.status })))))
       .then((buf) => crypto.subtle.digest('SHA-256', buf))
       .then((d) => Array.from(new Uint8Array(d).slice(0, 12), (b) => b.toString(16).padStart(2, '0')).join(''))

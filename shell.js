@@ -2,23 +2,23 @@
 // in-memory filesystem, wires input and the renderer, and starts the core.
 // No game file leaves the device (R01); nothing is fetched from the network
 // except the port itself, or local files in ?devdata=1 developer mode.
-import createGta2 from './gta2.js?v=d0dc1c0689';
-import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=d0dc1c0689';
-import { SavesScreen } from './saves.js?v=d0dc1c0689';
-import { ControlsScreen } from './controls.js?v=d0dc1c0689';
-import { Gta2Renderer } from './renderer.js?v=d0dc1c0689';
-import { SaveStorage } from './storage.js?v=d0dc1c0689';
-import { Gta2Audio } from './audio.js?v=d0dc1c0689';
-import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=d0dc1c0689';
-import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=d0dc1c0689';
-import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=d0dc1c0689';
-import { count, initStats, startPlayClock } from './stats.js?v=d0dc1c0689';
-import { CoopChat } from './chat.js?v=d0dc1c0689';
-import { GamepadInput } from './gamepad.js?v=d0dc1c0689';
-import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=d0dc1c0689';
-import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=d0dc1c0689';
-import { money } from './savestate.js?v=d0dc1c0689';
-import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=d0dc1c0689';
+import createGta2 from './gta2.js?v=45fdea3e72';
+import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=45fdea3e72';
+import { SavesScreen } from './saves.js?v=45fdea3e72';
+import { ControlsScreen } from './controls.js?v=45fdea3e72';
+import { Gta2Renderer } from './renderer.js?v=45fdea3e72';
+import { SaveStorage } from './storage.js?v=45fdea3e72';
+import { Gta2Audio } from './audio.js?v=45fdea3e72';
+import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=45fdea3e72';
+import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=45fdea3e72';
+import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=45fdea3e72';
+import { count, initStats, startPlayClock } from './stats.js?v=45fdea3e72';
+import { CoopChat } from './chat.js?v=45fdea3e72';
+import { GamepadInput } from './gamepad.js?v=45fdea3e72';
+import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=45fdea3e72';
+import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=45fdea3e72';
+import { money } from './savestate.js?v=45fdea3e72';
+import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=45fdea3e72';
 
 // The shell's own user-facing text, in the web languages (namespace shell.*).
 // Game text lives in data/*.gxt, translated by web/gxt-translations.js.
@@ -369,6 +369,65 @@ registerDict({
     'shell.loadingFromBrowser': 'Chargement des fichiers du jeu depuis ce navigateur…',
     'shell.savedInfo': 'Vos fichiers GTA2 sont sauvegardés dans ce navigateur ({mb} Mo).',
     'shell.filesForgotten': 'Fichiers de jeu supprimés de ce navigateur.',
+  },
+  he: {
+    'shell.crash': 'המשחק נעצר עקב שגיאה: {message}',
+    'shell.loginExpired': 'תוקף ההתחברות פג. פתח שוב את קישור ההזמנה או הזן את הסיסמה.',
+    'shell.serverStatus': 'השרת השיב {status}', 'shell.serverUnreachable': 'לא ניתן להגיע לשרת המשחק. בדוק את החיבור ונסה לטעון מחדש.',
+    'shell.downloadInterrupted': 'ההורדה נקטעה. בדוק את החיבור ונסה לטעון מחדש.',
+    'shell.serverSendFailed': 'שרת המשחק לא הצליח לשלוח את {file} (שגיאה {status})',
+    'shell.readyProgress': 'מכין את GTA2… {done} מתוך {total} MB',
+    'shell.loadingFiles': 'טוען קובצי משחק… {done}/{total}',
+    'shell.notAnInstall': 'התיקייה אינה התקנת GTA2. חסרים: {missing}. בחר תיקייה שמכילה תיקיית data.',
+    'shell.preparing': 'מכין את קובצי המשחק… {done}/{total}',
+    'shell.mapDuringPlay': 'המפה זמינה במהלך המשחק.', 'shell.minimap': 'מפה קטנה', 'shell.minimapOff': 'המפה הקטנה כבויה',
+    'shell.fullscreenUnavailable': 'מסך מלא אינו זמין כאן ({message}).', 'shell.fullscreen': 'מסך מלא', 'shell.exitFullscreen': 'יציאה ממסך מלא',
+    'shell.controllerConnected': 'שלט המשחק מחובר', 'shell.controllerUnsupported': 'הדפדפן אינו תומך בשלט הזה',
+    'shell.mute': 'השתקה', 'shell.unmute': 'ביטול השתקה', 'shell.radioOn': 'הרדיו פועל',
+    'shell.radioOff': 'הרדיו כבוי (לחץ R להפעלה)',
+    'shell.imported': 'יובאו {saves} קובצי שמירה, {states} שמירות ממסך השמירות והתקדמות במפה עבור {districts} מחוזות. טען את הדף מחדש כדי להשתמש בהם.',
+    'shell.caching': 'שומר את קובצי המשחק בדפדפן. בפעם הבאה יהיה אפשר פשוט ללחוץ על שחק…',
+    'shell.cached': 'קובצי המשחק נשמרו בדפדפן ({mb} MB). בפעם הבאה לחץ על שחק.',
+    'shell.cacheFailed': 'לא ניתן לשמור את קובצי המשחק בדפדפן ({message}); בפעם הבאה יהיה צורך לבחור תיקייה שוב.',
+    'shell.playerN': 'שחקן {n}', 'shell.defaultName': 'שחקן', 'shell.gangWarWon': 'הכנופיה {crew} ניצחה במלחמת הכנופיות!',
+    'shell.desync': 'המשחקים יצאו מסנכרון (פעימה {tick}, מול {player}); ייתכן שהתצוגה כבר אינה תואמת. התחל משחק חדש כדי לתקן זאת.',
+    'shell.waitingFor': 'ממתין ל־{players}…', 'shell.you': '{name} (אתה)',
+    'shell.warsTied': 'מלחמת כנופיות: שוויון', 'shell.warsLead': 'מלחמת כנופיות: {crew} מובילה עם {points} נקודות',
+    'shell.warsWon': 'מלחמת כנופיות: {crew} ניצחה עם {points} נקודות', 'shell.warsDraw': 'מלחמת כנופיות: תיקו',
+    'shell.colCrewPlayer': 'כנופיה / שחקן', 'shell.colPlayer': 'שחקן', 'shell.colKills': 'חיסולים',
+    'shell.colDeaths': 'מותות', 'shell.colPoints': 'נקודות',
+    'shell.ffaLeadOne': 'כולם נגד כולם: {name} מוביל עם חיסול אחד',
+    'shell.ffaLeadMany': 'כולם נגד כולם: {name} מוביל עם {kills} חיסולים',
+    'shell.ffaWonOne': 'כולם נגד כולם: {name} ניצח עם חיסול אחד',
+    'shell.ffaWonMany': 'כולם נגד כולם: {name} ניצח עם {kills} חיסולים',
+    'shell.roamTitle': 'שוטטות חופשית', 'shell.coopTitle': 'משחק שיתופי', 'shell.starting': 'מתחיל…',
+    'shell.gameMessage': '{caption}: {text}', 'shell.gameExited': 'המשחק נסגר (קוד {code}). טען את הדף מחדש כדי לשחק.',
+    'shell.matchEnded': 'המשחק הסתיים. חוזר לחדר…', 'shell.waitingLoad': 'ממתין לטעינת המשחק אצל כולם…',
+    'shell.couldNotStart': 'לא ניתן להתחיל (קוד {code}).',
+    'shell.savesTitle': 'שמירה (20% מהמזומן, לפחות $10,000) או טעינה ({key} או F5)',
+    'shell.readingInstaller': 'קורא את קובץ ההתקנה…', 'shell.checkingInstaller': 'בודק את קובץ ההתקנה…',
+    'shell.unpacking': 'מחלץ את GTA2 בדפדפן…', 'shell.checkingDownload': 'בודק את ההורדה…',
+    'shell.downloading': 'מוריד את GTA2 מ־Internet Archive… {done} / {total} MB',
+    'shell.downloadingSecs': 'מוריד את GTA2 מ־Internet Archive… {done} / {total} MB (נותרו בערך {secs} שניות)',
+    'shell.downloadingMins': 'מוריד את GTA2 מ־Internet Archive… {done} / {total} MB (נותרו בערך {mins} דקות)',
+    'shell.fromServer': 'מוריד את GTA2 משרת המשחק…', 'shell.connectingArchive': 'מתחבר ל־Internet Archive…',
+    'shell.ready': 'GTA2 מוכן.', 'shell.filesFailed': 'טעינת קובצי המשחק נכשלה: {message}. לחץ על שחק כדי לנסות שוב.',
+    'shell.coopNeedFolder': 'בחר תחילה את תיקיית GTA2 בדף ההתחלה הרגיל, ואז חזור למשחק שיתופי.',
+    'shell.newCrew': 'כנופיה חדשה', 'shell.playWithFriends': 'משחק עם חברים',
+    'shell.helpRoam': 'שוטטו בעיר ועשו צרות יחד. אפשר לבחור אם לפגוע זה בזה.',
+    'shell.helpWars': 'כנופיות נלחמות זו בזו. כל כנופיה בוחרת צד; חבריה יניחו לכם, והכנופיות היריבות ירדפו אחריכם. אין אש ידידותית בתוך אותה כנופיה. הכנופיה עם מירב הנקודות מנצחת.',
+    'shell.helpFfa': 'כולם נגד כולם: הראשון שמגיע למספר החיסולים שנקבע מנצח.',
+    'shell.tagHost': '(מארח)', 'shell.tagYou': '— אתה', 'shell.radioNeedsCar': 'הרדיו נמצא ברכב: היכנס לרכב ולחץ R',
+    'shell.gameLang': 'שפת המשחק: {language} (שפת המארח, זהה לכולם)', 'shell.pickGang': 'בחר כנופיה…',
+    'shell.gangTaken': '{gang} (תפוסה)', 'shell.sidesWith': 'בצד של {gang}', 'shell.noGang': 'עדיין לא בחר כנופיה',
+    'shell.leave': 'עזיבה', 'shell.join': 'הצטרפות', 'shell.noCrewYet': 'עדיין אין כנופיה: {players}. הצטרף לאחת למעלה או הזן שם חדש.',
+    'shell.roomHost': 'חדר {code}: שתף את הקוד. {count} מתוך 6 שחקנים. התחל כשכולם הצטרפו.',
+    'shell.roomGuest': 'בחדר {code}. ממתין למארח שיתחיל.',
+    'shell.roomLooking': 'מחפש את חדר {code}… החיבור דרך שרתי איתור ציבוריים עשוי להימשך עד דקה.',
+    'shell.enterCode': 'הזן את קוד החדר שקיבלת.', 'shell.connectFailed': 'החיבור נכשל: {message}',
+    'shell.startingMatch': 'מתחיל {mode} במחוז {district} עם {count} שחקנים…', 'shell.copied': 'הועתק',
+    'shell.loadingFromComputer': 'טוען קובצי משחק מהמחשב…', 'shell.loadingFromBrowser': 'טוען קובצי משחק מהדפדפן…',
+    'shell.savedInfo': 'קובצי GTA2 נשמרו בדפדפן הזה ({mb} MB).', 'shell.filesForgotten': 'קובצי המשחק הוסרו מהדפדפן.',
   },
 });
 
