@@ -1,0 +1,67 @@
+From 22b99256e36a0b9dba048346dad2d5480faf9ac6 Mon Sep 17 00:00:00 2001
+From: GTA2 port <port@localhost>
+Date: Wed, 4 Nov 2026 12:30:00 +0200
+Subject: [PATCH] port: localize mission title banners and mirror Hebrew brief portrait
+
+---
+
+diff --git a/Source/Hud.cpp b/Source/Hud.cpp
+index d7dd5cc8..c161f037 100644
+--- a/Source/Hud.cpp
++++ b/Source/Hud.cpp
+@@ -34,6 +34,7 @@ DEFINE_GLOBAL(s16, gCarNameFont_706508, 0x706508); //, TODO, 0xUNKNOWN);
+ DEFINE_GLOBAL(u16, gPlayerStatsFont_70646C, 0x70646C); //, TODO, 0xUNKNOWN);
+ DEFINE_GLOBAL(u16, gBriefFont_7065C4, 0x7065C4);
+ extern "C" int gta2_port_native_brief_text_hidden();
++extern "C" int gta2_port_native_mission_title_text_hidden();
+ DEFINE_GLOBAL(u16, gMessageFont_7062F0, 0x7062F0);
+ DEFINE_GLOBAL(u16, gPauseFont_7063F8, 0x7063F8);
+ DEFINE_GLOBAL(u16, gPlayerNameFont_7062DC, 0x7062DC);
+@@ -1557,7 +1558,7 @@ void Hud_Message_1C8::FormatMessage_5D1860()
+ MATCH_FUNC(0x5d1940)
+ void Hud_Message_1C8::DrawMessage_5D1940()
+ {
+-    if (field_0_time_to_show)
++    if (field_0_time_to_show && !gta2_port_native_mission_title_text_hidden())
+     {
+         DrawText_5D7720(&field_2_str[100], field_1BC_str_width, field_1C0_num_lines, gMessageFont_7062F0, 2, 0, 0, 0);
+     }
+@@ -2271,9 +2272,13 @@ void Hud_Brief_704::DrawBrief_5D3B80()
+ {
+     if (field_6F8_curr_briefs)
+     {
++        const s32 face_sprite = field_50C_face_variant + 3 * field_502_face_idx + 16;
++        const s32 face_x = gta2_port_native_brief_text_hidden()
++            ? 640 - 32 - get_sprite_width_4C7220(face_sprite)
++            : 32;
+         DrawFigureScaled_5D7670(6, // type
+-                   field_50C_face_variant + 3 * field_502_face_idx + 16,
+-                   (32), // x
++                   face_sprite,
++                   face_x, // mirror the speaker portrait to the right for Hebrew RTL text
+                    (443), // y
+                    kAngZero_706610, // rot
+                    palette_types_enum::sprites_2,
+diff --git a/Source/miss2_0x11C.cpp b/Source/miss2_0x11C.cpp
+index 524e1932..e1db2559 100644
+--- a/Source/miss2_0x11C.cpp
++++ b/Source/miss2_0x11C.cpp
+@@ -50,6 +50,8 @@
+ // Back to force inline
+ #define INLINE_MODE __forceinline
+ 
++extern "C" void gta2_port_set_mission_title_key(int key);
++
+ DEFINE_GLOBAL_INIT(s16, gNextThreadId_6212EE, 1, 0x6212EE);
+ 
+ DEFINE_GLOBAL_ARRAY_INIT(
+@@ -2470,6 +2472,7 @@ MATCH_FUNC(0x5093c0)
+ void miss2_0x11C::SCRCMD_DISPLAY_MESSAGE_5093C0()
+ {
+     SCR_TWO_PARAMS* pCmd = (SCR_TWO_PARAMS*)gBasePtr_6F8070;
++    gta2_port_set_mission_title_key(pCmd->field_8_unsigned_1);
+     u8 type = ((SCR_TWO_PARAMS*)gBasePtr_6F8070)->field_A_unsigned_2;
+     if (type == 1)
+     {
+--
+2.53.0.windows.3

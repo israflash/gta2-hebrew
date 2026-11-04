@@ -12,8 +12,8 @@ import { GAME_TRANSLATIONS } from './gxt-translations.js';
 import { translateGxt } from './gxtgen.js';
 
 const GAME_DIR = '/gta2';
-const GXT_LETTERS = { en: 'e', es: 's', fr: 'f' };
-const LANG_NAMES = { en: 'English', es: 'Español', fr: 'Français' };
+const GXT_LETTERS = { en: 'e', es: 's', fr: 'f', he: 'e' };
+const LANG_NAMES = { en: 'English', es: 'Español', fr: 'Français', he: 'עברית' };
 
 registerDict({
   en: {
@@ -31,6 +31,7 @@ registerDict({
     'game.languageFailed': 'Impossible de changer la langue du jeu : {message}',
     'game.languageHost': 'La page est maintenant en français ; en coopération, le jeu garde la langue de l\'hôte jusqu\'à la fin de la partie.',
   },
+  he: {},
 });
 
 /** GXT file letter for a web language code ('es' -> 's'). */

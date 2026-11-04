@@ -4,6 +4,21 @@
 Click Play and you're stealing a Z-Type in Downtown Anywhere City about a minute later.
 Bring friends: co-op, Gang Wars and free-for-all, browser to browser.
 
+## Hebrew fan translation
+
+This repository adds Hebrew mission briefs and mission-title banners to the original browser
+port. Hebrew is the default page language; players can switch back to English. Game audio,
+mission logic, saves, and multiplayer remain the original browser-port features. This is an
+unofficial, non-commercial fan project and includes no commercial GTA2 data files.
+
+**Play the Hebrew build:** [https://israflash.github.io/gta2-hebrew/](https://israflash.github.io/gta2-hebrew/)
+
+The source project is based on [M1sterMo/gta2-browser](https://github.com/M1sterMo/gta2-browser).
+The local runner is `./run-local.ps1`. A public static package is built with
+`scripts/build_pages.py`; only a published GitHub Release is configured to deploy it.
+See [docs/publishing.md](docs/publishing.md) for the release workflow and save-compatibility
+notes.
+
 ### ▶ [Play now: m1stermo.github.io/gta2](https://m1stermo.github.io/gta2/)
 
 ![Downtown at 16:9 with the radar minimap and a gang-job waypoint](docs/screenshots/downtown-widescreen-radar.png)

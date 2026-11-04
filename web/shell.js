@@ -643,6 +643,13 @@ function wireMapButtons(map) {
     if (!map.open && !map.show()) setStatus(t('shell.mapDuringPlay'));
     else if (map.open) map.close();
   });
+  $('mission-history-toggle').addEventListener('click', (event) => {
+    const history = $('mission-history');
+    history.hidden = !history.hidden;
+    event.currentTarget.setAttribute('aria-pressed', String(!history.hidden));
+    $('mission-brief').hidden = !history.hidden;
+    $('screen').focus();
+  });
   const mini = $('minimap-toggle');
   const apply = () => {
     mini.setAttribute('aria-pressed', String(map.minimapOn));
@@ -851,6 +858,48 @@ function installDevHelpers(Module) {
     },
     sleep,
   };
+}
+
+// The legacy sprite font has no Hebrew glyphs. Replace only the three labels
+// on the actual start-menu page with an HTML overlay; keyboard/menu behavior
+// remains owned by the game canvas.
+function wireHebrewMainMenu(Module, canvas) {
+  const overlay = $('main-menu-hebrew');
+  const tools = $('tools');
+  if (!overlay) return;
+  let menuState;
+  try { menuState = Module.cwrap('gta2_port_frontend_menu_state', 'number', []); }
+  catch (err) { console.warn('Hebrew menu labels unavailable', err); return; }
+  const options = [...overlay.querySelectorAll('[data-option]')];
+  const place = () => {
+    const rect = canvas.getBoundingClientRect();
+    // The original frontend is rendered into a 4:3 playfield, centered in
+    // the responsive canvas. Keep the labels aligned with that viewport.
+    const width = Math.min(rect.width, rect.height * (4 / 3));
+    const height = width * (3 / 4);
+    const left = rect.left + (rect.width - width) / 2 + width * .44;
+    const top = rect.top + (rect.height - height) / 2 + height * .483;
+    overlay.style.left = `${left}px`;
+    overlay.style.top = `${top}px`;
+    overlay.style.width = `${width * .24}px`;
+    // Widen the opaque cover to hide the original English bitmap labels while
+    // keeping the Hebrew labels anchored at their previous right edge.
+    overlay.style.setProperty('--menu-label-shift', `${width * .11}px`);
+    overlay.style.height = `${height * .20}px`;
+  };
+  const sync = () => {
+    const state = menuState();
+    const page = state < 0 ? -1 : Math.floor(state / 16);
+    if (tools) tools.hidden = page >= 0;
+    overlay.hidden = page !== 0 || currentLang() !== 'he';
+    if (page !== 0 || currentLang() !== 'he') return;
+    const selected = state % 16;
+    for (const option of options) option.classList.toggle('selected', Number(option.dataset.option) === selected);
+    place();
+  };
+  window.addEventListener('resize', place);
+  setInterval(sync, 100);
+  sync();
 }
 
 const MUTE_KEY = 'gta2-port-muted';
@@ -1231,6 +1280,7 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
     $('game').hidden = false;
     setStatus('');
     canvas.focus();
+    wireHebrewMainMenu(Module, canvas);
     Module.ccall('gta2_port_set_view_width', 'number', ['number'], [chooseViewWidth(canvas)]);
     wireViewWidth(Module, canvas);
     const params = new URLSearchParams(location.search);
@@ -1271,6 +1321,54 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
     };
     const map = new Gta2Map({ Module, renderer, gameCanvas: canvas, onPause: pauseGame });
     window.gta2.map = map;
+    const setNativeMissionTitleHidden = Module.cwrap('gta2_port_set_native_mission_title_hidden', null, ['number']);
+    const updateMissionTitleLanguage = () => setNativeMissionTitleHidden(currentLang() === 'he' ? 1 : 0);
+    updateMissionTitleLanguage();
+    langRerenders.push(updateMissionTitleLanguage);
+    // Local QA: enqueue a catalog GXT key through Hud_Brief_704 itself. This
+    // exercises the real portrait, timing, native-text suppression and the
+    // in-place Hebrew renderer without pretending a mission script ran.
+    const briefTestKeys = params.has('devdata')
+      ? (params.get('brief-test') || '').split(',').map((key) => key.trim()).filter((key) => /^[0-9A-Za-z_]{1,7}$/.test(key)).slice(0, 8)
+      : [];
+    if (briefTestKeys.length) {
+      let attempts = 0;
+      const timer = setInterval(() => {
+        if (++attempts > 120) {
+          clearInterval(timer);
+          console.warn(`[mission-brief-test] no active gameplay for GXT ${briefTestKeys.join(',')}`);
+          return;
+        }
+        if (!map.state()?.hasPlayer) return;
+        clearInterval(timer);
+        let index = 0;
+        const queueTimer = setInterval(() => {
+          if (index >= briefTestKeys.length) { clearInterval(queueTimer); return; }
+          const key = briefTestKeys[index++];
+          const queued = Module.ccall('gta2_dev_show_brief', 'number', ['string'], [key]);
+          console.info(`[mission-brief-test] ${queued ? 'queued' : 'rejected'} GXT ${key}`);
+        }, 1000);
+      }, 250);
+    }
+    const missionTitleTestKeys = params.has('devdata')
+      ? (params.get('mission-title-test') || '').split(',').map((key) => Number(key.trim())).filter((key) => Number.isInteger(key) && key > 0).slice(0, 8)
+      : [];
+    if (missionTitleTestKeys.length) {
+      let attempts = 0;
+      const timer = setInterval(() => {
+        if (++attempts > 120) {
+          clearInterval(timer);
+          console.warn(`[mission-title-test] no active gameplay for GXT ${missionTitleTestKeys.join(',')}`);
+          return;
+        }
+        if (!map.state()?.hasPlayer) return;
+        clearInterval(timer);
+        for (const key of missionTitleTestKeys) {
+          const shown = Module.ccall('gta2_dev_show_mission_title', 'number', ['number'], [key]);
+          console.info(`[mission-title-test] ${shown ? 'shown' : 'rejected'} GXT ${key}`);
+        }
+      }, 250);
+    }
     if (coop) {
       map.coop = coopView(Module, coop);
       // the latest standings with players in them (once the game has ended there is nothing left to read)

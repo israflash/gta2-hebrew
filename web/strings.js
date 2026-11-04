@@ -11,19 +11,19 @@
 // Keys: ui.* belongs to the web layer; the game side registers shell.* / game.* with
 // registerDict(). Each module registers its own strings (see the registerDict calls).
 
-export const LANGS = ['en', 'es', 'fr'];
+export const LANGS = ['en', 'es', 'fr', 'he'];
 const STORAGE_KEY = 'gta2-port-lang';
 
-const dicts = { en: {}, es: {}, fr: {} };
+const dicts = { en: {}, es: {}, fr: {}, he: { 'ui.opt.lang.he': 'עברית' } };
 const listeners = new Set();
 let current = readStored();
 
 function readStored() {
   try {
     const code = localStorage.getItem(STORAGE_KEY);
-    return LANGS.includes(code) ? code : 'en';
+    return LANGS.includes(code) ? code : 'he';
   } catch {
-    return 'en'; // storage unavailable (private window): default language
+    return 'he'; // storage unavailable (private window): default language
   }
 }
 

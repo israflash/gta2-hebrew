@@ -1,0 +1,37 @@
+{
+  "version": 3,
+  "checkedAt": "2026-11-04",
+  "simulatedRuntime": [
+    { "area": "Downtown", "gxtKey": "1600", "status": "displayed-and-inspected", "checks": ["Hebrew replaces original brief", "speaker portrait visible", "RTL readable"], "screenshot": "game/qa-screenshots/downtown-opening.png" },
+    { "area": "Residential", "gxtKey": "2306", "status": "displayed-and-inspected", "checks": ["short Hebrew brief", "portrait visible", "no duplicate English"], "screenshot": "game/qa-screenshots/short-hebrew.png" },
+    { "area": "Residential", "gxtKey": "2026", "status": "displayed-and-inspected", "checks": ["Hebrew with number and character/gang names", "RTL order readable", "portrait visible"], "screenshot": "game/qa-screenshots/numbers-names.png" },
+    { "area": "Industrial District", "gxtKey": "3727", "status": "displayed-and-inspected", "checks": ["two-line Hebrew brief", "source highlight represented in blue", "portrait visible", "no duplicate English"], "screenshot": "game/qa-screenshots/long-industrial.png" },
+    { "area": "Downtown", "gxtKey": "1251", "status": "displayed-and-inspected", "checks": ["long brief wrapped to three readable lines", "mixed Hebrew and Latin names", "portrait visible", "not covered by map or page controls"], "screenshot": "game/qa-screenshots/wrapped-downtown.png" }
+  ],
+  "sameMessageComparison": {
+    "area": "Industrial District",
+    "gxtKey": "3727",
+    "resolution": "1200x800",
+    "english": "game/qa-screenshots/font-compare-english-native.png",
+    "hebrew": "game/qa-screenshots/font-compare-hebrew-after.png",
+    "checks": ["same original source message", "native English compared with in-place Hebrew", "gold base and blue source highlight represented", "two-line Hebrew layout", "HUD unobscured; portrait visible in the translated shot"]
+  },
+  "fallbackRuntime": [
+    { "gxtKey": "1117", "status": "displayed-original-English", "checks": ["valid untranslated GXT placeholder", "native game text and portrait remain visible", "no blank translated layer"], "screenshot": "game/qa-screenshots/english-fallback.png" }
+  ],
+  "missionTitles": {
+    "catalogued": 34,
+    "injectedAndVisuallyInspected": 1,
+    "observedDuringRealMission": 1,
+    "unresolved": 33,
+    "example": { "gxtKey": "1975", "source": "GET ZITZAKI!", "translation": "חילוץ זיטזאקי!", "injectionScreenshot": "game/qa-screenshots/mission-title-1975.png", "realMissionScreenshot": "game/qa-screenshots/real-downtown-mission-title.png", "realMissionStatus": "Hebrew title replaced native English during the original banner timing; engine title key probe observed 1975" }
+  },
+  "uiTransitions": [
+    { "status": "displayed-and-inspected", "check": "original pause menu hides the Hebrew brief layer", "screenshot": "game/qa-screenshots/pause-menu.png" },
+    { "status": "displayed-and-inspected", "check": "gameplay reload returns to the original main menu with Hebrew labels, no English menu-text fragments, and no gameplay buttons", "screenshot": "game/qa-screenshots/main-menu.png" }
+  ],
+  "liveMissions": [
+    { "area": "Downtown", "mission": "Yakuza easy job (Zitzaki)", "gxtKey": "1631", "status": "displayed-and-inspected", "checks": ["started by teleporting to an available original Yakuza job phone and pressing the game's Enter key", "engine mission flag changed", "brief key and source read from the actual Hud_Brief_704 queue", "Hebrew appears in place of the original English brief", "speaker portrait visible", "mixed Hebrew/English location is readable"], "screenshot": "game/qa-screenshots/real-downtown-mission.png" }
+  ],
+  "notes": "Visual checks used one isolated headless Chrome process. Injected checks use the local ?devdata&autostart&brief-test=... hook, which calls gta2_dev_show_brief and queues original GXT keys through Hud_Brief_704. The title test uses ?mission-title-test=1975 and validates the title canvas. The real Downtown mission check used ?devdata&autostart with no brief-test keys, then the original Yakuza phone/game flow; mission flag, GXT 1631, and title key 1975 were observed during the native title timing. The original title glyphs were suppressed and the Hebrew canvas banner was visible in the genuine mission screenshot. Keys 1600, 2306, 2026, 3727, and 1251 were injected and visually inspected across the three areas. The untranslated fallback, pause state, and main menu were also inspected. No live mission was played in Residential or Industrial District. Screenshots are local ignored QA artifacts and are not included in the public build."
+}

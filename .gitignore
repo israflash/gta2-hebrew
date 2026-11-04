@@ -1,5 +1,7 @@
 # Project-local installs (kept inside the workspace on purpose)
 node_modules/
+__pycache__/
+*.py[cod]
 
 # npm temporary caches
 .npm-cache/

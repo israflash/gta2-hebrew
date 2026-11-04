@@ -81,6 +81,23 @@ EMSCRIPTEN_KEEPALIVE const s32* gta2_dev_state()
     return gState;
 }
 
+// Current frontend page and highlighted menu option for the browser's Hebrew
+// HTML label overlay. The original bitmap font cannot render Hebrew glyphs.
+EMSCRIPTEN_KEEPALIVE int gta2_port_frontend_menu_state()
+{
+    if (!gFrontend_67DC84)
+    {
+        return -1;
+    }
+    const u16 page = gFrontend_67DC84->field_132_f136_idx;
+    if (page >= 17)
+    {
+        return -1;
+    }
+    const u16 option = gFrontend_67DC84->field_136_menu_pages_array[page].field_BC6_current_option_idx;
+    return static_cast<int>(page) * 16 + static_cast<int>(option);
+}
+
 // The view camera: [x, y, z, zoom, left, right, top, bottom (Fix16 raw),
 //  screen width, screen height (reference pixels), drawn z (Fix16 raw)].
 EMSCRIPTEN_KEEPALIVE const s32* gta2_dev_camera()

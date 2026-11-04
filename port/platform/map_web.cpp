@@ -116,10 +116,11 @@ extern "C" s32 gGta2PortInterpolate;
 // [has map, map epoch (changes when a district loads), map id, has player,
 //  player x, y, z (Fix16 raw), heading (Ang16, 0..1439; direction = (sin, cos)),
 //  in car, camera x, y, drawn z, zoom (Fix16 raw), view width (reference px),
-//  drawn player x, y, heading, drawn camera x, y (interpolated; 0 when off)]
+//  drawn player x, y, heading, drawn camera x, y (interpolated; 0 when off),
+//  whether the original game pause menu is active]
 EMSCRIPTEN_KEEPALIVE const s32* gta2_port_map_state()
 {
-    static s32 out[19];
+    static s32 out[20];
     memset(out, 0, sizeof(out));
     const bool hasMap = gGame_0x40_67E008 && gMap_0x370_6F6268 && gGtx_0x106C_703DD4 &&
         gGtx_0x106C_703DD4->has_tiles_4C2EE0();
@@ -137,6 +138,7 @@ EMSCRIPTEN_KEEPALIVE const s32* gta2_port_map_state()
         ++gEpoch;
     }
     out[0] = 1;
+    out[19] = gGame_0x40_67E008->Is_game_state_Paused_2_416BC0() ? 1 : 0;
     out[1] = gEpoch;
     out[2] = static_cast<s32>(gMapId);
     if (Ped* ped = PlayerPed())

@@ -23,38 +23,36 @@ ARCHIVE = RELEASE / 'old'  # every published build, for saves made with it (web/
 
 # What goes out: the page, its scripts and the WebAssembly, licences, images and the vendored
 # peer-to-peer library. Never game files, developer tools or build products.
-FILES = ('index.html', 'gta2.js', 'gta2.wasm', 'unshield.js', 'unshield.wasm', 'unshield-LICENSE.txt')
+FILES = (
+    'index.html', 'gta2.js', 'gta2.wasm', 'unshield.js', 'unshield.wasm', 'unshield-LICENSE.txt',
+    'mission-translations.he.json', 'mission-titles.he.json',
+)
 SUFFIXES = ('.js',)
-DIRS = ('vendor',)  # not img/: game screenshots stay off public pages (AGENTS.md); the hero closes up
+DIRS = ('vendor', 'fonts')  # not img/: game screenshots stay off public pages (AGENTS.md); the hero closes up
 # Anonymous play counts (web/stats.js): the GoatCounter endpoint, https://<code>.goatcounter.com/count.
 # Empty: nothing is counted.
 STATS = ''
 GAME_FILE = ('.gmp', '.sty', '.sdt', '.raw', '.wav', '.gxt', '.scr', '.mmp', '.exe', '.dll', '.bik', '.tgx')
 
-README = """# GTA2 in your browser
+README = """# GTA 2 בעברית — בדפדפן
 
-**Grand Theft Auto 2 (1999), the real game, in a browser tab.** No install. Bring friends.
+פרויקט מעריצים לא רשמי שמוסיף תרגום עברי להודעות ולכותרות המשימה של GTA 2. עברית היא שפת
+ברירת המחדל, ואפשר לבחור English. האודיו והמשחק נשארים המקוריים.
 
-### ▶ [Play now](https://m1stermo.github.io/gta2/)
+למשחק: https://israflash.github.io/gta2-hebrew/
 
-- The first time you press Play, the page downloads the official 2004 freeware release of GTA2
-  from the [Internet Archive](https://archive.org/details/gta2_rockstar-classics) (346 MB). It
-  unpacks it in your browser and keeps it for next time.
-- Widescreen, a calmer camera, a full map with waypoints, and smooth motion on high-refresh
-  screens.
-- Up to 6 players: free roam, **Gang Wars** (crews side with the street gangs) and
-  free-for-all, connected browser to browser.
+בכניסה הראשונה לחצו Play כדי להוריד לדפדפן את מהדורת התוכנה החופשית מ־2004 דרך
+[Internet Archive](https://archive.org/details/gta2_rockstar-classics). הקבצים נשמרים בדפדפן
+האישי. המאגר והאתר אינם כוללים קובצי משחק מסחריים או שמירות.
 
-**Host your own copy:** fork this repo, then in **Settings → Pages** choose *Deploy from a
-branch*, `main`, `/ (root)`. It goes live at `https://<you>.github.io/gta2/`. Any static host
-works too; serve the files as they are.
+האתר משתמש ב־[GitHub Pages](https://pages.github.com/) ובתהליך הפרסום של הפרויקט המקורי
+[M1sterMo/gta2-browser](https://github.com/M1sterMo/gta2-browser). מנוע המשחק הוא הפורט של
+[gta2_re](https://github.com/CriminalRETeam/gta2_re). האודיו, השמירות, שלושת האזורים,
+המפה ומשחק הרשת מבוססים על גרסת המקור.
 
-This repo is the built site only and holds **no game files**. The source code and credits are
-in [M1sterMo/gta2-browser](https://github.com/M1sterMo/gta2-browser). The engine is the
-[gta2_re](https://github.com/CriminalRETeam/gta2_re) decompilation, compiled to WebAssembly.
-
-GTA2 is © Rockstar Games. This is an unofficial, non-commercial fan project, not affiliated
-with Rockstar Games or Take-Two Interactive.
+GTA2 היא זכויות היוצרים של Rockstar Games / Take-Two Interactive. זהו פרויקט מעריצים לא
+רשמי, לא מסחרי, ואינו קשור ל־Rockstar או ל־Take-Two. קוד הפרויקט ורכיבי צד שלישי כפופים
+לרישיונות המצורפים; הגופן העברי כולל את קובץ הרישיון שלו.
 """
 
 
@@ -66,7 +64,11 @@ def version_urls():
     versioned, a page only ever loads files of one build. index.html stays unversioned (an old
     copy loads shell.js, whose references then all point at the new build).
     """
-    names = sorted(p.name for p in SITE.iterdir() if p.is_file() and p.suffix in ('.js', '.wasm', '.html'))
+    names = sorted(
+        p.relative_to(SITE).as_posix()
+        for p in SITE.rglob('*')
+        if p.is_file() and p.suffix in ('.js', '.wasm', '.html', '.json', '.ttf')
+    )
     digest = hashlib.sha256()
     for name in names:
         digest.update(name.encode() + b'\0' + (SITE / name).read_bytes())
@@ -74,15 +76,18 @@ def version_urls():
     imports = re.compile(r"""((?:from|import)\s*\(?\s*)(['"])(\./[^'"?]+\.(?:js|mjs))\2""")
     worker = re.compile(r"""(new URL\(\s*)(['"])(\./[^'"?]+\.js)\2(\s*,\s*import\.meta\.url)""")
     wasm = re.compile(r"""(['"])((?:gta2|unshield)\.wasm)\1""")
+    asset = re.compile(r"""(['"])(\./[^'"?]+\.(?:json|ttf))\1""")
     for p in SITE.glob('*.js'):
         text = p.read_text(encoding='utf-8')
         text = imports.sub(lambda m: f'{m[1]}{m[2]}{m[3]}?v={v}{m[2]}', text)
         text = worker.sub(lambda m: f'{m[1]}{m[2]}{m[3]}?v={v}{m[2]}{m[4]}', text)
         text = wasm.sub(lambda m: f'{m[1]}{m[2]}?v={v}{m[1]}', text)
+        text = asset.sub(lambda m: f'{m[1]}{m[2]}?v={v}{m[1]}', text)
         p.write_text(text, encoding='utf-8')
     index = SITE / 'index.html'
     html = index.read_text(encoding='utf-8')
     assert html.count('src="shell.js"') == 1
+    html = asset.sub(lambda m: f'{m[1]}{m[2]}?v={v}{m[1]}', html)
     index.write_text(html.replace('src="shell.js"', f'src="shell.js?v={v}"'), encoding='utf-8')
     return v
 
@@ -159,7 +164,7 @@ def main():
         config['stats'] = STATS
     (SITE / 'config.json').write_text(json.dumps(config) + '\n')
     (SITE / '.nojekyll').write_text('')
-    (SITE / 'README.md').write_text(README)
+    (SITE / 'README.md').write_text(README, encoding='utf-8')
     shipped = [p for p in SITE.rglob('*') if p.is_file() and '.git' not in p.parts]
     bad = [p for p in shipped if p.suffix.lower() in GAME_FILE]
     if bad:

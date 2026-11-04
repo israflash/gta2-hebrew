@@ -1,0 +1,53 @@
+From 22b99256e36a0b9dba048346dad2d5480faf9ac6 Mon Sep 17 00:00:00 2001
+From: GTA2 port <port@localhost>
+Date: Wed, 4 Nov 2026 09:08:08 +0200
+Subject: [PATCH] port: suppress native brief text behind Hebrew in-place
+ rendering
+
+---
+ Source/Hud.cpp | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/Source/Hud.cpp b/Source/Hud.cpp
+index 52091e49..d7dd5cc8 100644
+--- a/Source/Hud.cpp
++++ b/Source/Hud.cpp
+@@ -33,6 +33,7 @@ DEFINE_GLOBAL(u16, gZoneNameFont_706618, 0x706618); //, TODO, 0xUNKNOWN);
+ DEFINE_GLOBAL(s16, gCarNameFont_706508, 0x706508); //, TODO, 0xUNKNOWN);
+ DEFINE_GLOBAL(u16, gPlayerStatsFont_70646C, 0x70646C); //, TODO, 0xUNKNOWN);
+ DEFINE_GLOBAL(u16, gBriefFont_7065C4, 0x7065C4);
++extern "C" int gta2_port_native_brief_text_hidden();
+ DEFINE_GLOBAL(u16, gMessageFont_7062F0, 0x7062F0);
+ DEFINE_GLOBAL(u16, gPauseFont_7063F8, 0x7063F8);
+ DEFINE_GLOBAL(u16, gPlayerNameFont_7062DC, 0x7062DC);
+@@ -61,6 +62,12 @@ DEFINE_GLOBAL_INIT(Fix16, kArrowRepositionAccel_7065A8, Fix16(0x100, 0), 0x7065A
+ 
+ EXTERN_GLOBAL_ARRAY(wchar_t, gTmpWideStr_67C7D8, 640);
+ DEFINE_GLOBAL_INIT(s32, MaxLineWidth_62689C, 576, 0x62689C);
++extern "C" void gta2_port_set_brief_text_max_width(s32 width)
++{
++    if (width < 240) width = 240;
++    if (width > 576) width = 576;
++    MaxLineWidth_62689C = width;
++}
+ 
+ // TODO
+ EXTERN_GLOBAL_ARRAY(wchar_t, tmpBuff_67BD9C, 640);
+@@ -2274,6 +2281,14 @@ void Hud_Brief_704::DrawBrief_5D3B80()
+                    0,
+                    0);
+ 
++        // Hebrew is drawn by the browser at the original text coordinates.
++        // Keep the game's speaker portrait and timing, but do not paint the
++        // English glyphs underneath the translated line.
++        if (gta2_port_native_brief_text_hidden())
++        {
++            return;
++        }
++
+         // u32: converts with the Fix16(u32) constructor, whose out-of-line copy is 0x4926F0
+         u32 first_line_ypos = 480 - GetLineSpacingFromFontType_5D7700_inlined(gBriefFont_7065C4) * field_508_num_lines;
+         DrawText_5D7720(field_0_str, // str
+--
+2.53.0.windows.3
+

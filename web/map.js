@@ -5,6 +5,10 @@
 // screen is open.
 
 import { lang, registerDict, t } from './strings.js';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js';
+
+loadMissionTranslations().catch((err) => console.error(err));
+loadMissionTitles().catch((err) => console.error(err));
 
 registerDict({
   en: {
@@ -323,6 +327,10 @@ export class Gta2Map {
     this.gameCanvas = gameCanvas;
     this.onPause = onPause;
     this.stateFn = () => Module.ccall('gta2_port_map_state', 'number', [], []);
+    this.setNativeBriefTextHidden = Module.cwrap('gta2_port_set_native_brief_text_hidden', null, ['number']);
+    this.setNativeBriefMaxWidth = Module.cwrap('gta2_port_set_brief_text_max_width', null, ['number']);
+    this.getMissionTitleKey = Module.cwrap('gta2_port_mission_title_key', 'number', []);
+    this.setNativeMissionTitleHidden = Module.cwrap('gta2_port_set_native_mission_title_hidden', null, ['number']);
     this.epoch = 0;
     this.mapId = 0;
     this.image = null;       // canvas holding the district map (4096 x 4096)
@@ -376,7 +384,7 @@ export class Gta2Map {
   /** Live game state, or null outside gameplay. */
   state() {
     const p = this.stateFn();
-    const v = this.Module.HEAP32.subarray(p >> 2, (p >> 2) + 19);
+    const v = this.Module.HEAP32.subarray(p >> 2, (p >> 2) + 20);
     if (!v[0]) return null;
     // With display-rate interpolation the radar and arrows follow where the last draw put the player
     // and camera, so they move as smoothly as the view instead of in 30 Hz steps.
@@ -387,6 +395,7 @@ export class Gta2Map {
       heading: ((drawn ? v[16] : v[7]) / 1440) * Math.PI * 2, inCar: !!v[8],
       camX: (drawn ? v[17] : v[9]) / FX, camY: (drawn ? v[18] : v[10]) / FX, camZ: v[11] / FX, zoom: v[12] / FX,
       viewWidth: v[13],
+      paused: !!v[19],
     };
   }
 
@@ -463,12 +472,181 @@ export class Gta2Map {
       this.build(s.epoch);
     }
     this.last = s;
+    this.fitNativeBriefToMinimap(s);
+    this.updateBriefOverlay(s);
+    this.updateMissionTitleOverlay(s);
     if (s && s.hasPlayer && !this.open) {
       this.markSeen(s);
       this.checkArrival(s);
     }
     if (this.open) { this.drawScreen(); return; }
     this.drawOverlay(s);
+  }
+
+  updateBriefOverlay(s) {
+    const panel = document.getElementById('mission-brief');
+    const history = document.getElementById('mission-history');
+    const historyButton = document.getElementById('mission-history-toggle');
+    const modalOpen = !!document.querySelector('[role="dialog"]:not([hidden])');
+    if (historyButton) historyButton.hidden = lang() !== 'he';
+    if (!panel || !s || !s.hasPlayer || s.paused || this.open || modalOpen || lang() !== 'he') {
+      if (panel) panel.hidden = true;
+      if (history) history.hidden = true;
+      this.setNativeBriefTextHidden(0);
+      document.body.classList.remove('mission-visible');
+      return;
+    }
+    const { active, briefs } = this.jobBriefs();
+    const newest = briefs[0];
+    if (!newest) {
+      panel.hidden = true;
+      this.setNativeBriefTextHidden(0);
+      document.body.classList.remove('mission-visible');
+      return;
+    }
+    const briefKey = `${newest.shownAt}:${newest.gxtKey}:${newest.text}`;
+    if (briefKey !== this.lastBriefKey) {
+      this.lastBriefKey = briefKey;
+      this.lastBriefAt = performance.now();
+      this.briefHistory = (this.briefHistory || []).filter((item) => item.gxtKey !== newest.gxtKey);
+      this.briefHistory.unshift({ source: newest.text, gxtKey: newest.gxtKey, result: missionText(newest.text, { gxtKey: newest.gxtKey }) });
+      this.briefHistory = this.briefHistory.slice(0, 8);
+    }
+    const latest = this.briefHistory?.[0];
+    const refreshed = missionText(newest.text, { gxtKey: newest.gxtKey });
+    if (latest && (latest.result.text !== refreshed.text || latest.result.translated !== refreshed.translated)) latest.result = refreshed;
+    panel.hidden = !active || !newest || !refreshed.translated;
+    this.setNativeBriefTextHidden(!panel.hidden ? 1 : 0);
+    document.body.classList.toggle('mission-visible', !panel.hidden);
+    if (!panel.hidden) {
+      const row = this.briefHistory?.[0];
+      const textNode = panel.querySelector('.mission-brief-text');
+      const colorRuns = row?.result.colorRuns || refreshed.colorRuns;
+      if (colorRuns?.length) {
+        textNode.replaceChildren(...colorRuns.map((run) => {
+          const span = document.createElement('span');
+          if (run.highlighted) span.className = 'mission-brief-highlight';
+          span.textContent = run.text;
+          return span;
+        }));
+      } else {
+        textNode.textContent = row?.result.text || refreshed.text;
+      }
+      panel.dir = row?.result.translated ? 'rtl' : 'auto';
+      panel.classList.toggle('untranslated', !row?.result.translated);
+      this.positionNativeBriefText(panel);
+    }
+    if (!history.hidden) {
+      const list = history.querySelector('.mission-history-list');
+      list.replaceChildren(...(this.briefHistory || []).map((item) => {
+        const p = document.createElement('p'); p.dir = item.result.translated ? 'rtl' : 'auto'; p.textContent = item.result.text; return p;
+      }));
+    }
+  }
+
+  positionNativeBriefText(panel) {
+    const rect = this.gameCanvas.getBoundingClientRect();
+    const vp = this.renderer.viewport;
+    if (!vp || !this.renderer.scale || !rect.width) return;
+    const dpr = this.gameCanvas.width / rect.width;
+    const scale = this.renderer.scale / dpr;
+    const viewLeft = rect.left + vp.x / dpr;
+    const viewTop = rect.top + (this.gameCanvas.height - vp.y - vp.h) / dpr;
+    const viewWidth = vp.w / dpr;
+    const viewHeight = vp.h / dpr;
+    // The original HUD text uses the centered 4:3 safe area inside the wide game view.
+    const nativeWidth = Math.min(viewWidth, viewHeight * (4 / 3));
+    const nativeLeft = viewLeft + (viewWidth - nativeWidth) / 2;
+    const left = nativeLeft + 64 * scale; // Hud_Brief_704::DrawBrief_5D3B80 text x
+    const radarLeft = !this.radar.hidden ? this.radar.getBoundingClientRect().left : viewLeft + viewWidth;
+    const right = Math.min(nativeLeft + nativeWidth - 8 * scale, radarLeft - 8 * scale, nativeLeft + 520 * scale);
+    const tools = document.getElementById('tools');
+    const toolsTop = tools && !tools.hidden ? tools.getBoundingClientRect().top : window.innerHeight;
+    const textBottom = Math.min(viewTop + viewHeight, toolsTop - 8);
+    panel.style.left = `${left}px`;
+    panel.style.right = 'auto';
+    // Native Hud_Brief_704 wraps at MaxLineWidth_62689C (576 game pixels).
+    // In RTL mode the original face is mirrored to the right; stop the text before it.
+    // Keep the HTML text to the native line budget, also respecting the minimap.
+    panel.style.width = `${Math.max(120 * scale, Math.min(576 * scale, right - left))}px`;
+    panel.style.bottom = `${Math.max(0, window.innerHeight - textBottom)}px`;
+  }
+
+  updateMissionTitleOverlay(s) {
+    const panel = document.getElementById('mission-title');
+    if (!panel) return;
+    const hebrew = lang() === 'he';
+    this.setNativeMissionTitleHidden(hebrew ? 1 : 0);
+    const key = this.getMissionTitleKey();
+    const record = hebrew ? missionTitle(key) : null;
+    const visible = !!(s && s.hasPlayer && !s.paused && !this.open && record);
+    panel.hidden = !visible;
+    if (!visible) return;
+    if (panel.dataset.key !== String(key)) {
+      this.renderMissionTitle(panel, record.text);
+      panel.setAttribute('aria-label', record.text);
+      panel.dataset.key = String(key);
+    }
+    const rect = this.gameCanvas.getBoundingClientRect();
+    const vp = this.renderer.viewport;
+    if (!vp || !this.renderer.scale || !rect.width) return;
+    const dpr = this.gameCanvas.width / rect.width;
+    const viewLeft = rect.left + vp.x / dpr;
+    const viewTop = rect.top + (this.gameCanvas.height - vp.y - vp.h) / dpr;
+    const viewWidth = vp.w / dpr;
+    const viewHeight = vp.h / dpr;
+    panel.style.left = `${viewLeft + viewWidth / 2}px`;
+    panel.style.top = `${viewTop + viewHeight * 0.23}px`;
+  }
+
+  renderMissionTitle(canvas, text) {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const scale = 2;
+    const fontSize = 36;
+    ctx.font = `900 ${fontSize}px "Arial Black", Arial, sans-serif`;
+    // Canvas text uses the Unicode Bidirectional Algorithm when its direction
+    // is explicit. This keeps punctuation at the visual end of Hebrew titles
+    // and preserves the order of embedded Latin names and numbers.
+    ctx.direction = 'rtl';
+    const width = Math.ceil(ctx.measureText(text).width + 8);
+    const height = 44;
+    canvas.width = width;
+    canvas.height = height;
+    ctx.font = `900 ${fontSize}px "Arial Black", Arial, sans-serif`;
+    ctx.direction = 'rtl';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#48406d';
+    ctx.shadowColor = '#30335e';
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 2;
+    ctx.strokeText(text, width / 2, height / 2);
+    ctx.shadowColor = 'transparent';
+    const fill = ctx.createLinearGradient(0, 2, 0, height - 2);
+    fill.addColorStop(0, '#ffe06b');
+    fill.addColorStop(.56, '#fca33c');
+    fill.addColorStop(1, '#eb532c');
+    ctx.fillStyle = fill;
+    ctx.fillText(text, width / 2, height / 2);
+    canvas.style.width = `${width * scale}px`;
+    canvas.style.height = `${height * scale}px`;
+  }
+
+  fitNativeBriefToMinimap(s) {
+    const vp = s && s.hasPlayer && this.minimapOn ? this.gameViewport() : null;
+    if (!vp) { this.setNativeBriefMaxWidth(576); return; }
+    const radius = Math.round(Math.min(105, Math.max(56, vp.h * 0.15)));
+    const border = Math.max(5, Math.round(radius * 0.11));
+    const centerX = vp.x + vp.w - radius - border - 14;
+    const radarExtent = Math.ceil(radius + border * 4 + 12);
+    const radarLeft = Math.round(centerX - radarExtent);
+    const scale = vp.w / vp.refW;
+    const textLeft = vp.x + 64 * scale;
+    const width = Math.floor((radarLeft - 8 * scale - textLeft) / scale);
+    this.setNativeBriefMaxWidth(Math.max(240, Math.min(576, width)));
   }
 
   /** The waypoint goes once the player gets to it. */
@@ -989,14 +1167,19 @@ export class Gta2Map {
     const M = this.Module;
     const p = M.ccall('gta2_port_job_briefs', 'number', [], []);
     const head = M.HEAP32.subarray(p >> 2, (p >> 2) + 10); // [on a job, count, face x 8]
+    const shownAt = M.HEAPF64.subarray((p + 40) >> 3, ((p + 40) >> 3) + 8);
     const briefs = [];
     for (let i = 0; i < head[1]; i++) {
       let text = '';
       // after the faces and 8 shownAt doubles: 8 texts of 320 UTF-16 units
       for (let o = (p + 104) / 2 + i * 320, n = 0; n < 320 && M.HEAPU16[o + n]; n++) text += String.fromCharCode(M.HEAPU16[o + n]);
-      briefs.push({ face: head[2 + i], text: text.replace(/#/g, '').replace(/\s+/g, ' ').trim() }); // #...# marks highlighted words
+      let gxtKey = '';
+      const keyStart = p + 104 + 8 * 320 * 2 + i * 8;
+      for (let n = 0; n < 8 && M.HEAPU8[keyStart + n]; n++) gxtKey += String.fromCharCode(M.HEAPU8[keyStart + n]);
+      briefs.push({ face: head[2 + i], shownAt: shownAt[i], gxtKey, source: text, text: text.replace(/#/g, '').replace(/\s+/g, ' ').trim() }); // #...# marks highlighted words
     }
-    return { onJob: !!head[0], briefs: briefs.filter((b) => b.text).reverse() };
+    const active = M.HEAP32[(p + 104 + 8 * 320 * 2 + 8 * 8) >> 2] !== 0;
+    return { onJob: !!head[0], active, briefs: briefs.filter((b) => b.text).reverse() };
   }
 
   drawJobBriefs(ctx, w, h) {
@@ -1022,9 +1205,11 @@ export class Gta2Map {
     let height = pad + 22;
     for (const b of briefs) {
       const who = SPEAKERS[b.face] ? t(SPEAKERS[b.face]) : null;
-      const lines = wrap(who ? `${who}: ${b.text}` : b.text);
+      const translated = missionText(b.source, { gxtKey: b.gxtKey });
+      const shown = translated.text;
+      const lines = wrap(who ? `${who}: ${shown}` : shown);
       if (rows.length && height + lines.length * lh + 8 > h - 60) break;
-      rows.push({ who, lines });
+      rows.push({ who, lines, translated: translated.translated });
       height += lines.length * lh + 8;
     }
     ctx.fillStyle = 'rgba(0,0,0,.72)';
@@ -1034,6 +1219,7 @@ export class Gta2Map {
     ctx.fillText(t(onJob ? 'ui.map.briefs.currentJob' : 'ui.map.briefs.messages'), x + pad, 12 + pad);
     let y = 12 + pad + 22;
     rows.forEach((r, i) => {
+      ctx.direction = r.translated ? 'rtl' : 'ltr';
       r.lines.forEach((line, n) => {
         ctx.font = '13px system-ui, sans-serif';
         ctx.fillStyle = i === 0 ? '#ffffff' : '#9a978f'; // the newest stands out

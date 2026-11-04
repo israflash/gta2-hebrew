@@ -1,0 +1,117 @@
+name: Publish stable Pages release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    if: startsWith(github.event.release.tag_name, 'v') && github.event.release.prerelease == false
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the released source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          fetch-depth: 0
+
+      - name: Set up Python and Node
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check source catalogs and runtime matching
+        run: |
+          node scripts/test_gxt.js
+          node scripts/test_mission_translations.js
+          node scripts/test_mission_names.js
+          node scripts/test_mission_runtime.js
+
+      - name: Fetch pinned engine sources
+        run: |
+          mkdir -p research/toolchains
+          git clone --quiet https://github.com/CriminalRETeam/gta2_re.git research/gta2_re
+          git -C research/gta2_re checkout --quiet --detach 02de8beeb766644417f195d360eba33af0ee491f
+          git clone --quiet https://github.com/twogood/unshield.git research/toolchains/unshield
+          git -C research/toolchains/unshield checkout --quiet --detach 0d1e7cb
+
+      - name: Install pinned Emscripten toolchain
+        uses: actions/checkout@v4
+        with:
+          repository: emscripten-core/emsdk
+          ref: main
+          path: research/toolchains/emsdk
+
+      - name: Build the browser engine
+        run: |
+          research/toolchains/emsdk/emsdk install 6.0.12
+          research/toolchains/emsdk/emsdk activate 6.0.12
+          source research/toolchains/emsdk/emsdk_env.sh
+          python scripts/build_port.py --preset release --prepare --jobs 2
+
+      - name: Restore previous Pages output for old-save compatibility
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p _pages-history
+          git -C _pages-history init --quiet -b gh-pages
+          git -C _pages-history config user.name "github-actions[bot]"
+          git -C _pages-history config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C _pages-history remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          mkdir -p build/pages
+          if git -C _pages-history fetch --quiet --depth=1 origin gh-pages; then
+            git -C _pages-history reset --hard --quiet FETCH_HEAD
+            python - <<'PY'
+          from pathlib import Path
+          import shutil
+          source = Path('_pages-history')
+          target = Path('build/pages')
+          for item in source.iterdir():
+              if item.name == '.git':
+                  continue
+              dest = target / item.name
+              if item.is_dir():
+                  shutil.copytree(item, dest, dirs_exist_ok=True)
+              else:
+                  shutil.copy2(item, dest)
+          PY
+          fi
+          python scripts/build_pages.py
+
+      - name: Save static site and WASM history
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          rsync -a --delete --exclude='.git/' build/pages/ _pages-history/
+          git -C _pages-history add -A
+          if ! git -C _pages-history diff --cached --quiet; then
+            git -C _pages-history commit --quiet -m "Publish ${{ github.event.release.tag_name }}"
+            git -C _pages-history push --quiet origin gh-pages
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/pages
+
+      - name: Deploy Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
