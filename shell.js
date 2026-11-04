@@ -2,23 +2,24 @@
 // in-memory filesystem, wires input and the renderer, and starts the core.
 // No game file leaves the device (R01); nothing is fetched from the network
 // except the port itself, or local files in ?devdata=1 developer mode.
-import createGta2 from './gta2.js?v=45fdea3e72';
-import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=45fdea3e72';
-import { SavesScreen } from './saves.js?v=45fdea3e72';
-import { ControlsScreen } from './controls.js?v=45fdea3e72';
-import { Gta2Renderer } from './renderer.js?v=45fdea3e72';
-import { SaveStorage } from './storage.js?v=45fdea3e72';
-import { Gta2Audio } from './audio.js?v=45fdea3e72';
-import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=45fdea3e72';
-import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=45fdea3e72';
-import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=45fdea3e72';
-import { count, initStats, startPlayClock } from './stats.js?v=45fdea3e72';
-import { CoopChat } from './chat.js?v=45fdea3e72';
-import { GamepadInput } from './gamepad.js?v=45fdea3e72';
-import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=45fdea3e72';
-import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=45fdea3e72';
-import { money } from './savestate.js?v=45fdea3e72';
-import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=45fdea3e72';
+import createGta2 from './gta2.js?v=22853b9006';
+import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=22853b9006';
+import { SavesScreen } from './saves.js?v=22853b9006';
+import { ControlsScreen } from './controls.js?v=22853b9006';
+import { Gta2Renderer } from './renderer.js?v=22853b9006';
+import { SaveStorage } from './storage.js?v=22853b9006';
+import { Gta2Audio } from './audio.js?v=22853b9006';
+import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=22853b9006';
+import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=22853b9006';
+import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=22853b9006';
+import { count, initStats, startPlayClock } from './stats.js?v=22853b9006';
+import { CoopChat } from './chat.js?v=22853b9006';
+import { GamepadInput } from './gamepad.js?v=22853b9006';
+import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=22853b9006';
+import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=22853b9006';
+import { money } from './savestate.js?v=22853b9006';
+import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=22853b9006';
+import { bindHebrewGxtRenderer } from './gamegxt.js?v=22853b9006';
 
 // The shell's own user-facing text, in the web languages (namespace shell.*).
 // Game text lives in data/*.gxt, translated by web/gxt-translations.js.
@@ -371,6 +372,13 @@ registerDict({
     'shell.filesForgotten': 'Fichiers de jeu supprimés de ce navigateur.',
   },
   he: {
+    'shell.viewNormal': 'רגיל', 'shell.viewFar': 'רחוק', 'shell.viewFarther': 'רחוק יותר', 'shell.viewFarthest': 'הכי רחוק',
+    'shell.cameraModern': 'מצלמה: מודרנית', 'shell.cameraClassic': 'מצלמה: קלאסית', 'shell.viewLabel': 'תצוגה: {view}',
+    'shell.viewTitle': 'מרחק תצוגה (מקשי ‎− / =)', 'shell.viewTitleDisabled': 'שינוי מרחק התצוגה דורש מצלמה מודרנית',
+    'shell.fps': '{fps} פריימים לשנייה', 'shell.fpsWait': '… פריימים לשנייה',
+    'shell.crewReputation': 'מוניטין הכנופיה: {list}',
+    'shell.crewRepRow': '{name} {delta} (כעת {reputation})',
+    'shell.crewRepShort': 'מוניטין {reputation}, {wins} ניצחונות',
     'shell.crash': 'המשחק נעצר עקב שגיאה: {message}',
     'shell.loginExpired': 'תוקף ההתחברות פג. פתח שוב את קישור ההזמנה או הזן את הסיסמה.',
     'shell.serverStatus': 'השרת השיב {status}', 'shell.serverUnreachable': 'לא ניתן להגיע לשרת המשחק. בדוק את החיבור ונסה לטעון מחדש.',
@@ -950,7 +958,7 @@ function wireHebrewMainMenu(Module, canvas) {
     const state = menuState();
     const page = state < 0 ? -1 : Math.floor(state / 16);
     if (tools) tools.hidden = page >= 0;
-    overlay.hidden = page !== 0 || currentLang() !== 'he';
+    overlay.hidden = page !== 0 || currentLang() !== 'he' || !!Module.gta2HebrewGxtReady;
     if (page !== 0 || currentLang() !== 'he') return;
     const selected = state % 16;
     for (const option of options) option.classList.toggle('selected', Number(option.dataset.option) === selected);
@@ -1339,6 +1347,11 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
     $('game').hidden = false;
     setStatus('');
     canvas.focus();
+    try {
+      await bindHebrewGxtRenderer(Module, canvas);
+    } catch (error) {
+      console.warn('Hebrew GXT text layer unavailable; original game text remains active.', error);
+    }
     wireHebrewMainMenu(Module, canvas);
     Module.ccall('gta2_port_set_view_width', 'number', ['number'], [chooseViewWidth(canvas)]);
     wireViewWidth(Module, canvas);

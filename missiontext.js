@@ -1,4 +1,4 @@
-import { lang } from './strings.js?v=d0dc1c0689';
+import { lang } from './strings.js?v=22853b9006';
 
 let records = [];
 let missionTitles = {};
@@ -40,12 +40,29 @@ function translatedColorRuns(source, translated, record) {
     if (out.length) return out;
   }
 
+  if (translated.includes('#')) {
+    const out = [];
+    let highlighted = false;
+    let text = '';
+    const flush = () => {
+      if (text) out.push({ text, highlighted });
+      text = '';
+    };
+    for (const char of translated) {
+      if (char === '#') { flush(); highlighted = !highlighted; }
+      else text += char;
+    }
+    flush();
+    return out.length ? out : [{ text: translated.replace(/#/g, ''), highlighted: false }];
+  }
+
   const sourceRuns = sourceColorRuns(source);
   if (!sourceRuns.some((run) => run.highlighted)) return [{ text: translated, highlighted: false }];
 
   // GXT uses # as a color toggle. Carry the same sequence across the translated
   // sentence, placing each toggle at the nearest translated word boundary.
-  const targetWords = translated.match(/\S+\s*/gu) || [];
+  const targetText = translated.replace(/#([^#]*)#/g, '$1').replace(/#/g, '');
+  const targetWords = targetText.match(/\S+\s*/gu) || [];
   const sourceWeights = sourceRuns.map((run) => (run.text.match(/\S+/gu) || []).length);
   const sourceTotal = sourceWeights.reduce((a, b) => a + b, 0) || sourceRuns.length;
   const targetTotal = targetWords.length;
@@ -72,16 +89,22 @@ export function normalizeMissionText(value) {
 
 export async function loadMissionTranslations() {
   if (ready) return records;
-  if (!loading) loading = fetch('./mission-translations.he.json?v=d0dc1c0689').then((r) => {
+  if (!loading) loading = Promise.all([
+    fetch('./mission-translations.he.json?v=22853b9006').then((r) => {
     if (!r.ok) throw new Error(`Mission translations: HTTP ${r.status}`);
     return r.json();
-  }).then((data) => { records = data.records || []; ready = true; return records; });
+    }),
+    fetch('./mission-extras.he.json?v=22853b9006').then((r) => {
+      if (!r.ok) throw new Error(`Supplemental mission translations: HTTP ${r.status}`);
+      return r.json();
+    }),
+  ]).then(([data, extras]) => { records = [...(data.records || []), ...(extras.records || [])]; ready = true; return records; });
   return loading;
 }
 
 export async function loadMissionTitles() {
   if (Object.keys(missionTitles).length) return missionTitles;
-  if (!missionTitlesLoading) missionTitlesLoading = fetch('./mission-titles.he.json?v=d0dc1c0689').then((r) => {
+  if (!missionTitlesLoading) missionTitlesLoading = fetch('./mission-titles.he.json?v=22853b9006').then((r) => {
     if (!r.ok) throw new Error(`Mission titles: HTTP ${r.status}`);
     return r.json();
   }).then((data) => { missionTitles = data.titles || {}; return missionTitles; });
@@ -102,7 +125,10 @@ export function missionText(source, { gxtKey = '' } = {}) {
   const hit = gxtKey
     ? records.find((r) => String(r.gxtKey) === String(gxtKey))
     : records.find((r) => normalizeMissionText(r.source) === key);
-  if (hit) return { text: hit.text, translated: true, record: hit, colorRuns: translatedColorRuns(source, hit.text, hit) };
+  if (hit) {
+    const displayText = hit.text.replace(/#([^#]*)#/g, '$1').replace(/#/g, '');
+    return { text: displayText, translated: true, record: hit, colorRuns: translatedColorRuns(source, hit.text, hit) };
+  }
   if (key && !shownMissing.has(key)) {
     shownMissing.add(key);
     console.info(`[mission-translation-missing] ${english}`);

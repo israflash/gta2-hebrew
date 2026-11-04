@@ -7,9 +7,9 @@
 //
 // The engine's own in-game Options screen is deliberately not involved (it has
 // a known bug); the web setting always wins.
-import { onLangChange, registerDict, t } from './strings.js?v=d0dc1c0689';
-import { GAME_TRANSLATIONS } from './gxt-translations.js?v=d0dc1c0689';
-import { translateGxt } from './gxtgen.js?v=d0dc1c0689';
+import { onLangChange, registerDict, t } from './strings.js?v=22853b9006';
+import { GAME_TRANSLATIONS } from './gxt-translations.js?v=22853b9006';
+import { translateGxt } from './gxtgen.js?v=22853b9006';
 
 const GAME_DIR = '/gta2';
 const GXT_LETTERS = { en: 'e', es: 's', fr: 'f', he: 'e' };
@@ -31,7 +31,11 @@ registerDict({
     'game.languageFailed': 'Impossible de changer la langue du jeu : {message}',
     'game.languageHost': 'La page est maintenant en français ; en coopération, le jeu garde la langue de l\'hôte jusqu\'à la fin de la partie.',
   },
-  he: {},
+  he: {
+    'game.languageChanged': 'שפת המשחק: {language}',
+    'game.languageFailed': 'שינוי שפת המשחק נכשל: {message}',
+    'game.languageHost': 'הדף עבר לעברית; במשחק משותף שפת המארח נשארת בתוקף עד לסיום המשחק.',
+  },
 });
 
 /** GXT file letter for a web language code ('es' -> 's'). */

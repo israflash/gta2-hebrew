@@ -10,7 +10,7 @@
 // 640 for menus and other 4:3 screens (pillarboxed), or the widescreen view
 // width for gameplay frames.
 
-import { registerDict, t } from './strings.js?v=d0dc1c0689';
+import { registerDict, t } from './strings.js?v=22853b9006';
 
 registerDict({
   en: {
@@ -27,6 +27,11 @@ registerDict({
     'ui.render.shaderCompile': 'échec de la compilation du shader : {log}',
     'ui.render.shaderLink': 'échec de l’édition de liens du shader : {log}',
     'ui.render.noWebgl2': "WebGL2 n'est pas disponible dans ce navigateur",
+  },
+  he: {
+    'ui.render.shaderCompile': 'הידור ה־shader נכשל: {log}',
+    'ui.render.shaderLink': 'קישור ה־shader נכשל: {log}',
+    'ui.render.noWebgl2': 'הדפדפן אינו תומך ב־WebGL2',
   },
 });
 
