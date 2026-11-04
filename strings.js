@@ -1,4 +1,4 @@
-// Multilanguage UI (English / Spanish / French) for the web layer.
+// Multilanguage UI (English / Spanish / French) plus Hebrew fan-project copy.
 //
 // The selected language drives everything: the static page (data-i18n attributes)
 // and every module that builds text with t(). The choice is kept in localStorage
@@ -143,11 +143,11 @@ const UI = {
     'ui.help.q6': 'Is it legal?',
     'ui.help.a6': 'GTA2 was released as freeware by Rockstar Games in 2004. This is an unofficial, non-commercial fan project, not affiliated with Rockstar Games or Take-Two Interactive. GTA2 is © Rockstar Games.',
     'ui.help.q7': 'Which languages are there?',
-    'ui.help.a7': "English, Spanish and French, for this page and for the game itself: menus, HUD and status messages. Mission briefs are only translated when your game files include the game's own Spanish or French texts; otherwise they stay in English.",
+    'ui.help.a7': "English, Spanish, French and Hebrew are available for the game menus. Hebrew mode also translates mission briefings and mission titles. The landing page's Hebrew introduction is shown above; other page content remains in English.",
     'ui.help.q8': 'Do you track me?',
     'ui.help.a8': 'No cookies and no personal data. This site counts visits, games started, how long games run (in steps such as "over 30 minutes") and first-time downloads, anonymously with <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a>, so we know how many people play.',
 
-    'ui.foot.credit': '<a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">Source and credits on GitHub</a> · Grand Theft Auto 2 © Rockstar Games',
+    'ui.foot.credit': '<a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">Hebrew fan project</a> · Original source and developer credits: <a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">M1sterMo/gta2-browser</a> · Grand Theft Auto 2 © Rockstar Games',
 
     'ui.picker.title': 'GTA2 in the browser',
     'ui.picker.intro': 'Choose your installed GTA2 folder (the one containing <code>data</code>). Your game files are read locally and never leave this computer.',
@@ -261,11 +261,11 @@ const UI = {
     'ui.help.q6': '¿Es legal?',
     'ui.help.a6': 'Rockstar Games publicó GTA2 como freeware en 2004. Este es un proyecto de fans, no oficial y sin ánimo de lucro, no afiliado a Rockstar Games ni a Take-Two Interactive. GTA2 es © Rockstar Games.',
     'ui.help.q7': '¿Qué idiomas hay?',
-    'ui.help.a7': 'Inglés, español y francés, para esta página y para el juego: menús, HUD y mensajes de estado. Los resúmenes de las misiones solo se traducen si tus archivos de juego incluyen los textos propios en español o francés del juego; si no, siguen en inglés.',
+    'ui.help.a7': 'El juego ofrece menús en inglés, español, francés y hebreo. El modo hebreo también traduce las instrucciones y los títulos de las misiones. La introducción hebrea aparece arriba; el resto de la página sigue en inglés.',
     'ui.help.q8': '¿Me rastreáis?',
     'ui.help.a8': 'Sin cookies ni datos personales. Este sitio cuenta las visitas, las partidas iniciadas, cuánto duran (en tramos como «más de 30 minutos») y las primeras descargas, de forma anónima con <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a>, para saber cuánta gente juega.',
 
-    'ui.foot.credit': '<a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">Código y créditos en GitHub</a> · Grand Theft Auto 2 © Rockstar Games',
+    'ui.foot.credit': '<a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">Proyecto fan hebreo</a> · Código original y créditos del desarrollador: <a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">M1sterMo/gta2-browser</a> · Grand Theft Auto 2 © Rockstar Games',
 
     'ui.picker.title': 'GTA2 en el navegador',
     'ui.picker.intro': 'Elige la carpeta de GTA2 instalada (la que contiene <code>data</code>). Tus archivos de juego se leen en este equipo y nunca salen de él.',
@@ -379,11 +379,11 @@ const UI = {
     'ui.help.q6': 'Est-ce légal ?',
     'ui.help.a6': 'GTA2 a été publié en freeware par Rockstar Games en 2004. C’est un projet de fans non officiel et non commercial, sans affiliation avec Rockstar Games ni Take-Two Interactive. GTA2 est © Rockstar Games.',
     'ui.help.q7': 'Quelles langues sont disponibles ?',
-    'ui.help.a7': "L'anglais, l'espagnol et le français, pour cette page et pour le jeu lui-même : menus, HUD et messages d'état. Les briefings des missions ne sont traduits que si vos fichiers de jeu incluent les textes espagnols ou français d'origine du jeu ; sinon, ils restent en anglais.",
+    'ui.help.a7': "Les menus du jeu sont disponibles en anglais, espagnol, français et hébreu. Le mode hébreu traduit aussi les briefings et les titres des missions. L'introduction en hébreu est affichée ci-dessus ; le reste de la page reste en anglais.",
     'ui.help.q8': 'Est-ce que vous me pistez ?',
     'ui.help.a8': "Ni cookies ni données personnelles. Ce site compte les visites, les parties lancées, leur durée (par paliers comme « plus de 30 minutes ») et les premiers téléchargements, anonymement avec <a href=\"https://www.goatcounter.com\" target=\"_blank\" rel=\"noopener\">GoatCounter</a>, pour savoir combien de personnes jouent.",
 
-    'ui.foot.credit': '<a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">Code et crédits sur GitHub</a> · Grand Theft Auto 2 © Rockstar Games',
+    'ui.foot.credit': '<a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">Projet fan hébreu</a> · Code source original et crédits du développeur : <a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">M1sterMo/gta2-browser</a> · Grand Theft Auto 2 © Rockstar Games',
 
     'ui.picker.title': 'GTA2 dans le navigateur',
     'ui.picker.intro': 'Choisissez le dossier GTA2 installé (celui qui contient <code>data</code>). Vos fichiers de jeu sont lus localement et ne quittent jamais cet ordinateur.',
@@ -434,6 +434,11 @@ const UI = {
     'ui.district.downtown': 'Centre-ville',
     'ui.district.residential': 'Résidentiel',
     'ui.district.industrial': 'Industriel',
+  },
+  he: {
+    'ui.help.q7': 'אילו שפות זמינות?',
+    'ui.help.a7': 'תפריטי המשחק זמינים באנגלית, ספרדית, צרפתית ועברית. במצב עברית מתורגמים גם הוראות המשימות וכותרותיהן. ההסבר בעברית מופיע בראש הדף; יתר תוכן הדף באנגלית.',
+    'ui.foot.credit': '<a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">פרויקט המעריצים בעברית</a> · קוד המקור והקרדיטים למפתח המקורי: <a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">M1sterMo/gta2-browser</a> · GTA2 © Rockstar Games',
   },
 };
 

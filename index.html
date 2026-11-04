@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-i18n="ui.docTitle">GTA2 in your browser</title>
+  <title>GTA 2 בעברית — GTA2 in your browser</title>
+  <meta name="description" content="GTA 2 בדפדפן עם הודעות משימה וכותרות משימה בעברית. פרויקט מעריצים לא רשמי; קובצי המשחק אינם כלולים.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
   <style>
     :root { color-scheme: dark; --bg: #0b0b0d; --fg: #e8e6e3; --muted: #9a978f; --accent: #e63946; }
-    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=d0dc1c0689") format("truetype");
+    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=a0d1e4615b") format("truetype");
       font-style: normal; font-weight: 400; font-display: swap; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
       font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -191,6 +192,7 @@
     .faq p { color: #b5b2ac; margin: .6rem 0 0; }
     .faq a, .landing-foot a { color: #f5c518; }
     .landing-foot { text-align: center; color: #77757f; font-size: 12px; }
+    .landing-hebrew-intro a { color: var(--accent); }
     /* the co-op lobby on the game server, in the landing page's style */
     .on-site #picker:has(#coop:not([hidden])) { margin: 1.5rem auto; width: min(680px, calc(100% - 2rem)); max-width: none;
       box-sizing: border-box; padding: 1.5rem; background: #18181d; border: 1px solid #2a2a31; border-radius: 16px; }
@@ -299,6 +301,13 @@
   </header>
   <main>
     <div id="landing" hidden>
+      <section class="card landing-hebrew-intro" lang="he" dir="rtl" aria-labelledby="hebrew-intro-title">
+        <h2 class="section-title" id="hebrew-intro-title">GTA 2 בעברית</h2>
+        <p class="section-sub">גרסת הדפדפן המקורית, עם הודעות המשימות וכותרותיהן בעברית. המשחק, האודיו באנגלית, המפה, השמירות ומשחק הרשת נשארים זמינים.</p>
+        <p class="section-sub">פרויקט מעריצים לא רשמי, שאינו קשור ל־Rockstar Games. קובצי המשחק אינם כלולים באתר.</p>
+        <p class="section-sub"><a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">המאגר והתרגום העברי</a>
+          · <a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">קוד המקור והקרדיטים למפתח המקורי</a></p>
+      </section>
       <section class="hero" id="top">
         <div class="card hero-shot">
           <img src="img/downtown.png" data-i18n-alt="ui.hero.shotAlt" alt="GTA2's Downtown district in widescreen, with the round radar" width="800" height="452"
@@ -403,11 +412,11 @@
           <p data-i18n="ui.help.a6">GTA2 was released as freeware by Rockstar Games in 2004. This is an unofficial, non-commercial fan
             project, not affiliated with Rockstar Games or Take-Two Interactive. GTA2 is © Rockstar Games.</p></details>
         <details><summary data-i18n="ui.help.q7">Which languages are there?</summary>
-          <p data-i18n="ui.help.a7">English, Spanish and French, for this page and for the game itself: menus, HUD and status
-            messages. Mission briefs are only translated when your game files include the game's own Spanish or French texts;
-            otherwise they stay in English.</p></details>
+          <p data-i18n="ui.help.a7">English, Spanish, French and Hebrew are available for the game menus. Hebrew mode also translates mission
+            briefings and mission titles. The Hebrew introduction is shown above; other page content remains in English.</p></details>
       </section>
-      <p class="landing-foot" data-i18n="ui.foot.credit"><a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">Source and credits on GitHub</a>
+      <p class="landing-foot" data-i18n="ui.foot.credit"><a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">Hebrew fan project</a>
+        · Original source and developer credits: <a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">M1sterMo/gta2-browser</a>
         · Grand Theft Auto 2 © Rockstar Games</p>
     </div>
     <section id="picker">
@@ -527,6 +536,6 @@
   </main>
   <!-- strings.js is imported by shell.js (one module instance); it applies the stored
        language as soon as the page's markup is parsed. -->
-  <script type="module" src="shell.js?v=d0dc1c0689"></script>
+  <script type="module" src="shell.js?v=a0d1e4615b"></script>
 </body>
 </html>
