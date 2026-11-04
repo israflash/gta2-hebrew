@@ -2,10 +2,10 @@
 // friends, the controls on a drawn keyboard, options and help. Layout in the
 // spirit of browser-game launchers such as Eaglercraft's; our own code and style.
 
-import { LOAD_KEY, SAVE_KEY, money, num } from './savestate.js?v=d0dc1c0689';
-import { describe } from './saves.js?v=d0dc1c0689';
-import { findPad, listPads, padName } from './gamepad.js?v=d0dc1c0689';
-import { lang, onLangChange, registerDict, setLang, t } from './strings.js?v=d0dc1c0689';
+import { LOAD_KEY, SAVE_KEY, money, num } from './savestate.js?v=0dc12141fe';
+import { describe } from './saves.js?v=0dc12141fe';
+import { findPad, listPads, padName } from './gamepad.js?v=0dc12141fe';
+import { lang, onLangChange, registerDict, setLang, t } from './strings.js?v=0dc12141fe';
 
 registerDict({
   en: {
@@ -56,7 +56,7 @@ registerDict({
     'ui.opt.sound.label': 'Sound',
     'ui.opt.sound.muted': 'Muted',
     'ui.opt.lang.label': 'Language',
-    'ui.opt.lang.hint': 'This page and the game menus; mission text stays in English.',
+    'ui.opt.lang.hint': 'The game menus use this language; mission text is Hebrew when Hebrew is selected.',
     'ui.opt.lang.en': 'English', 'ui.opt.lang.es': 'Español', 'ui.opt.lang.fr': 'Français',
     'ui.landing.readyCached': 'Ready: GTA2 is saved in this browser.',
     'ui.landing.readyDownloaded': 'Ready: downloaded, and kept for next time.',
@@ -119,7 +119,7 @@ registerDict({
     'ui.opt.sound.label': 'Sonido',
     'ui.opt.sound.muted': 'Silenciado',
     'ui.opt.lang.label': 'Idioma',
-    'ui.opt.lang.hint': 'Esta página y los menús del juego; el texto de las misiones sigue en inglés.',
+    'ui.opt.lang.hint': 'Los menús del juego usan este idioma; las misiones aparecen en hebreo cuando se selecciona hebreo.',
     'ui.opt.lang.en': 'English', 'ui.opt.lang.es': 'Español', 'ui.opt.lang.fr': 'Français',
     'ui.landing.readyCached': 'Listo: GTA2 está guardado en este navegador.',
     'ui.landing.readyDownloaded': 'Listo: descargado y guardado para la próxima vez.',
@@ -182,7 +182,7 @@ registerDict({
     'ui.opt.sound.label': 'Son',
     'ui.opt.sound.muted': 'Coupé',
     'ui.opt.lang.label': 'Langue',
-    'ui.opt.lang.hint': 'Cette page et les menus du jeu ; le texte des missions reste en anglais.',
+    'ui.opt.lang.hint': 'Les menus du jeu utilisent cette langue ; les missions sont en hébreu lorsque l’hébreu est sélectionné.',
     'ui.opt.lang.en': 'English', 'ui.opt.lang.es': 'Español', 'ui.opt.lang.fr': 'Français',
     'ui.landing.readyCached': 'Prêt : GTA2 est enregistré dans ce navigateur.',
     'ui.landing.readyDownloaded': 'Prêt : téléchargé et gardé pour la prochaine fois.',
@@ -196,6 +196,14 @@ registerDict({
     'ui.board.deaths': 'Morts',
     'ui.board.points': 'Points',
     'ui.board.lastGang': ' · dernier camp : {gang}',
+  },
+  he: {
+    'ui.opt.lang.label': 'שפה',
+    'ui.opt.lang.hint': 'תפריטי המשחק והודעות המשימה בעברית; אפשר לעבור לאנגלית בכל עת.',
+    'ui.landing.readyCached': 'המשחק מוכן ונשמר בדפדפן הזה.',
+    'ui.landing.readyDownloaded': 'המשחק ירד ונשמר לפעם הבאה.',
+    'ui.landing.staticHint': 'בכניסה הראשונה המשחק יורד מ־Internet Archive ונשמר בדפדפן הזה.',
+    'ui.landing.continue': 'המשך',
   },
 });
 
