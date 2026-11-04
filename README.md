@@ -7,7 +7,8 @@ Bring friends: co-op, Gang Wars and free-for-all, browser to browser.
 ## Hebrew fan translation
 
 This repository adds Hebrew mission briefs and mission-title banners to the original browser
-port. Hebrew is the default page language; players can switch back to English. Game audio,
+port. Hebrew is the default in-game language; players can switch back to English. The landing page
+and map labels remain primarily in English. Game audio,
 mission logic, saves, and multiplayer remain the original browser-port features. This is an
 unofficial, non-commercial fan project and includes no commercial GTA2 data files.
 

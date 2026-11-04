@@ -54,6 +54,10 @@ browser profile. Export important saves before changing computers.
 
 ## Current deployment state
 
-The source workflow and static package have been prepared and tested locally. The public fork,
-GitHub Pages settings, first public deployment, and cross-origin save transfer require a GitHub
-account with repository creation/push access; none is claimed as complete until verified online.
+- Public source fork: https://github.com/israflash/gta2-hebrew (upstream remote remains M1sterMo/gta2-browser).
+- Live site: https://israflash.github.io/gta2-hebrew/ (GitHub Pages, Actions build type).
+- Stable release `v1.0.0` passed the catalog/runtime checks, clean-source patch build, Emscripten release build, package creation, history preservation, and Pages deployment. Run: https://github.com/israflash/gta2-hebrew/actions/runs/41858420646.
+- A clean in-app browser profile downloaded the 346 MB installer from Internet Archive, unpacked the game, cached files, launched the game, showed the Hebrew first menu, reached gameplay, displayed the map/minimap, toggled English and Hebrew, and entered/exited full screen.
+- The save screen opened and showed empty slots. Export was activated, but the downloaded package was not imported back in this browser session. No save round-trip, actual mission brief on the public site, audio output, or two-browser co-op session is claimed as verified.
+- Game files and saves are stored by the visitor's browser and origin. The landing page and map labels remain primarily English; Hebrew is the selected game language and mission-translation mode.
+- GitHub Pages and standard GitHub Actions usage remain free for this public repository. The Pages site has GitHub's published quotas and the Internet Archive download requires a connection.
