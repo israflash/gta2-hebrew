@@ -12,6 +12,10 @@ loadMissionTitles().catch((err) => console.error(err));
 
 registerDict({
   en: {
+    'ui.map.speaker.loonies': 'Loonies', 'ui.map.speaker.yakuza': 'Yakuza',
+    'ui.map.speaker.zaibatsu': 'Zaibatsu', 'ui.map.speaker.rednecks': 'Rednecks',
+    'ui.map.speaker.scientists': 'Scientists', 'ui.map.speaker.krishnas': 'Krishnas',
+    'ui.map.speaker.russians': 'Russians',
     'ui.map.weapons.pistol': 'Pistol',
     'ui.map.weapons.machineGun': 'Machine Gun',
     'ui.map.weapons.rocketLauncher': 'Rocket Launcher',
@@ -77,6 +81,10 @@ registerDict({
     'ui.map.help.waypointDist': ' · waypoint {n} blocks away',
   },
   he: {
+    'ui.map.speaker.loonies': 'לוניז', 'ui.map.speaker.yakuza': 'יאקוזה',
+    'ui.map.speaker.zaibatsu': 'זאיבאצו', 'ui.map.speaker.rednecks': 'רדנקס',
+    'ui.map.speaker.scientists': 'המדענים', 'ui.map.speaker.krishnas': 'קרישנאים',
+    'ui.map.speaker.russians': 'רוסים',
     'ui.map.weapons.pistol': 'אקדח', 'ui.map.weapons.machineGun': 'מקלע',
     'ui.map.weapons.rocketLauncher': 'מטול רקטות', 'ui.map.weapons.electroGun': 'אקדח חשמלי',
     'ui.map.weapons.molotov': 'בקבוקי תבערה', 'ui.map.weapons.grenades': 'רימונים',
@@ -90,14 +98,14 @@ registerDict({
     'ui.map.powerups.electroFingers': 'אצבעות חשמליות', 'ui.map.powerups.respect': 'כבוד',
     'ui.map.powerups.invisibility': 'אי־נראות', 'ui.map.powerups.instantGang': 'כנופיה מיידית',
     'ui.map.poi.save': 'נקודות שמירה', 'ui.map.poi.garage': 'מוסכים', 'ui.map.poi.crusher': 'מגרסות רכב',
-    'ui.map.poi.frenzy': 'אתגרי Kill Frenzy', 'ui.map.poi.weapon': 'נשקים', 'ui.map.poi.powerup': 'בונוסים',
+    'ui.map.poi.frenzy': 'אתגרי טירוף ההרג', 'ui.map.poi.weapon': 'נשקים', 'ui.map.poi.powerup': 'בונוסים',
     'ui.map.poi.token': 'אסימונים', 'ui.map.police': 'משטרה', 'ui.map.jobs.easy': 'משימה קלה',
     'ui.map.jobs.medium': 'משימה בינונית', 'ui.map.jobs.hard': 'משימה קשה',
     'ui.map.jobs.info': 'טלפון מידע', 'ui.map.jobNamed': '{gang} · {job}',
     'ui.map.garage.machineGun': 'מקלע לרכב', 'ui.map.garage.oilSlick': 'כתם שמן',
     'ui.map.garage.mines': 'מוקשים לרכב', 'ui.map.garage.bomb': 'פצצה לרכב',
     'ui.map.garage.respray': 'צביעה מחדש', 'ui.map.garageName': 'מוסך: {services}',
-    'ui.map.frenzy': 'אתגר Kill Frenzy', 'ui.map.weaponN': 'נשק {n}', 'ui.map.powerup': 'בונוס',
+    'ui.map.frenzy': 'אתגר טירוף ההרג', 'ui.map.weaponN': 'נשק {n}', 'ui.map.powerup': 'בונוס',
     'ui.map.token': 'אסימון', 'ui.map.savePointChurch': 'נקודת שמירה (כנסייה)',
     'ui.map.carCrusher': 'מגרסת רכב', 'ui.map.missionTarget': 'יעד המשימה',
     'ui.map.missionTargetsN': 'יעדי המשימה ({n})', 'ui.map.drawing': 'המפה בטעינה…',
@@ -277,7 +285,7 @@ export const POI_KINDS = {
 // against the phone objects at the same places).
 // Who speaks a brief (its face, GetBriefFaceIdx_5D3680): shown before the text on the job panel.
 // Gang names are proper nouns and stay as they are; t() passes them through unchanged.
-const SPEAKERS = { 1: 'Loonies', 2: 'Yakuza', 3: 'Zaibatsu', 4: 'Rednecks', 5: 'Scientists', 6: 'Krishnas', 7: 'Russians', 9: 'ui.map.police' };
+const SPEAKERS = { 1: 'ui.map.speaker.loonies', 2: 'ui.map.speaker.yakuza', 3: 'ui.map.speaker.zaibatsu', 4: 'ui.map.speaker.rednecks', 5: 'ui.map.speaker.scientists', 6: 'ui.map.speaker.krishnas', 7: 'ui.map.speaker.russians', 9: 'ui.map.police' };
 
 const job = (label, colour, dot) => ({ get label() { return t(label); }, colour, dot });
 const JOBS = {
@@ -385,6 +393,10 @@ export class Gta2Map {
     this.poiAt = 0;
     this.sprites = new Map(); // HUD sprite index -> canvas (per district)
     this.hover = null;
+    this.legendScroll = 0;
+    this.jobBriefScroll = 0;
+    this.legendBox = null;
+    this.jobBriefBox = null;
     this.coop = null;         // co-op match: other players and their waypoints (shell.js coopView)
     this.showScores = false;  // co-op: Tab held
     setInterval(() => this.saveSeen(), 5000);
@@ -637,21 +649,28 @@ export class Gta2Map {
     if (!ctx) return;
     const scale = 2;
     const fontSize = 36;
-    ctx.font = `900 ${fontSize}px "Arial Black", Arial, sans-serif`;
-    // Canvas text uses the Unicode Bidirectional Algorithm when its direction
-    // is explicit. This keeps punctuation at the visual end of Hebrew titles
-    // and preserves the order of embedded Latin names and numbers.
+    const titleFont = 'GTA2 Impact Pixel';
+    canvas.dataset.text = text;
+    if (!document.fonts.check(`900 ${fontSize}px "${titleFont}"`)) {
+      document.fonts.load(`900 ${fontSize}px "${titleFont}"`).then(() => {
+        if (!canvas.hidden && canvas.dataset.text === text) this.renderMissionTitle(canvas, text);
+      });
+    }
+    ctx.font = `900 ${fontSize}px "${titleFont}", "Arial Black", Arial, sans-serif`;
+    // Explicit direction lets the browser's BiDi algorithm position punctuation
+    // correctly while retaining the order of embedded Latin names and numbers.
     ctx.direction = 'rtl';
     const width = Math.ceil(ctx.measureText(text).width + 8);
     const height = 44;
     canvas.width = width;
     canvas.height = height;
-    ctx.font = `900 ${fontSize}px "Arial Black", Arial, sans-serif`;
+    ctx.font = `900 ${fontSize}px "${titleFont}", "Arial Black", Arial, sans-serif`;
     ctx.direction = 'rtl';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.lineJoin = 'round';
-    ctx.lineWidth = 2;
+    ctx.lineJoin = 'miter';
+    ctx.miterLimit = 2;
+    ctx.lineWidth = 2.25;
     ctx.strokeStyle = '#48406d';
     ctx.shadowColor = '#30335e';
     ctx.shadowOffsetX = 0;
@@ -667,7 +686,6 @@ export class Gta2Map {
     canvas.style.width = `${width * scale}px`;
     canvas.style.height = `${height * scale}px`;
   }
-
   fitNativeBriefToMinimap(s) {
     const vp = s && s.hasPlayer && this.minimapOn ? this.gameViewport() : null;
     if (!vp) { this.setNativeBriefMaxWidth(576); return; }
@@ -1049,7 +1067,15 @@ export class Gta2Map {
     el.addEventListener('wheel', (e) => {
       e.preventDefault();
       const r = el.getBoundingClientRect();
-      this.zoomBy(e.deltaY < 0 ? 1.15 : 1 / 1.15, e.clientX - r.left, e.clientY - r.top);
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      const inBox = (box) => box && x >= box.x && x <= box.x + box.w && y >= box.y && y <= box.y + box.h;
+      if (inBox(this.legendBox)) {
+        this.legendScroll = Math.max(0, Math.min(this.legendMaxScroll || 0, this.legendScroll + e.deltaY));
+        this.drawScreen();
+      } else if (inBox(this.jobBriefBox)) {
+        this.jobBriefScroll = Math.max(0, Math.min(this.jobBriefMaxScroll || 0, this.jobBriefScroll + e.deltaY));
+        this.drawScreen();
+      } else this.zoomBy(e.deltaY < 0 ? 1.15 : 1 / 1.15, x, y);
     }, { passive: false });
   }
 
@@ -1105,7 +1131,7 @@ export class Gta2Map {
       this.drawName(ctx, ox, oy - 16, o.name, o.colour);
     }
     if (s && s.hasPlayer) this.drawPlayer(ctx, ...toScreen(s.x, s.y), s.heading, 1.4);
-    this.drawLegend(ctx, pois);
+    this.drawLegend(ctx, pois, w, h);
     if (this.coop) this.drawScoreboard(ctx, w - 12, 12, 'right');
     else this.drawJobBriefs(ctx, w, h);
     const hp = this.hover && this.poiNear(this.hover.x, this.hover.y);
@@ -1119,17 +1145,31 @@ export class Gta2Map {
       ctx.textBaseline = 'middle';
       ctx.fillText(hp.name, hx + 19, hy - 15);
     }
-    // help line
-    ctx.fillStyle = 'rgba(0,0,0,.65)';
-    ctx.fillRect(0, h - 30, w, 30);
+    // Keep map instructions above the webpage controls and wrap within the viewport.
+    const helpTop = Math.max(0, h - 104), helpHeight = Math.min(62, h);
+    ctx.fillStyle = 'rgba(0,0,0,.72)';
+    ctx.fillRect(0, helpTop, w, helpHeight);
     ctx.fillStyle = '#e8e6e3';
     ctx.font = '13px system-ui, sans-serif';
     ctx.textBaseline = 'middle';
     const dist = wp && s ? t('ui.map.help.waypointDist', { n: new Intl.NumberFormat(lang()).format(Math.round(Math.hypot(wp.x - s.x, wp.y - s.y))) }) : '';
-    ctx.fillText(t('ui.map.help.line', { mode: t(this.reveal ? 'ui.map.help.revealOn' : 'ui.map.help.revealOff'), dist }), 12, h - 15);
+    const help = t('ui.map.help.line', { mode: t(this.reveal ? 'ui.map.help.revealOn' : 'ui.map.help.revealOff'), dist });
+    const chunks = help.split(' · '), lines = [];
+    let line = '';
+    for (const chunk of chunks) {
+      const next = line ? `${line} · ${chunk}` : chunk;
+      if (line && ctx.measureText(next).width > w - 32) { lines.push(line); line = chunk; }
+      else line = next;
+    }
+    if (line) lines.push(line);
+    lines.slice(0, 3).forEach((text, i) => {
+      const rtl = /[\u0590-\u05ff]/.test(text);
+      ctx.direction = rtl ? 'rtl' : 'ltr';
+      ctx.textAlign = rtl ? 'right' : 'left';
+      ctx.fillText(text, rtl ? w - 12 : 12, helpTop + 12 + i * 17, w - 24);
+    });
   }
-
-  drawLegend(ctx, shown) {
+  drawLegend(ctx, shown, w, h) {
     const all = this.points();
     const kinds = Object.keys(POI_KINDS).filter((k) => all.some((p) => p.kind === k));
     const { active, targets, onMission } = this.jobs();
@@ -1138,60 +1178,74 @@ export class Gta2Map {
       if (!byGang.has(j.gang)) byGang.set(j.gang, []);
       byGang.get(j.gang).push(j);
     }
-    const order = [4, 3, 1, 2]; // info, easy, medium, hard
+    const order = [4, 3, 1, 2];
     for (const list of byGang.values()) list.sort((a, b) => order.indexOf(a.colour) - order.indexOf(b.colour));
+    const x = 12, y0 = 52, lh = 22, width = 244, headerH = 28;
+    const jobRows = [...byGang.values()].reduce((n, l) => n + 1 + l.length, 0) + (targets.length ? 1 : 0) + (onMission ? 1 : 0);
+    const contentH = 18 + kinds.length * lh + (jobRows ? 8 + lh + jobRows * lh : 0);
+    const maxH = Math.max(110, h - 180);
+    const panelH = Math.min(headerH + contentH, maxH);
+    const bodyH = Math.max(72, panelH - headerH);
+    this.legendBox = { x: x - 6, y: y0 - 18, w: width, h: panelH };
+    this.legendMaxScroll = Math.max(0, contentH - bodyH);
+    this.legendScroll = Math.max(0, Math.min(this.legendMaxScroll, this.legendScroll || 0));
     ctx.save();
     ctx.font = '13px system-ui, sans-serif';
     ctx.textBaseline = 'middle';
-    const x = 12, lh = 22, width = 230;
-    const jobRows = [...byGang.values()].reduce((a, l) => a + 1 + l.length, 0) + (targets.length ? 1 : 0) + (onMission ? 1 : 0);
-    const height = 30 + kinds.length * lh + (jobRows ? 28 + jobRows * lh : 0);
-    const y0 = 52;
-    ctx.fillStyle = 'rgba(0,0,0,.72)';
-    ctx.fillRect(x - 6, y0 - 18, width, height);
+    ctx.fillStyle = 'rgba(0,0,0,.76)';
+    ctx.fillRect(this.legendBox.x, this.legendBox.y, width, panelH);
     ctx.fillStyle = '#e8e6e3';
-    ctx.fillText(t(this.reveal ? 'ui.map.legend.showingAll' : 'ui.map.legend.foundSoFar'), x, y0 - 4);
-    let y = y0 + 18;
+    ctx.direction = lang() === 'he' ? 'rtl' : 'ltr';
+    ctx.textAlign = lang() === 'he' ? 'right' : 'left';
+    ctx.fillText(t(this.reveal ? 'ui.map.legend.showingAll' : 'ui.map.legend.foundSoFar'), lang() === 'he' ? x + width - 12 : x, y0 - 4, width - 20);
+    ctx.beginPath();
+    ctx.rect(x - 5, y0 + 9, width - 2, bodyH - 5);
+    ctx.clip();
+    this.legendHits = [];
+    let y = y0 + 18 - this.legendScroll;
     for (const k of kinds) {
       this.drawPoi(ctx, x + 9, y, { kind: k }, 0.85);
       const found = shown.filter((p) => p.kind === k).length, total = all.filter((p) => p.kind === k).length;
+      const count = this.reveal ? `${total}` : `${found} / ${total}`;
+      // Keep the numeric counter in left-to-right order inside Hebrew map labels.
+      const label = `${POI_KINDS[k].label}  \u2066${count}\u2069`;
       ctx.fillStyle = '#e8e6e3';
-      ctx.font = '13px system-ui, sans-serif';
-      ctx.fillText(`${POI_KINDS[k].label}  ${this.reveal ? total : `${found} / ${total}`}`, x + 26, y);
+      ctx.direction = /[\u0590-\u05ff]/.test(label) ? 'rtl' : 'ltr';
+      ctx.textAlign = ctx.direction === 'rtl' ? 'right' : 'left';
+      ctx.fillText(label, ctx.direction === 'rtl' ? x + width - 10 : x + 26, y, width - 42);
       y += lh;
     }
-    this.legendHits = [];
     if (jobRows) {
       y += 8;
-      ctx.fillStyle = '#e8e6e3';
-      ctx.fillText(t(onMission ? 'ui.map.legend.onMission' : 'ui.map.legend.gangJobs'), x, y);
+      const heading = t(onMission ? 'ui.map.legend.onMission' : 'ui.map.legend.gangJobs');
+      ctx.fillStyle = '#e8e6e3'; ctx.direction = lang() === 'he' ? 'rtl' : 'ltr'; ctx.textAlign = lang() === 'he' ? 'right' : 'left';
+      ctx.fillText(heading, lang() === 'he' ? x + width - 10 : x, y, width - 20);
       y += lh;
       if (targets.length) {
         this.drawTarget(ctx, x + 9, y, 0.8);
-        ctx.fillStyle = '#ffffff';
-        ctx.fillText(targets.length > 1 ? t('ui.map.missionTargetsN', { n: targets.length }) : t('ui.map.missionTarget'), x + 26, y);
-        this.legendHits.push({ x: x - 6, y: y - lh / 2, w: width, h: lh, job: targets[0] });
+        const label = targets.length > 1 ? t('ui.map.missionTargetsN', { n: targets.length }) : t('ui.map.missionTarget');
+        ctx.fillStyle = '#fff'; ctx.direction = lang() === 'he' ? 'rtl' : 'ltr'; ctx.textAlign = lang() === 'he' ? 'right' : 'left';
+        ctx.fillText(label, lang() === 'he' ? x + width - 10 : x + 26, y, width - 42);
+        if (y >= y0 + 14 && y < y0 + panelH - 10) this.legendHits.push({ x: x - 6, y: y - lh / 2, w: width, h: lh, job: targets[0] });
         y += lh;
       }
       for (const [gang, list] of byGang) {
         if (!this.drawSprite(ctx, list[0].logo, x + 9, y, 16)) this.drawJob(ctx, x + 9, y, list[0], 0.8);
-        ctx.fillStyle = '#9a978f';
-        ctx.font = '13px system-ui, sans-serif';
-        ctx.fillText(gang || t('ui.map.legend.jobs'), x + 26, y);
+        ctx.fillStyle = '#9a978f'; ctx.direction = 'ltr'; ctx.textAlign = 'left'; ctx.fillText(gang || t('ui.map.legend.jobs'), x + 26, y, width - 42);
         y += lh;
         for (const j of list) {
           this.drawJob(ctx, x + 17, y, j, 0.8);
+          const label = JOBS[j.colour].label;
           ctx.fillStyle = this.wp && this.wp.x === j.x && this.wp.y === j.y ? '#ffd23f' : '#e8e6e3';
-          ctx.font = '13px system-ui, sans-serif';
-          ctx.fillText(JOBS[j.colour].label, x + 34, y);
-          this.legendHits.push({ x: x - 6, y: y - lh / 2, w: width, h: lh, job: j });
+          ctx.direction = lang() === 'he' ? 'rtl' : 'ltr'; ctx.textAlign = lang() === 'he' ? 'right' : 'left';
+          ctx.fillText(label, lang() === 'he' ? x + width - 10 : x + 34, y, width - 50);
+          if (y >= y0 + 14 && y < y0 + panelH - 10) this.legendHits.push({ x: x - 6, y: y - lh / 2, w: width, h: lh, job: j });
           y += lh;
         }
       }
     }
     ctx.restore();
   }
-
   /**
    * The current job's instructions: the briefs shown on screen during it (port/platform/jobs_web.cpp),
    * newest first. Outside a job, the latest messages.
@@ -1217,61 +1271,44 @@ export class Gta2Map {
 
   drawJobBriefs(ctx, w, h) {
     const { onJob, briefs } = this.jobBriefs();
-    if (!briefs.length) return;
-    ctx.save();
-    ctx.font = '13px system-ui, sans-serif';
-    ctx.textBaseline = 'top';
-    const width = Math.min(380, Math.max(220, w * 0.3)), pad = 10, lh = 17;
-    const x = w - 12 - width;
-    const wrap = (text) => {
-      const lines = [];
-      let line = '';
-      for (const word of text.split(' ')) {
+    if (!briefs.length) { this.jobBriefBox = null; return; }
+    ctx.save(); ctx.font = '13px system-ui, sans-serif'; ctx.textBaseline = 'top';
+    const width = Math.min(390, Math.max(236, w * 0.34)), pad = 10, lh = 18;
+    const x = w - 12 - width, yTop = 12, headerH = 36;
+    const wrap = (text, maxWidth) => {
+      const words = text.split(/\s+/), lines = []; let line = '';
+      for (const word of words) {
         const next = line ? `${line} ${word}` : word;
-        if (line && ctx.measureText(next).width > width - 2 * pad) { lines.push(line); line = word; } else line = next;
+        if (line && ctx.measureText(next).width > maxWidth) { lines.push(line); line = word; } else line = next;
       }
-      if (line) lines.push(line);
-      return lines;
+      if (line) lines.push(line); return lines;
     };
-    // as many briefs as fit above the help line, newest first
     const rows = [];
-    let height = pad + 22;
     for (const b of briefs) {
       const who = SPEAKERS[b.face] ? t(SPEAKERS[b.face]) : null;
       const translated = missionText(b.source, { gxtKey: b.gxtKey });
-      const shown = translated.text;
-      const lines = wrap(who ? `${who}: ${shown}` : shown);
-      if (rows.length && height + lines.length * lh + 8 > h - 60) break;
-      rows.push({ who, lines, translated: translated.translated });
-      height += lines.length * lh + 8;
+      const text = who ? `${who}: ${translated.text}` : translated.text;
+      rows.push({ lines: wrap(text, width - 2 * pad - 4), rtl: translated.translated && /[\u0590-\u05ff]/.test(text) });
     }
-    ctx.fillStyle = 'rgba(0,0,0,.72)';
-    ctx.fillRect(x, 12, width, height);
-    ctx.fillStyle = onJob ? '#ffd23f' : '#9a978f';
-    ctx.font = '600 13px system-ui, sans-serif';
-    ctx.fillText(t(onJob ? 'ui.map.briefs.currentJob' : 'ui.map.briefs.messages'), x + pad, 12 + pad);
-    let y = 12 + pad + 22;
-    rows.forEach((r, i) => {
-      ctx.direction = r.translated ? 'rtl' : 'ltr';
-      r.lines.forEach((line, n) => {
-        ctx.font = '13px system-ui, sans-serif';
-        ctx.fillStyle = i === 0 ? '#ffffff' : '#9a978f'; // the newest stands out
-        if (n === 0 && r.who) {
-          ctx.fillStyle = i === 0 ? '#ffd23f' : '#8b857a';
-          ctx.fillText(`${r.who}:`, x + pad, y);
-          const lead = ctx.measureText(`${r.who}: `).width;
-          ctx.fillStyle = i === 0 ? '#ffffff' : '#9a978f';
-          ctx.fillText(line.slice(r.who.length + 2), x + pad + lead, y);
-        } else {
-          ctx.fillText(line, x + pad, y);
-        }
-        y += lh;
-      });
+    const contentH = rows.reduce((n, r) => n + r.lines.length * lh + 8, 0);
+    const panelH = Math.max(95, Math.min(h - 132, headerH + contentH)), bodyH = Math.max(50, panelH - headerH);
+    this.jobBriefBox = { x, y: yTop, w: width, h: panelH };
+    this.jobBriefMaxScroll = Math.max(0, contentH - bodyH);
+    this.jobBriefScroll = Math.max(0, Math.min(this.jobBriefMaxScroll, this.jobBriefScroll || 0));
+    ctx.fillStyle = 'rgba(0,0,0,.76)'; ctx.fillRect(x, yTop, width, panelH);
+    ctx.fillStyle = onJob ? '#ffd23f' : '#9a978f'; ctx.font = '600 13px system-ui, sans-serif';
+    ctx.direction = lang() === 'he' ? 'rtl' : 'ltr'; ctx.textAlign = lang() === 'he' ? 'right' : 'left';
+    ctx.fillText(t(onJob ? 'ui.map.briefs.currentJob' : 'ui.map.briefs.messages'), lang() === 'he' ? x + width - pad : x + pad, yTop + pad);
+    ctx.beginPath(); ctx.rect(x + pad, yTop + headerH, width - 2 * pad, bodyH - 2); ctx.clip();
+    let y = yTop + headerH - this.jobBriefScroll;
+    rows.forEach((row, i) => {
+      ctx.font = '13px system-ui, sans-serif'; ctx.direction = row.rtl ? 'rtl' : 'ltr'; ctx.textAlign = row.rtl ? 'right' : 'left';
+      ctx.fillStyle = i === 0 ? '#fff' : '#aaa59a';
+      for (const line of row.lines) { ctx.fillText(line, row.rtl ? x + width - pad : x + pad, y, width - 2 * pad); y += lh; }
       y += 8;
     });
     ctx.restore();
   }
-
   /** A gang job phone: the gang's logo with the job's difficulty triangle (HUD sprites). */
   drawJob(ctx, x, y, j, size = 1) {
     const h = 18 * size;

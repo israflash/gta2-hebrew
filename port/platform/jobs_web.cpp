@@ -20,6 +20,27 @@
 
 extern "C" double gta2_port_now_ms();
 
+EM_JS(int, gta2_js_hebrew_gxt_draw,
+      (const wchar_t* text, int x, int y, int line_height, int font_type, int palette_type, int palette, int alpha),
+      {
+          if (!Module.gta2HebrewGxtDraw || !Module.UTF16ToString)
+          {
+              return 0;
+          }
+          return Module.gta2HebrewGxtDraw(Module.UTF16ToString(text), x / 65536, y / 65536,
+                                          line_height / 65536, font_type, palette_type, palette, alpha) ? 1 : 0;
+      });
+
+extern "C" int gta2_port_hebrew_gxt_draw(const wchar_t* text, s32 x, s32 y, s32 line_height,
+                                         s32 font_type, s32 palette_type, s32 palette, s32 alpha)
+{
+    if (!text || !*text || line_height <= 0)
+    {
+        return 0;
+    }
+    return gta2_js_hebrew_gxt_draw(text, x, y, line_height, font_type, palette_type, palette, alpha);
+}
+
 namespace
 {
 constexpr int kMaxBriefs = 8;

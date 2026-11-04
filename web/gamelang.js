@@ -31,7 +31,11 @@ registerDict({
     'game.languageFailed': 'Impossible de changer la langue du jeu : {message}',
     'game.languageHost': 'La page est maintenant en français ; en coopération, le jeu garde la langue de l\'hôte jusqu\'à la fin de la partie.',
   },
-  he: {},
+  he: {
+    'game.languageChanged': 'שפת המשחק: {language}',
+    'game.languageFailed': 'שינוי שפת המשחק נכשל: {message}',
+    'game.languageHost': 'הדף עבר לעברית; במשחק משותף שפת המארח נשארת בתוקף עד לסיום המשחק.',
+  },
 });
 
 /** GXT file letter for a web language code ('es' -> 's'). */

@@ -66,8 +66,14 @@ const idx = {
   recommendation: column['המלצה'], context: column['הקשר/הערות'], tech: column['מקור טכני'],
 };
 const mission = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-translations.he.json'), 'utf8')).records;
+const supplemental = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-extras.he.json'), 'utf8')).records;
+const allMissionRecords = [...mission, ...supplemental];
 const titles = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-titles.he.json'), 'utf8')).titles;
-const byMission = new Map(mission.map((m) => [`${m.area}:${m.gxtKey}`, m]));
+const gxtGameplay = JSON.parse(fs.readFileSync(path.join(root, 'web/gxt-gameplay.he.json'), 'utf8')).records;
+const byMission = new Map(allMissionRecords.map((m) => [`${m.area}:${m.gxtKey}`, m]));
+const byGameplayGxt = new Map(gxtGameplay.map((r) => [String(r.key), r]));
+const normalizeGxt = (value) => String(value || '').replace(/^[\u2160-\u2188]+\s*/, '').replace(/^n!/, '').replace(/#([^#]*)#/g, '$1').replace(/#/g, '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en');
+const byGameplaySource = new Map(gxtGameplay.map((r) => [normalizeGxt(r.source), r]));
 const titleArea = (key) => Number(key) >= 3840 && Number(key) <= 3861 ? 'Industrial District'
   : ([...Array.from({ length: 11 }, (_, i) => String(2460 + i)), '2473', ...Array.from({ length: 4 }, (_, i) => String(2671 + i)), ...Array.from({ length: 6 }, (_, i) => String(2954 + i))].includes(String(key)) ? 'Residential' : 'Downtown');
 const reviewedKeys = new Set('1162 1165 1168 1221 1225 1261 1277 1334 1335 1535 1614 1674 1689 1752 1753 1757 2005 2016 2026 2032 2034 2301 2305 2307 2311 2512 2514 2515 2516 2517 2648 2650 2656 2657 2658 2660 2664 2667 2962 3164 3166 3181'.split(' '));
@@ -79,16 +85,17 @@ const visuallyVerifiedTitles = new Set(['9002', '1975']);
 
 const dictFiles = [
   ['web/strings.js', 'UI'], ['web/shell.js'], ['web/landing.js'], ['web/saves.js'], ['web/savestate.js'],
-  ['web/controls.js'], ['web/gamefiles.js'], ['web/map.js'], ['web/net.js'], ['web/storage.js'],
+  ['web/controls.js'], ['web/gamefiles.js'], ['web/map.js'], ['web/net.js'], ['web/storage.js'], ['web/gamelang.js'], ['web/renderer.js'],
 ];
 const uiHe = Object.assign({}, ...dictFiles.map(([file, objectName]) => heDictionary(file, objectName)));
+const uiSourceFiles = new Set(dictFiles.map(([file]) => path.basename(file)));
 
-let changedMission = 0, changedTitles = 0, changedUi = 0;
+let changedMission = 0, changedTitles = 0, changedUi = 0, changedGxt = 0;
 for (const row of rows) {
   const id = row[idx.id];
   const area = row[idx.area];
   const titleKey = id in titles ? id : namedStatusKeys[id];
-  const missionRecord = byMission.get(`${area}:${id}`) || mission.find((m) => String(m.gxtKey) === id);
+  const missionRecord = byMission.get(`${area}:${id}`) || allMissionRecords.find((m) => String(m.gxtKey) === id);
   if (missionRecord && (!(titleKey) || row[idx.kind] === 'הודעת משימה/דיאלוג')) {
     const record = missionRecord;
     row[idx.kind] = 'הודעת משימה/דיאלוג'; row[idx.area] = record.area; row[idx.source] = record.source; row[idx.text] = record.text;
@@ -109,14 +116,40 @@ for (const row of rows) {
     row[idx.context] = isNamed ? 'C++ HUD key (mfail/kfstart/kfpass/kffail); exact string hook' : row[idx.context];
     row[idx.tech] = isNamed ? `game/data/e.gxt; port/platform/jobs_web.cpp; GXT ${id}` : `game/data/e.gxt; active mission script; port/platform/jobs_web.cpp; GXT ${id}`;
     changedTitles++;
+  } else if (!uiSourceFiles.has(area) && ['טקסט GXT אחר', 'מחרוזת GXT — HUD/תפריט/אתגר'].includes(row[idx.kind]) && (byGameplayGxt.has(String(id)) || byGameplaySource.has(normalizeGxt(row[idx.source])))) {
+    const record = byGameplayGxt.get(String(id)) || byGameplaySource.get(normalizeGxt(row[idx.source]));
+    row[idx.kind] = 'מחרוזת GXT — HUD/תפריט/אתגר';
+    row[idx.source] = record.source;
+    row[idx.text] = record.text;
+    row[idx.status] = 'תורגם; חיבור החלפה במנגנון הציור נוסף; טרם אומת חזותית לכל המצבים';
+    row[idx.importance] = 'חיוני להבנת המשחק/הפעלתו';
+    row[idx.recommendation] = 'להציג במקום המקורי דרך draw hook; להשאיר fallback באנגלית כשאין התאמה.';
+    row[idx.context] = /FRENZY|seconds|people|vehicles|cops/i.test(record.source) ? 'אתגר זמן/תוצאה דרך GXT; מקור נשמר, סימוני # משמשים להדגשה.' : 'טקסט תפריט או HUD דרך GXT; התאמה לפי מחרוזת מקור.';
+    row[idx.tech] = `game/data/e.gxt; port/platform/jobs_web.cpp; web/gamegxt.js · GXT ${record.key}`;
+    changedGxt++;
   } else if (id in uiHe) {
+    row[idx.kind] = 'ממשק אתר/משחק';
     row[idx.text] = uiHe[id]; row[idx.status] = 'תורגם; המפתח נקשר למילון runtime; לא אומת חזותית';
     row[idx.importance] = /saves|save|files|control|keys|net|coop|map|weapon|help/i.test(id) ? 'משפר שימושיות ישירה' : row[idx.importance];
     row[idx.recommendation] = 'להשאיר את שם המקש/היעד באנגלית כשהוא מופיע כך במשחק.';
     changedUi++;
+  } else if (row[idx.kind] === 'טקסט GXT אחר') {
+    if (/REPORT DEAD BRIEF|PLEASE REPORT DEAD BRIEF/i.test(row[idx.source])) {
+      row[idx.status] = 'לא פעיל או מחרוזת פיתוח — הודעת REPORT DEAD BRIEF';
+      row[idx.importance] = 'לא רלוונטי לשחקן';
+      row[idx.recommendation] = 'להשאיר באנגלית; מחרוזת אבחון שאינה חלק מחוויית המשחק.';
+    } else if (/^[\u2160-\u2188]/u.test(row[idx.source])) {
+      row[idx.status] = 'דורש בדיקה נוספת — מחרוזת עם סמן דובר שלא נמצאה בסריקת פקודות brief';
+      row[idx.importance] = 'חשיבות אפשרית למשימה/דיאלוג';
+      row[idx.recommendation] = 'לא לסווג כלא פעיל על סמך מפתח בלבד; לאמת שימוש בזמן ריצה ולתרגם אם מוצגת לשחקן.';
+    } else {
+      row[idx.status] = 'דורש מיון — מחרוזת GXT שלא נקשרה לתרגום או לקטגוריה מכוונת באנגלית';
+      row[idx.importance] = 'לא ידוע עד בדיקת שימוש';
+      row[idx.recommendation] = 'לבדוק הפניות בסקריפט/קוד; להשאיר באנגלית במכוון רק אם זה שם רשמי או טקסט לא פעיל.';
+    }
   }
 }
 
 const output = [header, ...rows].map((r) => r.map(csvCell).join(',')).join('\r\n') + '\r\n';
 fs.writeFileSync(csvPath, `\uFEFF${output}`);
-console.log(`audit inventory refreshed: ${changedMission} game-message rows, ${changedTitles} title/status rows, ${changedUi} UI rows`);
+console.log(`audit inventory refreshed: ${changedMission} game-message rows, ${changedTitles} title/status rows, ${changedGxt} gameplay GXT rows, ${changedUi} UI rows`);

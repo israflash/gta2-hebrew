@@ -108,11 +108,14 @@ async function main() {
     };
     const visibleTranslated = `(() => { const p=document.querySelector('#mission-brief'); const t=p?.querySelector('.mission-brief-text'); return p && !p.hidden && t?.innerText ? {text:t.innerText,dir:p.dir} : null; })()`;
     const expected = [
-      { key: '1600', text: 'ברוך הבא למחוז דאונטאון', name: 'downtown-opening' },
       { key: '2306', text: 'קדימה, עלו!', name: 'short-hebrew' },
       { key: '2026', text: '50 מדענים', name: 'numbers-names' },
       { key: '3727', text: 'המאפיה הרוסית', name: 'long-industrial' },
-      { key: '1251', text: 'היוטס', name: 'wrapped-downtown' },
+      { key: '1011', text: 'השטח של היאקוזה', name: 'supplemental-yakuza', area: 'Downtown' },
+      { key: '1663', text: 'הירושי מת', name: 'supplemental-safehouse', area: 'Downtown' },
+      { key: '2042', text: '20 מדענים', name: 'supplemental-kill-frenzy', area: 'Residential' },
+      { key: '2043', text: '20 מאנשי זייבאצו', name: 'supplemental-srs', area: 'Residential' },
+      { key: '2226', text: 'השוטרים באים', name: 'supplemental-escape', area: 'Residential' },
     ].filter((item) => !process.env.GTA2_QA_KEYS || process.env.GTA2_QA_KEYS.split(',').includes(item.key));
 
     if (process.env.GTA2_QA_COMPARE_KEY) {
@@ -154,15 +157,49 @@ async function main() {
       console.log(JSON.stringify({ fontComparison: { gxtKey: compareKey, hebrew: hebrew.text, hebrewProbe, hebrewShot, fontComparisons, englishShot } }));
     }
 
+    if (process.env.GTA2_QA_MAP_TEST) {
+      await navigate(`${BASE}?devdata&autostart&brief-test=3727,3727`);
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'player before opening map');
+      await waitFor(visibleTranslated, (v) => v && v.text, 'translated mission brief before map layout test');
+      await waitFor(`window.gta2?.map?.image !== null`, Boolean, 'map image ready', 120000);
+      await evaluate(`window.gta2.map.show()`);
+      const mapSizes = (process.env.GTA2_QA_MAP_SIZES || '1366x768,1200x800,1920x1080').split(',');
+      const mapShots = [];
+      for (const size of mapSizes) {
+        const [width, height] = size.split('x').map(Number);
+        await cdp.send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
+        await wait(300);
+        const metrics = await evaluate(`(() => ({w:innerWidth,h:innerHeight,legend:window.gta2.map.legendBox,briefs:window.gta2.map.jobBriefBox,legendScroll:window.gta2.map.legendMaxScroll,briefScroll:window.gta2.map.jobBriefMaxScroll,tools:document.querySelector('#tools').getBoundingClientRect().toJSON()}))()`);
+        mapShots.push({size, metrics, screenshot: await capture(`map-layout-${size}`)});
+      }
+      await evaluate(`window.gta2.map.close()`);
+      await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1200, height: 800, deviceScaleFactor: 1, mobile: false });
+      console.log(JSON.stringify({ mapLayoutShots: mapShots }));
+    }
     // Keep one page and queue four real GXT briefs via Hud_Brief_704.
     await navigate(`${BASE}?devdata&autostart&brief-test=${expected.map((item) => item.key).join(',')}`);
     const sequence = [];
     for (const item of expected) {
-      const state = await waitFor(visibleTranslated, (v) => v && v.text.includes(item.text), `translated brief ${item.key}`);
+      let state;
+      try {
+        state = await waitFor(visibleTranslated, (v) => v && v.text.includes(item.text), `translated brief ${item.key}`);
+      } catch (error) {
+        const diagnostics = await evaluate(`(() => ({lang:document.documentElement.lang,status:document.querySelector('#status')?.innerText,brief:document.querySelector('#mission-brief')?.outerHTML,gameState:window.gta2?.dev?.state?.(),jobBriefs:window.gta2?.map?.jobBriefs?.(),missionStats:window.gta2?.missionText?.stats?.(),hebrewGxtReady:window.gta2?.Module?.gta2HebrewGxtReady,layer:document.querySelector('#hebrew-gxt-layer')?.innerHTML}))()`);
+        console.log(JSON.stringify({ briefFailure: { key: item.key, diagnostics, screenshot: await capture(`brief-failure-${item.key}`) } }));
+        throw error;
+      }
       const file = await capture(item.name);
-      const area = ['1600', '1251'].includes(item.key) ? 'Downtown' : item.key === '3727' ? 'Industrial District' : 'Residential';
+      const area = item.area || (item.key === '3727' ? 'Industrial District' : 'Residential');
       sequence.push({ area, gxtKey: item.key, text: state.text, dir: state.dir, screenshot: file });
       console.log(`captured translated GXT ${item.key}`);
+    }
+
+    if (process.env.GTA2_QA_EXTRA_BRIEF === '1105') {
+      await navigate(`${BASE}?devdata&autostart&brief-test=1105`);
+      const extra = await waitFor(visibleTranslated, (v) => v && v.text.includes('קקי־קקי'), 'supplemental Loonies brief 1105');
+      const screenshot = await capture('supplemental-loonies');
+      sequence.push({ area: 'Downtown', gxtKey: '1105', text: extra.text, dir: extra.dir, screenshot });
+      console.log('captured supplemental GXT 1105 in its own queue run');
     }
 
     let missionTitleTest = null;
@@ -172,7 +209,19 @@ async function main() {
       const title = await waitFor(`(() => { const p=document.querySelector('#mission-title'); return p && !p.hidden ? p.getAttribute('aria-label') : ''; })()`, (v) => !!v, `translated mission title ${titleKey}`);
       const titleProbe = await evaluate(`(() => { const p=document.querySelector('#mission-title'); const brief=document.querySelector('#mission-brief'); return {text:p?.getAttribute('aria-label'),rect:p?.getBoundingClientRect().toJSON(),nativeHidden:window.gta2.Module.ccall('gta2_port_native_mission_title_text_hidden','number',[],[]),briefRect:brief?.getBoundingClientRect().toJSON(),briefText:brief?.querySelector('.mission-brief-text')?.getBoundingClientRect().toJSON()}; })()`);
       missionTitleTest = { gxtKey: titleKey, text: title, screenshot: await capture(`mission-title-${titleKey}`), probe: titleProbe };
-      if (process.env.GTA2_QA_BIDI_TEST) {
+      if (process.env.GTA2_QA_TITLE_ENGLISH_COMPARE) {
+        await evaluate(`document.querySelector('#lang-toggle')?.click()`);
+        await waitFor(`document.documentElement.lang === 'en' && window.gta2.Module.ccall('gta2_port_native_mission_title_text_hidden','number',[],[]) === 0`, Boolean, 'native English mission title');
+        await wait(250);
+        missionTitleTest.englishNativeScreenshot = await capture(`mission-title-${titleKey}-english-native`);
+        await evaluate(`(() => { const b=document.querySelector('#lang-toggle'); for(let i=0;i<3;i++) b?.click(); return true; })()`);
+        await waitFor(`document.documentElement.lang === 'he'`, Boolean, 'Hebrew language restored');
+        // The native banner expires after its original short display period. Reissue it so this
+        // comparison tests the Hebrew renderer, not whether a transient banner stayed alive.
+        const restored = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_mission_title','number',['number'],[${titleKey}])`);
+        if (!restored) throw new Error(`mission title ${titleKey} could not be reissued after language switch`);
+        await waitFor(`!document.querySelector('#mission-title')?.hidden`, Boolean, 'Hebrew mission title restored');
+      }      if (process.env.GTA2_QA_BIDI_TEST) {
         const variants = ['חילוץ זיטזאקי!', 'איפה טריי?', 'נקודה, פסיק: (2)', 'חילוץ Yakuza 50!'];
         const bidiShots = [];
         const first = variants[0];
@@ -189,6 +238,75 @@ async function main() {
         missionTitleTest.bidiShots = bidiShots;
       }
       console.log(`captured translated mission title GXT ${titleKey}`);
+    }
+
+    let nativeGxtDraw = null;
+    if (process.env.GTA2_QA_NATIVE_GXT) {
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'player spawn before native GXT draw test');
+      await evaluate(`window.gta2.Module.ccall('gta2_port_set_native_brief_text_hidden','void',['number'],[0])`);
+      await evaluate(`(() => {const s=document.createElement('style');s.textContent='#mission-brief.qa-hide-brief-panel{visibility:hidden!important}';document.head.append(s);return true})()`);
+      for (const test of [
+        { key: 'c00', expected: 'אקדח', name: 'native-gxt-weapon' },
+        { key: '1901', expected: 'בקבוקי תבערה', name: 'native-gxt-colored-frenzy' },
+        { key: '1290', expected: '$5,000', name: 'native-gxt-ice-cream-van-cost' },
+        { key: '1402', expected: 'הטנק הזה רציני', name: 'native-gxt-tank-warning' },
+        { key: '5000', expected: 'הארכת זמן', name: 'native-gxt-time-extended' },
+        { key: '5001', expected: 'מקום ראשון', name: 'native-gxt-frenzy-result' },
+        { key: '5028', expected: 'לוזר עלוב', name: 'native-gxt-frenzy-failure' },
+        { key: '5030', expected: 'אסוף כמה שיותר בונוסים', name: 'native-gxt-frenzy-objective' },
+        { key: '5013', expected: 'רכבי הגלידה', name: 'native-gxt-ice-cream-frenzy' },
+      ]) {
+        const shown = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_brief','number',['string'],[${JSON.stringify(test.key)}])`);
+        if (!shown) throw new Error(`native GXT test key ${test.key} was not queued`);
+        const text = await waitFor(`(() => [...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText).join(' '))()`,
+          (value) => value.includes(test.expected), `native Hebrew draw ${test.key}`);
+        await evaluate(`document.querySelector('#mission-brief')?.classList.add('qa-hide-brief-panel')`);
+        const screenshot = await capture(test.name);
+        nativeGxtDraw ||= [];
+        nativeGxtDraw.push({ key: test.key, text, screenshot });
+        await evaluate(`document.querySelector('#mission-brief')?.classList.remove('qa-hide-brief-panel')`);
+        await wait(900);
+      }
+      console.log(JSON.stringify({ nativeGxtDraw }));
+    }
+
+    let saveRoundTrip = null;
+    if (process.env.GTA2_QA_SAVE_ROUNDTRIP) {
+      const rules = await evaluate(`window.gta2.states.rules()`);
+      if (!rules.player || rules.stars || rules.onJob) throw new Error(`save test needs an ordinary safe state: ${JSON.stringify(rules)}`);
+      const saved = await evaluate(`window.gta2.states.save('s1',{free:true,quiet:true})`);
+      if (!saved) throw new Error('a real single-player game snapshot could not be saved');
+      const before = await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('gta2-port-states');r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result, q=db.transaction('states','readonly').objectStore('states').get('s1');q.onsuccess=()=>resolve({slot:q.result?.slot,build:q.result?.build,size:q.result?.size,blob:q.result?.data?.size});q.onerror=()=>reject(q.error)}})`);
+      if (before.slot !== 's1' || !before.build || !before.blob) throw new Error(`saved snapshot is missing from IndexedDB: ${JSON.stringify(before)}`);
+      const downloadPath = path.join(profile, 'downloads');
+      await fs.mkdir(downloadPath, { recursive: true });
+      await cdp.send('Browser.setDownloadBehavior', { behavior: 'allow', downloadPath });
+      await evaluate(`document.querySelector('#export-saves').click()`);
+      let exportedPath = '';
+      for (let i = 0; i < 100 && !exportedPath; i++) {
+        const files = await fs.readdir(downloadPath);
+        const file = files.find((name) => name.endsWith('.json') && !name.endsWith('.crdownload'));
+        if (file) exportedPath = path.join(downloadPath, file);
+        else await wait(100);
+      }
+      if (!exportedPath) throw new Error('export saves did not produce a JSON download');
+      const exported = JSON.parse(await fs.readFile(exportedPath, 'utf8'));
+      if (exported.format !== 'gta2-port-saves' || !exported.states?.some((state) => state.slot === 's1')) {
+        throw new Error('export file does not contain the actual game snapshot');
+      }
+      await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('gta2-port-states');r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result,tx=db.transaction('states','readwrite');tx.objectStore('states').delete('s1');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)}})`);
+      const root = await cdp.send('DOM.getDocument');
+      const input = await cdp.send('DOM.querySelector', { nodeId: root.root.nodeId, selector: '#import-saves' });
+      await cdp.send('DOM.setFileInputFiles', { nodeId: input.nodeId, files: [exportedPath] });
+      await evaluate(`document.querySelector('#import-saves').dispatchEvent(new Event('change',{bubbles:true}))`);
+      const imported = await waitFor(`document.querySelector('#status')?.innerText`, (value) => /import/i.test(value || '') || /יובא/.test(value || ''), 'save import status');
+      const after = await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('gta2-port-states');r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result, q=db.transaction('states','readonly').objectStore('states').get('s1');q.onsuccess=()=>resolve({slot:q.result?.slot,build:q.result?.build,size:q.result?.size});q.onerror=()=>reject(q.error)}})`);
+      if (after.slot !== 's1' || after.build !== before.build || after.size !== before.size) throw new Error(`imported snapshot differs: ${JSON.stringify(after)}`);
+      const loaded = await evaluate(`window.gta2.states.load('s1')`);
+      if (!loaded) throw new Error('imported game snapshot could not be loaded');
+      saveRoundTrip = { rules, before, exportedFileBytes: (await fs.stat(exportedPath)).size, importStatus: imported, after, loaded };
+      console.log(JSON.stringify({ saveRoundTrip }));
     }
 
     let missionAttempt = null;
@@ -259,15 +377,13 @@ async function main() {
     // Reload the same page into the original front-end to inspect the menu UI
     // and confirm the mission renderer does not remain over it.
     await navigate(`${BASE}?devdata`);
-    await waitFor(`document.readyState === 'complete' && !!window.gta2`, Boolean, 'front-end startup');
-    await waitFor(`document.querySelector('#main-menu-hebrew') && !document.querySelector('#main-menu-hebrew').hidden`, Boolean, 'Hebrew main menu state');
-    await waitFor(`document.querySelector('#tools')?.hidden === true && getComputedStyle(document.querySelector('#tools')).display === 'none'`, Boolean, 'main menu without game controls');
-    await wait(1000);
-    const mainMenuProbe = await evaluate(`(() => { const p=document.querySelector('#main-menu-hebrew'), t=document.querySelector('#tools'); return {lang:document.documentElement.lang, text:p.innerText, rect:p.getBoundingClientRect().toJSON(), style:getComputedStyle(p).cssText, labels:[...p.children].map(e=>({text:e.innerText,rect:e.getBoundingClientRect().toJSON(),transform:getComputedStyle(e).transform,color:getComputedStyle(e).color})), tools:{hidden:t.hidden,display:getComputedStyle(t).display,rect:t.getBoundingClientRect().toJSON()}}; })()`);
+    await waitFor(`(() => {const m=window.gta2?.Module;return !!m && m.ccall('gta2_port_frontend_menu_state','number',[],[]) >= 0})()`, Boolean, 'original frontend main menu ready', 120000);
+    await wait(500);
+    const mainMenuProbe = await evaluate(`(() => { const p=document.querySelector('#main-menu-hebrew'), t=document.querySelector('#tools'),g=document.querySelector('#hebrew-gxt-layer'); return {lang:document.documentElement.lang, manualOverlay:p?{hidden:p.hidden,text:p.innerText,rect:p.getBoundingClientRect().toJSON()}:null,nativeGxt:[...(g?.querySelectorAll('.hebrew-gxt-text')||[])].map(e=>e.innerText), tools:t?{hidden:t.hidden,display:getComputedStyle(t).display,rect:t.getBoundingClientRect().toJSON()}:null}; })()`);
     const mainMenu = await capture('main-menu');
     console.log('captured original main menu after gameplay reload');
 
-    console.log(JSON.stringify({ sequence, missionTitleTest, missionAttempt, fallback, pauseMenu, paused, mainMenu, mainMenuProbe, notes: 'Injected briefs and mission titles use their native HUD message queues; a genuine mission is counted only when the engine mission flag changes after using an original gang phone.' }, null, 2));
+    console.log(JSON.stringify({ sequence, missionTitleTest, nativeGxtDraw, saveRoundTrip, missionAttempt, fallback, pauseMenu, paused, mainMenu, mainMenuProbe, notes: 'Injected briefs and mission titles use their native HUD message queues; native GXT tests enqueue GXT strings in the live game and observe the production DrawText hook. A genuine mission is counted only when the engine mission flag changes after using an original gang phone.' }, null, 2));
   } finally {
     if (cdp?.ws.readyState === WebSocket.OPEN) cdp.ws.close();
     chrome.kill();

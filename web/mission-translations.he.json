@@ -165,10 +165,10 @@
       "speaker": "טריי וולש",
       "kind": "brief",
       "source": "ⅺHey, Gecko! Our Latin Biologist Doctor Cubana is being tortured for information in one of two Yakuza cars circling the city. Destroy the cars, before he squeals.",
-      "text": "היי, גקו! מענים את הביולוגית הלטינית שלנו, דוקטור קובנה, כדי שתמסור מידע. היא נמצאת באחת משתי מכוניות יאקוזה שמסתובבות בעיר. השמד אותן לפני שהיא תישבר.",
+      "text": "היי, גקו! הביולוג הלטיני שלנו, דוקטור קובנה, עובר עינויים באחת משתי מכוניות יאקוזה שמקיפות את העיר. השמד את שתיהן לפני שיפלוט מידע.",
       "matchStatus": "verified-gxt",
       "gxtKey": "1701",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.zaibatsu.bank-van-theft.opening",
@@ -321,10 +321,10 @@
       "speaker": "Guider",
       "kind": "objective",
       "source": "Ⅾ#Shit, kid, you beat them all! Here's some advice - move on to the #Residential District# before the shit really hits the fan.#",
-      "text": "בן אדם, חיסלת את כולם! הנה עצה: עבור ל־Residential District לפני שהמצב באמת מתפוצץ. (צריך $1,000,000)",
+      "text": "#לעזאזל, ילד, ניצחת את כולם! הנה עצה: סע ל־#Residential District# לפני שהכול יתפוצץ לך בפרצוף.#",
       "matchStatus": "verified-gxt",
       "gxtKey": "1802",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.final.end-yakuza",
@@ -381,10 +381,10 @@
       "speaker": "בילי בוב בין",
       "kind": "brief",
       "source": "ⅲHey, Rooster, it's Billy Bob Bean. Montana has wired some new explosives to the ass of a Pickup and I want you to collect it.",
-      "text": "היי, רוסטר, זה בילי בוב בין. מונטנה חיבר חומר נפץ חדש לחלק האחורי של Pickup, ואני רוצה שתביא אותו. לך לאסוף אותו.",
+      "text": "היי, רוסטר, זה בילי בוב בין. מונטנה דחף מטען נפץ לתחת של ה־Pickup, ואני רוצה שתאסוף אותו.",
       "matchStatus": "verified-gxt",
       "gxtKey": "2001",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.benson-burner.opening",
@@ -468,7 +468,7 @@
       "text": "אה, THC-303, כאן ד״ר לה־בראט. זייבאצו והרדנקס רוצים פגישת שלום, אז אנצל את ההזדמנות לניסוי. תביא את ה־Factory Bus הישן ואפרט את התוכנית שלי.",
       "matchStatus": "verified-gxt",
       "gxtKey": "2300",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.labrats-plan.opening",
@@ -669,7 +669,7 @@
       "speaker": "Guider",
       "kind": "objective",
       "source": "ⅮIncredible! You beat all three of them! You'd better move your sorry ass out to the city's Industrial District before things get any worse.",
-      "text": "לא ייאמן! ניצחת את שלושתם! כדאי שתסתלק למחוז התעשייה לפני שהמצב יחמיר עוד יותר. (נדרשים $3,000,000)",
+      "text": "לא ייאמן! ניצחת את שלושתם! תעיף את התחת שלך ל־Industrial District של העיר, לפני שהמצב יחמיר עוד יותר.",
       "matchStatus": "verified-gxt",
       "gxtKey": "6009",
       "reviewStatus": "context-reviewed"
@@ -912,7 +912,7 @@
       "text": "אמרתי לך לאסוף את ה־Pickup, רוסטר, לא לפוצץ אותו לרסיסים.",
       "gxtKey": "2002",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2003",
@@ -921,10 +921,10 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅲFat Boy Jim has hauled his crusty ass out bowling. Park the rigged Pickup by his Trailer and we can test the explosives.",
-      "text": "ג'ים השמן יצא סוף סוף לבאולינג. החנה את ה־Pickup הממולכד ליד הקרוואן שלו, ונוכל לבדוק את חומר הנפץ.",
+      "text": "ג׳ים השמן גרר את התחת הרקוב שלו לבאולינג. החנה את ה־Pickup הממולכד ליד הקרוואן שלו, ונבדוק את חומר הנפץ.",
       "gxtKey": "2003",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2004",
@@ -936,7 +936,7 @@
       "text": "חזור לקרוואן של ג'ים השמן, רוסטר.",
       "gxtKey": "2004",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2005",
@@ -960,7 +960,7 @@
       "text": "השעון מתקתק! תעוף מה־Pickup, רוסטר — הוא עומד להתפוצץ!",
       "gxtKey": "2006",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2007",
@@ -972,7 +972,7 @@
       "text": "זה לא סיבוב דאווין, רוסטר. חזור ל־Pickup!",
       "gxtKey": "2007",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2008",
@@ -984,7 +984,7 @@
       "text": "צריך להפעיל את חומר הנפץ. חזור ל־Pickup ותפעיל את הפצצה!",
       "gxtKey": "2008",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2010",
@@ -996,7 +996,7 @@
       "text": "לא התכוונתי שתפוצץ את כל פארק הקרוואנים הארור, רוסטר!",
       "gxtKey": "2010",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2012",
@@ -1008,7 +1008,7 @@
       "text": "מתקדמים, רוסטר. למונטנה יש עוד Pickup ממולכד. לך תביא אותו.",
       "gxtKey": "2012",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2013",
@@ -1020,7 +1020,7 @@
       "text": "אתה לא הכי חד, רוסטר. לפוצץ את עצמך זה די מטומטם.",
       "gxtKey": "2013",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2014",
@@ -1032,7 +1032,7 @@
       "text": "אנשי זייבאצו חסמו את נקודת הגישה החשובה לשטח שלהם. אולי כדאי להסיר את המחסום בהמשך.",
       "gxtKey": "2014",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2015",
@@ -1044,7 +1044,7 @@
       "text": "תחזור לרכב הממולכד, עכשיו!",
       "gxtKey": "2015",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2016",
@@ -1068,7 +1068,7 @@
       "text": "זה המקום הנכון, רוסטר. עכשיו תחזור ותחנה את ה־Pickup הארור!",
       "gxtKey": "2017",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2018",
@@ -1080,7 +1080,7 @@
       "text": "צא מה־Pickup — הוא עומד להתפוצץ!",
       "gxtKey": "2018",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2019",
@@ -1092,7 +1092,7 @@
       "text": "הפעל את חומר הנפץ בתוך ה־Pickup, רוסטר!",
       "gxtKey": "2019",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2020",
@@ -1104,7 +1104,7 @@
       "text": "איפה בדיוק למדת לפוצץ כלום, רוסטר? חפש לך עבודה אחרת!",
       "gxtKey": "2020",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.blow-job.message-2021",
@@ -1113,10 +1113,10 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅲYee-ha! Them Zaibatsu don't know what hit 'em! Here's $30,000. Keep this up and you could end up one of the Good Ol' Boys. An' there's always plenty work for them, Rooster.",
-      "text": "יי־הא! אנשי זייבאצו אפילו לא הבינו מה פגע בהם! קח $30,000. תמשיך ככה ואולי עוד תהיה אחד מהחבר׳ה הטובים. תמיד יש להם עבודה בשבילך, רוסטר.",
+      "text": "יי־הא! אנשי זייבאצו אפילו לא הבינו מה נפל עליהם! הנה $30,000. תמשיך ככה ואולי תהיה אחד מהגוד אול בויז. תמיד יש להם עבודה בשבילך, רוסטר.",
       "gxtKey": "2021",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.rednecks.double-cross-crush.message-2023",
@@ -2100,7 +2100,7 @@
       "text": "לצערי, THC-303, האוטובוס היה חיוני להצלחת התוכנית שלי. אתה מפוטר.",
       "gxtKey": "2302",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2303",
@@ -2112,7 +2112,7 @@
       "text": "חזור לאוטובוס, THC-303. יש לי תוכנית — זוכר?",
       "gxtKey": "2303",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2304",
@@ -2124,7 +2124,7 @@
       "text": "טוב, חבר׳ה, עלו לאוטובוס — ובלי לירוק!",
       "gxtKey": "2304",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2305",
@@ -2148,7 +2148,7 @@
       "text": "קדימה, עלו!",
       "gxtKey": "2306",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2307",
@@ -2172,7 +2172,7 @@
       "text": "עלו, פעילי Z. אל תדברו עם הרדנקס.",
       "gxtKey": "2308",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2309",
@@ -2184,7 +2184,7 @@
       "text": "טוב, THC-303, נשארה עוד קבוצה אחת של זייבאצו לאסוף.",
       "gxtKey": "2309",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2310",
@@ -2196,7 +2196,7 @@
       "text": "כולם עולים, אנשי Z.",
       "gxtKey": "2310",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2311",
@@ -2220,7 +2220,7 @@
       "text": "עבודה טובה, THC-303. עכשיו רד מהאוטובוס ותן לשיבוטים שלי מאס־אר־אס להמשיך מכאן.",
       "gxtKey": "2312",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2314",
@@ -2232,7 +2232,7 @@
       "text": "THC-303, אידיוט. עכשיו אנחנו על סף מלחמת כנופיות.",
       "gxtKey": "2314",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.fake-truce.message-2315",
@@ -2244,7 +2244,7 @@
       "text": "ברכות, THC-303. בהדרכתי הכישרון שלך מתפתח. הנה $30,000 על העבודה הקשה.",
       "gxtKey": "2315",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.labrats-plan.message-2353",
@@ -2709,10 +2709,10 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳNow the #SRS Traitor# is in the #Taxi#, THC-303 - DESTROY IT!",
-      "text": "הבוגד של אס־אר־אס כבר בתוך ה־Taxi, THC-303 — השמד אותו!",
+      "text": "הבוגד של אס־אר־אס בתוך ה־Taxi, THC-303 — השמד את ה־Taxi!",
       "gxtKey": "2488",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.srs.taxi-traitor-test.message-2489",
@@ -3309,7 +3309,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺIncompetence, Gecko! The #Meteor# is smashed, the #Clone Serum# is lost and I have balls like water-filled balloons. Disappear!",
-      "text": "חוסר יכולת, גקו! ה־Meteor נהרסה, סרום השיבוט אבד, והביצים שלי כמו בלונים מלאים במים. תיעלם!",
+      "text": "חוסר יכולת, גקו! ה־Meteor נהרסה, סרום השיבוט אבד, ועכשיו הביצים שלי כמו בלונים מלאים במים. תיעלם!",
       "gxtKey": "2648",
       "matchStatus": "verified-gxt",
       "reviewStatus": "context-reviewed"
@@ -3345,10 +3345,10 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺTricky one next, Gecko. Steal #Bean's Red Limousine# from #Disgracelands#.",
-      "text": "המשימה הבאה מסובכת, גקו. גנוב את הלימוזינה האדומה של Bean מ־Disgracelands.",
+      "text": "המשימה הבאה מסובכת, גקו. גנוב את הלימוזינה האדומה של בין מ־Disgracelands.",
       "gxtKey": "2651",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.zaibatsu.operation-z.message-2652",
@@ -3489,10 +3489,10 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺYou exude Zaibatsu style as our Number One Covert Operative, Gecko. Your performance was well worth #$50,000#. Fancy joining me to bang a Bio-Bitch?",
-      "text": "אתה מפגין את סגנון זייבאצו כסוכן החשאי מספר אחת שלנו, גקו. מגיע לך $50,000. מתחשק לך להצטרף אליי ולזיין יפהפייה ביולוגית?",
+      "text": "אתה מביא כבוד לזייבאצו כסוכן החשאי מספר אחת שלנו, גקו. הרווחת את ה־$50,000 האלה. בא לך להצטרף אליי ולזיין איזו כלבה ביולוגית?",
       "gxtKey": "2663",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "residential.zaibatsu.operation-z.message-2664",
@@ -4473,10 +4473,10 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬA Yakuza escaped, Jumbo, so you be the bitch with no job.",
-      "text": "איש יאקוזה ברח, ג'מבו, אז אתה תישאר בלי עבודה.",
+      "text": "יאקוזה אחד ברח, ג׳מבו — ועכשיו אתה הזונה המובטלת.",
       "gxtKey": "1451",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.loonies.gang-war-a-go-go.message-1452",
@@ -4557,7 +4557,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬYou follow bad plans well, Jumbo. Have a deep-fried Pizza Cake and $20,000 to celebrate.",
-      "text": "אתה יודע לבחור תוכניות גרועות, ג׳מבו. קח פיצה קייק מטוגנת ו־$20,000 לחגיגה.",
+      "text": "אתה ממש מצטיין בביצוע תוכניות גרועות, ג׳מבו. קח פיצה קייק מטוגנת ו־$20,000 לחגיגה.",
       "gxtKey": "1535",
       "matchStatus": "verified-gxt",
       "reviewStatus": "context-reviewed"
@@ -5217,10 +5217,10 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹYou are intolerable, Kosai. Get back in the car and deliver ZitZaki. NOW.",
-      "text": "אתה בלתי נסבל. חזור למכונית והבא את זיטזאקי. עכשיו!",
+      "text": "אתה בלתי נסבל, קוסאי. חזור למכונית והבא את זיטזאקי. עכשיו!",
       "gxtKey": "1642",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.yakuza.get-zitzaki.message-1648",
@@ -6105,7 +6105,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺFaster, Gecko! Three to go and people need blow.",
-      "text": "מהר, גקו! נשארו עוד שלוש מסירות, ויש אנשים שצריכים את הסמים.",
+      "text": "יותר מהר, גקו! נשארו שלושה, והלקוחות מחכים לקוק.",
       "gxtKey": "1165",
       "matchStatus": "verified-gxt",
       "reviewStatus": "context-reviewed"
@@ -6129,10 +6129,10 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺTick tock goes the clock, two deals to go on this block.",
-      "text": "תקתוק השעון — נשארו שתי עסקאות ברחוב.",
+      "text": "טיק־טק, השעון דופק — עוד שתי עסקאות לספק בבלוק הזה.",
       "gxtKey": "1167",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.zaibatsu.wheeler-dealing.message-1168",
@@ -6261,7 +6261,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺKeeping the Zaibatsu Way secure is a full-time job, Gecko. Here's $20,000 for a job well done.",
-      "text": "שמירה על דרך זייבאצו מאובטחת היא עבודה במשרה מלאה, גקו. קח $20,000 על עבודה טובה.",
+      "text": "האבטחה של Zaibatsu Way היא עבודה מסביב לשעון, גקו. קח $20,000 על עבודה טובה.",
       "gxtKey": "1689",
       "matchStatus": "verified-gxt",
       "reviewStatus": "context-reviewed"
@@ -6393,10 +6393,10 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺWell done, Gecko. I now have $60,000 for you and enough for me to visit the moon. See you when I get back.",
-      "text": "כל הכבוד, גקו. עכשיו יש לי $60,000, ומספיק כסף כדי לבקר בירח. נתראה כשאחזור.",
+      "text": "כל הכבוד, גקו. הנה $60,000 בשבילך, ולי נשאר מספיק כדי לבקר בירח. נתראה כשאחזור.",
       "gxtKey": "1716",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.zaibatsu.bank-van-theft.message-1718",
@@ -7593,7 +7593,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺIt seems someone bigger is behind the car crushing, Gecko. Bring the Yute Boss to Zaibatsu HQ and we will use electrode therapy to find out what he knows.",
-      "text": "נראה שמישהו חזק יותר עומד מאחורי גריסת המכוניות, גקו. הבא את הבוס של היוט למפקדת זייבאצו, ונשתמש בטיפול באלקטרודות כדי לגלות מה הוא יודע.",
+      "text": "נראה שמישהו חזק יותר עומד מאחורי גריסת המכוניות, גקו. הבא את הבוס של היוטס למפקדת זייבאצו — נעשה לו ״טיפול באלקטרודות״ עד שיספר מה הוא יודע.",
       "gxtKey": "1261",
       "matchStatus": "verified-gxt",
       "reviewStatus": "context-reviewed"
@@ -7881,10 +7881,10 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅹ#The Yakuza do not do business with Zaibatsu whores. Begone!#",
-      "text": "אנשי יאקוזה לא עושים עסקים עם זונות זייבאצו. הסתלקי!",
+      "text": "יאקוזה לא עושים עסקים עם זונות של זייבאצו. עוף מפה!",
       "gxtKey": "1097",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.gang-guidance.message-1098",
@@ -7929,10 +7929,10 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "Ⅼ#Welcome to Loony Land! #Kill Yakuza# to make us happy!#",
-      "text": "ברוך הבא ללוני Land! חסל אנשי יאקוזה ותשמח אותנו!",
+      "text": "ברוך הבא ל־Loony Land! חסל אנשי יאקוזה ותעשה לנו שמח!",
       "gxtKey": "1102",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.gang-guidance.message-1103",
@@ -7941,10 +7941,10 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "Ⅼ#Hey, stupid, are you not already on a Loo-Loo-Loony job? Come back when you are through-ooh-ooh!#",
-      "text": "היי, טיפש, אתה לא כבר במשימה של Loo-Loo-לוניז? תחזור כשתסיים־הה־ה!",
+      "text": "היי, טמבל! אתה לא כבר במשימה של לו־לו־לוניז? תחזור כשתסיים — הו־הו־הו!",
       "gxtKey": "1103",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.gang-guidance.message-1104",
@@ -9045,10 +9045,10 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫAh, Grasshopper! Sunbeam here. I have a very fun job for you. Go #meet# some loyal #Krishna# converts and I will tell you more.",
-      "text": "אה, גראסהופר! זה Sunbeam. יש לי משימה מהנה בשבילך. פגוש כמה מומרים נאמנים של קרישנה ואספר לך עוד.",
+      "text": "אה, גראסהופר! כאן סאנבים. יש לי משימה מהנה בשבילך. לך לפגוש כמה מאמיני קרישנה נאמנים, ואספר לך עוד.",
       "gxtKey": "3148",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.krishna.russian-assassins.message-3149",
@@ -10776,7 +10776,7 @@
       "text": "חבר! זה ג'רקוב! כמה מהגנגסטרים המיוחדים שלי יודעים משהו על מלשן, אבל לכודים בליבת הכוח של זייבאצו. שחרר אותם — ואת המידע שלהם!",
       "gxtKey": "3960",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3962",
@@ -10788,7 +10788,7 @@
       "text": "הדלת נעולה, חבר. נסה לפוצץ את הגנרטורים כדי לפתוח את המנעולים הדביקים.",
       "gxtKey": "3962",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3963",
@@ -10800,7 +10800,7 @@
       "text": "מצוין! גנרטור אחד הושמד!",
       "gxtKey": "3963",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3964",
@@ -10812,7 +10812,7 @@
       "text": "הגנרטור השני חוסל!",
       "gxtKey": "3964",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3965",
@@ -10824,7 +10824,7 @@
       "text": "עבודה מקצועית, חבר. נשאר רק גנרטור אחד פעיל.",
       "gxtKey": "3965",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3966",
@@ -10836,7 +10836,7 @@
       "text": "היי! אסור לך להיות כאן!",
       "gxtKey": "3966",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3967",
@@ -10848,7 +10848,7 @@
       "text": "היי! יש לך אישור ביטחוני?",
       "gxtKey": "3967",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3968",
@@ -10857,10 +10857,10 @@
       "speaker": "ג'רקוב",
       "kind": "mission-message",
       "source": "ⅺAlert! We got a blower!",
-      "text": "אזעקה! יש לנו מחבל!",
+      "text": "התראה! יש כאן מישהו חמוש!",
       "gxtKey": "3968",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3969",
@@ -10872,7 +10872,7 @@
       "text": "אנחנו מאבדים חשמל! תמות!",
       "gxtKey": "3969",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3970",
@@ -10884,7 +10884,7 @@
       "text": "תייצר את זה, קובסקי!",
       "gxtKey": "3970",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3971",
@@ -10896,7 +10896,7 @@
       "text": "ביי ביי, פאי רוסי פסיכי!",
       "gxtKey": "3971",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3972",
@@ -10908,7 +10908,7 @@
       "text": "יש לך זכות לשתוק!",
       "gxtKey": "3972",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3973",
@@ -10920,7 +10920,7 @@
       "text": "קח את זה, קובסקי!",
       "gxtKey": "3973",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3975",
@@ -10932,7 +10932,7 @@
       "text": "נהדר, הדלת פתוחה! מצא את אנשי קובסקי שלי!",
       "gxtKey": "3975",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3977",
@@ -10944,7 +10944,7 @@
       "text": "הגן על אנשי קובסקי הנאמנים שלי — לאחד מהם יש מידע חיוני! זוז!",
       "gxtKey": "3977",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3978",
@@ -10956,7 +10956,7 @@
       "text": "פישלת, חבר. המלשן עדיין חופשי, וחוסר היכולת שלך השאיר את אנשי קובסקי שלי לגסוס ברחובות.",
       "gxtKey": "3978",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3979",
@@ -10968,7 +10968,7 @@
       "text": "אנשי זייבאצו בעקבותיכם! הגן על אנשיי, ואני אדאג שיפתחו את הדלת מבחוץ.",
       "gxtKey": "3979",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3980",
@@ -10980,7 +10980,7 @@
       "text": "נודע עליכם, חבר, ושלושה מתנקשים מתקרבים. אדאג שיפתחו את הדלת. שמור על עצמך.",
       "gxtKey": "3980",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3981",
@@ -10992,7 +10992,7 @@
       "text": "יופי! חיסלת את המתנקש התאגידי!",
       "gxtKey": "3981",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3982",
@@ -11004,7 +11004,7 @@
       "text": "הא! המתנקשים של זייבאצו הם בדיחה!",
       "gxtKey": "3982",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3983",
@@ -11016,7 +11016,7 @@
       "text": "סוכן זייבאצו אלפא זיהה את המטרה!",
       "gxtKey": "3983",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3984",
@@ -11028,7 +11028,7 @@
       "text": "סוכן זייבאצו אפסילון זיהה את המטרה!",
       "gxtKey": "3984",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3985",
@@ -11040,7 +11040,7 @@
       "text": "סוכן זייבאצו קאפה זיהה את המטרה!",
       "gxtKey": "3985",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3986",
@@ -11052,7 +11052,7 @@
       "text": "עבודה מקצועית, חבר. קח את אנשיי לפגוש את הדוד ואנקה באזור הרוסי. הוא היחיד שאני מכיר שיכול לפענח את המידע של הגנגסטרים.",
       "gxtKey": "3986",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3987",
@@ -11064,7 +11064,7 @@
       "text": "איבדת את אנשי קובסקי שלי! מצא אותם, חבר!",
       "gxtKey": "3987",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3988",
@@ -11076,7 +11076,7 @@
       "text": "הזמן קצר, חבר. אל תשאיר אותם מאחור שוב.",
       "gxtKey": "3988",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3989",
@@ -11088,7 +11088,7 @@
       "text": "ספר לי — מי המלשן?",
       "gxtKey": "3989",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3990",
@@ -11100,7 +11100,7 @@
       "text": "צא מהרכב והדוד ואנקה יפענח את המידע.",
       "gxtKey": "3990",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3991",
@@ -11112,7 +11112,7 @@
       "text": "מה?! אל תהיה טיפש, חבר. חזור לכאן וצא מהרכב.",
       "gxtKey": "3991",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3993",
@@ -11124,7 +11124,7 @@
       "text": "הרגת את הדוד ואנקה, חבר! איך אקבל מידע מקובסקי החירש שלי?",
       "gxtKey": "3993",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3994",
@@ -11136,7 +11136,7 @@
       "text": "הוא אומר... “למישהו יש מידע מלוכלך... על אשתו של ג'רקוב... והוא עומד לגלות הכול... לשוטרים”.",
       "gxtKey": "3994",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3995",
@@ -11148,7 +11148,7 @@
       "text": "הבן שלי רוצה לטפל במלשן. גנוב Cop Car ואעביר לך הוראות נוספות.",
       "gxtKey": "3995",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3996",
@@ -11160,7 +11160,7 @@
       "text": "מדי השוטר יושבים עליך כמו כפפה, חבר! מצא את המלשן ועצור מול המכונית שלו. תפעיל סירנה — הוא לא יצא בלעדיה!",
       "gxtKey": "3996",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3997",
@@ -11172,7 +11172,7 @@
       "text": "לאן אתה הולך, חבר? היכנס ל־Cop Car עכשיו!",
       "gxtKey": "3997",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3998",
@@ -11184,7 +11184,7 @@
       "text": "איך העזת למנוע מהבן שלי את העונג להרוג את המלשן! אתה מפוטר!",
       "gxtKey": "3998",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.russians.informant-rescue.message-3999",
@@ -11196,7 +11196,7 @@
       "text": "לך לעזאזל, שוטר! לעולם לא תיקח אותי חי!",
       "gxtKey": "3999",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.zaibatsu.gang-guidance.message-3675",
@@ -11229,10 +11229,10 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺHi, you must be Gecko. Want a Mitsi? No? Well you'd better get this cash back to Uno.",
-      "text": "היי, אתה בטח גקו. רוצה Mitsi? לא? אז תחזיר את הכסף ל־Uno.",
+      "text": "היי, אתה בטח גקו. רוצה Mitsi? לא? אז תחזיר את הכסף לאונו.",
       "gxtKey": "3763",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.zaibatsu.legal-drugs.message-3764",
@@ -11265,10 +11265,10 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅭI have no money for Zaibatsu punks! Tell Uno Carb to go screw himself!",
-      "text": "אין לי כסף לברחוני זייבאצו! תגיד לאונו קארב שילך להזדיין!",
+      "text": "אין לי כסף בשביל הבריונים של זייבאצו! תגיד לאונו קארב שילך להזדיין!",
       "gxtKey": "3766",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.zaibatsu.legal-drugs.message-3767",
@@ -11481,10 +11481,10 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅭThe Z-Man will soon be D-Man... D for Dead! HA HA HA!",
-      "text": "עוד רגע איש Z יהפוך לאיש מת! הא־הא!",
+      "text": "עוד רגע ה־Z-Man יהפוך ל־D-Man... D כמו Dead — מת! הא־הא־הא!",
       "gxtKey": "3788",
       "matchStatus": "verified-gxt",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "industrial.zaibatsu.legal-drugs.message-3789",

@@ -19,6 +19,7 @@ import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, We
 import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js';
 import { money } from './savestate.js';
 import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js';
+import { bindHebrewGxtRenderer } from './gamegxt.js';
 
 // The shell's own user-facing text, in the web languages (namespace shell.*).
 // Game text lives in data/*.gxt, translated by web/gxt-translations.js.
@@ -371,6 +372,13 @@ registerDict({
     'shell.filesForgotten': 'Fichiers de jeu supprimés de ce navigateur.',
   },
   he: {
+    'shell.viewNormal': 'רגיל', 'shell.viewFar': 'רחוק', 'shell.viewFarther': 'רחוק יותר', 'shell.viewFarthest': 'הכי רחוק',
+    'shell.cameraModern': 'מצלמה: מודרנית', 'shell.cameraClassic': 'מצלמה: קלאסית', 'shell.viewLabel': 'תצוגה: {view}',
+    'shell.viewTitle': 'מרחק תצוגה (מקשי ‎− / =)', 'shell.viewTitleDisabled': 'שינוי מרחק התצוגה דורש מצלמה מודרנית',
+    'shell.fps': '{fps} פריימים לשנייה', 'shell.fpsWait': '… פריימים לשנייה',
+    'shell.crewReputation': 'מוניטין הכנופיה: {list}',
+    'shell.crewRepRow': '{name} {delta} (כעת {reputation})',
+    'shell.crewRepShort': 'מוניטין {reputation}, {wins} ניצחונות',
     'shell.crash': 'המשחק נעצר עקב שגיאה: {message}',
     'shell.loginExpired': 'תוקף ההתחברות פג. פתח שוב את קישור ההזמנה או הזן את הסיסמה.',
     'shell.serverStatus': 'השרת השיב {status}', 'shell.serverUnreachable': 'לא ניתן להגיע לשרת המשחק. בדוק את החיבור ונסה לטעון מחדש.',
@@ -950,7 +958,7 @@ function wireHebrewMainMenu(Module, canvas) {
     const state = menuState();
     const page = state < 0 ? -1 : Math.floor(state / 16);
     if (tools) tools.hidden = page >= 0;
-    overlay.hidden = page !== 0 || currentLang() !== 'he';
+    overlay.hidden = page !== 0 || currentLang() !== 'he' || !!Module.gta2HebrewGxtReady;
     if (page !== 0 || currentLang() !== 'he') return;
     const selected = state % 16;
     for (const option of options) option.classList.toggle('selected', Number(option.dataset.option) === selected);
@@ -1339,6 +1347,11 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
     $('game').hidden = false;
     setStatus('');
     canvas.focus();
+    try {
+      await bindHebrewGxtRenderer(Module, canvas);
+    } catch (error) {
+      console.warn('Hebrew GXT text layer unavailable; original game text remains active.', error);
+    }
     wireHebrewMainMenu(Module, canvas);
     Module.ccall('gta2_port_set_view_width', 'number', ['number'], [chooseViewWidth(canvas)]);
     wireViewWidth(Module, canvas);

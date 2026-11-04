@@ -27,9 +27,10 @@ for (let at = tkey.at; at < tkey.at + tkey.size; at += 12) {
 }
 const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
 const rows = Object.entries(catalog.titles || {});
-if (rows.length !== 34) throw new Error(`Expected 34 mission titles, found ${rows.length}`);
+if (rows.length !== 88) throw new Error(`Expected 88 mission titles and HUD statuses, found ${rows.length}`);
+const namedGxtKeys = { 9001: 'mfail', 9002: 'kfstart', 9003: 'kfpass', 9004: 'kffail' };
 for (const [key, row] of rows) {
-  if (source.get(key) !== row.source) throw new Error(`GXT source mismatch for mission title ${key}`);
+  if (source.get(namedGxtKeys[key] || key) !== row.source) throw new Error(`GXT source mismatch for mission title ${key}`);
   if (!row.text || row.text === row.source) throw new Error(`Missing Hebrew translation for mission title ${key}`);
 }
 console.log(`test_mission_titles: OK (${rows.length} title GXT keys verified against original e.gxt)`);

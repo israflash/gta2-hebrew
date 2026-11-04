@@ -2,93 +2,361 @@
   "version": 1,
   "language": "he",
   "titles": {
-    "1970": { "source": "WHO'S MAD?", "text": "מי כאן המשוגע?" },
-    "1971": { "source": "DESTROY J-LAB!", "text": "השמידו את J-Lab!" },
-    "1972": { "source": "DIMENTIA TO GO!", "text": "דמנציה טייק אוויי!" },
-    "1973": { "source": "TAXI DRIVERS MUST DIE!", "text": "נהגי המוניות חייבים למות!" },
-    "1974": { "source": "GANG WAR A-GO-GO!", "text": "מלחמת כנופיות בטירוף!" },
-    "1975": { "source": "GET ZITZAKI!", "text": "חילוץ זיטזאקי!" },
-    "1976": { "source": "BANK ROBBERY!", "text": "שוד הבנק!" },
-    "1977": { "source": "HAPPY GAS SMASH!", "text": "נפצו את מכלי גז הצחוק!" },
-    "1978": { "source": "GET GAMA REI!", "text": "חילוץ גאמה ריי!" },
-    "1979": { "source": "FOLLOW THAT TRAITOR!", "text": "עקבו אחרי הבוגד!" },
-    "1980": { "source": "SWAT VAN SWIPE!", "text": "גניבת ניידת ימ״מ!" },
-    "1981": { "source": "STOP THE TANK!", "text": "עצרו את הטנק!" },
-    "1982": { "source": "COP CAR CRUSH!", "text": "גניבת ניידת המשטרה!" },
-    "1983": { "source": "WHEELER-DEALING!", "text": "עסקאות על גלגלים!" },
-    "1984": { "source": "LICK THOSE LOONIES!", "text": "קרעו את הלוניז!" },
-    "1985": { "source": "YUTES MUST DIE!", "text": "היוטס חייבים למות!" },
-    "1986": { "source": "BIG BANK JOB!", "text": "שוד הבנק הגדול!" },
-    "1987": { "source": "ARMORED CAR CLASH!", "text": "השמדת מכוניות היאקוזה!" },
-    "1988": { "source": "BANK VAN THEFT!", "text": "גניבת ואן הבנק!" },
-    "2460": { "source": "GRAN'PA WE LOVE YOU!", "text": "סבא, אנחנו אוהבים אותך!" },
-    "2461": { "source": "REDNECK ATTACK!", "text": "מתקפת הרדנקס!" },
-    "2462": { "source": "TAXI TRAITOR TEST!", "text": "מבחן הבוגד במונית!" },
-    "2463": { "source": "WATER CARRY ON!", "text": "השבתת חברת המים!" },
-    "2464": { "source": "SCIENCE FRICTION!", "text": "פיצוץ מדעי!" },
-    "2465": { "source": "FIRE TRUCK FUN!", "text": "כיף בכבאית!" },
-    "2466": { "source": "OPERATION Z!", "text": "מבצע Z!" },
-    "2467": { "source": "VALDEZ ALERT!", "text": "כוננות ולדז!" },
-    "2468": { "source": "LAW ENFORCEMENT LARCENY!", "text": "גניבת רכבי אכיפת החוק!" },
-    "2469": { "source": "MURDER IN THE MALL!", "text": "רצח בקניון!" },
-    "2470": { "source": "DISTRACTION ACTION!", "text": "פעולת הסחה!" },
-    "2671": { "source": "BLOW JOB!", "text": "עבודת פיצוץ!" },
-    "2672": { "source": "DOUBLE-CROSS CRUSH!", "text": "ריסוק הבוגדים!" },
-    "2673": { "source": "GREATEST HITS!", "text": "להיטים קטלניים!" },
-    "2674": { "source": "BENSON BURNER!", "text": "שורפים את ה־Benson!" },
-    "1952": { "source": "TUTORIAL!", "text": "הדרכה!" },
-    "1953": { "source": "THE FINAL JOB!", "text": "המשימה האחרונה!" },
-    "2954": { "source": "TANKS-GIVING!", "text": "חג הטנקים!" },
-    "2955": { "source": "GANG CAR BANG!", "text": "מלחמת רכבי כנופיות!" },
-    "2956": { "source": "PENAL TIES!", "text": "קשרי כלא!" },
-    "2957": { "source": "SINK OR SWIM!", "text": "לשחות או לטבוע!" },
-    "2958": { "source": "FAKE TRUCE!", "text": "הפסקת אש מזויפת!" },
-    "2959": { "source": "LABRAT'S PLAN!", "text": "התוכנית של לה־בראט!" },
-    "3840": { "source": "DECONSTRUCTION YARD!", "text": "מגרש ההריסות!" },
-    "3841": { "source": "COP CAR SCRAP!", "text": "גריטת ניידות!" },
-    "3842": { "source": "COSSACK CONVERSION!", "text": "המרת קוזקים!" },
-    "3843": { "source": "SUNBEAM CONTRACT!", "text": "החוזה של סאנבים!" },
-    "3844": { "source": "CONVERSION EVASION!", "text": "בריחה מהמרה!" },
-    "3845": { "source": "ROOFTOP RESCUE!", "text": "חילוץ מהגג!" },
-    "3846": { "source": "POWER STATION!", "text": "תחנת הכוח!" },
-    "3847": { "source": "GANG WAR!", "text": "מלחמת כנופיות!" },
-    "3848": { "source": "GRAND THEFT AUTO!", "text": "גניבת רכב!" },
-    "3849": { "source": "PAYBACK!", "text": "נקמה!" },
-    "3850": { "source": "LOCK-OUT!", "text": "נעילה בחוץ!" },
-    "3851": { "source": "IT WAS AN ACCIDENT!", "text": "זו הייתה תאונה!" },
-    "3852": { "source": "I'D LIKE A TANK PLEASE, BOB!", "text": "אפשר טנק, בבקשה, בוב?" },
-    "3853": { "source": "ARMY BASE ALERT!", "text": "כוננות בבסיס הצבא!" },
-    "3854": { "source": "HOT DOG HOMICIDE!", "text": "רצח נקניקייה!" },
-    "3855": { "source": "MMM, RUSSIAN SAILORS!", "text": "מממ, מלחים רוסים!" },
-    "3856": { "source": "OFFICER DOWN!", "text": "שוטר נפל!" },
-    "3857": { "source": "KARMA ASSASSINS!", "text": "מתנקשי קארמה!" },
-    "3858": { "source": "TANKS A LOT!", "text": "תודה רבה, טנקים!" },
-    "3859": { "source": "VEDIC MASSACRE!", "text": "טבח ודי!" },
-    "3860": { "source": "SUPER GRASS RESCUE!", "text": "חילוץ הסופר גראס!" },
-    "3861": { "source": "FINAL JOB!", "text": "המשימה האחרונה!" },
-    "1955": { "source": "PIZZA CAKE!", "text": "פיצה קייק!" },
-    "2473": { "source": "GO!", "text": "צא!" },
-    "1016": { "source": "ALL YAKUZA JOBS DONE!", "text": "כל משימות היאקוזה הושלמו!" },
-    "1017": { "source": "ALL LOONY JOBS DONE!", "text": "כל משימות הלוניז הושלמו!" },
-    "1018": { "source": "ALL ZAIBATSU JOBS DONE!", "text": "כל משימות זייבאצו הושלמו!" },
-    "1124": { "source": "JOB COMPLETE!", "text": "המשימה הושלמה!" },
-    "1125": { "source": "JOB FAILED!", "text": "המשימה נכשלה!" },
-    "1338": { "source": "JOB FAILED!", "text": "המשימה נכשלה!" },
-    "1339": { "source": "JOB FAILED!", "text": "המשימה נכשלה!" },
-    "2998": { "source": "Mission Failed!", "text": "המשימה נכשלה!" },
-    "2999": { "source": "Mission Complete!", "text": "המשימה הושלמה!" },
-    "3100": { "source": "JOB COMPLETE!", "text": "המשימה הושלמה!" },
-    "3730": { "source": "JOB FAILED!", "text": "המשימה נכשלה!" },
-    "3670": { "source": "ALL KRISHNA JOBS DONE!", "text": "כל משימות קרישנה הושלמו!" },
-    "3672": { "source": "ALL RUSSIAN JOBS DONE!", "text": "כל משימות הרוסים הושלמו!" },
-    "3674": { "source": "ALL ZAIBATSU JOBS DONE!", "text": "כל משימות זייבאצו הושלמו!" },
-    "6147": { "source": "WANG CAR BONUS!", "text": "בונוס מכונית ואנג!" },
-    "6184": { "source": "SCIENTIST GANG COMPLETE!", "text": "כנופיית המדענים הושלמה!" },
-    "6185": { "source": "REDNECK GANG COMPLETE!", "text": "כנופיית הרדנקס הושלמה!" },
-    "6186": { "source": "ZAIBATSU GANG COMPLETE!", "text": "כנופיית זייבאצו הושלמה!" },
-    "9001": { "source": "JOB FAILED!", "text": "המשימה נכשלה!" },
-    "9002": { "source": "KILL FRENZY!", "text": "אתגר Kill Frenzy!" },
-    "9003": { "source": "FRENZY PASSED!", "text": "אתגר Kill Frenzy הושלם!" },
-    "9004": { "source": "FRENZY FAILED!", "text": "אתגר Kill Frenzy נכשל!" }
+    "1016": {
+      "source": "ALL YAKUZA JOBS DONE!",
+      "text": "כל משימות היאקוזה הושלמו!"
+    },
+    "1017": {
+      "source": "ALL LOONY JOBS DONE!",
+      "text": "כל משימות הלוניז הושלמו!"
+    },
+    "1018": {
+      "source": "ALL ZAIBATSU JOBS DONE!",
+      "text": "כל משימות זייבאצו הושלמו!"
+    },
+    "1124": {
+      "source": "JOB COMPLETE!",
+      "text": "המשימה הושלמה!"
+    },
+    "1125": {
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    "1338": {
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    "1339": {
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    "1952": {
+      "source": "TUTORIAL!",
+      "text": "הדרכה!"
+    },
+    "1953": {
+      "source": "THE FINAL JOB!",
+      "text": "המשימה האחרונה!"
+    },
+    "1955": {
+      "source": "PIZZA CAKE!",
+      "text": "פיצה קייק!"
+    },
+    "1970": {
+      "source": "WHO'S MAD?",
+      "text": "מי כאן המשוגע?"
+    },
+    "1971": {
+      "source": "DESTROY J-LAB!",
+      "text": "השמד את J-Lab!",
+      "reviewStatus": "context-reviewed"
+    },
+    "1972": {
+      "source": "DIMENTIA TO GO!",
+      "text": "דמנציה טייק אוויי!"
+    },
+    "1973": {
+      "source": "TAXI DRIVERS MUST DIE!",
+      "text": "נהגי המוניות חייבים למות!"
+    },
+    "1974": {
+      "source": "GANG WAR A-GO-GO!",
+      "text": "מלחמת כנופיות בטירוף!"
+    },
+    "1975": {
+      "source": "GET ZITZAKI!",
+      "text": "חילוץ זיטזאקי!"
+    },
+    "1976": {
+      "source": "BANK ROBBERY!",
+      "text": "שוד הבנק!"
+    },
+    "1977": {
+      "source": "HAPPY GAS SMASH!",
+      "text": "נפצו את מכלי גז הצחוק!"
+    },
+    "1978": {
+      "source": "GET GAMA REI!",
+      "text": "חילוץ גאמה ריי!"
+    },
+    "1979": {
+      "source": "FOLLOW THAT TRAITOR!",
+      "text": "עקבו אחרי הבוגד!"
+    },
+    "1980": {
+      "source": "SWAT VAN SWIPE!",
+      "text": "גניבת ניידת ימ״מ!"
+    },
+    "1981": {
+      "source": "STOP THE TANK!",
+      "text": "עצרו את הטנק!"
+    },
+    "1982": {
+      "source": "COP CAR CRUSH!",
+      "text": "ניידת למגרסה!",
+      "reviewStatus": "context-reviewed"
+    },
+    "1983": {
+      "source": "WHEELER-DEALING!",
+      "text": "עסקאות על גלגלים!"
+    },
+    "1984": {
+      "source": "LICK THOSE LOONIES!",
+      "text": "קרעו את הלוניז!"
+    },
+    "1985": {
+      "source": "YUTES MUST DIE!",
+      "text": "היוטס חייבים למות!"
+    },
+    "1986": {
+      "source": "BIG BANK JOB!",
+      "text": "שוד הבנק הגדול!"
+    },
+    "1987": {
+      "source": "ARMORED CAR CLASH!",
+      "text": "השמדת מכוניות היאקוזה!"
+    },
+    "1988": {
+      "source": "BANK VAN THEFT!",
+      "text": "גניבת ואן הבנק!"
+    },
+    "2460": {
+      "source": "GRAN'PA WE LOVE YOU!",
+      "text": "סבא, אנחנו אוהבים אותך!"
+    },
+    "2461": {
+      "source": "REDNECK ATTACK!",
+      "text": "מתקפת הרדנקס!"
+    },
+    "2462": {
+      "source": "TAXI TRAITOR TEST!",
+      "text": "מבחן הבוגד במונית!"
+    },
+    "2463": {
+      "source": "WATER CARRY ON!",
+      "text": "השבתת חברת המים!"
+    },
+    "2464": {
+      "source": "SCIENCE FRICTION!",
+      "text": "מדע עם ניצוצות!",
+      "reviewStatus": "context-reviewed"
+    },
+    "2465": {
+      "source": "FIRE TRUCK FUN!",
+      "text": "כיף בכבאית!"
+    },
+    "2466": {
+      "source": "OPERATION Z!",
+      "text": "מבצע Z!"
+    },
+    "2467": {
+      "source": "VALDEZ ALERT!",
+      "text": "כוננות ולדז!"
+    },
+    "2468": {
+      "source": "LAW ENFORCEMENT LARCENY!",
+      "text": "גניבת רכבי אכיפת החוק!"
+    },
+    "2469": {
+      "source": "MURDER IN THE MALL!",
+      "text": "רצח בקניון!"
+    },
+    "2470": {
+      "source": "DISTRACTION ACTION!",
+      "text": "פעולת הסחה!"
+    },
+    "2473": {
+      "source": "GO!",
+      "text": "צא!"
+    },
+    "2671": {
+      "source": "BLOW JOB!",
+      "text": "ג׳וב מפוצץ!",
+      "reviewStatus": "context-reviewed"
+    },
+    "2672": {
+      "source": "DOUBLE-CROSS CRUSH!",
+      "text": "ריסוק הבוגדים!"
+    },
+    "2673": {
+      "source": "GREATEST HITS!",
+      "text": "להיטים קטלניים!"
+    },
+    "2674": {
+      "source": "BENSON BURNER!",
+      "text": "שורפים את ה־Benson!"
+    },
+    "2954": {
+      "source": "TANKS-GIVING!",
+      "text": "חג הטנקים!"
+    },
+    "2955": {
+      "source": "GANG CAR BANG!",
+      "text": "מלחמת רכבי כנופיות!"
+    },
+    "2956": {
+      "source": "PENAL TIES!",
+      "text": "קשרי כלא!"
+    },
+    "2957": {
+      "source": "SINK OR SWIM!",
+      "text": "לשחות או לטבוע!"
+    },
+    "2958": {
+      "source": "FAKE TRUCE!",
+      "text": "הפסקת אש מזויפת!"
+    },
+    "2959": {
+      "source": "LABRAT'S PLAN!",
+      "text": "התוכנית של לה־בראט!"
+    },
+    "2998": {
+      "source": "Mission Failed!",
+      "text": "המשימה נכשלה!"
+    },
+    "2999": {
+      "source": "Mission Complete!",
+      "text": "המשימה הושלמה!"
+    },
+    "3100": {
+      "source": "JOB COMPLETE!",
+      "text": "המשימה הושלמה!"
+    },
+    "3670": {
+      "source": "ALL KRISHNA JOBS DONE!",
+      "text": "כל משימות קרישנה הושלמו!"
+    },
+    "3672": {
+      "source": "ALL RUSSIAN JOBS DONE!",
+      "text": "כל משימות הרוסים הושלמו!"
+    },
+    "3674": {
+      "source": "ALL ZAIBATSU JOBS DONE!",
+      "text": "כל משימות זייבאצו הושלמו!"
+    },
+    "3730": {
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    "3840": {
+      "source": "DECONSTRUCTION YARD!",
+      "text": "מגרש ההריסות!"
+    },
+    "3841": {
+      "source": "COP CAR SCRAP!",
+      "text": "גריטת ניידות!"
+    },
+    "3842": {
+      "source": "COSSACK CONVERSION!",
+      "text": "המרת קוזקים!"
+    },
+    "3843": {
+      "source": "SUNBEAM CONTRACT!",
+      "text": "החוזה של סאנבים!"
+    },
+    "3844": {
+      "source": "CONVERSION EVASION!",
+      "text": "בריחה מהמרה!"
+    },
+    "3845": {
+      "source": "ROOFTOP RESCUE!",
+      "text": "חילוץ מהגג!"
+    },
+    "3846": {
+      "source": "POWER STATION!",
+      "text": "תחנת הכוח!"
+    },
+    "3847": {
+      "source": "GANG WAR!",
+      "text": "מלחמת כנופיות!"
+    },
+    "3848": {
+      "source": "GRAND THEFT AUTO!",
+      "text": "גניבת רכב!"
+    },
+    "3849": {
+      "source": "PAYBACK!",
+      "text": "נקמה!"
+    },
+    "3850": {
+      "source": "LOCK-OUT!",
+      "text": "נעילה בחוץ!"
+    },
+    "3851": {
+      "source": "IT WAS AN ACCIDENT!",
+      "text": "זו הייתה תאונה!"
+    },
+    "3852": {
+      "source": "I'D LIKE A TANK PLEASE, BOB!",
+      "text": "אפשר טנק, בבקשה, בוב?"
+    },
+    "3853": {
+      "source": "ARMY BASE ALERT!",
+      "text": "כוננות בבסיס הצבא!"
+    },
+    "3854": {
+      "source": "HOT DOG HOMICIDE!",
+      "text": "רצח נקניקייה!"
+    },
+    "3855": {
+      "source": "MMM, RUSSIAN SAILORS!",
+      "text": "מממ, מלחים רוסים!"
+    },
+    "3856": {
+      "source": "OFFICER DOWN!",
+      "text": "שוטר נפל!"
+    },
+    "3857": {
+      "source": "KARMA ASSASSINS!",
+      "text": "מתנקשי קארמה!"
+    },
+    "3858": {
+      "source": "TANKS A LOT!",
+      "text": "תודה רבה, טנקים!"
+    },
+    "3859": {
+      "source": "VEDIC MASSACRE!",
+      "text": "טבח ודי!"
+    },
+    "3860": {
+      "source": "SUPER GRASS RESCUE!",
+      "text": "חילוץ הסופר גראס!"
+    },
+    "3861": {
+      "source": "FINAL JOB!",
+      "text": "המשימה האחרונה!"
+    },
+    "6147": {
+      "source": "WANG CAR BONUS!",
+      "text": "בונוס מכונית ואנג!"
+    },
+    "6184": {
+      "source": "SCIENTIST GANG COMPLETE!",
+      "text": "כנופיית המדענים הושלמה!"
+    },
+    "6185": {
+      "source": "REDNECK GANG COMPLETE!",
+      "text": "כנופיית הרדנקס הושלמה!"
+    },
+    "6186": {
+      "source": "ZAIBATSU GANG COMPLETE!",
+      "text": "כנופיית זייבאצו הושלמה!"
+    },
+    "9001": {
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    "9002": {
+      "source": "KILL FRENZY!",
+      "text": "אתגר Kill Frenzy!"
+    },
+    "9003": {
+      "source": "FRENZY PASSED!",
+      "text": "אתגר Kill Frenzy הושלם!"
+    },
+    "9004": {
+      "source": "FRENZY FAILED!",
+      "text": "אתגר Kill Frenzy נכשל!"
+    }
   }
 }

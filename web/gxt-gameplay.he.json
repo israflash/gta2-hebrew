@@ -1,0 +1,2197 @@
+{
+  "version": 1,
+  "language": "he",
+  "method": "in-place browser text draw hook; original GXT remains English fallback",
+  "records": [
+    {
+      "key": "1015",
+      "source": "You have been arrested!",
+      "text": "נעצרת!"
+    },
+    {
+      "key": "1124",
+      "source": "JOB COMPLETE!",
+      "text": "המשימה הושלמה!"
+    },
+    {
+      "key": "1125",
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    {
+      "key": "1902",
+      "source": "Well done! You did it, baby!",
+      "text": "כל הכבוד! הצלחת, מותק!"
+    },
+    {
+      "key": "1904",
+      "source": "You made a right mess of that, ya donkey!",
+      "text": "איזה בלגן עשית, יא חמור!"
+    },
+    {
+      "key": "2052",
+      "source": "ⅲYou got one, Rooster! Shoot, we got seven more comin'!",
+      "text": "אחד כבר נפל, רוסטר! לעזאזל, עוד שבעה בדרך!"
+    },
+    {
+      "key": "2053",
+      "source": "ⅲHell, it's Hitman Season! Six to go!",
+      "text": "בחיי, עונת הציד נפתחה! נשארו שישה!"
+    },
+    {
+      "key": "2054",
+      "source": "ⅲWhat an UGLY son-of-a-bitch! Five to kill, Rooster!",
+      "text": "איזה בן זונה מכוער! נשארו חמישה לחסל, רוסטר!"
+    },
+    {
+      "key": "2055",
+      "source": "ⅲYou chewin' special jerky, Rooster? I make it four more to kill!",
+      "text": "מה, אתה לועס ג׳רקי מיוחד, רוסטר? נשארו עוד ארבעה לחסל!"
+    },
+    {
+      "key": "2056",
+      "source": "ⅲHot damn, you are FAST! Three Zaibatsu Killers to go!",
+      "text": "לעזאזל, אתה מהיר! נשארו עוד שלושה רוצחי זייבאצו!"
+    },
+    {
+      "key": "2057",
+      "source": "ⅲThey are outta my league, Rooster! Two Assassins remainin'!",
+      "text": "הם כבר גדולים עליי, רוסטר! נשארו שני מתנקשים!"
+    },
+    {
+      "key": "2058",
+      "source": "ⅲC'mon, Rooster - one killer to kill!",
+      "text": "קדימה, רוסטר — נשאר עוד רוצח אחד!"
+    },
+    {
+      "key": "2059",
+      "source": "ⅲJesus H Christ, Rooster! I seen some dumb-ass shit in my time but that beats all!",
+      "text": "אלוהים אדירים, רוסטר! ראיתי בחיים שלי דברים מטומטמים, אבל זה שובר שיאים!"
+    },
+    {
+      "key": "2215",
+      "source": "GOING DOWN!",
+      "text": "הדרך למטה!"
+    },
+    {
+      "key": "2232",
+      "source": "PRISON",
+      "text": "כלא"
+    },
+    {
+      "key": "2997",
+      "source": "Your status has been saved!",
+      "text": "המצב שלך נשמר!"
+    },
+    {
+      "key": "2998",
+      "source": "Mission Failed!",
+      "text": "המשימה נכשלה!"
+    },
+    {
+      "key": "2999",
+      "source": "Mission Complete!",
+      "text": "המשימה הושלמה!"
+    },
+    {
+      "key": "3202",
+      "source": "ⅮHow did you possibly manage to pass?",
+      "text": "איך לעזאזל הצלחת לעבור את זה?"
+    },
+    {
+      "key": "3204",
+      "source": "ⅮHow did you possibly manage to fail?",
+      "text": "איך לעזאזל הצלחת להיכשל בזה?"
+    },
+    {
+      "key": "play",
+      "source": "PLAY",
+      "text": "שחק"
+    },
+    {
+      "key": "options",
+      "source": "OPTIONS",
+      "text": "אפשרויות"
+    },
+    {
+      "key": "quit",
+      "source": "QUIT",
+      "text": "יציאה"
+    },
+    {
+      "key": "loading",
+      "source": "GET READY...",
+      "text": "היכון…"
+    },
+    {
+      "key": "yes",
+      "source": "YEAH!",
+      "text": "כן!"
+    },
+    {
+      "key": "no",
+      "source": "NO WAY!",
+      "text": "אין סיכוי!"
+    },
+    {
+      "key": "sure",
+      "source": "ARE YOU SURE?",
+      "text": "בטוח?"
+    },
+    {
+      "key": "pause",
+      "source": "PAUSED",
+      "text": "השהיה"
+    },
+    {
+      "key": "contnue",
+      "source": "CONTINUE",
+      "text": "המשך"
+    },
+    {
+      "key": "strtlev",
+      "source": "START PLAY IN AREA",
+      "text": "התחל במחוז"
+    },
+    {
+      "key": "nxt_lvl",
+      "source": "PLAY NEXT AREA",
+      "text": "עבור למחוז הבא"
+    },
+    {
+      "key": "savepos",
+      "source": "RESUME SAVED STATUS",
+      "text": "המשך מהשמירה"
+    },
+    {
+      "key": "replay",
+      "source": "REPLAY PREVIOUS AREA",
+      "text": "שחק שוב במחוז הקודם"
+    },
+    {
+      "key": "mainmen",
+      "source": "BACK TO MAIN MENU",
+      "text": "חזרה לתפריט הראשי"
+    },
+    {
+      "key": "charctr",
+      "source": "PLAYER",
+      "text": "שחקן"
+    },
+    {
+      "key": "clrchar",
+      "source": "DELETE PLAYER",
+      "text": "מחק שחקן"
+    },
+    {
+      "key": "entrnam",
+      "source": "ENTER NAME",
+      "text": "הזן שם"
+    },
+    {
+      "key": "edtname",
+      "source": "EDIT NAME",
+      "text": "ערוך שם"
+    },
+    {
+      "key": "ed_det",
+      "source": "EDIT NAME",
+      "text": "ערוך שם"
+    },
+    {
+      "key": "back",
+      "source": "BACK",
+      "text": "חזרה"
+    },
+    {
+      "key": "quit1",
+      "source": "Is that it?",
+      "text": "זה הכול?"
+    },
+    {
+      "key": "quit2",
+      "source": "Press the ENTER key to quit play.",
+      "text": "לחץ ENTER כדי לצאת מהמשחק."
+    },
+    {
+      "key": "quit3",
+      "source": "Press the ESC key to resume play.",
+      "text": "לחץ ESC כדי להמשיך לשחק."
+    },
+    {
+      "key": "tport",
+      "source": "TELEPORT!",
+      "text": "העברה מיידית!"
+    },
+    {
+      "key": "connect",
+      "source": "Connecting...",
+      "text": "מתחבר…"
+    },
+    {
+      "key": "hi_scre",
+      "source": "VIEW HIGH SCORES",
+      "text": "הצגת שיאים"
+    },
+    {
+      "key": "hi_for",
+      "source": "HIGH SCORES FOR AREA",
+      "text": "שיאי המחוז"
+    },
+    {
+      "key": "hi_empt",
+      "source": "EMPTY",
+      "text": "ריק"
+    },
+    {
+      "key": "leagtab",
+      "source": "VIEW LEAGUE SCORE TABLE",
+      "text": "הצגת טבלת הליגה"
+    },
+    {
+      "key": "tot_hi",
+      "source": "TOTAL HIGH SCORE TABLE",
+      "text": "טבלת השיאים הכללית"
+    },
+    {
+      "key": "league",
+      "source": "LEAGUE SCORE TABLE",
+      "text": "טבלת הליגה"
+    },
+    {
+      "key": "bnslevs",
+      "source": "PLAY BONUS STAGES",
+      "text": "שחק בשלבי הבונוס"
+    },
+    {
+      "key": "nexbons",
+      "source": "PLAY NEXT BONUS STAGE",
+      "text": "שחק בשלב הבונוס הבא"
+    },
+    {
+      "key": "repbons",
+      "source": "REPLAY BONUS STAGE",
+      "text": "שחק שוב בשלב הבונוס"
+    },
+    {
+      "key": "bonslev",
+      "source": "BONUS STAGE",
+      "text": "שלב בונוס"
+    },
+    {
+      "key": "esc_i",
+      "source": "ESC",
+      "text": "ESC"
+    },
+    {
+      "key": "del_i",
+      "source": "DELETE",
+      "text": "DELETE"
+    },
+    {
+      "key": "ent_i",
+      "source": "ENTER",
+      "text": "ENTER"
+    },
+    {
+      "key": "bspc_i",
+      "source": "BACKSPACE",
+      "text": "BACKSPACE"
+    },
+    {
+      "key": "up_i",
+      "source": "UP",
+      "text": "UP"
+    },
+    {
+      "key": "down_i",
+      "source": "DOWN",
+      "text": "DOWN"
+    },
+    {
+      "key": "left_i",
+      "source": "LEFT",
+      "text": "LEFT"
+    },
+    {
+      "key": "right_i",
+      "source": "RIGHT",
+      "text": "RIGHT"
+    },
+    {
+      "key": "clrsl_i",
+      "source": "DELETE PLAYER",
+      "text": "מחק שחקן"
+    },
+    {
+      "key": "edtnm_i",
+      "source": "EDIT NAME",
+      "text": "ערוך שם"
+    },
+    {
+      "key": "delch_i",
+      "source": "DELETE LETTER",
+      "text": "מחק אות"
+    },
+    {
+      "key": "name_i",
+      "source": "ENTER NAME",
+      "text": "הזן שם"
+    },
+    {
+      "key": "g_over",
+      "source": "GAME OVER!",
+      "text": "המשחק נגמר!"
+    },
+    {
+      "key": "plr_ded",
+      "source": "YOU ARE DEAD!",
+      "text": "חוסלת!"
+    },
+    {
+      "key": "plr_qut",
+      "source": "PLAYER QUIT!",
+      "text": "השחקן יצא!"
+    },
+    {
+      "key": "cmpltd",
+      "source": "AREA COMPLETE!",
+      "text": "המחוז הושלם!"
+    },
+    {
+      "key": "gam_cmp",
+      "source": "GAME COMPLETE!",
+      "text": "המשחק הושלם!"
+    },
+    {
+      "key": "nicetry",
+      "source": "NICE TRY!",
+      "text": "ניסיון יפה!"
+    },
+    {
+      "key": "mfail",
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    {
+      "key": "kfstart",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "kfpass",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "kffail",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "wasted",
+      "source": "WASTED!",
+      "text": "חוסלת!"
+    },
+    {
+      "key": "fried",
+      "source": "TOASTED!",
+      "text": "נשרפת!"
+    },
+    {
+      "key": "shocked",
+      "source": "SHOCKING!",
+      "text": "התחשמלת!"
+    },
+    {
+      "key": "nicked",
+      "source": "BUSTED!",
+      "text": "נעצרת!"
+    },
+    {
+      "key": "yourit",
+      "source": "YOU ARE IT!",
+      "text": "תורך!"
+    },
+    {
+      "key": "wrngway",
+      "source": "BACK-TO-FRONT BONUS!",
+      "text": "בונוס נסיעה לאחור!"
+    },
+    {
+      "key": "fly_car",
+      "source": "INSANE STUNT BONUS!",
+      "text": "בונוס פעלול מטורף!"
+    },
+    {
+      "key": "bomb_on",
+      "source": "BOMB ARMED!",
+      "text": "הפצצה הופעלה!"
+    },
+    {
+      "key": "bonus_w",
+      "source": "BONUS COMPLETE!",
+      "text": "הבונוס הושלם!"
+    },
+    {
+      "key": "bonus_l",
+      "source": "TIME UP!",
+      "text": "הזמן נגמר!"
+    },
+    {
+      "key": "b_pass",
+      "source": "BONUS STAGE PASSED!",
+      "text": "שלב הבונוס הושלם!"
+    },
+    {
+      "key": "b_fail",
+      "source": "BONUS STAGE FAILED!",
+      "text": "שלב הבונוס נכשל!"
+    },
+    {
+      "key": "timeup",
+      "source": "Time Up!",
+      "text": "הזמן נגמר!"
+    },
+    {
+      "key": "demtime",
+      "source": "TIME UP!",
+      "text": "הזמן נגמר!"
+    },
+    {
+      "key": "demded",
+      "source": "PLAYER DEAD!",
+      "text": "השחקן חוסל!"
+    },
+    {
+      "key": "demquit",
+      "source": "PLAYER QUIT!",
+      "text": "השחקן יצא!"
+    },
+    {
+      "key": "svcanc",
+      "source": "Save Cancelled!",
+      "text": "השמירה בוטלה!"
+    },
+    {
+      "key": "fined",
+      "source": "SPOT FINE!",
+      "text": "קנס משטרתי!"
+    },
+    {
+      "key": "fined1",
+      "source": "FINED!",
+      "text": "נקנסת!"
+    },
+    {
+      "key": "comms1",
+      "source": "%s has left the game!",
+      "text": "השחקן {s} יצא מהמשחק!"
+    },
+    {
+      "key": "mult_w",
+      "source": "YOU WIN!",
+      "text": "ניצחת!"
+    },
+    {
+      "key": "mult_l",
+      "source": "YOU LOSE!",
+      "text": "הפסדת!"
+    },
+    {
+      "key": "mult_q",
+      "source": "QUITTER!",
+      "text": "פרשת!"
+    },
+    {
+      "key": "mult_d",
+      "source": "DRAWN!",
+      "text": "תיקו!"
+    },
+    {
+      "key": "nspray",
+      "source": "Come back when ya got the cash!",
+      "text": "תחזור כשתהיה לך ערימה של כסף!"
+    },
+    {
+      "key": "nspraya",
+      "source": "You ain't got enough cash! You need $%d.",
+      "text": "אין לך מספיק כסף! צריך #$%d#."
+    },
+    {
+      "key": "nespray",
+      "source": "I ain't touchin' that! Get outta here!",
+      "text": "אני לא נוגע בזה! עוף מפה!"
+    },
+    {
+      "key": "sdone",
+      "source": "There ya go! Nice colour! That's $%d.",
+      "text": "הנה, צבע יפה! זה יעלה #$%d#."
+    },
+    {
+      "key": "cdone",
+      "source": "It's clean - the plates have been changed. That's $%d.",
+      "text": "נקי — החלפנו את לוחיות הרישוי. זה יעלה #$%d#."
+    },
+    {
+      "key": "bdone",
+      "source": "The vehicle's been rigged! That's $%d.",
+      "text": "הרכב ממולכד! זה יעלה #$%d#."
+    },
+    {
+      "key": "arig",
+      "source": "This vehicle's already rigged!",
+      "text": "הרכב הזה כבר ממולכד!"
+    },
+    {
+      "key": "svdone",
+      "source": "#Your #status# is #saved#!#",
+      "text": "#המצב שלך #נשמר#!#"
+    },
+    {
+      "key": "svscore",
+      "source": "#Get lost, ya bum! It costs #$50,000# to save the state of play here!#",
+      "text": "#עוף מפה, קבצן! שמירת המשחק כאן עולה #$50,000#!#"
+    },
+    {
+      "key": "svmiss",
+      "source": "#You #cannot save# your state of play while you are #on a job#. Get back to work!#",
+      "text": "#אי אפשר לשמור# את מצב המשחק בזמן #משימה#. תחזור לעבודה!"
+    },
+    {
+      "key": "score",
+      "source": "SCORE",
+      "text": "ניקוד"
+    },
+    {
+      "key": "best",
+      "source": "BEST",
+      "text": "שיא"
+    },
+    {
+      "key": "last",
+      "source": "LAST",
+      "text": "אחרון"
+    },
+    {
+      "key": "kills_h",
+      "source": "KILLS",
+      "text": "חיסולים"
+    },
+    {
+      "key": "frags_h",
+      "source": "FRAGS",
+      "text": "הריגות"
+    },
+    {
+      "key": "pnts_h",
+      "source": "POINTS",
+      "text": "נקודות"
+    },
+    {
+      "key": "times_h",
+      "source": "TIMES",
+      "text": "פעמים"
+    },
+    {
+      "key": "pscore",
+      "source": "Target Score: %d",
+      "text": "ניקוד יעד: %d"
+    },
+    {
+      "key": "pgmiss",
+      "source": "%s Jobs Passed: %d/%d",
+      "text": "משימות של {s} שהושלמו: %d/%d"
+    },
+    {
+      "key": "pmiss",
+      "source": "Total Jobs Passed: %d/%d",
+      "text": "כל המשימות שהושלמו: %d/%d"
+    },
+    {
+      "key": "psec",
+      "source": "Kill Frenzies Passed: %d/%d",
+      "text": "אתגרי חיסול שהושלמו: %d/%d"
+    },
+    {
+      "key": "pbon",
+      "source": "Collected: %d/%d",
+      "text": "פריטי בונוס שנאספו: %d/%d"
+    },
+    {
+      "key": "car_cst",
+      "source": "AUTO DAMAGE COST",
+      "text": "עלות תיקון נזקי רכב"
+    },
+    {
+      "key": "car_dam",
+      "source": "VEHICLES DAMAGED",
+      "text": "כלי רכב שניזוקו"
+    },
+    {
+      "key": "carjack",
+      "source": "VEHICLES HIJACKED",
+      "text": "כלי רכב שנגנבו"
+    },
+    {
+      "key": "carjaka",
+      "source": "Car Jacka!",
+      "text": "גנב רכבים!"
+    },
+    {
+      "key": "run_ovr",
+      "source": "CIVILIANS RUN DOWN",
+      "text": "אזרחים שנדרסו"
+    },
+    {
+      "key": "murder",
+      "source": "CIVILIANS MURDERED",
+      "text": "אזרחים שנרצחו"
+    },
+    {
+      "key": "cop_kl",
+      "source": "LAWMEN KILLED",
+      "text": "שוטרים שנהרגו"
+    },
+    {
+      "key": "copkill",
+      "source": "Cop Killa!",
+      "text": "קוטל שוטרים!"
+    },
+    {
+      "key": "gng_kl",
+      "source": "GANG MEMBERS KILLED",
+      "text": "חברי כנופיה שנהרגו"
+    },
+    {
+      "key": "evsnrtg",
+      "source": "FUGITIVE FACTOR",
+      "text": "מקדם בריחה"
+    },
+    {
+      "key": "excutin",
+      "source": "Expeditious Execution!",
+      "text": "הוצאה להורג מהירה!"
+    },
+    {
+      "key": "gencide",
+      "source": "Genocide!",
+      "text": "טבח!"
+    },
+    {
+      "key": "accurcy",
+      "source": "Accuracy Bonus!",
+      "text": "בונוס דיוק!"
+    },
+    {
+      "key": "elvis_d",
+      "source": "Elvis Has Left The Building!",
+      "text": "אלביס עזב את הבניין!"
+    },
+    {
+      "key": "em_dest",
+      "source": "Medical Emergency!",
+      "text": "מצב חירום רפואי!"
+    },
+    {
+      "key": "stl_all",
+      "source": "Grand Theft Auto!",
+      "text": "גניבת מכוניות!"
+    },
+    {
+      "key": "dst_all",
+      "source": "Wipe Out!",
+      "text": "השמדה מוחלטת!"
+    },
+    {
+      "key": "bnk_job",
+      "source": "BANK JOBS",
+      "text": "שודי בנק"
+    },
+    {
+      "key": "slfkils",
+      "source": "PLAYER SUICIDES",
+      "text": "התאבדויות שחקן"
+    },
+    {
+      "key": "firearm",
+      "source": "WEAPON OFFENCES",
+      "text": "עבירות נשק"
+    },
+    {
+      "key": "unconc",
+      "source": "PEDS KO'D",
+      "text": "הולכי רגל שהוכו עד אובדן הכרה"
+    },
+    {
+      "key": "stl_car",
+      "source": "EMPTY VEHICLES STOLEN",
+      "text": "כלי רכב ריקים שנגנבו"
+    },
+    {
+      "key": "car_des",
+      "source": "VEHICLES DESTROYED",
+      "text": "כלי רכב שהושמדו"
+    },
+    {
+      "key": "hijack",
+      "source": "HIJACKS",
+      "text": "חטיפות רכב"
+    },
+    {
+      "key": "bus_hi",
+      "source": "BUSES HIJACKED",
+      "text": "אוטובוסים שנחטפו"
+    },
+    {
+      "key": "trn_hi",
+      "source": "TRAINS HIJACKED",
+      "text": "רכבות שנחטפו"
+    },
+    {
+      "key": "c00",
+      "source": "Pistol",
+      "text": "אקדח"
+    },
+    {
+      "key": "c01",
+      "source": "S-Uzi Machine Gun",
+      "text": "תת־מקלע S-Uzi"
+    },
+    {
+      "key": "c02",
+      "source": "Rocket Launcher",
+      "text": "מטול רקטות"
+    },
+    {
+      "key": "c03",
+      "source": "ElectroGun",
+      "text": "אקדח חשמלי"
+    },
+    {
+      "key": "c04",
+      "source": "Molotov Cocktails",
+      "text": "בקבוקי תבערה"
+    },
+    {
+      "key": "c05",
+      "source": "Grenades",
+      "text": "רימונים"
+    },
+    {
+      "key": "c06",
+      "source": "Shotgun",
+      "text": "רובה ציד"
+    },
+    {
+      "key": "c07",
+      "source": "ElectroBaton",
+      "text": "אלת חשמל"
+    },
+    {
+      "key": "c08",
+      "source": "Flamethrower",
+      "text": "להביור"
+    },
+    {
+      "key": "c09",
+      "source": "Silenced S-Uzi Machine Gun",
+      "text": "תת־מקלע S-Uzi מושתק"
+    },
+    {
+      "key": "c10",
+      "source": "Dual Pistol",
+      "text": "שני אקדחים"
+    },
+    {
+      "key": "c15",
+      "source": "Vehicle Bomb",
+      "text": "פצצת רכב"
+    },
+    {
+      "key": "c16",
+      "source": "Vehicle Oil Slick",
+      "text": "כתם שמן"
+    },
+    {
+      "key": "c17",
+      "source": "Vehicle Mines",
+      "text": "מוקשים לרכב"
+    },
+    {
+      "key": "c18",
+      "source": "Vehicle Machine Guns",
+      "text": "מקלעי רכב"
+    },
+    {
+      "key": "c19",
+      "source": "Tank Gun",
+      "text": "תותח טנק"
+    },
+    {
+      "key": "c20",
+      "source": "Water Cannon",
+      "text": "תותח מים"
+    },
+    {
+      "key": "c21",
+      "source": "Vehicle Flamethrower",
+      "text": "להביור לרכב"
+    },
+    {
+      "key": "c22",
+      "source": "Jeep Gun",
+      "text": "תותח ג׳יפ"
+    },
+    {
+      "key": "c23",
+      "source": "Instant Vehicle Bomb",
+      "text": "פצצת רכב מיידית"
+    },
+    {
+      "key": "c28",
+      "source": "Multiplier +1",
+      "text": "מכפיל ניקוד +1"
+    },
+    {
+      "key": "c29",
+      "source": "Life +1",
+      "text": "חיים +1"
+    },
+    {
+      "key": "c30",
+      "source": "Health",
+      "text": "בריאות"
+    },
+    {
+      "key": "c31",
+      "source": "Armor",
+      "text": "שריון"
+    },
+    {
+      "key": "c32",
+      "source": "Get Outta Jail Free Card",
+      "text": "כרטיס יציאה מהכלא"
+    },
+    {
+      "key": "c33",
+      "source": "Cop Bribe",
+      "text": "שוחד לשוטר"
+    },
+    {
+      "key": "c34",
+      "source": "Invulnerability*",
+      "text": "חסינות זמנית*"
+    },
+    {
+      "key": "c35",
+      "source": "Double Damage",
+      "text": "נזק כפול"
+    },
+    {
+      "key": "c36",
+      "source": "Fast Reload",
+      "text": "טעינה מהירה"
+    },
+    {
+      "key": "c37",
+      "source": "ElectroFingers",
+      "text": "אצבעות חשמליות"
+    },
+    {
+      "key": "c38",
+      "source": "Respect!",
+      "text": "כבוד!"
+    },
+    {
+      "key": "c39",
+      "source": "Invisibility",
+      "text": "אי־נראות"
+    },
+    {
+      "key": "c40",
+      "source": "Instant Gang",
+      "text": "כנופיה מיידית"
+    },
+    {
+      "key": "1290",
+      "source": "ⅹYou need $5,000 to rig the Ice-Cream Van with explosives.",
+      "text": "צריך $5,000 כדי למלכד את רכב הגלידה בחומר נפץ."
+    },
+    {
+      "key": "1402",
+      "source": "ⅹShit, Kosai! That Tank means business.",
+      "text": "לעזאזל, קוסאי! הטנק הזה רציני."
+    },
+    {
+      "key": "5000",
+      "source": "YOUR TIME IS EXTENDED!",
+      "text": "קיבלת הארכת זמן!"
+    },
+    {
+      "key": "5001",
+      "source": "1ST PLACE! YOU DA MAN, BABY! 12 VANS!",
+      "text": "מקום ראשון! אתה תותח, מותק! 12 ואנים!"
+    },
+    {
+      "key": "5002",
+      "source": "2ND PLACE! ONE SMOOTH OPERATOR! 11 VANS!",
+      "text": "מקום שני! איזה נהג חלקלק! 11 ואנים!"
+    },
+    {
+      "key": "5003",
+      "source": "3RD PLACE! YOU BIG SHOW-OFF! 10 VANS!",
+      "text": "מקום שלישי! איזה שוויצר! 10 ואנים!"
+    },
+    {
+      "key": "5004",
+      "source": "4TH PLACE! TOASTY TOASTY! 9 VANS!",
+      "text": "מקום רביעי! חם, חם! 9 ואנים!"
+    },
+    {
+      "key": "5005",
+      "source": "5TH PLACE! FLASH FELLA! 8 VANS!",
+      "text": "מקום חמישי! איזה זריז! 8 ואנים!"
+    },
+    {
+      "key": "5006",
+      "source": "6TH PLACE! MY HERO! 7 VANS!",
+      "text": "מקום שישי! אתה הגיבור שלי! 7 ואנים!"
+    },
+    {
+      "key": "5007",
+      "source": "7TH PLACE! SPAMTASTIC! 6 VANS!",
+      "text": "מקום שביעי! ספאם על הזמן! 6 ואנים!"
+    },
+    {
+      "key": "5008",
+      "source": "8TH PLACE! BURN IN HELL, BABY! 5 VANS!",
+      "text": "מקום שמיני! תישרף בגיהינום, מותק! 5 ואנים!"
+    },
+    {
+      "key": "5009",
+      "source": "9TH PLACE! YA BIG PUSSY! ONLY 4 VANS!",
+      "text": "מקום תשיעי! איזה פחדן! נשארו רק 4 ואנים!"
+    },
+    {
+      "key": "5010",
+      "source": "10TH PLACE! BOTTOM-FEEDER! ONLY 3 VANS!",
+      "text": "מקום עשירי! בתחתית הטבלה. נשארו רק 3 ואנים!"
+    },
+    {
+      "key": "5011",
+      "source": "11TH PLACE! WHY BOTHER, PAL? 2 CRUMMY VANS!",
+      "text": "מקום אחד־עשר! בשביל מה לטרוח, חבר? נשארו 2 ואנים עלובים!"
+    },
+    {
+      "key": "5012",
+      "source": "12TH PLACE! POND LIFE, BUDDY! 1 LOUSY VAN!",
+      "text": "מקום שנים־עשר! יצור ביצה. נשאר ואן עלוב אחד!"
+    },
+    {
+      "key": "5013",
+      "source": "Kill all the Ice-Cream Vans within the time limit. Follow the markers to find them. Fail and you get ICED yourself! HAW! HAW! HAW!",
+      "text": "השמד את כל רכבי הגלידה בזמן המוקצב. עקוב אחרי הסימונים כדי למצוא אותם. תיכשל, וגם אותך יקררו! הא! הא! הא!"
+    },
+    {
+      "key": "5014",
+      "source": "YOU DA MAN!",
+      "text": "אתה מלך!"
+    },
+    {
+      "key": "5015",
+      "source": "TIME'S UP, PAL!",
+      "text": "נגמר הזמן, חבר!"
+    },
+    {
+      "key": "5016",
+      "source": "1ST PLACE! WORLD CHAMPION! 12 VANS!",
+      "text": "מקום ראשון! אלוף העולם! 12 ואנים!"
+    },
+    {
+      "key": "5017",
+      "source": "2ND PLACE! ONE BAD MUTHA! 11 VANS!",
+      "text": "מקום שני! איזה בן־זונה קשוח! 11 ואנים!"
+    },
+    {
+      "key": "5018",
+      "source": "3RD PLACE! WIDOWMAKER! 10 VANS!",
+      "text": "מקום שלישי! אלמן שחור! 10 ואנים!"
+    },
+    {
+      "key": "5019",
+      "source": "4TH PLACE! GIVE IT TO ME, BABY! 9 VANS!",
+      "text": "מקום רביעי! תן לי את זה, מותק! 9 ואנים!"
+    },
+    {
+      "key": "5020",
+      "source": "5TH PLACE! BURN, BABY, BURN! 8 VANS!",
+      "text": "מקום חמישי! תשרוף, מותק, תשרוף! 8 ואנים!"
+    },
+    {
+      "key": "5021",
+      "source": "6TH PLACE! ARSON-TASTIC! YOU FRIED 7 VANS!",
+      "text": "מקום שישי! אלוף ההצתות! שרפת 7 ואנים!"
+    },
+    {
+      "key": "5022",
+      "source": "7TH PLACE! FRYING TONIGHT! 6 VANS!",
+      "text": "מקום שביעי! הלילה צולים! 6 ואנים!"
+    },
+    {
+      "key": "5023",
+      "source": "8TH PLACE! FASTER, PUSSYCAT - KILL KILL! 5 VANS!",
+      "text": "מקום שמיני! מהר, חתלתולה — להרוג, להרוג! 5 ואנים!"
+    },
+    {
+      "key": "5024",
+      "source": "9TH PLACE! YOU JUST AIN'T TRYIN', SUCKA! 4 VANS!",
+      "text": "מקום תשיעי! אפילו לא ניסית, יא אפס! 4 ואנים!"
+    },
+    {
+      "key": "5025",
+      "source": "10TH PLACE! DEAD DOGS DRIVE FASTER THAN YOU! 3 VANS!",
+      "text": "מקום עשירי! אפילו כלבים מתים נוהגים מהר ממך! 3 ואנים!"
+    },
+    {
+      "key": "5026",
+      "source": "11TH PLACE! ARE YOU A SUNDAY DRIVER? DO IT AGAIN! 2 VANS!",
+      "text": "מקום אחד־עשר! אתה נוסע רק בימי ראשון? נסה שוב! 2 ואנים!"
+    },
+    {
+      "key": "5027",
+      "source": "12TH PLACE! DOES SPEED SCARE YOU, BOY? TRY HARDER! 1 VAN!",
+      "text": "מקום שנים־עשר! המהירות מפחידה אותך, ילד? תתאמץ יותר! ואן אחד!"
+    },
+    {
+      "key": "5028",
+      "source": "What a LOOOOSER! Outwitted by a couple of kiddy Ice-Cream Vans and a bunch of Donut-Munchers! You are a complete waste of skin! Get outta here!",
+      "text": "איזה לוזר עלוב! כמה ואני גלידה של ילדים וחבורת שוטרים זוללי סופגניות עשו ממך צחוק. אתה פשוט בזבוז של עור. עוף מכאן!"
+    },
+    {
+      "key": "5029",
+      "source": "Nice work, sucka! With those Ice-Cream Vans out of the picture, we can introduce our own brand of Raspberry Rippled mayhem to the city and show them ALL the real meaning of 'I SCREAM'!",
+      "text": "כל הכבוד, יא אפס! עכשיו שוואני הגלידה האלה מחוץ לתמונה, נכניס לעיר מהומת גלידת פטל משלנו ונראה לכולם מה זה „אני צורח”!"
+    },
+    {
+      "key": "5030",
+      "source": "Collect as many power-ups as you can before the Cops catch up with you and turn you into cat food.",
+      "text": "אסוף כמה שיותר בונוסים לפני שהשוטרים ישיגו אותך ויהפכו אותך לאוכל לחתולים."
+    },
+    {
+      "key": "5031",
+      "source": "Oh, sorry about that... Did that hurt?",
+      "text": "אוי, סליחה... זה כאב?"
+    },
+    {
+      "key": "5032",
+      "source": "Nice work!",
+      "text": "יפה מאוד!"
+    },
+    {
+      "key": "5033",
+      "source": "1ST PLACE! WORLD CHAMPION! 12 VANS!",
+      "text": "מקום ראשון! אלוף העולם! 12 ואנים!"
+    },
+    {
+      "key": "5034",
+      "source": "2ND PLACE! SUPER-SPEEDY! 11 VANS!",
+      "text": "מקום שני! מהיר כמו טיל! 11 ואנים!"
+    },
+    {
+      "key": "5035",
+      "source": "3RD PLACE! OOH! MR SKIDMARKS! 10 VANS!",
+      "text": "מקום שלישי! מר סימני הצמיגים! 10 ואנים!"
+    },
+    {
+      "key": "5036",
+      "source": "4TH PLACE! MEESTER SLEEK! 9 VANS!",
+      "text": "מקום רביעי! מר חלקלק! 9 ואנים!"
+    },
+    {
+      "key": "5037",
+      "source": "5TH PLACE! EL PUMPO GRANDE! 8 VANS!",
+      "text": "מקום חמישי! אל פומפו הגדול! 8 ואנים!"
+    },
+    {
+      "key": "5038",
+      "source": "6TH PLACE! YOU BIG STINKER! 7 VANS!",
+      "text": "מקום שישי! חתיכת מסריח! 7 ואנים!"
+    },
+    {
+      "key": "5039",
+      "source": "7TH PLACE! TRYING TO SAVE GAS? SPEED UP NEXT TIME! 6 VANS!",
+      "text": "מקום שביעי! חוסך בדלק? בפעם הבאה תן גז! 6 ואנים!"
+    },
+    {
+      "key": "5040",
+      "source": "8TH PLACE! YOU AIN'T WORTH WASTING A BULLET ON! 5 VANS!",
+      "text": "מקום שמיני! אפילו לא שווה לבזבז עליך כדור! 5 ואנים!"
+    },
+    {
+      "key": "5041",
+      "source": "9TH PLACE! TAKE YOUR CAR OUT AND SHOOT IT! 4 VANS!",
+      "text": "מקום תשיעי! קח את המכונית שלך ותירה בה! 4 ואנים!"
+    },
+    {
+      "key": "5042",
+      "source": "10TH PLACE! JOIN THE GIRL SCOUTS, LOSER! 3 CRUMMY VANS!",
+      "text": "מקום עשירי! לך לצופים, לוזר! נשארו 3 ואנים עלובים!"
+    },
+    {
+      "key": "5043",
+      "source": "11TH PLACE! YOU BIG WET SLAP! 2 LOUSY VANS!",
+      "text": "מקום אחד־עשר! איזה סמרטוט רטוב! נשארו 2 ואנים עלובים!"
+    },
+    {
+      "key": "5044",
+      "source": "12TH PLACE! WHY BOTHER TRYING? 1 LOUSY VAN!",
+      "text": "מקום שנים־עשר! למה בכלל לנסות? נשאר ואן עלוב אחד!"
+    },
+    {
+      "key": "5045",
+      "source": "LOOOOSER! YOU ON SOFT DRUGS? TRY HARDER!",
+      "text": "לוזררר! אתה על סמים קלים? תתאמץ יותר!"
+    },
+    {
+      "key": "5050",
+      "source": "CHOCTASTIC!",
+      "text": "שוקולטסטי!"
+    },
+    {
+      "key": "5051",
+      "source": "RASPBERRY RIPPLE!",
+      "text": "גלידת פטל!"
+    },
+    {
+      "key": "5052",
+      "source": "YOU SHOT YOUR LOAD!",
+      "text": "בזבזת את כל התחמושת!"
+    },
+    {
+      "key": "5053",
+      "source": "OOH... DID THAT HURT?",
+      "text": "אוי... זה כאב?"
+    },
+    {
+      "key": "5054",
+      "source": "DEATH TO ICE-CREAM VANS!",
+      "text": "מוות לוואני הגלידה!"
+    },
+    {
+      "key": "5055",
+      "source": "CRISPY CRITTER!",
+      "text": "פריך לגמרי!"
+    },
+    {
+      "key": "5056",
+      "source": "YOU'RE TOAST, BUDDY!",
+      "text": "אתה שרוף, חבר!"
+    },
+    {
+      "key": "5057",
+      "source": "EAT LEADEN DEATH, PUNK!",
+      "text": "תטעם עופרת, חלאה!"
+    },
+    {
+      "key": "5058",
+      "source": "THAT'S GOTTA HURT!",
+      "text": "זה בטח כאב!"
+    },
+    {
+      "key": "5059",
+      "source": "SORRY ABOUT THAT!",
+      "text": "סליחה על זה!"
+    },
+    {
+      "key": "5060",
+      "source": "XIN LOI, MY MAN!",
+      "text": "סין לוי, אחי!"
+    },
+    {
+      "key": "5061",
+      "source": "DAMN SUNDAY DRIVERS!",
+      "text": "נהגי יום ראשון ארורים!"
+    },
+    {
+      "key": "5062",
+      "source": "SUCK IT AND SEE!",
+      "text": "תטעם ותראה!"
+    },
+    {
+      "key": "5063",
+      "source": "TASTE MY WRATH, ICE-CREAM BOY!",
+      "text": "תטעם את זעמי, ילד גלידה!"
+    },
+    {
+      "key": "1900",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "1901",
+      "source": "Kill #5 people# with #Molotov Cocktails# in #60 seconds#!",
+      "text": "חסל #5# אנשים באמצעות #בקבוקי תבערה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "1903",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "1905",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "1992",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "1993",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "1994",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "2070",
+      "source": "Use the Rocket Launcher to kill 20 people in 60 seconds!",
+      "text": "השתמש במטול רקטות כדי לחסל 20 אנשים בתוך 60 שניות!"
+    },
+    {
+      "key": "2071",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "2072",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "2073",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "3010",
+      "source": "ⅮUse a #Tank# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3011",
+      "source": "ⅮUse a #Tank# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3012",
+      "source": "ⅮUse #Vehicle Machine Guns# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3013",
+      "source": "ⅮUse #Vehicle Machine Guns# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3014",
+      "source": "ⅮUse #Vehicle Mines# to destroy #20 Cop Cars# in #60 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #20 ניידות משטרה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3015",
+      "source": "ⅮUse this #Car# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3016",
+      "source": "ⅮUse this #S-Uzi Machine Gun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi הזה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3017",
+      "source": "ⅮUse an #S-Uzi Machine Gun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3018",
+      "source": "ⅮUse #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3019",
+      "source": "ⅮUse #Molotov Cocktails# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3020",
+      "source": "ⅮUse a #Rocket Launcher# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3021",
+      "source": "ⅮUse a #Rocket Launcher# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3022",
+      "source": "ⅮUse a #Flamethrower# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3023",
+      "source": "ⅮUse a #Flamethrower# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3024",
+      "source": "ⅮUse an #ElectroGun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3025",
+      "source": "ⅮUse an #ElectroGun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3026",
+      "source": "ⅮUse an #ElectroGun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3027",
+      "source": "ⅮUse an #ElectroGun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3028",
+      "source": "ⅮUse a #Shotgun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3029",
+      "source": "ⅮUse a #Shotgun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3200",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "3201",
+      "source": "ⅮUse #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3203",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "3205",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "3210",
+      "source": "Use a #Tank# to shoot #20 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3211",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3212",
+      "source": "Use #Vehicle Machine Guns# to shoot #30 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3213",
+      "source": "Use this #vehicle# to kill #30 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #30 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3214",
+      "source": "Use #Vehicle Mines# to destroy #15 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #15 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3215",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3216",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #10 people# in #90 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #10 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3217",
+      "source": "Use #Molotov Cocktails# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3218",
+      "source": "Use #Molotov Cocktails# to destroy #15 vehicles# in #90 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #15 כלי רכב# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3219",
+      "source": "Use a #Rocket Launcher# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3220",
+      "source": "Use a #Rocket Launcher# to destroy #10 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #10 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3221",
+      "source": "Use a #Rocket Launcher# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3222",
+      "source": "Use a #Flamethrower# to torch #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3223",
+      "source": "Use a #Flamethrower# to torch #10 people# in #90 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #10 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3224",
+      "source": "Use an #ElectroGun# to fry #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3225",
+      "source": "Use an #ElectroGun# to fry #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3226",
+      "source": "Use an #ElectroGun# to fry #10 people# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #10 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3227",
+      "source": "Use an #ElectroGun# to destroy #5 vehicles# in #90 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #5 כלי רכב# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3228",
+      "source": "Use a #Shotgun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3229",
+      "source": "Use a #Shotgun# to shoot #10 people# in #90 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #10 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4310",
+      "source": "Use a #Tank# to shoot #30 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4311",
+      "source": "Use a #Tank# to shoot #30 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #30 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4312",
+      "source": "Use #Vehicle Machine Guns# to shoot #60 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #60 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4313",
+      "source": "Use this #vehicle# to kill #60 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #60 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4314",
+      "source": "Use #Vehicle Mines# to destroy #20 Cop Cars# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #20 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4315",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #40 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4316",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4317",
+      "source": "Use #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4318",
+      "source": "Use #Molotov Cocktails# to destroy #30 vehicles# in #90 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #30 כלי רכב# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4319",
+      "source": "Use a #Rocket Launcher# to shoot #40 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4320",
+      "source": "Use a #Rocket Launcher# to destroy #20 Cop cars# in #120 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4321",
+      "source": "Use a #Rocket Launcher# to destroy #15 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #15 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4322",
+      "source": "Use a #Flamethrower# to torch #40 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4323",
+      "source": "Use a #Flamethrower# to torch #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4324",
+      "source": "Use an #ElectroGun# to fry #40 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4325",
+      "source": "Use an #ElectroGun# to fry #40 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4326",
+      "source": "Use an #ElectroGun# to fry #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4327",
+      "source": "Use an #ElectroGun# to destroy #10 Cop cars# in #90 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #10 ניידות משטרה# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4328",
+      "source": "Use a #Shotgun# to shoot #40 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4329",
+      "source": "Use a #Shotgun# to shoot #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6100",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "6101",
+      "source": "Use an S-Uzi Machine Gun to kill 20 people in 60 seconds!",
+      "text": "השתמש בתת־מקלע S-Uzi כדי לחסל 20 אנשים בתוך 60 שניות!"
+    },
+    {
+      "key": "6103",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "6105",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "6106",
+      "source": "Use a #Tank# to shoot #20 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6107",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6108",
+      "source": "Use #Vehicle Machine Guns# to shoot #100 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #100 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6109",
+      "source": "Use this #Vehicle# to shoot #75 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #75 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6110",
+      "source": "Use #Vehicle Mines# to destroy #20 Cop Cars# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #20 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6111",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6112",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6113",
+      "source": "Use #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6114",
+      "source": "Use #Molotov Cocktails# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6115",
+      "source": "Use a #Rocket Launcher# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6116",
+      "source": "Use a #Rocket Launcher# to destroy #20 Cop cars# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 ניידות משטרה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6117",
+      "source": "Use a #Rocket Launcher# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6118",
+      "source": "Use a #Flamethrower# to torch #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6119",
+      "source": "Use a #Flamethrower# to torch #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6120",
+      "source": "Use an #ElectroGun# to fry #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6121",
+      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6122",
+      "source": "Use an #ElectroGun# to fry #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6123",
+      "source": "Use an #ElectroGun# to destroy #20 Cop cars# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 ניידות משטרה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6124",
+      "source": "Use a #Shotgun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6125",
+      "source": "Use a #Shotgun# to shoot #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6126",
+      "source": "Use a #Tank# to shoot #20 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6127",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6128",
+      "source": "Use #Vehicle Machine Guns# to shoot #30 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6129",
+      "source": "Use this #Vehicle# to kill #30 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #30 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6130",
+      "source": "Use #Vehicle Mines# to destroy #15 Cop Cars# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #15 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6131",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 people# in #90 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6132",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #10 Cops# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #10 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6133",
+      "source": "Use #Molotov Cocktails# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6134",
+      "source": "Use #Molotov Cocktails# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6135",
+      "source": "Use a #Rocket Launcher# to shoot #10 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6136",
+      "source": "Use a #Rocket Launcher# to destroy #10 Cop cars# in #120 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #10 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6137",
+      "source": "Use a #Rocket Launcher# to destroy #15 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #15 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6138",
+      "source": "Use a #Flamethrower# to torch #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6139",
+      "source": "Use a #Flamethrower# to torch #10 Cops# in #90 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #10 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6140",
+      "source": "Use an #ElectroGun# to fry #20 people# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6141",
+      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6142",
+      "source": "Use an #ElectroGun# to fry #10 Cops# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #10 שוטרים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6143",
+      "source": "Use an #ElectroGun# to destroy #5 Cop cars# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #5 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6144",
+      "source": "Use a #Shotgun# to shoot #15 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #15 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6145",
+      "source": "Use a #Shotgun# to shoot #10 Cops# in #90 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #10 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "7020",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7021",
+      "source": "Use the #Flamethrower# to kill #60 people# in #120 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #60 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7023",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7025",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7030",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7031",
+      "source": "Use the #Rocket Launcher# to destroy #10 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #10 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7033",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7035",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7040",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7041",
+      "source": "Use the #S-Uzi Machine Gun# to kill #70 people# in #120 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #70 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7043",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7045",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7050",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7051",
+      "source": "Use the #Silenced S-Uzi Machine Gun# to kill #80 people# in #120 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi מושתק# כדי לחסל #80 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7053",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7055",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7060",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7061",
+      "source": "Use the #Silenced S-Uzi Machine Gun# to kill #25 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi מושתק# כדי לחסל #25 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7063",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7065",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7100",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7101",
+      "source": "Use the #Tank# to kill #35 people# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #35 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7103",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7105",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7110",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7111",
+      "source": "Use the #Tank# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7113",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7115",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7120",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7123",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7125",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7130",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7131",
+      "source": "Use #Molotov Cocktails# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7133",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7135",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7140",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7141",
+      "source": "Use #Molotov Cocktails# to kill #30 people# in #120 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7143",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7145",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7150",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7151",
+      "source": "Use the #Rocket Launcher# to destroy #15 Vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #15 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7153",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7155",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7160",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7161",
+      "source": "Use the #Taxi# to run over #50 people# in #180 seconds#!",
+      "text": "השתמש ב#מונית# כדי לדרוס #50 אנשים# בתוך #180 שניות#!"
+    },
+    {
+      "key": "7163",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7165",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7170",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7171",
+      "source": "Use the #Flamethrower# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7173",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7175",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7180",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7181",
+      "source": "Use the #Flamethrower# to destroy #10 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי להשמיד #10 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7183",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7185",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7190",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7191",
+      "source": "Use the #Rocket Launcher# to kill #30 people# in #180 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #30 אנשים# בתוך #180 שניות#!"
+    },
+    {
+      "key": "7193",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7195",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7200",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7201",
+      "source": "Use the #Machine Gun# to kill #40 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלע# כדי לחסל #40 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7203",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7205",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7210",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7211",
+      "source": "Use the #Machine Gun# to destroy #8 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#מקלע# כדי להשמיד #8 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7213",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7215",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7220",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7221",
+      "source": "Use the #Silenced Machine Gun# to kill #5 Cops# in #60 seconds#!",
+      "text": "השתמש ב#מקלע מושתק# כדי לחסל #5 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7223",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7225",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7230",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7231",
+      "source": "Use the #Silenced Machine Gun# to destroy #4 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מקלע מושתק# כדי להשמיד #4 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7233",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7235",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    }
+  ]
+}

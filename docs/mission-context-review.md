@@ -43,4 +43,16 @@ Reviewed 2026-11-04 against the source GXT strings and compiled mission-script s
 
 Fourteen full messages were independently checked against their source meaning and speaker tone in this pass: Downtown keys 1251, 1600, and 1631; Residential keys 2306, 2026, 2511, 2512, 2514–2517; Industrial District keys 3727–3729. The set includes a greeting, short boarding instruction, numbered action, job opening, Russian Mafia/Krishna faction language, and the full H2000 Water Company instruction/progression/reward sequence. The 1251 line was tightened to make the “scrap” action clear; the 2517 line now preserves the “high and dry” joke as “התייבשה” while stating the water company is out of service.
 
-The translation catalog still marks all 1,154 entries as context-reviewed, but that flag is catalog metadata rather than evidence that every line received a new human re-read in this pass. The defensible manual count here is 34/34 titles and 14 full message entries. Automated checks separately validate all 1,154 GXT identities, placeholders, runtime fallbacks, and the 80-name consistency forms.
+## Closing review — 2026-11-05
+
+Three complete sequences were read against their Hebrew text and source GXT order:
+
+| Area | Mission | Entries reviewed | Focus |
+|---|---|---:|---|
+| Residential | Blow Job! | 19 | The Pickup collection, explosives setup/detonation, exact parking target, failure and reward; Billy Bob Bean's crude Redneck voice |
+| Residential | Fake Truce! | 15 | Bus collection routes, delegates, return destination, failure branches, and Dr LaBrat's contemptuous tone |
+| Industrial District | Informant Rescue | 36 | Generator sequence, rescuing/protecting Kovski, assassins, Uncle Vanka, identifying the informant, police disguise/siren and failure branches |
+
+The independent 31-item findings were also individually checked. Five mission keys overlap these full sequences, leaving **92 unique dialogue records** reviewed in this closing pass, plus four title findings. New corrections in this pass remove invented $1,000,000/$3,000,000 requirements from keys 1802/6009 and correct key 3968 from “terrorist” to “armed intruder” according to the security-guard scene. Key 2488 now transliterates SRS and explicitly targets the Taxi; key 1689 preserves the named street Zaibatsu Way in English. An alternative Hebrew rewrite for key 3788 was rejected because it erases the Z-Man/D-Man/D-for-Dead letter joke.
+
+The `context-reviewed` flag remains catalog metadata and must not be read as proof that all 1,175 catalog entries received human review. The defensible human counts are 34/34 banner titles checked against mission objectives, 14 full messages in the earlier sample, and 92 unique mission messages in this closing pass. Automated checks separately validate GXT identity, placeholders, runtime fallback, and consistent name forms.
