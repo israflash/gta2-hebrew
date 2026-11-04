@@ -41,6 +41,7 @@ jobs:
           node scripts/test_mission_translations.js
           node scripts/test_mission_names.js
           node scripts/test_mission_runtime.js
+          node scripts/test_gameplay_translation_additions.js
 
       - name: Fetch pinned engine sources
         run: |

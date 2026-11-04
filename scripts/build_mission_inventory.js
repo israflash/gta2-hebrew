@@ -102,8 +102,12 @@ function main() {
       allScripts.push({ file: path.relative(DATA, file).replaceAll('\\', '/'), area, isRoot, refs });
       for (const ref of refs) {
         const text = gxt.get(ref.key);
-        if (text == null || !FACE_PREFIX.test(text)) continue;
+        if (text == null) continue;
         const scope = ref.type === DISPLAY_MESSAGE ? 'display-message' : ref.type === PHONE_TEMPLATE ? 'phone-template' : 'mission-brief';
+        // DISPLAY_MESSAGE is a general HUD toast and may not carry a face prefix.
+        // DISPLAY_BRIEF variants can also carry instruction/status text without a portrait.
+        // Keep phone-template candidates face-gated because those offsets are only a heuristic.
+        if (!FACE_PREFIX.test(text) && (scope === 'phone-template' || scope === 'mission-brief' && !BRIEF_TYPES.has(ref.type))) continue;
         const id = `${area}\u0000${ref.key}`;
         if (!records.has(id)) records.set(id, { area, gxtKey: ref.key, source: text, scopes: [], scripts: [], phoneBaseKeys: [] });
         const row = records.get(id);

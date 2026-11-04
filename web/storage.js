@@ -17,6 +17,13 @@ registerDict({
     'ui.storage.notExport': 'This is not a GTA2 browser save export.',
     'ui.storage.txAborted': 'transaction aborted',
   },
+  he: {
+    'ui.storage.openFailed': 'לא ניתן לשמור בדפדפן הזה ({err}). ההתקדמות תאבד בסגירת הדף; ייצא שמירות כדי לשמור עותק.',
+    'ui.storage.deleteFailed': 'מחיקת {path} נכשלה: {err}',
+    'ui.storage.saveFailed': 'שמירת {path} נכשלה ({err}). פנה מקום באחסון הדפדפן ונסה שוב.',
+    'ui.storage.notExport': 'זה אינו קובץ ייצוא של שמירות GTA2 לדפדפן.',
+    'ui.storage.txAborted': 'הפעולה בוטלה',
+  },
   es: {
     'ui.storage.openFailed': 'Las partidas no se pueden guardar en este navegador ({err}). El progreso se perderá al cerrar la página; usa Exportar partidas para conservar una copia.',
     'ui.storage.deleteFailed': 'No se pudo borrar {path}: {err}',

@@ -9,19 +9,26 @@ diff --git a/Source/Hud.cpp b/Source/Hud.cpp
 index d7dd5cc8..c161f037 100644
 --- a/Source/Hud.cpp
 +++ b/Source/Hud.cpp
-@@ -34,6 +34,7 @@ DEFINE_GLOBAL(s16, gCarNameFont_706508, 0x706508); //, TODO, 0xUNKNOWN);
+@@ -34,6 +34,8 @@ DEFINE_GLOBAL(s16, gCarNameFont_706508, 0x706508); //, TODO, 0xUNKNOWN);
  DEFINE_GLOBAL(u16, gPlayerStatsFont_70646C, 0x70646C); //, TODO, 0xUNKNOWN);
  DEFINE_GLOBAL(u16, gBriefFont_7065C4, 0x7065C4);
  extern "C" int gta2_port_native_brief_text_hidden();
 +extern "C" int gta2_port_native_mission_title_text_hidden();
++extern "C" int gta2_port_try_mission_title_draw(const wchar_t* text);
  DEFINE_GLOBAL(u16, gMessageFont_7062F0, 0x7062F0);
  DEFINE_GLOBAL(u16, gPauseFont_7063F8, 0x7063F8);
  DEFINE_GLOBAL(u16, gPlayerNameFont_7062DC, 0x7062DC);
-@@ -1557,7 +1558,7 @@ void Hud_Message_1C8::FormatMessage_5D1860()
+@@ -1557,7 +1558,13 @@ void Hud_Message_1C8::FormatMessage_5D1860()
  MATCH_FUNC(0x5d1940)
  void Hud_Message_1C8::DrawMessage_5D1940()
  {
 -    if (field_0_time_to_show)
++    if (field_0_time_to_show)
++    {
++        // Some fixed GXT toasts (job/Kill Frenzy results) bypass the script title key.
++        // Identify only the known exact source strings before deciding whether to hide them.
++        gta2_port_try_mission_title_draw(&field_2_str[100]);
++    }
 +    if (field_0_time_to_show && !gta2_port_native_mission_title_text_hidden())
      {
          DrawText_5D7720(&field_2_str[100], field_1BC_str_width, field_1C0_num_lines, gMessageFont_7062F0, 2, 0, 0, 0);

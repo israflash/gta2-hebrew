@@ -24,6 +24,18 @@ registerDict({
     'ui.files.unpackFailed': 'Unpacking failed (unshield {rc}): {log}',
     'ui.files.noFiles': 'Unpacking produced no game files: {log}',
   },
+  he: {
+    'ui.files.notInstaller': 'זה אינו מתקין ה־freeware של GTA2: גודל GTA2INSTALLER.exe הוא {size} בתים.',
+    'ui.files.workerFailed': 'תהליך חילוץ הקבצים נכשל.', 'ui.files.txAborted': 'הפעולה בוטלה',
+    'ui.files.downloadFailed': 'ההורדה נכשלה (HTTP {status})', 'ui.files.tooLarge': 'הקובץ שהורד גדול ממתקין GTA2.',
+    'ui.files.stoppedEarly': 'ההורדה נעצרה לפני סיומה ({got} מתוך {total} בתים).',
+    'ui.files.stalled': 'Internet Archive לא שלח נתונים במשך {n} שניות.',
+    'ui.files.unreachable': 'לא ניתן להתחבר ל־Internet Archive ({err}).',
+    'ui.files.badSize': 'גודל המתקין אינו תקין ({n} בתים).',
+    'ui.files.checksum': 'המתקין אינו תואם לגרסת ה־freeware של GTA2 (סכום הביקורת שונה).',
+    'ui.files.unpackFailed': 'חילוץ הקבצים נכשל (unshield {rc}): {log}',
+    'ui.files.noFiles': 'החילוץ לא הפיק קובצי משחק: {log}',
+  },
   es: {
     'ui.files.notInstaller': 'Ese no es el instalador freeware de GTA2: GTA2INSTALLER.exe ocupa {size} bytes.',
     'ui.files.workerFailed': 'El proceso de descompresión falló.',

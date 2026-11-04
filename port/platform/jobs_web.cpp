@@ -47,7 +47,14 @@ double gMissionTitleLastSeenMs = 0.0;
 
 bool IsMissionTitleKey(int key)
 {
-    return (key >= 1970 && key <= 1988) || (key >= 2460 && key <= 2470) || (key >= 2671 && key <= 2674);
+    return (key >= 1970 && key <= 1988) || (key >= 2460 && key <= 2470) ||
+           (key >= 2671 && key <= 2674) || key == 1952 || key == 1953 || key == 1955 || key == 2473 ||
+           (key >= 2954 && key <= 2959) || (key >= 3840 && key <= 3861) ||
+           key == 1016 || key == 1017 || key == 1018 || key == 1124 || key == 1125 || key == 1338 || key == 1339 ||
+           key == 2998 || key == 2999 || key == 3100 || key == 3730 ||
+           key == 3670 || key == 3672 || key == 3674 || key == 6147 ||
+           key == 6184 || key == 6185 || key == 6186 ||
+           (key >= 9001 && key <= 9004);
 }
 
 // The brief last seen on screen, so it is formatted and logged once.
@@ -179,14 +186,15 @@ extern "C" int gta2_port_try_mission_title_draw(const wchar_t* text)
     if (textLength < 4 || textLength > 64 || !gText_0x14_704DFC)
         return 0;
 
-    static int keys[34];
-    static const wchar_t* sourceText[34];
-    static size_t sourceLength[34];
+    static int keys[88];
+    static const wchar_t* sourceText[88];
+    static size_t sourceLength[88];
     static bool initialized = false;
     if (!initialized)
     {
         int count = 0;
-        const int ranges[][2] = { { 1970, 1988 }, { 2460, 2470 }, { 2671, 2674 } };
+        const int ranges[][2] = { { 1952, 1953 }, { 1970, 1988 }, { 2460, 2470 },
+                                  { 2671, 2674 }, { 2954, 2959 }, { 3840, 3861 } };
         for (const auto& range : ranges)
         {
             for (int key = range[0]; key <= range[1]; ++key)
@@ -203,10 +211,37 @@ extern "C" int gta2_port_try_mission_title_draw(const wchar_t* text)
                 }
             }
         }
+        const int statusKeys[] = { 1016, 1017, 1018, 1124, 1125, 1338, 1339, 2998, 2999, 3100,
+                                   3730, 3670, 3672, 3674, 6147, 6184, 6185, 6186 };
+        for (const int key : statusKeys)
+        {
+            char gxtKey[8];
+            snprintf(gxtKey, sizeof(gxtKey), "%d", key);
+            const wchar_t* title = gText_0x14_704DFC->Find_5B5F90(gxtKey);
+            if (title)
+            {
+                keys[count] = key;
+                sourceText[count] = title;
+                sourceLength[count] = wcslen(title);
+                ++count;
+            }
+        }
+        static const char* statusGxtKeys[] = { "mfail", "kfstart", "kfpass", "kffail" };
+        for (int i = 0; i < 4; ++i)
+        {
+            const wchar_t* title = gText_0x14_704DFC->Find_5B5F90(statusGxtKeys[i]);
+            if (title)
+            {
+                keys[count] = 9001 + i;
+                sourceText[count] = title;
+                sourceLength[count] = wcslen(title);
+                ++count;
+            }
+        }
         initialized = true;
     }
 
-    for (int i = 0; i < 34 && keys[i]; ++i)
+    for (int i = 0; i < 88 && keys[i]; ++i)
     {
         if (sourceLength[i] == textLength && wcscmp(sourceText[i], text) == 0)
         {

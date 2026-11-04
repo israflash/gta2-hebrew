@@ -37,6 +37,14 @@ registerDict({
     'ui.net.waitingGang': 'Waiting for {names} to pick a gang.',
     'ui.net.and': 'and',
   },
+  he: {
+    'ui.net.serverNoAnswer': 'שרת המשחק לא הגיב', 'ui.net.noAnswer': 'לא התקבלה תשובה',
+    'ui.net.waitingPlayer': 'ממתין להצטרפות של שחקן אחד לפחות.',
+    'ui.net.needCrew': 'כל המשתתפים צריכים לבחור כנופיה במצב מלחמת כנופיות.',
+    'ui.net.twoCrews': 'במלחמת כנופיות דרושות לפחות שתי כנופיות.',
+    'ui.net.threeCrews': 'במלחמת כנופיות אפשר לשחק עם עד שלוש כנופיות.',
+    'ui.net.waitingGang': 'ממתין לכך ש־{names} יבחרו כנופיה.', 'ui.net.and': 'וגם',
+  },
   es: {
     'ui.net.serverNoAnswer': 'el servidor del juego no respondió',
     'ui.net.noAnswer': 'sin respuesta',
