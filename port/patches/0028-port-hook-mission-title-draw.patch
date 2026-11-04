@@ -1,24 +1,42 @@
-From 82d47e4f9063b721b2766d6766f3a8708d6a7aa1 Mon Sep 17 00:00:00 2001
+From 1e906ddad93a7d6192c74e75cb19b19ea462e695 Mon Sep 17 00:00:00 2001
 From: GTA2 port <port@localhost>
-Date: Wed, 4 Nov 2026 14:00:00 +0200
+Date: Thu, 5 Nov 2026 01:20:09 +0200
 Subject: [PATCH] port: translate cataloged native GXT draw calls in place
 
 ---
+ Source/Draw.cpp | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
 diff --git a/Source/Draw.cpp b/Source/Draw.cpp
 index 22f9a5d8..ad3d2579 100644
 --- a/Source/Draw.cpp
 +++ b/Source/Draw.cpp
-@@ -20,0 +21,3 @@ DEFINE_GLOBAL(DWORD, gWindowBottom_70679C, 0x70679C);
+@@ -18,6 +18,9 @@ EXTERN_GLOBAL(s32, window_height_706B50);
+ 
+ DEFINE_GLOBAL(DWORD, gWindowRight_70675C, 0x70675C);
+ DEFINE_GLOBAL(DWORD, gWindowBottom_70679C, 0x70679C);
 +extern "C" int gta2_port_hebrew_gxt_draw(const wchar_t* text, s32 x, s32 y, s32 line_height,
 +                                         s32 font_type, s32 palette_type, s32 palette, s32 alpha);
 +extern "C" int gta2_port_try_mission_title_draw(const wchar_t* text);
-@@ -68,0 +72,5 @@ void __stdcall DrawText_5D7720(const wchar_t* pStr, Fix16 xoff, Fix16 yoff, u16
+ 
+ //u16 word_703BAA; //DEFINE_GLOBAL(u16, word_703BAA, 0x703BAA);
+ 
+@@ -66,6 +69,11 @@ s32 __stdcall GetLineSpacingFromFontType_5D7700(u16 font_type)
+ MATCH_FUNC(0x5D7720)
+ void __stdcall DrawText_5D7720(const wchar_t* pStr, Fix16 xoff, Fix16 yoff, u16 fontType, const s32& palette_type, u16 palette, s32 alpha, u8 alpha_flag)
+ {
 +    if (gta2_port_try_mission_title_draw(pStr))
 +    {
 +        return;
 +    }
 +
-@@ -379,0 +388,7 @@ void __stdcall DrawText_5D8A10(const wchar_t* pText,
+     DrawText_5D8A10(pStr,
+                     xoff * gViewCamera_676978->field_A8_ui_scale,
+                     yoff * gViewCamera_676978->field_A8_ui_scale,
+@@ -377,6 +385,13 @@ void __stdcall DrawText_5D8A10(const wchar_t* pText,
+     Fix16 spaceWidth = scale_fp * gGtx_0x106C_703DD4->GetSpaceCharWidth_5AA7B0(&font_type);
+     Fix16 lineHeight = scale_fp * (u16)gGtx_0x106C_703DD4->GetLineSpacing_5AA800(&font_type);
+ 
 +    // Draw cataloged Hebrew text at the same coordinates; otherwise keep the original glyphs.
 +    if (gta2_port_hebrew_gxt_draw(pText, xpos_fp.mValue, ypos_fp.mValue, lineHeight.mValue,
 +                                  font_type, og_palette_type, og_palette, alpha_value))
@@ -26,5 +44,9 @@ index 22f9a5d8..ad3d2579 100644
 +        return;
 +    }
 +
---
+     u16 curr_palette = og_palette;
+     u32 curr_palette_type = og_palette_type;
+ 
+-- 
 2.53.0.windows.3
+
