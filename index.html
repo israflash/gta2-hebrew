@@ -25,11 +25,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
   <style>
     :root { color-scheme: dark; --bg: #0b0b0d; --fg: #e8e6e3; --muted: #9a978f; --accent: #e63946; }
-    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=ba71444811") format("truetype");
+    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=6c3c0e4d0f") format("truetype");
       font-style: normal; font-weight: 400; font-display: swap; }
-    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=ba71444811") format("truetype");
+    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=6c3c0e4d0f") format("truetype");
       font-style: normal; font-weight: 400 900; font-display: swap; }
-    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=ba71444811") format("truetype");
+    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=6c3c0e4d0f") format("truetype");
       font-style: normal; font-weight: 900; font-display: swap; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
       font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -230,13 +230,15 @@
       .kb-key { height: 30px; font-size: 10px; }
       .kb, .kb-row { gap: 3px; }
       .kb { padding: 8px; }
+      #tools { flex-wrap: nowrap; width: calc(100% - 1rem); max-height: 2.25rem; overflow-x: auto; overflow-y: hidden;
+        justify-content: flex-start; -webkit-overflow-scrolling: touch; }
     }
     /* bottom centre: the game's HUD uses the top corners and edges */
-    #tools { position: fixed; bottom: .5rem; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: wrap;
-      justify-content: center; gap: .4rem; max-width: calc(100% - 1rem); opacity: .35; }
+    #tools { position: fixed; bottom: .5rem; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: nowrap;
+      justify-content: center; gap: .22rem; max-width: calc(100% - 1rem); overflow-x: auto; opacity: .24; }
     #tools[hidden] { display: none; }
     #tools:hover, #tools:focus-within { opacity: 1; }
-    #tools button, #tools label { white-space: nowrap; font: 12px system-ui, sans-serif; padding: .3rem .6rem; border-radius: 4px;
+    #tools button, #tools label { white-space: nowrap; font: 11px system-ui, sans-serif; padding: .2rem .38rem; border-radius: 4px;
       border: 1px solid #555; background: #1c1c20; color: var(--fg); cursor: pointer; }
     #tools input { display: none; }
     #tools button[aria-pressed="true"] { border-color: var(--accent); }
@@ -265,7 +267,6 @@
     .mission-brief-text .mission-brief-highlight { color: #43a7d4; }
     #mission-brief[dir="rtl"] .mission-brief-text { direction: rtl; text-align: right; }
     #mission-brief[dir="auto"] .mission-brief-text { direction: auto; text-align: left; }
-    body.mission-visible #map-radar { transform: translateY(-3.8rem); }
     #mission-history { position: fixed; z-index: 7; left: 1rem; right: max(7rem, 20vw); bottom: max(9rem, 22vh);
       max-height: min(55vh, 28rem); overflow: auto; padding: .8rem 1rem;
       box-sizing: border-box; border-radius: 8px; border: 1px solid #555; background: rgba(8,9,12,.97); }
@@ -560,6 +561,6 @@
   </main>
   <!-- strings.js is imported by shell.js (one module instance); it applies the stored
        language as soon as the page's markup is parsed. -->
-  <script type="module" src="shell.js?v=ba71444811"></script>
+  <script type="module" src="shell.js?v=6c3c0e4d0f"></script>
 </body>
 </html>

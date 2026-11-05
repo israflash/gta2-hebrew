@@ -1,6 +1,7 @@
-import { lang } from './strings.js?v=22853b9006';
+import { lang } from './strings.js?v=6c3c0e4d0f';
 
 let records = [];
+let gameplayGxtRecords = [];
 let missionTitles = {};
 let ready = false;
 let loading;
@@ -90,21 +91,30 @@ export function normalizeMissionText(value) {
 export async function loadMissionTranslations() {
   if (ready) return records;
   if (!loading) loading = Promise.all([
-    fetch('./mission-translations.he.json?v=22853b9006').then((r) => {
+    fetch('./mission-translations.he.json?v=6c3c0e4d0f').then((r) => {
     if (!r.ok) throw new Error(`Mission translations: HTTP ${r.status}`);
     return r.json();
     }),
-    fetch('./mission-extras.he.json?v=22853b9006').then((r) => {
+    fetch('./mission-extras.he.json?v=6c3c0e4d0f').then((r) => {
       if (!r.ok) throw new Error(`Supplemental mission translations: HTTP ${r.status}`);
       return r.json();
     }),
-  ]).then(([data, extras]) => { records = [...(data.records || []), ...(extras.records || [])]; ready = true; return records; });
+    fetch('./gxt-gameplay.he.json?v=6c3c0e4d0f').then((r) => {
+      if (!r.ok) throw new Error(`Gameplay GXT translations: HTTP ${r.status}`);
+      return r.json();
+    }),
+  ]).then(([data, extras, gameplay]) => {
+    records = [...(data.records || []), ...(extras.records || [])];
+    gameplayGxtRecords = gameplay.records || [];
+    ready = true;
+    return records;
+  });
   return loading;
 }
 
 export async function loadMissionTitles() {
   if (Object.keys(missionTitles).length) return missionTitles;
-  if (!missionTitlesLoading) missionTitlesLoading = fetch('./mission-titles.he.json?v=22853b9006').then((r) => {
+  if (!missionTitlesLoading) missionTitlesLoading = fetch('./mission-titles.he.json?v=6c3c0e4d0f').then((r) => {
     if (!r.ok) throw new Error(`Mission titles: HTTP ${r.status}`);
     return r.json();
   }).then((data) => { missionTitles = data.titles || {}; return missionTitles; });
@@ -113,6 +123,27 @@ export async function loadMissionTitles() {
 
 export function missionTitle(gxtKey) {
   return missionTitles[String(gxtKey)] || null;
+}
+
+function matchGameplayGxt(source, gxtKey) {
+  const sourceKey = normalizeMissionText(source);
+  const rows = gxtKey
+    ? gameplayGxtRecords.filter((row) => String(row.key) === String(gxtKey))
+    : gameplayGxtRecords;
+  for (const row of rows) {
+    const patternSource = normalizeMissionText(row.source);
+    const parts = patternSource.split(/(%[ds])/g).map((part) => {
+      if (part === '%d') return '(-?[0-9][0-9,]*)';
+      if (part === '%s') return '(.+?)';
+      return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    });
+    const match = new RegExp(`^${parts.join('')}$`, 'iu').exec(sourceKey);
+    if (!match) continue;
+    let placeholder = 1;
+    const text = String(row.text).replace(/%[ds]/g, () => match[placeholder++] || '');
+    return { text, row };
+  }
+  return null;
 }
 
 export function missionText(source, { gxtKey = '' } = {}) {
@@ -128,6 +159,11 @@ export function missionText(source, { gxtKey = '' } = {}) {
   if (hit) {
     const displayText = hit.text.replace(/#([^#]*)#/g, '$1').replace(/#/g, '');
     return { text: displayText, translated: true, record: hit, colorRuns: translatedColorRuns(source, hit.text, hit) };
+  }
+  const gameplayHit = matchGameplayGxt(source, gxtKey);
+  if (gameplayHit) {
+    const displayText = gameplayHit.text.replace(/#([^#]*)#/g, '$1').replace(/#/g, '');
+    return { text: displayText, translated: true, record: gameplayHit.row, colorRuns: translatedColorRuns(source, gameplayHit.text, gameplayHit.row) };
   }
   if (key && !shownMissing.has(key)) {
     shownMissing.add(key);

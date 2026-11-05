@@ -511,7 +511,7 @@
     {
       "key": "nspray",
       "source": "Come back when ya got the cash!",
-      "text": "תחזור כשתהיה לך ערימה של כסף!"
+      "text": "תחזור כשיהיה לך מספיק כסף!"
     },
     {
       "key": "nspraya",
@@ -706,7 +706,7 @@
     {
       "key": "bnk_job",
       "source": "BANK JOBS",
-      "text": "שודי בנק"
+      "text": "שוד בנקים"
     },
     {
       "key": "slfkils",
@@ -811,7 +811,7 @@
     {
       "key": "c16",
       "source": "Vehicle Oil Slick",
-      "text": "כתם שמן"
+      "text": "כתם שמן לרכב"
     },
     {
       "key": "c17",
@@ -946,7 +946,7 @@
     {
       "key": "1201",
       "source": "ⅹConsider yourself lucky this time, Kosai. I won't always be around to pay off the Cops.",
-      "text": "תחשיב את עצמך בר־מזל הפעם, קוסאי. לא תמיד אהיה כאן כדי לשחד את השוטרים בשבילך."
+      "text": "ראה את עצמך בר־מזל הפעם, קוסאי. לא תמיד אהיה כאן כדי לשחד את השוטרים בשבילך."
     },
     {
       "key": "1242",
@@ -961,7 +961,7 @@
     {
       "key": "1276",
       "source": "ⅺI told you to watch and learn, Gecko! Lose yourself. The Zaibatsu have no time for the squeamish.",
-      "text": "אמרתי לך להסתכל וללמוד, גקו! תיעלם. לזייבאצו אין זמן לעדינים."
+      "text": "אמרתי לך להסתכל וללמוד, גקו! תיעלם. לזייבאצו אין זמן לרגישים."
     },
     {
       "key": "1288",
@@ -1031,7 +1031,7 @@
     {
       "key": "1656",
       "source": "ⅹYou shouldn't wreck my cars, Kosai! You are OFF the job!",
-      "text": "אל תהרוס לי את המכוניות, קוסאי! אתה מחוץ לעבודה!"
+      "text": "אל תהרוס לי את המכוניות, קוסאי! אתה מפוטר מהמשימה!"
     },
     {
       "key": "1660",
@@ -1151,7 +1151,7 @@
     {
       "key": "2227",
       "source": "ⅲYou killed everyone, Rooster, and that weren't the deal. Now the Good Ol' Boys are bayin' for blood!",
-      "text": "הרגת את כולם, רוסטר, וזה לא היה חלק מהעסקה. עכשיו אנשי Rednecks דורשים דם!"
+      "text": "הרגת את כולם, רוסטר, וזה לא היה חלק מהעסקה. עכשיו הרדנקס דורשים דם!"
     },
     {
       "key": "2230",
@@ -1171,7 +1171,7 @@
     {
       "key": "2316",
       "source": "ⅳAh, THC-303. Dr LaBrat here. The #Zaibatsu# and #Rednecks# want a peace meeting so I'm taking the opportunity to perform an experiment. Collect the old #Limo# and I will unravel my plan.",
-      "text": "אה, THC-303. כאן דוקטור לה־בראט. #זייבאצו# ו־#Rednecks# רוצים פגישת שלום, ואני מנצל את ההזדמנות לניסוי. אסוף את ה־#Limo# הישנה, ואפרוש בפניך את התוכנית."
+      "text": "אה, THC-303. כאן דוקטור לה־בראט. #זייבאצו# וה־#רדנקס# רוצים פגישת שלום, ואני מנצל את ההזדמנות לניסוי. אסוף את ה־#Limo# הישנה, ואפרוש בפניך את התוכנית."
     },
     {
       "key": "2317",
@@ -1201,7 +1201,7 @@
     {
       "key": "2412",
       "source": "ⅳGet back in the #Pickup#, THC-303, and get #Gran'pa#!",
-      "text": "חזור ל־#Pickup#, THC-303, ותביא את #סבא#!"
+      "text": "חזור ל־#Pickup#, THC-303, והבא את #גראנפא#!"
     },
     {
       "key": "2495",
@@ -1216,17 +1216,17 @@
     {
       "key": "2561",
       "source": "ⅺThat should keep the SRS busy for a while. You are one sick operator, Gecko - but I like it! I'm giving you $15,000 plus a $15,000 bonus for style.",
-      "text": "זה יעסיק את אנשי SRS לזמן מה. אתה חתיכת חולה, גקו — וזה מוצא חן בעיניי! תקבל $15,000 ועוד $15,000 בונוס על הסגנון."
+      "text": "זה יעסיק את אנשי SRS לזמן מה. אתה חולה בראש, גקו — וזה מוצא חן בעיניי! תקבל $15,000 ועוד $15,000 בונוס על הסגנון."
     },
     {
       "key": "2615",
       "source": "ⅺScorcher, Gecko! The Rednecks are roasting and the SRS are taking the blame! We have many jobs for the resourceful. In the meantime, please accept #$30,000#.",
-      "text": "איזה חימום, גקו! אנשי Rednecks נצלים, ו־SRS חוטפים את האשמה! יש לנו עוד עבודות בשבילך. בינתיים קבל #$30,000#."
+      "text": "איזה לוהט, גקו! הרדנקס נצלים, והאשמה נופלת על אנשי SRS! יש לנו עוד עבודות בשבילך. בינתיים קבל #$30,000#."
     },
     {
       "key": "2616",
       "source": "ⅺNow the new Fire Truck is ready let's put it to the test! Head for #Mobile RV# and barbecue at least #10# Rednecks!",
-      "text": "כיבוי האש החדש מוכן — בוא נבחן אותו! סע ל־#Mobile RV# וצלֶה לפחות #10# אנשי Rednecks!"
+      "text": "ה־Fire Truck החדש מוכן — בוא נבחן אותו! סע ל־#Mobile RV# ושרוף לפחות #10# רדנקס!"
     },
     {
       "key": "2795",
@@ -1251,7 +1251,7 @@
     {
       "key": "2854",
       "source": "ⅺWe have been pumping iron since birth! This puny vehicle will not hold our girth!",
-      "text": "אנחנו מרימים משקולות מאז הלידה! הרכב העלוב הזה לא יחזיק את הגודל שלנו!"
+      "text": "אנחנו מרימים משקולות מאז הלידה! הרכב העלוב הזה לא יחזיק את המשקל שלנו!"
     },
     {
       "key": "2867",
@@ -1271,7 +1271,7 @@
     {
       "key": "2876",
       "source": "ⅺAccess to the #Research Center# appears impossible but we have found a way!",
-      "text": "נראה שאי אפשר להיכנס ל־#מרכז המחקר#, אבל מצאנו דרך!"
+      "text": "נראה שאי אפשר להיכנס ל־#SRS Research Center#, אבל מצאנו דרך!"
     },
     {
       "key": "2891",
@@ -1286,7 +1286,7 @@
     {
       "key": "2941",
       "source": "ⅺYOU expect US to fit into THAT pathetic little vehicle?",
-      "text": "אתם מצפים שאנחנו נדחס לתוך הגרוטאה הקטנה הזאת?"
+      "text": "אתה מצפה מאיתנו להידחס לתוך הגרוטאה הקטנה הזאת?"
     },
     {
       "key": "2942",
@@ -1336,7 +1336,12 @@
     {
       "key": "3150",
       "source": "ⅫThe loyal #Krishna# are #dead#, Grasshopper! #Kill# the Assassins by #yourself#.",
-      "text": "אנשי #Krishna# הנאמנים #מתו#, גרסהופר! #חסל# את המתנקשים #בעצמך#."
+      "text": "אנשי #קרישנה# הנאמנים #מתו#, גראסהופר! #חסל# את המתנקשים #בעצמך#."
+    },
+    {
+      "key": "3211",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #120 שניות#!"
     },
     {
       "key": "3405",
@@ -1356,7 +1361,7 @@
     {
       "key": "3425",
       "source": "ⅭComrade! Jerkov here! A leading meat processing plant will make special hot dogs to feed my troops if I supply the meat. Pick up the #Krishna Bus# I have prepared for you.",
-      "text": "חבר! זה ג'רקוב. מפעל בשר גדול יכין נקניקיות מיוחדות לחיילים שלי, אם אספק את הבשר. קח את ה־#Krishna Bus# שהכנתי לך."
+      "text": "חבר! זה ג׳רקוב. מפעל בשר גדול יכין נקניקיות מיוחדות לחיילים שלי, אם אספק את הבשר. קח את ה־#Krishna Bus# שהכנתי לך."
     },
     {
       "key": "3426",
@@ -1366,22 +1371,22 @@
     {
       "key": "3427",
       "source": "ⅭNow take the #Bus# across to #Maharishi# and pick up some #Krishna#.",
-      "text": "עכשיו קח את ה־#Bus# אל #Maharishi# ואסוף כמה מאנשי #Krishna#."
+      "text": "עכשיו קח את ה־#Bus# אל #Maharishi# ואסוף כמה מאנשי #קרישנה#."
     },
     {
       "key": "3428",
       "source": "Ⅽ#Sound the horn# to get the attention of the #Krishna#, Comrade, then wait here.",
-      "text": "#צפור# כדי למשוך את תשומת לב אנשי #Krishna#, חבר, ואז חכה כאן."
+      "text": "#צפור# כדי למשוך את תשומת לבם של אנשי #קרישנה#, חבר, ואז חכה כאן."
     },
     {
       "key": "3429",
       "source": "ⅭI told you to wait, Comrade! Take the #Bus# back the #Krishna# and pick up the fresh meat!",
-      "text": "אמרתי לך לחכות! סע עם ה־#Bus# בחזרה אל אנשי #Krishna# ואסוף את הבשר הטרי!"
+      "text": "אמרתי לך לחכות, חבר! סע עם ה־#Bus# בחזרה אל אנשי #קרישנה# ואסוף את הבשר הטרי!"
     },
     {
       "key": "3430",
       "source": "ⅭNow sit and #wait# for the Krishna fools to get on the Bus!",
-      "text": "שב ו־#חכה# שהטיפשים של Krishna יעלו לאוטובוס!"
+      "text": "שב ו־#חכה# שטיפשי #קרישנה# יעלו לאוטובוס!"
     },
     {
       "key": "3431",
@@ -1416,7 +1421,7 @@
     {
       "key": "3450",
       "source": "ⅭThe Krishna are vegetarian, Comrade, but their dogs will eat your balls.",
-      "text": "אנשי Krishna צמחונים, חבר, אבל הכלבים שלהם יאכלו לך את הביצים."
+      "text": "אנשי #קרישנה# צמחונים, חבר, אבל הכלבים שלהם יאכלו לך את הביצים."
     },
     {
       "key": "3564",
@@ -1451,7 +1456,7 @@
     {
       "key": "3579",
       "source": "ⅭYou make this look easy, Comrade! Finally, we also intend to compete with the Government - so that means you need to #destroy a Special Agent Car#!",
-      "text": "זה נראה לך קל, חבר! עכשיו נתחרה גם בממשלה — #השמד מכונית של סוכנים מיוחדים#!"
+      "text": "אתה גורם לזה להיראות קל, חבר! סוף סוף אנחנו מתכוונים להתחרות גם בממשלה — אז #השמד מכונית אחת מסוג Special Agent Car#!"
     },
     {
       "key": "3608",
@@ -1501,17 +1506,17 @@
     {
       "key": "3817",
       "source": "ⅺExcellent, Gecko! At least #TWENTY# Krishna nailed! Now steal a #Krishna Bus# and drive to the #Russian area#.",
-      "text": "מצוין, גקו! לפחות #עשרים# מאנשי Krishna חוסלו! עכשיו גנוב #Krishna Bus# וסע ל־#אזור הרוסים#."
+      "text": "מצוין, גקו! לפחות #עשרים# מאנשי #קרישנה# חוסלו! עכשיו גנוב #Krishna Bus# וסע ל־#האזור הרוסי#."
     },
     {
       "key": "3818",
       "source": "ⅺYou got the #Krishna Bus#, Gecko. Now make haste to the #Russian area# and execute #TWENTY# Kovski.",
-      "text": "השגת את #Krishna Bus#, גקו. מהר אל #אזור הרוסים# וחסל #עשרים# מאנשי Kovski."
+      "text": "השגת את #Krishna Bus#, גקו. מהר אל #האזור הרוסי# וחסל #עשרים# מאנשי #קובסקי#."
     },
     {
       "key": "3819",
       "source": "ⅺGreat work, Gecko! At least #TWENTY# Kovski dead and a full-blown gang war about to explode!",
-      "text": "עבודה מצוינת, גקו! לפחות #עשרים# מאנשי Kovski מתים, ומלחמת כנופיות עומדת להתפוצץ!"
+      "text": "עבודה מצוינת, גקו! לפחות #עשרים# מאנשי #קובסקי# מתים, ומלחמת כנופיות עומדת להתפוצץ!"
     },
     {
       "key": "3913",
@@ -1521,7 +1526,7 @@
     {
       "key": "3914",
       "source": "ⅺThe car is on the island near the #Docks#, Gecko. The only available access is via this walkway.",
-      "text": "המכונית באי ליד #הרציפים#, גקו. הדרך היחידה להגיע אליה היא דרך הגשר הזה."
+      "text": "המכונית באי ליד #Docks#, גקו. הדרך היחידה להגיע אליה היא דרך #שביל ההליכה# הזה."
     },
     {
       "key": "3921",
@@ -1536,7 +1541,7 @@
     {
       "key": "3961",
       "source": "ⅭThe kidnapped Kovski have #vital information# about a filthy Informant. Get them out, Comrade!",
-      "text": "לאנשי Kovski שנחטפו יש #מידע חיוני# על מלשין מטונף. חלץ אותם, חבר!"
+      "text": "לאנשי #קובסקי# שנחטפו יש #מידע חיוני# על מלשין מטונף. חלץ אותם, חבר!"
     },
     {
       "key": "3974",
@@ -1586,52 +1591,52 @@
     {
       "key": "4200",
       "source": "ⅫYour clumsiness has cut the job short and cost the Krishna dear, Grasshopper.",
-      "text": "חוסר הזהירות שלך קיצר את העבודה ועלה לאנשי Krishna ביוקר, גרסהופר."
+      "text": "חוסר הזהירות שלך קיצר את העבודה ועלה לאנשי #קרישנה# ביוקר, גראסהופר."
     },
     {
       "key": "4201",
       "source": "ⅫAh, Grasshopper! Such a pity to see you fail like this.",
-      "text": "אה, גרסהופר. חבל לראות אותך נכשל כך."
+      "text": "אה, גראסהופר! חבל לראות אותך נכשל כך."
     },
     {
       "key": "4202",
       "source": "ⅫThat was an... interesting way to quit the job, Grasshopper.",
-      "text": "זאת הייתה... דרך מעניינת לפרוש מהעבודה, גרסהופר."
+      "text": "זאת הייתה... דרך מעניינת לפרוש מהעבודה, גראסהופר."
     },
     {
       "key": "4203",
       "source": "ⅫWhat a pity you couldn't find in you to see the job through, Grasshopper.",
-      "text": "חבל שלא מצאת בעצמך את הכוח לסיים את העבודה, גרסהופר."
+      "text": "חבל שלא מצאת בעצמך את הכוח לסיים את המשימה, גראסהופר."
     },
     {
       "key": "4204",
       "source": "ⅫA good effort, Grasshopper, but an unfortunate outcome.",
-      "text": "ניסיון טוב, גרסהופר, אבל התוצאה עגומה."
+      "text": "מאמץ טוב, גראסהופר, אבל התוצאה עגומה."
     },
     {
       "key": "4205",
       "source": "ⅫThe Cops will leave you with much to meditate, Grasshopper. Until we meet again...",
-      "text": "השוטרים ישאירו לך הרבה על מה להרהר, גרסהופר. עד הפעם הבאה..."
+      "text": "השוטרים ישאירו לך הרבה על מה להרהר, גראסהופר. עד הפעם הבאה..."
     },
     {
       "key": "4206",
       "source": "ⅫAh, Grasshopper, this is not the time to get in touch with your righteous side.",
-      "text": "גרסהופר, זה לא הזמן לגלות את הצד הצדיק שלך."
+      "text": "גראסהופר, זה לא הזמן לגלות את הצד הצדיק שלך."
     },
     {
       "key": "4207",
       "source": "ⅫDo not despair, Grasshopper! We will find it in our hearts to receive you once again!",
-      "text": "אל תתייאש, גרסהופר! נמצא בלבנו דרך לקבל אותך בחזרה!"
+      "text": "אל תתייאש, גראסהופר! נמצא בלבנו דרך לקבל אותך בחזרה!"
     },
     {
       "key": "4208",
       "source": "ⅫA pity the Cops do not appreciate the way you work, Grasshopper!",
-      "text": "חבל שהשוטרים לא מעריכים את שיטת העבודה שלך, גרסהופר!"
+      "text": "חבל שהשוטרים לא מעריכים את שיטת העבודה שלך, גראסהופר!"
     },
     {
       "key": "4209",
       "source": "ⅫBe strong, Grasshopper! Remember that iron bars do not a prison make... But they cause great pain when wielded by angry Cops.",
-      "text": "תחזיק מעמד, גרסהופר! אומרים שסורגים לא הופכים מקום לכלא... אבל הם כואבים מאוד כששוטרים זועמים מניפים אותם."
+      "text": "תחזיק מעמד, גראסהופר! אומרים שסורגים לא עושים כלא... אבל הם מכאיבים מאוד כששוטרים זועמים מניפים אותם."
     },
     {
       "key": "4210",
@@ -1651,7 +1656,7 @@
     {
       "key": "4213",
       "source": "ⅺYou ruined the plan, Gecko! This is no way for a Zaibatsu to behave!",
-      "text": "הרסתי את התוכנית, גקו! ככה זייבאצו לא מתנהגים!"
+      "text": "הרסת את התוכנית, גקו! ככה אנשי זייבאצו לא מתנהגים!"
     },
     {
       "key": "4214",
@@ -1716,12 +1721,12 @@
     {
       "key": "4226",
       "source": "ⅭStrong Kovski never allows themselves the luxury of arrest.",
-      "text": "אנשי Kovski חזקים לא מרשים לעצמם את המותרות של מעצר."
+      "text": "אנשי קובסקי חזקים לא מרשים לעצמם את המותרות של מעצר."
     },
     {
       "key": "4227",
       "source": "ⅭThe Cops hate all Kovski, Comrade. Your arrest is likely to be very painful.",
-      "text": "השוטרים שונאים את כל אנשי Kovski, חבר. המעצר שלך יהיה כואב במיוחד."
+      "text": "השוטרים שונאים את כל אנשי קובסקי, חבר. המעצר שלך יהיה כואב במיוחד."
     },
     {
       "key": "4228",
@@ -1732,6 +1737,41 @@
       "key": "4229",
       "source": "ⅭYou seem to be getting cosy with the Cops, Comrade. You disappoint me!",
       "text": "נראה שאתה מתחבר לשוטרים, חבר. אכזבת אותי!"
+    },
+    {
+      "key": "4311",
+      "source": "Use a #Tank# to shoot #30 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #30 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "5007",
+      "source": "7TH PLACE! SPAMTASTIC! 6 VANS!",
+      "text": "מקום שביעי! ספאם פנטסטי! 6 ואנים!"
+    },
+    {
+      "key": "5021",
+      "source": "6TH PLACE! ARSON-TASTIC! YOU FRIED 7 VANS!",
+      "text": "מקום שישי! הצתה פנטסטית! שרפת 7 ואנים!"
+    },
+    {
+      "key": "5028",
+      "source": "What a LOOOOSER! Outwitted by a couple of kiddy Ice-Cream Vans and a bunch of Donut-Munchers! You are a complete waste of skin! Get outta here!",
+      "text": "איזה לוזר עלוב! כמה ואנים של גלידה לילדים וחבורת שוטרים זוללי סופגניות עשו ממך צחוק. אתה בזבוז מוחלט של עור. עוף מכאן!"
+    },
+    {
+      "key": "5035",
+      "source": "3RD PLACE! OOH! MR SKIDMARKS! 10 VANS!",
+      "text": "מקום שלישי! מר סימני ההחלקה! 10 ואנים!"
+    },
+    {
+      "key": "5052",
+      "source": "YOU SHOT YOUR LOAD!",
+      "text": "גמרת את כל התחמושת!"
+    },
+    {
+      "key": "5055",
+      "source": "CRISPY CRITTER!",
+      "text": "שרוף עד פריכות!"
     },
     {
       "key": "5500",
@@ -1866,7 +1906,7 @@
     {
       "key": "5526",
       "source": "YOUR AIM'S IMPROVING!",
-      "text": "הכוונת שלך משתפרת!"
+      "text": "הדיוק שלך משתפר!"
     },
     {
       "key": "5527",
@@ -1886,7 +1926,7 @@
     {
       "key": "5530",
       "source": "YOU SURE ARE A SHIT SHOT!",
-      "text": "אתה יורה כמו תחת!"
+      "text": "אתה יורה כמו חרא!"
     },
     {
       "key": "5531",
@@ -1927,6 +1967,26 @@
       "key": "6104",
       "source": "Bad luck, buddy! You blew it!",
       "text": "חבל, חבר! פישלת."
+    },
+    {
+      "key": "6107",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6121",
+      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6127",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6141",
+      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
     },
     {
       "key": "6150",
@@ -1976,12 +2036,12 @@
     {
       "key": "6159",
       "source": "ⅲI hope the Cops beat your bitch ass to a pulp. That should teach you to screw up a Redneck job.",
-      "text": "אני מקווה שהשוטרים יכסחו לך את הצורה. אולי תלמד לא להרוס עבודה של Rednecks."
+      "text": "אני מקווה שהשוטרים יכסחו לך את הצורה. אולי תלמד לא להרוס משימה של רדנקס."
     },
     {
       "key": "6160",
       "source": "ⅳThat was an inadequate performance, THC-303. Worthy of a Redneck at its most backward, I think.",
-      "text": "ביצוע חלש, THC-303. מתאים ל־Redneck נחשל במיוחד, הייתי אומר."
+      "text": "ביצוע חלש, THC-303. מתאים לרדנק נחשל במיוחד, הייתי אומר."
     },
     {
       "key": "6161",
@@ -2011,7 +2071,7 @@
     {
       "key": "6166",
       "source": "ⅳThat was an arresting performance, THC-303, but far from productive.",
-      "text": "המעצר שלך היה מרשים, THC-303, אבל לא קידם את העבודה."
+      "text": "איזו הופעה עוצרת, THC-303 — אבל לא ממש מועילה."
     },
     {
       "key": "6167",
@@ -2276,7 +2336,7 @@
     {
       "key": "7121",
       "source": "Hee-hee! Use the #Fire Engine# to knock down #20 people# in #60 seconds#!",
-      "text": "הי־הי! השתמש ב־#כיבוי אש# כדי לדרוס #20 אנשים# בתוך #60 שניות#!"
+      "text": "הי־הי! השתמש ב־#רכב כיבוי אש# כדי לדרוס #20 אנשים# בתוך #60 שניות#!"
     },
     {
       "key": "7122",
@@ -2646,17 +2706,17 @@
     {
       "key": "psxrmv1",
       "source": "REMOVED FROM CONTROLLER",
-      "text": "מהבקר"
+      "text": "מיציאה"
     },
     {
       "key": "psxrmv2",
       "source": "PORT 1! RE-INSERT",
-      "text": "מיציאה 1! חבר מחדש"
+      "text": "1! חבר מחדש את"
     },
     {
       "key": "psxrmv3",
       "source": "CONTROLLER TO CONTINUE!",
-      "text": "את השלט כדי להמשיך!"
+      "text": "השלט כדי להמשיך!"
     },
     {
       "key": "psxsel",
@@ -2681,17 +2741,17 @@
     {
       "key": "psxss0",
       "source": "THIS IS A STATUS SAVE",
-      "text": "זוהי שמירת מצב"
+      "text": "זוהי נקודת שמירת מצב"
     },
     {
       "key": "psxss1",
       "source": "POINT. DO YOU WANT",
-      "text": "נקודה. לשמור"
+      "text": "משחק. האם ברצונך"
     },
     {
       "key": "psxss2",
       "source": "TO SAVE YOUR STATUS?",
-      "text": "את מצב המשחק?"
+      "text": "לשמור את מצבך?"
     },
     {
       "key": "psxtext",
@@ -2742,11 +2802,6 @@
       "key": "5006",
       "source": "6TH PLACE! MY HERO! 7 VANS!",
       "text": "מקום שישי! אתה הגיבור שלי! 7 ואנים!"
-    },
-    {
-      "key": "5007",
-      "source": "7TH PLACE! SPAMTASTIC! 6 VANS!",
-      "text": "מקום שביעי! ספאם על הזמן! 6 ואנים!"
     },
     {
       "key": "5008",
@@ -2814,11 +2869,6 @@
       "text": "מקום חמישי! תשרוף, מותק, תשרוף! 8 ואנים!"
     },
     {
-      "key": "5021",
-      "source": "6TH PLACE! ARSON-TASTIC! YOU FRIED 7 VANS!",
-      "text": "מקום שישי! אלוף ההצתות! שרפת 7 ואנים!"
-    },
-    {
       "key": "5022",
       "source": "7TH PLACE! FRYING TONIGHT! 6 VANS!",
       "text": "מקום שביעי! הלילה צולים! 6 ואנים!"
@@ -2849,11 +2899,6 @@
       "text": "מקום שנים־עשר! המהירות מפחידה אותך, ילד? תתאמץ יותר! ואן אחד!"
     },
     {
-      "key": "5028",
-      "source": "What a LOOOOSER! Outwitted by a couple of kiddy Ice-Cream Vans and a bunch of Donut-Munchers! You are a complete waste of skin! Get outta here!",
-      "text": "איזה לוזר עלוב! כמה ואני גלידה של ילדים וחבורת שוטרים זוללי סופגניות עשו ממך צחוק. אתה פשוט בזבוז של עור. עוף מכאן!"
-    },
-    {
       "key": "5029",
       "source": "Nice work, sucka! With those Ice-Cream Vans out of the picture, we can introduce our own brand of Raspberry Rippled mayhem to the city and show them ALL the real meaning of 'I SCREAM'!",
       "text": "כל הכבוד, יא אפס! עכשיו שוואני הגלידה האלה מחוץ לתמונה, נכניס לעיר מהומת גלידת פטל משלנו ונראה לכולם מה זה „אני צורח”!"
@@ -2882,11 +2927,6 @@
       "key": "5034",
       "source": "2ND PLACE! SUPER-SPEEDY! 11 VANS!",
       "text": "מקום שני! מהיר כמו טיל! 11 ואנים!"
-    },
-    {
-      "key": "5035",
-      "source": "3RD PLACE! OOH! MR SKIDMARKS! 10 VANS!",
-      "text": "מקום שלישי! מר סימני הצמיגים! 10 ואנים!"
     },
     {
       "key": "5036",
@@ -2949,11 +2989,6 @@
       "text": "גלידת פטל!"
     },
     {
-      "key": "5052",
-      "source": "YOU SHOT YOUR LOAD!",
-      "text": "בזבזת את כל התחמושת!"
-    },
-    {
       "key": "5053",
       "source": "OOH... DID THAT HURT?",
       "text": "אוי... זה כאב?"
@@ -2962,11 +2997,6 @@
       "key": "5054",
       "source": "DEATH TO ICE-CREAM VANS!",
       "text": "מוות לוואני הגלידה!"
-    },
-    {
-      "key": "5055",
-      "source": "CRISPY CRITTER!",
-      "text": "פריך לגמרי!"
     },
     {
       "key": "5056",
@@ -3189,11 +3219,6 @@
       "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
     },
     {
-      "key": "3211",
-      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
-      "text": "השתמש ב#טנק# כדי לחסל #20 כלי רכב# בתוך #120 שניות#!"
-    },
-    {
       "key": "3212",
       "source": "Use #Vehicle Machine Guns# to shoot #30 people# in #120 seconds#!",
       "text": "השתמש ב#מקלעי רכב# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
@@ -3287,11 +3312,6 @@
       "key": "4310",
       "source": "Use a #Tank# to shoot #30 people# in #120 seconds#!",
       "text": "השתמש ב#טנק# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
-    },
-    {
-      "key": "4311",
-      "source": "Use a #Tank# to shoot #30 vehicles# in #120 seconds#!",
-      "text": "השתמש ב#טנק# כדי לחסל #30 כלי רכב# בתוך #120 שניות#!"
     },
     {
       "key": "4312",
@@ -3409,11 +3429,6 @@
       "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
     },
     {
-      "key": "6107",
-      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
-      "text": "השתמש ב#טנק# כדי לחסל #20 כלי רכב# בתוך #120 שניות#!"
-    },
-    {
       "key": "6108",
       "source": "Use #Vehicle Machine Guns# to shoot #100 people# in #120 seconds#!",
       "text": "השתמש ב#מקלעי רכב# כדי לחסל #100 אנשים# בתוך #120 שניות#!"
@@ -3479,11 +3494,6 @@
       "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #60 שניות#!"
     },
     {
-      "key": "6121",
-      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
-      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 אנשים# בתוך #60 שניות#!"
-    },
-    {
       "key": "6122",
       "source": "Use an #ElectroGun# to fry #20 Cops# in #60 seconds#!",
       "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 שוטרים# בתוך #60 שניות#!"
@@ -3507,11 +3517,6 @@
       "key": "6126",
       "source": "Use a #Tank# to shoot #20 people# in #120 seconds#!",
       "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
-    },
-    {
-      "key": "6127",
-      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
-      "text": "השתמש ב#טנק# כדי לחסל #20 כלי רכב# בתוך #120 שניות#!"
     },
     {
       "key": "6128",
@@ -3577,11 +3582,6 @@
       "key": "6140",
       "source": "Use an #ElectroGun# to fry #20 people# in #120 seconds#!",
       "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #120 שניות#!"
-    },
-    {
-      "key": "6141",
-      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
-      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 אנשים# בתוך #60 שניות#!"
     },
     {
       "key": "6142",

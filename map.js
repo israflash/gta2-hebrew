@@ -4,8 +4,8 @@
 // downloaded. Read-only towards the game, apart from pausing it while the map
 // screen is open.
 
-import { lang, registerDict, t } from './strings.js?v=b2bc4e2610';
-import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=b2bc4e2610';
+import { lang, registerDict, t } from './strings.js?v=6c3c0e4d0f';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=6c3c0e4d0f';
 
 loadMissionTranslations().catch((err) => console.error(err));
 loadMissionTitles().catch((err) => console.error(err));
@@ -82,7 +82,7 @@ registerDict({
   },
   he: {
     'ui.map.speaker.loonies': 'לוניז', 'ui.map.speaker.yakuza': 'יאקוזה',
-    'ui.map.speaker.zaibatsu': 'זאיבאצו', 'ui.map.speaker.rednecks': 'רדנקס',
+    'ui.map.speaker.zaibatsu': 'זייבאצו', 'ui.map.speaker.rednecks': 'רדנקס',
     'ui.map.speaker.scientists': 'המדענים', 'ui.map.speaker.krishnas': 'קרישנאים',
     'ui.map.speaker.russians': 'רוסים',
     'ui.map.weapons.pistol': 'אקדח', 'ui.map.weapons.machineGun': 'מקלע',
@@ -298,8 +298,9 @@ const JOBS = {
 // difficulty triangles 8-10, gang logos 64 + arrow colour - 1 (respect bars).
 const HUD_SPRITES = 6;
 const gangLogo = (arrowColour) => 63 + arrowColour;
-const GANGS = { zai: 'Zaibatsu', yak: 'Yakuza', loo: 'Loonies', red: 'Rednecks', sci: 'SRS Scientists', srs: 'SRS Scientists',
-  kri: 'Hare Krishna', rus: 'Russian Mafia' };
+const GANGS = { zai: 'ui.map.speaker.zaibatsu', yak: 'ui.map.speaker.yakuza', loo: 'ui.map.speaker.loonies',
+  red: 'ui.map.speaker.rednecks', sci: 'ui.map.speaker.scientists', srs: 'ui.map.speaker.scientists',
+  kri: 'ui.map.speaker.krishnas', rus: 'ui.map.speaker.russians' };
 // What a garage door does (Car_BC::HandleShops_443C40, Player::ObjectTypeToWeaponType_443CB0).
 function garageService(extra) {
   if (extra === 250) return t('ui.map.garage.machineGun');
@@ -680,17 +681,19 @@ export class Gta2Map {
     const key = this.getMissionTitleKey();
     const record = hebrew ? missionTitle(key) : null;
     const visible = !!(s && s.hasPlayer && !s.paused && !this.open && record);
-    panel.hidden = !visible;
+    // Keep the banner hidden until its first valid viewport position is ready.
+    // Otherwise the first phone/title frame can flash at the canvas origin.
+    panel.hidden = true;
     if (!visible) return;
+    const rect = this.gameCanvas.getBoundingClientRect();
+    const vp = this.renderer.viewport;
+    if (!vp || !this.renderer.scale || !rect.width || !rect.height) return;
     if (panel.dataset.key !== String(key) || panel.dataset.viewportWidth !== String(window.innerWidth)) {
       this.renderMissionTitle(panel, record.text);
       panel.setAttribute('aria-label', record.text);
       panel.dataset.key = String(key);
       panel.dataset.viewportWidth = String(window.innerWidth);
     }
-    const rect = this.gameCanvas.getBoundingClientRect();
-    const vp = this.renderer.viewport;
-    if (!vp || !this.renderer.scale || !rect.width) return;
     const dpr = this.gameCanvas.width / rect.width;
     const viewLeft = rect.left + vp.x / dpr;
     const viewTop = rect.top + (this.gameCanvas.height - vp.y - vp.h) / dpr;
@@ -698,6 +701,7 @@ export class Gta2Map {
     const viewHeight = vp.h / dpr;
     panel.style.left = `${viewLeft + viewWidth / 2}px`;
     panel.style.top = `${viewTop + viewHeight * 0.23}px`;
+    panel.hidden = false;
   }
 
   renderMissionTitle(canvas, text) {
@@ -962,7 +966,7 @@ export class Gta2Map {
     const gangs = {};
     for (const [i, colour, , , , code] of this.rows('gta2_port_map_gangs', 6, 10)) {
       const c = String.fromCharCode(code & 255, (code >> 8) & 255, (code >> 16) & 255);
-      gangs[i] = { name: GANGS[c] || c, colour };
+      gangs[i] = { name: GANGS[c] ? t(GANGS[c]) : c, colour };
     }
     const jobs = [];
     const targets = [];

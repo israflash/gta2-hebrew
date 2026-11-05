@@ -2,24 +2,24 @@
 // in-memory filesystem, wires input and the renderer, and starts the core.
 // No game file leaves the device (R01); nothing is fetched from the network
 // except the port itself, or local files in ?devdata=1 developer mode.
-import createGta2 from './gta2.js?v=22853b9006';
-import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=22853b9006';
-import { SavesScreen } from './saves.js?v=22853b9006';
-import { ControlsScreen } from './controls.js?v=22853b9006';
-import { Gta2Renderer } from './renderer.js?v=22853b9006';
-import { SaveStorage } from './storage.js?v=22853b9006';
-import { Gta2Audio } from './audio.js?v=22853b9006';
-import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=22853b9006';
-import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=22853b9006';
-import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=22853b9006';
-import { count, initStats, startPlayClock } from './stats.js?v=22853b9006';
-import { CoopChat } from './chat.js?v=22853b9006';
-import { GamepadInput } from './gamepad.js?v=22853b9006';
-import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=22853b9006';
-import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=22853b9006';
-import { money } from './savestate.js?v=22853b9006';
-import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=22853b9006';
-import { bindHebrewGxtRenderer } from './gamegxt.js?v=22853b9006';
+import createGta2 from './gta2.js?v=6c3c0e4d0f';
+import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=6c3c0e4d0f';
+import { SavesScreen } from './saves.js?v=6c3c0e4d0f';
+import { ControlsScreen } from './controls.js?v=6c3c0e4d0f';
+import { Gta2Renderer } from './renderer.js?v=6c3c0e4d0f';
+import { SaveStorage } from './storage.js?v=6c3c0e4d0f';
+import { Gta2Audio } from './audio.js?v=6c3c0e4d0f';
+import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=6c3c0e4d0f';
+import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=6c3c0e4d0f';
+import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=6c3c0e4d0f';
+import { count, initStats, startPlayClock } from './stats.js?v=6c3c0e4d0f';
+import { CoopChat } from './chat.js?v=6c3c0e4d0f';
+import { GamepadInput } from './gamepad.js?v=6c3c0e4d0f';
+import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=6c3c0e4d0f';
+import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=6c3c0e4d0f';
+import { money } from './savestate.js?v=6c3c0e4d0f';
+import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=6c3c0e4d0f';
+import { bindHebrewGxtRenderer } from './gamegxt.js?v=6c3c0e4d0f';
 
 // The shell's own user-facing text, in the web languages (namespace shell.*).
 // Game text lives in data/*.gxt, translated by web/gxt-translations.js.
@@ -935,8 +935,11 @@ function wireHebrewMainMenu(Module, canvas) {
   const tools = $('tools');
   if (!overlay) return;
   let menuState;
+  let gameState;
   try { menuState = Module.cwrap('gta2_port_frontend_menu_state', 'number', []); }
   catch (err) { console.warn('Hebrew menu labels unavailable', err); return; }
+  try { gameState = Module.cwrap('gta2_dev_state', 'number', []); }
+  catch { /* Older engines cannot expose whether gameplay has begun. */ }
   const options = [...overlay.querySelectorAll('[data-option]')];
   const place = () => {
     const rect = canvas.getBoundingClientRect();
@@ -957,7 +960,12 @@ function wireHebrewMainMenu(Module, canvas) {
   const sync = () => {
     const state = menuState();
     const page = state < 0 ? -1 : Math.floor(state / 16);
-    if (tools) tools.hidden = page >= 0;
+    let hasPlayer = false;
+    try {
+      const state = gameState?.();
+      hasPlayer = !!(state && Module.HEAP32[state >> 2]);
+    } catch { /* Keep the toolbar hidden until the game state is available. */ }
+    if (tools) tools.hidden = page >= 0 || !hasPlayer;
     overlay.hidden = page !== 0 || currentLang() !== 'he' || !!Module.gta2HebrewGxtReady;
     if (page !== 0 || currentLang() !== 'he') return;
     const selected = state % 16;
@@ -1403,6 +1411,9 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
     const briefTestKeys = params.has('devdata')
       ? (params.get('brief-test') || '').split(',').map((key) => key.trim()).filter((key) => /^[0-9A-Za-z_]{1,7}$/.test(key)).slice(0, 8)
       : [];
+    const briefTestCostRaw = params.get('brief-cost');
+    const briefTestCost = briefTestCostRaw != null && /^-?\d+$/.test(briefTestCostRaw)
+      ? Number(briefTestCostRaw) : -1;
     if (briefTestKeys.length) {
       let attempts = 0;
       const timer = setInterval(() => {
@@ -1417,7 +1428,7 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
         const queueTimer = setInterval(() => {
           if (index >= briefTestKeys.length) { clearInterval(queueTimer); return; }
           const key = briefTestKeys[index++];
-          const queued = Module.ccall('gta2_dev_show_brief', 'number', ['string'], [key]);
+          const queued = Module.ccall('gta2_dev_show_brief', 'number', ['string', 'number'], [key, briefTestCost]);
           console.info(`[mission-brief-test] ${queued ? 'queued' : 'rejected'} GXT ${key}`);
         }, 1000);
       }, 250);
