@@ -63,6 +63,16 @@ for (const [key, text] of Object.entries(gxtExtras)) {
   assert.equal((row.source.match(/#/g) || []).length % 2, (row.text.match(/#/g) || []).length % 2,
     `supplemental GXT color-marker parity changed: ${key}`);
 }
+const correctionExpectations = {
+  '3913': 'שתי כוסיות שוות',
+  '6166': 'לא קידם את העבודה',
+  '7002': 'ואן הגלידה הממולכד',
+  '5500': 'חסל אנשים כדי לצבור',
+};
+for (const [key, expected] of Object.entries(correctionExpectations)) {
+  assert.ok(gameplayGxt.find((r) => String(r.key) === key)?.text.includes(expected),
+    `contextual correction missing for GXT ${key}`);
+}
 for (const key of ['1290', '1402', '5000', '5001', '5013', '5014', '5015', '5028', '5029', '5030', '5045', '5050', '5063', '1015', '1900', '1901', '1903', '1905', '2070', '2071', '3200', '3210', '4310', '6100',
   '7020', '7130', '7230', '1902', '1904', '2052', '2059', '3202', '3204', '2215', '2232', '1124', '1125', '2997', '2998', '2999', 'c00', 'c02', 'c29', 'c31']) {
   assert.ok(gameplayGxt.some((r) => String(r.key) === key), `player-facing GXT entry missing: ${key}`);
