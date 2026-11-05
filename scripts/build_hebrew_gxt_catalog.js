@@ -129,6 +129,10 @@ function readGxt(file) {
 
 const gxt = readGxt(input);
 const byKey = new Map(Object.entries(he));
+// Additional player-facing GXT messages are maintained in one keyed source file;
+// the generated runtime catalog is still the sole catalog consumed by the renderer.
+const extraTranslations = JSON.parse(fs.readFileSync(path.join(__dirname, 'gxt-extra-translations.he.json'), 'utf8'));
+for (const [key, text] of Object.entries(extraTranslations)) byKey.set(key, text);
 const challengeExtras = JSON.parse(fs.readFileSync(path.join(__dirname, 'icecream-frenzy-translations.json'), 'utf8'));
 for (const [key, text] of Object.entries(challengeExtras)) byKey.set(key, text);
 for (const [key, source] of gxt) {

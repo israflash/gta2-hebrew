@@ -1,37 +1,51 @@
-# GTA2 in your browser
+# GTA 2 בעברית — המשחק המקורי בדפדפן
 
-**Grand Theft Auto 2 (1999), the real game, in a browser tab.** No install and no plugins.
-Click Play and you're stealing a Z-Type in Downtown Anywhere City about a minute later.
-Bring friends: co-op, Gang Wars and free-for-all, browser to browser.
+**שחקו ב־GTA 2 המקורי משנת 1999 בדפדפן, עם הודעות וכותרות משימה בעברית.** המשחקיות, המשימות, האודיו והשמירות נשארים של גרסת המקור. הממשק מציע עברית ואפשרות לעבור לאנגלית.
 
-## Hebrew fan translation
+## משחק
 
-This repository adds Hebrew mission briefs and mission-title banners to the original browser
-port. Hebrew is the default in-game language; players can switch back to English. The landing page
-and map labels remain primarily in English. Game audio,
-mission logic, saves, and multiplayer remain the original browser-port features. This is an
-unofficial, non-commercial fan project and includes no commercial GTA2 data files.
+[**למשחק GTA 2 בעברית**](https://israflash.github.io/gta2-hebrew/)
 
-**Play the Hebrew build:** [https://israflash.github.io/gta2-hebrew/](https://israflash.github.io/gta2-hebrew/)
+בכניסה הראשונה לחצו **שחק עכשיו**. אם קובצי המשחק אינם שמורים בדפדפן, האתר יוריד את מהדורת התוכנה החופשית משנת 2004 מ־[Internet Archive](https://archive.org/details/gta2_rockstar-classics), יחלץ אותה מקומית וישמור אותה בדפדפן. אפשר גם לבחור תיקייה מקומית שמכילה `data`. קובצי המשחק והשמירות האישיות אינם נמצאים במאגר.
 
-The source project is based on [M1sterMo/gta2-browser](https://github.com/M1sterMo/gta2-browser).
-The local runner is `./run-local.ps1`. A public static package is built with
-`scripts/build_pages.py`; only a published GitHub Release is configured to deploy it.
-See [docs/publishing.md](docs/publishing.md) for the release workflow and save-compatibility
-notes.
+## צילומי מסך מהמשחק
 
-### ▶ [Play now: m1stermo.github.io/gta2](https://m1stermo.github.io/gta2/)
+<!-- צילומים אלה נלקחו מהמשחק שרץ בבנייה העדכנית; אין בהם מסכי Debug. -->
 
-![Downtown at 16:9 with the radar minimap and a gang-job waypoint](docs/screenshots/downtown-widescreen-radar.png)
+| כותרת משימה בעברית | דיאלוג משימה דו־שורי עם דיוקן |
+|---|---|
+| ![כותרת משימה בעברית בתוך GTA 2](docs/screenshots/gta2-hebrew-mission-title.png) | ![דיאלוג בעברית לצד דיוקן הדמות](docs/screenshots/gta2-hebrew-mission-brief.png) |
 
-The first time you press Play, the page downloads the official 2004 freeware release of GTA2
-from the [Internet Archive](https://archive.org/details/gta2_rockstar-classics). That's about
-346 MB, roughly half a minute on a fast connection. The page unpacks it right in the browser and
-keeps it, so every visit after that starts instantly. Saves stay in your browser too, with
-export and import.
+| מפת המשחק | תפריט ראשי בעברית |
+|---|---|
+| ![מפת המשחק עם ממשק עברי](docs/screenshots/gta2-hebrew-map.png) | ![מסך הפתיחה המקורי עם תוויות התפריט בעברית](docs/screenshots/gta2-hebrew-main-menu.png) |
 
-Works in desktop Chrome, Edge, Firefox and Brave. Safari and phones are untested.
+## הפעלה ושליטה
 
+- המשחק כולל את שלושת המחוזות: Downtown, Residential ו־Industrial. שמות רשמיים, שמות רחובות, שמות רכבים ושילוט בעולם נשארים באנגלית כדי שיהיה אפשר לזהות אותם במשחק.
+- תנועה: `W A S D`; ירי/מכה: `L`; כניסה/יציאה מרכב: `Enter`; קפיצה/בלם יד: `Space`; נשק קודם/הבא: `J / K`; מפה: `M`.
+- אפשר לשנות מקשים, מצלמה, יחס מסך, תנועה, מכ״ם ושפה באפשרויות. שלט משחק נתמך.
+- משחק עם חברים: פתחו חדר ושלחו את הקישור מהלובי. המשחק מרובה המשתתפים משתמש בחיבור ישיר בין דפדפנים, ככל שהרשת והדפדפנים מאפשרים זאת.
+
+## שמירות ותכונות
+
+ההתקדמות נשמרת בדפדפן. מסך השמירות מאפשר שמירה וטעינה, המשך משחק, ייבוא וייצוא של קובצי שמירה. קובצי שמירה הם מקומיים; כדי להעביר אותם למחשב אחר יש לייצא ולייבא אותם שם.
+
+התרגום העברי מתמקד בהודעות וכותרות משימה ובטקסטי משחק שנקשרו לקטלוג התרגום. הוא אינו טוען שכל מחרוזת במשחק תורגמה או עברה הגהה. האודיו, הרדיו והמוזיקה נשארים באנגלית.
+
+## קרדיטים ורישיונות
+
+זהו פרויקט מעריצים לא רשמי ולא מסחרי, שאינו קשור ל־Rockstar Games או ל־Take-Two Interactive. GTA 2 וכל סימני המסחר הם רכוש בעליהם; קובצי המשחק המסחריים אינם כלולים.
+
+- קוד הדפדפן המקורי והקרדיט למפתח: [M1sterMo/gta2-browser](https://github.com/M1sterMo/gta2-browser).
+- מנוע הקוד הפתוח: [CriminalRETeam/gta2_re](https://github.com/CriminalRETeam/gta2_re).
+- הפרויקט והתרגום העברי: [israflash/gta2-hebrew](https://github.com/israflash/gta2-hebrew).
+
+## פיתוח ופרסום
+
+להרצה מקומית השתמשו ב־`run-local.ps1`. תהליך בדיקות ופרסום גרסאות יציבות מתועד ב־[docs/publishing.md](docs/publishing.md).
+
+## English
 ## What's in it
 
 It's not a remake. The engine is the community's matching decompilation of the original code

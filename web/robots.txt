@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://israflash.github.io/gta2-hebrew/sitemap.xml

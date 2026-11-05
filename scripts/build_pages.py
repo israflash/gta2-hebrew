@@ -26,7 +26,7 @@ ARCHIVE = RELEASE / 'old'  # every published build, for saves made with it (web/
 FILES = (
     'index.html', 'gta2.js', 'gta2.wasm', 'unshield.js', 'unshield.wasm', 'unshield-LICENSE.txt',
     'mission-translations.he.json', 'mission-extras.he.json', 'mission-titles.he.json',
-    'gxt-gameplay.he.json',
+    'gxt-gameplay.he.json', 'robots.txt', 'sitemap.xml',
 )
 SUFFIXES = ('.js',)
 DIRS = ('vendor', 'fonts')  # not img/: game screenshots stay off public pages (AGENTS.md); the hero closes up

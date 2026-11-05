@@ -1,10 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="he">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GTA 2 בעברית — GTA2 in your browser</title>
-  <meta name="description" content="GTA 2 בדפדפן עם הודעות משימה וכותרות משימה בעברית. פרויקט מעריצים לא רשמי; קובצי המשחק אינם כלולים.">
+  <title>GTA 2 בעברית — משחק הדפדפן המקורי</title>
+  <meta name="description" content="שחקו ב־GTA 2 המקורי משנת 1999 בדפדפן, עם הודעות וכותרות משימה בעברית. שלושה מחוזות, שמירות מקומיות ומשחק עם חברים. פרויקט מעריצים לא רשמי; קובצי המשחק אינם כלולים.">
+  <link rel="canonical" href="https://israflash.github.io/gta2-hebrew/">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="GTA 2 בעברית">
+  <meta property="og:title" content="GTA 2 בעברית — משחק הדפדפן המקורי">
+  <meta property="og:description" content="GTA 2 המקורי בדפדפן עם הודעות וכותרות משימה בעברית. קובצי המשחק אינם כלולים.">
+  <meta property="og:url" content="https://israflash.github.io/gta2-hebrew/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/israflash/gta2-hebrew/main/docs/screenshots/gta2-hebrew-mission-brief.png">
+  <meta property="og:image:alt" content="משחק GTA 2 עם הוראת משימה בעברית לצד דיוקן הדובר">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#0b0b0d">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"VideoGame","name":"GTA 2 בעברית","alternateName":["גיטיאיי 2 בעברית","GTA 2 Hebrew"],"url":"https://israflash.github.io/gta2-hebrew/","inLanguage":["he","en","es","fr"],"gamePlatform":"Web browser","description":"GTA 2 המקורי בדפדפן עם הודעות וכותרות משימה בעברית. פרויקט מעריצים לא רשמי; קובצי המשחק אינם כלולים."}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
@@ -309,9 +324,9 @@
     <button class="btn" type="button" data-play data-i18n="ui.playNow">Play now</button>
   </header>
   <main>
-    <div id="landing" hidden>
+    <div id="landing" lang="he" dir="rtl" hidden>
       <section class="card landing-hebrew-intro" lang="he" dir="rtl" aria-labelledby="hebrew-intro-title">
-        <h2 class="section-title" id="hebrew-intro-title">GTA 2 בעברית</h2>
+        <p class="section-title" id="hebrew-intro-title"><strong>GTA 2 בעברית</strong></p>
         <p class="section-sub">גרסת הדפדפן המקורית, עם הודעות המשימות וכותרותיהן בעברית. המשחק, האודיו באנגלית, המפה, השמירות ומשחק הרשת נשארים זמינים.</p>
         <p class="section-sub">פרויקט מעריצים לא רשמי, שאינו קשור ל־Rockstar Games. קובצי המשחק אינם כלולים באתר.</p>
         <p class="section-sub"><a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">המאגר והתרגום העברי</a>
@@ -524,7 +539,7 @@
     <p id="fps" hidden></p>
     <canvas id="mission-title" hidden aria-live="polite" aria-label=""></canvas>
     <section id="mission-brief" hidden aria-live="polite"><div id="mission-brief-speaker" class="mission-brief-speaker"></div><div class="mission-brief-text"></div></section>
-    <section id="mission-history" hidden aria-label="Mission message history"><h2>הודעות אחרונות</h2><div class="mission-history-list"></div></section>
+    <section id="mission-history" hidden aria-label="היסטוריית הודעות משימה"><h2>הודעות אחרונות</h2><div class="mission-history-list"></div></section>
     <div id="tools" hidden>
       <!-- Stateful labels (they follow the button's state): no data-i18n here, the shell
            re-renders them on a language change. -->

@@ -23,6 +23,7 @@ const PORT = 9223;
 const BASE = 'http://127.0.0.1:8876/';
 const outDir = path.join(__dirname, '..', 'game', 'qa-screenshots');
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const auditSnapshots = [];
 
 async function json(url, options) {
   const response = await fetch(url, options);
@@ -81,14 +82,27 @@ async function main() {
     cdp = await connectCdp(page.webSocketDebuggerUrl);
     await cdp.send('Page.enable');
     await cdp.send('Runtime.enable');
-    await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1200, height: 800, deviceScaleFactor: 1, mobile: false });
+    await cdp.send('Emulation.setDeviceMetricsOverride', {
+      width: Number(process.env.GTA2_QA_WIDTH) || 1200,
+      height: Number(process.env.GTA2_QA_HEIGHT) || 800,
+      deviceScaleFactor: 1, mobile: false,
+    });
     const evaluate = async (expression) => {
       const result = await cdp.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
       if (result.exceptionDetails) throw new Error(result.exceptionDetails.text || 'page evaluation failed');
       return result.result?.value;
     };
     const navigate = async (url) => {
-      await cdp.send('Page.navigate', { url });
+      if (process.env.GTA2_QA_GXT_AUDIT) {
+        try {
+          const snapshot = await evaluate('window.gta2GxtAudit?.snapshot() || []');
+          if (snapshot.length) auditSnapshots.push({ page: await evaluate('location.href'), missing: snapshot });
+        } catch { /* initial about:blank has no app diagnostics */ }
+      }
+      const target = process.env.GTA2_QA_GXT_AUDIT
+        ? `${url}${url.includes('?') ? '&' : '?'}gxt-audit`
+        : url;
+      await cdp.send('Page.navigate', { url: target });
     };
     const waitFor = async (probe, predicate, label, timeoutMs = 45000) => {
       const end = Date.now() + timeoutMs;
@@ -101,6 +115,14 @@ async function main() {
       throw new Error(`timed out waiting for ${label}; last value=${JSON.stringify(value)}`);
     };
     const capture = async (name) => {
+      if (process.env.GTA2_QA_CLEAN_SCREENSHOTS) {
+        await cdp.send('Runtime.evaluate', { expression: `(() => {
+          let s=document.getElementById('gta2-qa-clean-capture');
+          if(!s){s=document.createElement('style');s.id='gta2-qa-clean-capture';document.head.append(s)}
+          s.textContent='#tools,#mission-history{visibility:hidden!important}';return true;
+        })()` });
+      }
+      await evaluate('new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))');
       const result = await cdp.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
       const file = path.join(outDir, `${name}.png`);
       await fs.writeFile(file, Buffer.from(result.data, 'base64'));
@@ -199,9 +221,17 @@ async function main() {
         console.log(JSON.stringify({ briefFailure: { key: item.key, diagnostics, screenshot: await capture(`brief-failure-${item.key}`) } }));
         throw error;
       }
+      const visual = await evaluate(`(() => {const p=document.querySelector('#mission-brief'),t=p?.querySelector('.mission-brief-text'),s=t&&getComputedStyle(t),r=t?.getBoundingClientRect();let hit=[];if(r){p.style.pointerEvents='auto';hit=document.elementsFromPoint(r.left+r.width/2,r.top+r.height/2).slice(0,6).map(e=>({tag:e.tagName,id:e.id,class:e.className,z:getComputedStyle(e).zIndex,opacity:getComputedStyle(e).opacity,display:getComputedStyle(e).display}));p.style.pointerEvents='none'}return {hidden:p?.hidden,rect:r?.toJSON(),text:t?.innerText,color:s?.color,font:s?.font,visibility:s?.visibility,opacity:s?.opacity,overflow:s?.overflow,layoutOverflow:t?.dataset.layoutOverflow,layoutLines:t?.dataset.layoutLines,portrait:document.querySelector('#mission-brief-speaker')?.getBoundingClientRect().toJSON(),hit}})()`);
       const file = await capture(item.name);
+      if (process.env.GTA2_QA_CLIP_BRIEF === '1') {
+        const clip = await cdp.send('Page.captureScreenshot', {
+          format: 'png', clip: { x: visual.rect.x, y: visual.rect.y, width: visual.rect.width, height: visual.rect.height, scale: 2 },
+          captureBeyondViewport: false,
+        });
+        await fs.writeFile(path.join(outDir, `${item.name}-brief-region.png`), Buffer.from(clip.data, 'base64'));
+      }
       const area = item.area || (item.key === '3727' ? 'Industrial District' : 'Residential');
-      sequence.push({ area, gxtKey: item.key, text: state.text, dir: state.dir, screenshot: file });
+      sequence.push({ area, gxtKey: item.key, text: state.text, dir: state.dir, visual, screenshot: file });
       console.log(`captured translated GXT ${item.key}`);
     }
 
@@ -373,7 +403,13 @@ async function main() {
           const actualBriefState = await evaluate(`window.gta2.map.jobBriefs()`);
           const live = await evaluate(visibleTranslated);
           const missionTitleState = await evaluate(`(() => ({key:window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[]),nativeHidden:window.gta2.Module.ccall('gta2_port_native_mission_title_text_hidden','number',[],[]),translatedTitle:document.querySelector('#mission-title')?.getAttribute('aria-label'),titleHidden:document.querySelector('#mission-title')?.hidden}))()`);
-          missionAttempt = { status: 'mission-flag-observed', phone, jobBriefs: actualBriefState.briefs, translatedLayer: live, missionTitleState, titleTimeline, liveTitleScreenshot, screenshot: await capture('real-downtown-mission') };
+          let liveBriefOnly = null;
+          try {
+            await waitFor(`document.querySelector('#mission-title')?.hidden && (${visibleTranslated})`, Boolean,
+              'genuine mission brief after the short title banner expires', 9000);
+            liveBriefOnly = { status: 'captured-after-title-expiry', screenshot: await capture('real-downtown-live-brief'), state: await evaluate(visibleTranslated) };
+          } catch { liveBriefOnly = { status: 'not-captured-before-brief-expired' }; }
+          missionAttempt = { status: 'mission-flag-observed', phone, jobBriefs: actualBriefState.briefs, translatedLayer: live, missionTitleState, titleTimeline, liveTitleScreenshot, liveBriefOnly, screenshot: await capture('real-downtown-mission') };
         } catch {
           missionAttempt = { status: 'phone-approach-attempted-no-mission-flag', phone };
         }
@@ -382,7 +418,9 @@ async function main() {
     }
 
     if (process.env.GTA2_QA_FOCUS) {
-      console.log(JSON.stringify({ focusedQa: true, missionTitleTest, missionAttempt }));
+      const currentGxtAudit = process.env.GTA2_QA_GXT_AUDIT
+        ? await evaluate('window.gta2GxtAudit?.snapshot() || []') : null;
+      console.log(JSON.stringify({ focusedQa: true, sequence, missionTitleTest, missionAttempt, auditSnapshots, currentGxtAudit }));
       return;
     }
 
@@ -420,7 +458,9 @@ async function main() {
     const mainMenu = await capture('main-menu');
     console.log('captured original main menu after gameplay reload');
 
-    console.log(JSON.stringify({ sequence, missionTitleTest, nativeGxtDraw, saveRoundTrip, missionAttempt, fallback, pauseMenu, paused, mainMenu, mainMenuProbe, notes: 'Injected briefs and mission titles use their native HUD message queues; native GXT tests enqueue GXT strings in the live game and observe the production DrawText hook. A genuine mission is counted only when the engine mission flag changes after using an original gang phone.' }, null, 2));
+    const currentGxtAudit = process.env.GTA2_QA_GXT_AUDIT
+      ? await evaluate('window.gta2GxtAudit?.snapshot() || []') : null;
+    console.log(JSON.stringify({ sequence, missionTitleTest, nativeGxtDraw, saveRoundTrip, missionAttempt, fallback, pauseMenu, paused, mainMenu, mainMenuProbe, auditSnapshots, currentGxtAudit, notes: 'Injected briefs and mission titles use their native HUD message queues; native GXT tests enqueue GXT strings in the live game and observe the production DrawText hook. A genuine mission is counted only when the engine mission flag changes after using an original gang phone.' }, null, 2));
   } finally {
     if (cdp?.ws.readyState === WebSocket.OPEN) cdp.ws.close();
     chrome.kill();

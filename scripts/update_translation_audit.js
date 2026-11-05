@@ -121,10 +121,14 @@ for (const row of rows) {
     row[idx.kind] = 'מחרוזת GXT — HUD/תפריט/אתגר';
     row[idx.source] = record.source;
     row[idx.text] = record.text;
-    row[idx.status] = 'תורגם; חיבור החלפה במנגנון הציור נוסף; טרם אומת חזותית לכל המצבים';
+    row[idx.status] = String(id) === '1115'
+      ? 'תרגום קיים ומותאם למקור; הזרקת QA לא הציגה אותו; דרוש אימות בנתיב הטבעי'
+      : 'תורגם; חיבור החלפה במנגנון הציור נוסף; טרם אומת חזותית לכל המצבים';
     row[idx.importance] = 'חיוני להבנת המשחק/הפעלתו';
     row[idx.recommendation] = 'להציג במקום המקורי דרך draw hook; להשאיר fallback באנגלית כשאין התאמה.';
-    row[idx.context] = /FRENZY|seconds|people|vehicles|cops/i.test(record.source) ? 'אתגר זמן/תוצאה דרך GXT; מקור נשמר, סימוני # משמשים להדגשה.' : 'טקסט תפריט או HUD דרך GXT; התאמה לפי מחרוזת מקור.';
+    row[idx.context] = String(id) === '1115'
+      ? 'דיאלוג עם סמן דובר; המפתח תורגם ממקור GXT, אך gta2_dev_show_brief לא יצר תצוגת DrawText בבדיקת QA.'
+      : /FRENZY|seconds|people|vehicles|cops/i.test(record.source) ? 'אתגר זמן/תוצאה דרך GXT; מקור נשמר, סימוני # משמשים להדגשה.' : 'טקסט תפריט או HUD דרך GXT; התאמה לפי מחרוזת מקור.';
     row[idx.tech] = `game/data/e.gxt; port/platform/jobs_web.cpp; web/gamegxt.js · GXT ${record.key}`;
     changedGxt++;
   } else if (id in uiHe) {
@@ -134,10 +138,42 @@ for (const row of rows) {
     row[idx.recommendation] = 'להשאיר את שם המקש/היעד באנגלית כשהוא מופיע כך במשחק.';
     changedUi++;
   } else if (row[idx.kind] === 'טקסט GXT אחר') {
-    if (/REPORT DEAD BRIEF|PLEASE REPORT DEAD BRIEF/i.test(row[idx.source])) {
+    if (/REPORT DEAD BRIEF|PLEASE REPORT DEAD BRIEF|DEAD BRIEF/i.test(row[idx.source])) {
       row[idx.status] = 'לא פעיל או מחרוזת פיתוח — הודעת REPORT DEAD BRIEF';
       row[idx.importance] = 'לא רלוונטי לשחקן';
       row[idx.recommendation] = 'להשאיר באנגלית; מחרוזת אבחון שאינה חלק מחוויית המשחק.';
+    } else if (/^car\d+$/i.test(id)) {
+      row[idx.status] = 'נשאר באנגלית בכוונה — שם דגם רכב רשמי';
+      row[idx.importance] = 'זיהוי רכב במשחק';
+      row[idx.recommendation] = 'לשמר את שם הדגם באנגלית כדי לזהות אותו בעולם המשחק.';
+    } else if (/^(?:B\d{2}|m\d{2}|w\d{2})$/i.test(id)) {
+      row[idx.status] = 'נשאר באנגלית בכוונה — שם מקום רשמי';
+      row[idx.importance] = 'זיהוי יעד/מקום';
+      row[idx.recommendation] = 'לשמר את שם המקום הרשמי כדי להתאים אותו לשמות במפה ובמשימות.';
+    } else if (/^ganga\d+$/i.test(id)) {
+      row[idx.status] = 'נשאר באנגלית בכוונה — תווית כנופיה לזיהוי';
+      row[idx.importance] = 'זיהוי סמל/כנופיה בממשק';
+      row[idx.recommendation] = 'התעתיק העברי נשמר לדיאלוגים; תווית הקטלוג נשארת באנגלית כדי לזהות את סימון הכנופיה.';
+    } else if (/^(?:s\d{2}|1954)$/i.test(id)) {
+      row[idx.status] = 'נשאר באנגלית בכוונה — שם תחנת רדיו';
+      row[idx.importance] = 'זיהוי תחנה';
+      row[idx.recommendation] = 'לשמר את שם התחנה המקורי; שידורי הרדיו נשארים באנגלית.';
+    } else if (/^c\d{2}$/i.test(id) && /^(?:na|n\/a)$/i.test(row[idx.source])) {
+      row[idx.status] = 'לא פעיל או מחרוזת טכנית — ערך placeholder';
+      row[idx.importance] = 'לא מוצג לשחקן';
+      row[idx.recommendation] = 'להשאיר ללא תרגום; המקור הוא ערך ריק/placeholder.';
+    } else if (/^(?:fr_|credits$|cr$)/i.test(id)) {
+      row[idx.status] = 'נשאר במקור בכוונה — קרדיטים או מחרוזת צרפתית';
+      row[idx.importance] = 'קרדיט/לוקליזציה אחרת';
+      row[idx.recommendation] = 'לשמר את הקרדיטים ואת משאבי השפה הצרפתית כפי שהם.';
+    } else if (id === 'sales_1') {
+      row[idx.status] = 'נשאר באנגלית בכוונה — טקסט פרסום/תאריך היסטורי';
+      row[idx.importance] = 'תוכן משני, אינו הוראת משחק';
+      row[idx.recommendation] = 'לשמר את כרטיס הפרסום ההיסטורי כפי שהופיע במקור.';
+    } else if (/^\d{4}$/.test(id) && /^[1-5]$/.test(row[idx.source])) {
+      row[idx.status] = 'נשאר ללא שינוי בכוונה — ספרת מונה';
+      row[idx.importance] = 'מידע מספרי';
+      row[idx.recommendation] = 'להשאיר את הספרה המקורית לשמירת זיהוי וסדר.';
     } else if (/^[\u2160-\u2188]/u.test(row[idx.source])) {
       row[idx.status] = 'דורש בדיקה נוספת — מחרוזת עם סמן דובר שלא נמצאה בסריקת פקודות brief';
       row[idx.importance] = 'חשיבות אפשרית למשימה/דיאלוג';
