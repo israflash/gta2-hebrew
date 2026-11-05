@@ -29,7 +29,7 @@ const he = {
   svcanc: 'השמירה בוטלה!', fined: 'קנס משטרתי!', fined1: 'נקנסת!', comms1: 'השחקן {s} יצא מהמשחק!',
   mult_w: 'ניצחת!', mult_l: 'הפסדת!', mult_q: 'פרשת!', mult_d: 'תיקו!',
   // Garages and save-point messages; retain formatting and dynamic amounts.
-  nspray: 'תחזור כשתהיה לך ערימה של כסף!', nspraya: 'אין לך מספיק כסף! צריך #$%d#.',
+  nspray: 'תחזור כשיהיה לך מספיק כסף!', nspraya: 'אין לך מספיק כסף! צריך #$%d#.',
   nespray: 'אני לא נוגע בזה! עוף מפה!', sdone: 'הנה, צבע יפה! זה יעלה #$%d#.',
   cdone: 'נקי — החלפנו את לוחיות הרישוי. זה יעלה #$%d#.', bdone: 'הרכב ממולכד! זה יעלה #$%d#.',
   arig: 'הרכב הזה כבר ממולכד!', svdone: '#המצב שלך #נשמר#!#',
@@ -43,13 +43,13 @@ const he = {
   run_ovr: 'אזרחים שנדרסו', murder: 'אזרחים שנרצחו', cop_kl: 'שוטרים שנהרגו', copkill: 'קוטל שוטרים!',
   gng_kl: 'חברי כנופיה שנהרגו', evsnrtg: 'מקדם בריחה', excutin: 'הוצאה להורג מהירה!', gencide: 'טבח!',
   accurcy: 'בונוס דיוק!', elvis_d: 'אלביס עזב את הבניין!', em_dest: 'מצב חירום רפואי!',
-  stl_all: 'גניבת מכוניות!', dst_all: 'השמדה מוחלטת!', bnk_job: 'שודי בנק', slfkils: 'התאבדויות שחקן',
+  stl_all: 'גניבת מכוניות!', dst_all: 'השמדה מוחלטת!', bnk_job: 'שוד בנקים', slfkils: 'התאבדויות שחקן',
   firearm: 'עבירות נשק', unconc: 'הולכי רגל שהוכו עד אובדן הכרה', stl_car: 'כלי רכב ריקים שנגנבו',
   car_des: 'כלי רכב שהושמדו', hijack: 'חטיפות רכב', bus_hi: 'אוטובוסים שנחטפו', trn_hi: 'רכבות שנחטפו',
   // Weapon names and weaponized vehicles. Vehicle models themselves stay English.
   c00: 'אקדח', c01: 'תת־מקלע S-Uzi', c02: 'מטול רקטות', c03: 'אקדח חשמלי', c04: 'בקבוקי תבערה',
   c05: 'רימונים', c06: 'רובה ציד', c07: 'אלת חשמל', c08: 'להביור', c09: 'תת־מקלע S-Uzi מושתק', c10: 'שני אקדחים',
-  c15: 'פצצת רכב', c16: 'כתם שמן', c17: 'מוקשים לרכב', c18: 'מקלעי רכב', c19: 'תותח טנק',
+  c15: 'פצצת רכב', c16: 'כתם שמן לרכב', c17: 'מוקשים לרכב', c18: 'מקלעי רכב', c19: 'תותח טנק',
   c20: 'תותח מים', c21: 'להביור לרכב', c22: 'תותח ג׳יפ', c23: 'פצצת רכב מיידית',
   // Pickups and player bonuses
   c28: 'מכפיל ניקוד +1', c29: 'חיים +1', c30: 'בריאות', c31: 'שריון', c32: 'כרטיס יציאה מהכלא',
@@ -81,8 +81,13 @@ function translateFrenzy(source) {
   match = clean.match(/^Use (?:the |a |an )?(.+?) to (shoot|kill|destroy|torch|fry|run over) (\d+) (people|vehicles|cops|cop cars) in (\d+) seconds!?$/i);
   if (!match) return null;
   const weapon = frenzyWeapon(match[1]);
-  const verb = ({ shoot: 'לחסל', kill: 'לחסל', destroy: 'להשמיד', torch: 'לשרוף', fry: 'לחשמל', 'run over': 'לדרוס' })[match[2].toLowerCase()];
   const noun = ({ people: 'אנשים', vehicles: 'כלי רכב', cops: 'שוטרים', 'cop cars': 'ניידות משטרה' })[match[4].toLowerCase()];
+  const sourceVerb = match[2].toLowerCase();
+  const targetIsVehicle = ['vehicles', 'cop cars'].includes(match[4].toLowerCase());
+  const verb = sourceVerb === 'torch' ? 'לשרוף'
+    : sourceVerb === 'fry' ? 'לחשמל'
+      : sourceVerb === 'run over' ? 'לדרוס'
+        : targetIsVehicle ? 'להשמיד' : 'לחסל';
   return colorParts(source, `השתמש ב${weapon} כדי ${verb} ${match[3]} ${noun} בתוך ${match[5]} שניות!`, [weapon, `${match[3]} ${noun}`, `${match[5]} שניות`]);
 }
 

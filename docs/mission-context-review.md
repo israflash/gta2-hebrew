@@ -1,4 +1,4 @@
-# Mission context review
+﻿# Mission context review
 
 Reviewed 2026-11-04 against the source GXT strings and compiled mission-script sequences. All 34 translated banner titles were checked for the action and tone of the mission sequence rather than translated word for word. Only one title has been visually observed during a genuine mission so far; the other 33 are source/context checked, not individually runtime verified.
 
@@ -13,7 +13,7 @@ Reviewed 2026-11-04 against the source GXT strings and compiled mission-script s
 | Downtown | 1976 | BANK ROBBERY! | שוד הבנק! | Help Hiroshi take the bank money and evade the police. |
 | Downtown | 1977 | HAPPY GAS SMASH! | נפצו את מכלי גז הצחוק! | Destroy the Happy Gas tanks at the Loony asylum. |
 | Downtown | 1978 | GET GAMA REI! | חילוץ גאמה ריי! | Get Gama Rei out of City Hospital in a Medicar and deliver him to the safehouse. |
-| Downtown | 1979 | FOLLOW THAT TRAITOR! | עקבו אחרי הבוגד! | Follow the traitor and locate him. |
+| Downtown | 1979 | FOLLOW THAT TRAITOR! | עקוב אחרי הבוגד! | Follow the traitor and locate him. |
 | Downtown | 1980 | SWAT VAN SWIPE! | גניבת ניידת ימ״מ! | Steal the SWAT van. |
 | Downtown | 1981 | STOP THE TANK! | עצרו את הטנק! | Stop the military tank/offensive. |
 | Downtown | 1982 | COP CAR CRUSH! | גניבת ניידת המשטרה! | Steal a Cop Car and meet Shady; the old “crush” wording misstated the opening action. |
@@ -56,3 +56,6 @@ Three complete sequences were read against their Hebrew text and source GXT orde
 The independent 31-item findings were also individually checked. Five mission keys overlap these full sequences, leaving **92 unique dialogue records** reviewed in this closing pass, plus four title findings. New corrections in this pass remove invented $1,000,000/$3,000,000 requirements from keys 1802/6009 and correct key 3968 from “terrorist” to “armed intruder” according to the security-guard scene. Key 2488 now transliterates SRS and explicitly targets the Taxi; key 1689 preserves the named street Zaibatsu Way in English. An alternative Hebrew rewrite for key 3788 was rejected because it erases the Z-Man/D-Man/D-for-Dead letter joke.
 
 The `context-reviewed` flag remains catalog metadata and must not be read as proof that all 1,175 catalog entries received human review. The defensible human counts are 34/34 banner titles checked against mission objectives, 14 full messages in the earlier sample, and 92 unique mission messages in this closing pass. Automated checks separately validate GXT identity, placeholders, runtime fallback, and consistent name forms.
+# הערת QA — דובר GXT 1197
+
+ברצף `Follow That Traitor!`, GXT 1197 הוא „I am Refried Noodle. Here is a weapon - if you need it.” מפתח ה־GXT מתחיל בסמן U+2179 (`ⅹ`), ש־`GetBriefFaceIdx_5D3680` ממפה לדיוקן Yakuza הכללי. הטקסט מזהה את הדמות במפורש כ־Refried Noodle, ולכן תווית הדובר תוקנה מרשומת Johnny Zoo ל־„ריפרייד נודל”; הדיוקן מציין את הכנופיה ואינו סותר את זהות הדמות.

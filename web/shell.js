@@ -935,8 +935,11 @@ function wireHebrewMainMenu(Module, canvas) {
   const tools = $('tools');
   if (!overlay) return;
   let menuState;
+  let gameState;
   try { menuState = Module.cwrap('gta2_port_frontend_menu_state', 'number', []); }
   catch (err) { console.warn('Hebrew menu labels unavailable', err); return; }
+  try { gameState = Module.cwrap('gta2_dev_state', 'number', []); }
+  catch { /* Older engines cannot expose whether gameplay has begun. */ }
   const options = [...overlay.querySelectorAll('[data-option]')];
   const place = () => {
     const rect = canvas.getBoundingClientRect();
@@ -957,7 +960,12 @@ function wireHebrewMainMenu(Module, canvas) {
   const sync = () => {
     const state = menuState();
     const page = state < 0 ? -1 : Math.floor(state / 16);
-    if (tools) tools.hidden = page >= 0;
+    let hasPlayer = false;
+    try {
+      const state = gameState?.();
+      hasPlayer = !!(state && Module.HEAP32[state >> 2]);
+    } catch { /* Keep the toolbar hidden until the game state is available. */ }
+    if (tools) tools.hidden = page >= 0 || !hasPlayer;
     overlay.hidden = page !== 0 || currentLang() !== 'he' || !!Module.gta2HebrewGxtReady;
     if (page !== 0 || currentLang() !== 'he') return;
     const selected = state % 16;
@@ -1403,6 +1411,9 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
     const briefTestKeys = params.has('devdata')
       ? (params.get('brief-test') || '').split(',').map((key) => key.trim()).filter((key) => /^[0-9A-Za-z_]{1,7}$/.test(key)).slice(0, 8)
       : [];
+    const briefTestCostRaw = params.get('brief-cost');
+    const briefTestCost = briefTestCostRaw != null && /^-?\d+$/.test(briefTestCostRaw)
+      ? Number(briefTestCostRaw) : -1;
     if (briefTestKeys.length) {
       let attempts = 0;
       const timer = setInterval(() => {
@@ -1417,7 +1428,7 @@ async function start(getFiles, { cacheAfterStart = false, coop = null, loadSlot 
         const queueTimer = setInterval(() => {
           if (index >= briefTestKeys.length) { clearInterval(queueTimer); return; }
           const key = briefTestKeys[index++];
-          const queued = Module.ccall('gta2_dev_show_brief', 'number', ['string'], [key]);
+          const queued = Module.ccall('gta2_dev_show_brief', 'number', ['string', 'number'], [key, briefTestCost]);
           console.info(`[mission-brief-test] ${queued ? 'queued' : 'rejected'} GXT ${key}`);
         }, 1000);
       }, 250);

@@ -27,4 +27,11 @@ for (const record of catalog.records) {
   areaKeys.add(key);
 }
 const contextual = catalog.records.filter((r) => r.reviewStatus === 'context-reviewed').length;
-console.log(`test_mission_translations: OK (${catalog.records.length} unique GXT keys; ${verified} source-matched; ${contextual} context-reviewed)`);
+const praise = catalog.records.find((r) => r.gxtKey === '3569');
+assert.ok(praise?.text.startsWith('אתה גורם לזה להיראות קל, חבר!'), 'Private Protection praise must remain a compliment');
+assert.ok(praise.text.includes('שתי מכוניות מסוג Special Agent Car'), 'Private Protection must retain the two-car objective');
+const sunbeamLines = catalog.records.filter((r) => /\bSunbeam\b/i.test(r.source));
+assert.ok(sunbeamLines.every((r) => r.text.includes('סאנבים') && !/\bSunbeam\b/i.test(r.text)), 'Sunbeam character name must use consistent Hebrew transliteration');
+const labrat = catalog.records.find((r) => r.gxtKey === '6008');
+assert.ok(labrat?.text.includes('הבוס של אס־אר־אס') && labrat.text.includes('חסל אותו'), 'Doctor LaBrat gender must match the English pronouns');
+console.log(`test_mission_translations: OK (${catalog.records.length} unique GXT keys; ${verified} source-matched; ${contextual} legacy metadata flags only)`);

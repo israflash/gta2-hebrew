@@ -93,7 +93,7 @@
       "speaker": "ג'וני זו",
       "kind": "brief",
       "source": "Kosai! Johnny Zoo here! Military top brass are pissed with me and sending a Tank and Ground Troops to trash my exotic cars. I need your help.",
-      "text": "קוסאי! זה ג'וני זו! בכירי הצבא רותחים עליי ושולחים Tank וחיילים להרוס לי את מכוניות היוקרה. אני צריך את העזרה שלך.",
+      "text": "קוסאי! זה ג'וני זו! בכירי הצבא רותחים עליי ושולחים טנק וחיילים להרוס לי את מכוניות היוקרה. אני צריך את העזרה שלך.",
       "matchStatus": "verified-gxt",
       "gxtKey": "1401",
       "reviewStatus": "key-verified"
@@ -189,7 +189,7 @@
       "speaker": "אלמו",
       "kind": "brief",
       "source": "Hey, Jumbo, it's Elmo. A new Zaibatsu drug mixed with Futuro FM's music is sending people CRAZY. This is bad for our Loony reputation. Get some explosives and stop this madness NOW.",
-      "text": "היי, ג'מבו, זה אלמו. סם חדש של זייבאצו שמשולב במוזיקה של פוטורו FM מטריף אנשים. זה דופק את המוניטין של הלוניז. תביא חומרי נפץ ותעצור את הטירוף הזה. עכשיו!",
+      "text": "היי, ג'מבו, זה אלמו. סם חדש של זייבאצו שמשולב במוזיקה של Futuro FM מטריף אנשים. זה דופק את המוניטין של הלוניז. תביא חומרי נפץ ותעצור את הטירוף הזה. עכשיו!",
       "matchStatus": "verified-gxt",
       "gxtKey": "1772",
       "reviewStatus": "key-verified"
@@ -201,7 +201,7 @@
       "speaker": "אלמו",
       "kind": "brief",
       "source": "Jumbo! It's me, Elmo. Pizza Cake restaurants keep screwing up my favorite food. Go to the City University, pick up some explosives and teach them a new recipe.",
-      "text": "ג'מבו! זה אני, אלמו. מסעדות פיצה קייק הורסות לי שוב ושוב את המאכל האהוב. סע לאוניברסיטת סיטי, תאסוף חומרי נפץ ותלמד אותם מתכון חדש.",
+      "text": "ג'מבו! זה אני, אלמו. מסעדות Pizza Cake הורסות לי שוב ושוב את המאכל האהוב. סע ל־City University, אסוף חומרי נפץ ותלמד אותם מתכון חדש.",
       "matchStatus": "verified-gxt",
       "gxtKey": "1531",
       "reviewStatus": "key-verified"
@@ -345,7 +345,7 @@
       "speaker": "Guider",
       "kind": "completion",
       "source": "NICE! That takes care of the Zaibatsu Corporation!",
-      "text": "יפה! טיפלנו בזייבאצו Corporation!",
+      "text": "יפה! גם תאגיד זייבאצו חוסל!",
       "matchStatus": "verified-gxt",
       "gxtKey": "1805",
       "reviewStatus": "key-verified"
@@ -477,7 +477,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "brief",
       "source": "ⅳAh, THC-303! Dr LaBrat here. SRS research suggests the #Zaibatsu# population is on the rise. Please visit #The Village# and reduce their number to a more acceptable statistical median.",
-      "text": "אה, THC-303! זה ד״ר לה־בראט. המחקר של אס־אר־אס מראה שאוכלוסיית זייבאצו הולכת וגדלה. לך ל־The Village וצמצם אותה לממוצע סטטיסטי מתקבל על הדעת.",
+      "text": "אה, THC-303! זה ד״ר לה־בראט. המחקר של אס־אר־אס מראה שאוכלוסיית זייבאצו הולכת וגדלה. לך ל־The Village וצמצם אותה לחציון סטטיסטי מתקבל על הדעת.",
       "matchStatus": "verified-gxt",
       "gxtKey": "2351",
       "reviewStatus": "key-verified"
@@ -549,7 +549,7 @@
       "speaker": "רד ואלדז",
       "kind": "brief",
       "source": "ⅺGecko! Red Valdez here. I need you to bomb the SRS #Clone Test Center# so it looks like a Redneck attack. Montana's #Pickup# is loaded with lethal explosives. Steal it.",
-      "text": "גקו! זה רד ואלדז. תפוצץ את מרכז השיבוט של אס־אר־אס כך שזה ייראה כמו מתקפה של רדנקס. ה־Pickup של מונטנה עמוס בחומר נפץ קטלני. גנוב אותו.",
+      "text": "גקו! זה רד ואלדז. תפוצץ את SRS Clone Test Center כך שזה ייראה כמו מתקפה של רדנקס. ה־Pickup של מונטנה עמוס בחומר נפץ קטלני. גנוב אותו.",
       "matchStatus": "verified-gxt",
       "gxtKey": "2551",
       "reviewStatus": "key-verified"
@@ -573,7 +573,7 @@
       "speaker": "רד ואלדז",
       "kind": "brief",
       "source": "ⅺGecko - Red Valdez here. I want you to infiltrate the #SRS Research Center# and destroy their #Cold Fusion Generators#. Some Z-Men will join you shortly.",
-      "text": "גקו, זה רד ואלדז. אני רוצה שתחדור למרכז המחקר של אס־אר־אס ותשמיד את מחוללי ההיתוך הקר. כמה אנשי Z יצטרפו אליך עוד מעט.",
+      "text": "גקו, זה רד ואלדז. אני רוצה שתחדור ל־SRS Research Center ותשמיד את מחוללי ההיתוך הקר. כמה אנשי Z יצטרפו אליך עוד מעט.",
       "matchStatus": "verified-gxt",
       "gxtKey": "2850",
       "reviewStatus": "key-verified"
@@ -633,7 +633,7 @@
       "speaker": "Guider",
       "kind": "objective",
       "source": "It's the Redneck Boss, Billy Bob Bean. Quick! Get him!",
-      "text": "זה בילי בוב בין, הבוס של רדנקס. מהר — חסל אותו!",
+      "text": "זה בילי בוב בין, הבוס של הרדנקס. מהר — חסל אותו!",
       "matchStatus": "verified-gxt",
       "gxtKey": "6007",
       "reviewStatus": "key-verified"
@@ -645,7 +645,7 @@
       "speaker": "Guider",
       "kind": "objective",
       "source": "Hey! That's the SRS Boss - Doctor LaBrat! Waste him!",
-      "text": "היי! זו Doctor לה־בראט, הבוסית של אס־אר־אס! תחסל אותה!",
+      "text": "היי! זה דוקטור לה־בראט, הבוס של אס־אר־אס! חסל אותו!",
       "matchStatus": "verified-gxt",
       "gxtKey": "6008",
       "reviewStatus": "key-verified"
@@ -681,7 +681,7 @@
       "speaker": "Guider",
       "kind": "district",
       "source": "So you made it to the Industrial District... Try not to get on the wrong side of the #Russian Mafia#, converted by the #Krishna# or absorbed by the #Zaibatsu#. Stay lucky!",
-      "text": "הגעת ל־Industrial District... השתדל לא להסתכסך עם המאפיה הרוסית, לא להתגייר אצל קרישנה ולא להיבלע בידי זייבאצו. בהצלחה!",
+      "text": "הגעת ל־Industrial District... השתדל לא להסתכסך עם המאפיה הרוסית, לא להתפתות לאנשי קרישנה ולא להיבלע בידי זייבאצו. בהצלחה!",
       "gxtKey": "3230",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -729,7 +729,7 @@
       "speaker": "Guider",
       "kind": "objective",
       "source": "There's #Sunbeam#! Get him!",
-      "text": "הנה Sunbeam! חסל אותו!",
+      "text": "הנה סאנבים! חסל אותו!",
       "gxtKey": "3689",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -765,7 +765,7 @@
       "speaker": "Guider",
       "kind": "completion",
       "source": "It's lights out for #Sunbeam#!",
-      "text": "הסיפור של Sunbeam נגמר!",
+      "text": "הסיפור של סאנבים נגמר!",
       "gxtKey": "3686",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1305,7 +1305,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅲYou sure got a taste for it, Rooster! C'mon, let's do the Zaibatsu. Head over to The Village. Yee-ha!",
-      "text": "יש לך טעם לזה, רוסטר! עכשיו נטפל בזייבאצו. סע ל־The Village. יי־הא!",
+      "text": "נראה שאתה מתחיל ליהנות מזה, רוסטר! עכשיו נטפל בזייבאצו. סע ל־The Village. יי־הא!",
       "gxtKey": "2163",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1425,7 +1425,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅮYou made it! Hot DAMN! Take this here Emergency Keycard and get a Uniform and a S-Uzi Machine Gun from the Guard Room.",
-      "text": "הגעת! לעזאזל! קח את כרטיס החירום, השג מדים ו־S-Uzi Machine Gun מחדר השומרים.",
+      "text": "הגעת! לעזאזל! קח את כרטיס החירום, השג מדים ותת־מקלע S-Uzi מחדר השומרים.",
       "gxtKey": "2217",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1437,7 +1437,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅲThe Prisoners will start riotin' when you start shootin'. When the riot starts you kill all the guards.",
-      "text": "האסירים יתחילו להתפרע כשתפתח באש. כשהמהומה תתחיל, חיסל את כל השומרים.",
+      "text": "האסירים יתחילו להתפרע כשתפתח באש. כשהמהומה תתחיל, חסל את כל השומרים.",
       "gxtKey": "2218",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1689,7 +1689,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅮOh, baby! My new Benson! Rolling hills here we come! Here's $50,000.",
-      "text": "או, מותק! ה־Benson החדש שלי! הנה באים לגלות ארץ חדשה! קח $50,000.",
+      "text": "או, מותק! ה־Benson החדש שלי! הגבעות המתגלגלות, אנחנו באים! קח $50,000.",
       "gxtKey": "2113",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1725,7 +1725,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅲPark the Trailer and let Buckwheat dump his load.",
-      "text": "החנה את הקרוואן ותן לבאקוויט להעמיס את המטען.",
+      "text": "החנה את הקרוואן ותן לבאקוויט לפרוק את המטען שלו.",
       "gxtKey": "2116",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1929,7 +1929,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳThe first Zaibatsu is waiting by the #Clock Tower#. He suspects nothing.",
-      "text": "הפעיל הראשון של זייבאצו מחכה ליד מגדל השעון. הוא לא חושד בכלום.",
+      "text": "הפעיל הראשון של זייבאצו מחכה ליד Clock Tower. הוא לא חושד בכלום.",
       "gxtKey": "2276",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2049,7 +2049,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳDrive our Zaibatsu friends to the #South-East Dock Crane#, THC-303.",
-      "text": "הסע את חברינו מזייבאצו לעגורן במעגן הדרום־מזרחי, THC-303.",
+      "text": "הסע את חברינו מזייבאצו אל South-East Dock Crane, THC-303.",
       "gxtKey": "2286",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2565,7 +2565,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳTHC-303, we lost a Generator! Kill the #Rednecks#!",
-      "text": "THC-303, איבדנו גנרטור! חיסל את הרדנקס!",
+      "text": "THC-303, איבדנו גנרטור! חסל את הרדנקס!",
       "gxtKey": "2417",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2577,7 +2577,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳA Generator is down, THC-303! Kill the #Rednecks#!",
-      "text": "גנרטור נפל, THC-303! חיסל את הרדנקס!",
+      "text": "גנרטור הושבת, THC-303! חסל את הרדנקס!",
       "gxtKey": "2418",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2589,7 +2589,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳThere goes a Generator, THC-303! Kill the #Rednecks#!",
-      "text": "עוד גנרטור הלך, THC-303! חיסל את הרדנקס!",
+      "text": "עוד גנרטור הלך, THC-303! חסל את הרדנקס!",
       "gxtKey": "2419",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2661,7 +2661,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳExcellent, THC-303! You beat the time. Don't worry about the mess - we haven't had time to test the system properly.",
-      "text": "מצוין, THC-303! קבעת זמן טוב יותר. אל תדאג לבלגן — עוד לא הספקנו לבדוק את המערכת כמו שצריך.",
+      "text": "מצוין, THC-303! שברת את השיא. אל תדאג לבלגן — עוד לא הספקנו לבדוק את המערכת כמו שצריך.",
       "gxtKey": "2484",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2721,7 +2721,7 @@
       "speaker": "ד״ר לה־בראט",
       "kind": "mission-message",
       "source": "ⅳAh, just what I need - a Taxi.",
-      "text": "אה, בדיוק מה שהייתי צריכה — Taxi.",
+      "text": "אה, בדיוק מה שאני צריך — Taxi.",
       "gxtKey": "2489",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2865,7 +2865,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺWorking well, Gecko! Park the #Pickup# at the South End of the Clone Test Center.",
-      "text": "טוב, גקו! החנה את ה־Pickup בקצה הדרומי של מרכז בדיקות השיבוט.",
+      "text": "טוב, גקו! החנה את ה־Pickup בקצה הדרומי של SRS Clone Test Center.",
       "gxtKey": "2553",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2877,7 +2877,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺComplete your job, Gecko. Park the #Pickup# beside the Clone Test Center.",
-      "text": "סיים את העבודה, גקו. החנה את ה־Pickup ליד מרכז בדיקות השיבוט.",
+      "text": "סיים את העבודה, גקו. החנה את ה־Pickup ליד SRS Clone Test Center.",
       "gxtKey": "2554",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -2901,7 +2901,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺShe's gonna blow, Gecko! Get out of the #Pickup#!",
-      "text": "הוא עומד להתפוצץ, גקו! צא מה־Pickup!",
+      "text": "עוד רגע יהיה פיצוץ, גקו! צא מה־Pickup!",
       "gxtKey": "2556",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -3285,7 +3285,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺA #Meteor# driving across the city contains #Clone Serum# and two hot #Bio-Bitches#. Stop it and steal it.",
-      "text": "Meteor שנוסעת ברחבי העיר מובילה סרום שיבוט ושתי יפהפיות חמות. עצור אותה וגנוב אותה.",
+      "text": "Meteor שנוסעת בעיר מלאה בסרום שיבוט ובשתי כלבות ביולוגיות לוהטות. עצור אותה וגנוב אותה.",
       "gxtKey": "2646",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -3381,7 +3381,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺA few fat lines and I will feel like #The King# in this baby. Park it in the #The Village# - fast!",
-      "text": "כמה שורות טובות ואני ארגיש כמו מלך במכונית הזאת. החנה אותה ב־The Village — מהר!",
+      "text": "כמה שורות קוקאין, ואני ארגיש כמו המלך במכונית הזאת. החנה אותה ב־The Village — מהר!",
       "gxtKey": "2654",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -3549,7 +3549,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺAccess to the #Research Center# appears impossible but we have found a way - over a line of rooftop ramps and then on to and along the old #Railway Track#.",
-      "text": "נראה שאי אפשר להיכנס למרכז המחקר, אבל מצאנו דרך: לעבור על סדרת רמפות בגגות, ואז לעלות ולנסוע לאורך פסי הרכבת הישנים.",
+      "text": "נראה שאי אפשר להיכנס ל־SRS Research Center, אבל מצאנו דרך: עבור בסדרת רמפות על הגגות, ואז עלה על פסי ה־Railway Track הישנים וסע לאורכם.",
       "gxtKey": "2856",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -3561,7 +3561,7 @@
       "speaker": "רד ואלדז",
       "kind": "mission-message",
       "source": "ⅺSuper driving, Gecko! Get out of the vehicle and use the #Rocket Launcher# to destroy the #TWO Cold Fusion Generators#.",
-      "text": "נהיגה מצוינת, גקו! צא מהרכב והשתמש ב־Rocket Launcher כדי להשמיד את שני מחוללי ההיתוך הקר.",
+      "text": "נהיגה מצוינת, גקו! צא מהרכב והשתמש במטול רקטות כדי להשמיד את שני מחוללי ההיתוך הקר.",
       "gxtKey": "2870",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4173,7 +4173,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅲYou want our respect? You waste some of them smart-ass Scientists!",
-      "text": "רוצה שנכבד אותך? חיסל כמה מדענים שחצנים!",
+      "text": "רוצה שנכבד אותך? חסל כמה מהמדענים השחצנים האלה!",
       "gxtKey": "2903",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4353,7 +4353,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬHey! Them bones, them bones, them broken bones!",
-      "text": "העצמות נשברו, העצמות נשברו!",
+      "text": "עצמות, עצמות — עצמות שבורות!",
       "gxtKey": "1441",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4425,7 +4425,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬMmm, Zaibatsu for dinner!",
-      "text": "זייבאצו לארוחת ערב!",
+      "text": "מממ, זייבאצו לארוחת ערב!",
       "gxtKey": "1447",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4449,7 +4449,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬAnd Zaibatsu between meals!",
-      "text": "וגם בין הארוחות!",
+      "text": "וזייבאצו בין הארוחות!",
       "gxtKey": "1449",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4533,7 +4533,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬOkay, Jumbo, deliver the explosives by hand to Pizza Cake. And don't forget to run away...",
-      "text": "טוב, ג'מבו, קח את חומרי הנפץ והנח אותם בעצמך ליד פיצה קייק. ואל תשכח לברוח...",
+      "text": "טוב, ג'מבו, קח את חומרי הנפץ והנח אותם בעצמך ליד Pizza Cake. ואל תשכח לברוח...",
       "gxtKey": "1533",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4581,7 +4581,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬSo much for those shitty explosives. Wait! A Pizza Cake Delivery Truck is on its way. Destroy that instead.",
-      "text": "הנה הלכו חומרי הנפץ המחורבנים. רגע! משאית משלוחים של פיצה קייק בדרך. השמד אותה במקום.",
+      "text": "הנה הלכו חומרי הנפץ המחורבנים. רגע! משאית המשלוחים של Pizza Cake בדרך. השמד אותה במקום.",
       "gxtKey": "1538",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4893,7 +4893,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬCool, you got the explosives. It's a RIOT at Futuro FM, pay them a visit Jumbo and crisp the DJ.",
-      "text": "קיבלת את חומרי הנפץ? יש מהומה בפוטורו FM. קפוץ לשם ותצלה את השדרן, ג'מבו!",
+      "text": "יופי, השגת את חומרי הנפץ. יש מהומה ב־Futuro FM. קפוץ לשם ותצלה את השדרן, ג'מבו!",
       "gxtKey": "1775",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4953,7 +4953,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬDrug-induced madness was a cheap corporate cash-in but you saw through it, Jumbo. Here's $20,000. Let's get wasted!",
-      "text": "הטירוף שנגרם מסמים היה תרגיל זול של תאגיד, אבל עלית עליו, ג'מבו. קח $20,000. בוא נשתכר!",
+      "text": "הטירוף שנגרם מהסמים היה עוד דרך זולה של תאגיד לעשות כסף, אבל עלית עליהם, ג'מבו. קח $20,000. בוא נשתכר!",
       "gxtKey": "1780",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5001,7 +5001,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬYou screw the crime, Jumbo, you do the time.",
-      "text": "תעשה פשע, ג'מבו, ותרצה את הזמן בכלא.",
+      "text": "תפשל בפשע, ג'מבו — תשלם על זה בכלא.",
       "gxtKey": "7077",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5145,7 +5145,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹDoctor ZitZaki is waiting in the District Hospital. Don't keep him waiting.",
-      "text": "דוקטור זיטזאקי מחכה בבית החולים המחוזי. אל תשאיר אותו לחכות.",
+      "text": "דוקטור זיטזאקי מחכה בבית החולים המחוזי. אל תיתן לו לחכות.",
       "gxtKey": "1636",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5217,7 +5217,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹYou are intolerable, Kosai. Get back in the car and deliver ZitZaki. NOW.",
-      "text": "אתה בלתי נסבל, קוסאי. חזור למכונית והבא את זיטזאקי. עכשיו!",
+      "text": "אתה בלתי נסבל, קוסאי. חזור למכונית והסע את זיטזאקי ליעד. עכשיו!",
       "gxtKey": "1642",
       "matchStatus": "verified-gxt",
       "reviewStatus": "context-reviewed"
@@ -5277,7 +5277,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹSHIT! Someone tipped off the Cops, Kosai! Your Cop Wanted Level has risen. Here's $5,000 so you can respray the car to throw the Cops off your trail.",
-      "text": "לעזאזל! מישהו הלשין לשוטרים, קוסאי! רמת המבוקשות שלך עלתה. הנה $5,000 לצביעה מחדש של המכונית, כדי להטעות את השוטרים.",
+      "text": "שיט! מישהו הלשין לשוטרים, קוסאי! רמת המבוקשות שלך עלתה. הנה $5,000 כדי לצבוע מחדש את המכונית ולהטעות את השוטרים.",
       "gxtKey": "1655",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5361,7 +5361,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹHiroshi will not come out until the two City Bank Guards are out of the way. What are you waiting for, Kosai?",
-      "text": "הירושי לא יצא עד ששני השומרים של City Bank ייפטרו. למה אתה מחכה, קוסאי?",
+      "text": "הירושי לא יצא עד שתחסל את שני השומרים של City Bank. למה אתה מחכה, קוסאי?",
       "gxtKey": "1665",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5481,7 +5481,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬHello, Elmo's special friend. I have arranged for a gun and some bombs to be left behind the Harman Hotel. I'd like to come but it's bath night.",
-      "text": "שלום, חברו המיוחד של אלמו. השארתי אקדח וכמה פצצות מאחורי Harman Hotel. הייתי בא לעזור, אבל הלילה תורי להתרחץ.",
+      "text": "שלום, חברו המיוחד של אלמו. דאגתי שישאירו אקדח וכמה פצצות מאחורי Harman Hotel. הייתי בא לעזור, אבל הלילה תורי להתרחץ.",
       "gxtKey": "1314",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5541,7 +5541,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬA thousand bucks! I'm all yours, big boy.",
-      "text": "אלף דולר! אני כולך שלך, חתיך.",
+      "text": "אלף דולר! אני כולי שלך, גבר גדול.",
       "gxtKey": "1320",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5625,7 +5625,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬMy dream car! Wasted! Stay away from me for a while, Jumbo.",
-      "text": "מכונית החלומות שלי! הלכה! תתרחק ממני לזמן מה, ג'מבו.",
+      "text": "מכונית החלומות שלי! נהרסה! תתרחק ממני לזמן מה, ג'מבו.",
       "gxtKey": "1327",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5769,7 +5769,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬTake out the short-ass Yakuza guard and plant explosives in his place. FAST!",
-      "text": "חסל את השומר הנמוך של יאקוזה ושתול את חומר הנפץ במקומו. מהר!",
+      "text": "חסל את השומר הגמד של יאקוזה ושתול את חומר הנפץ במקום שבו עמד. מהר!",
       "gxtKey": "1501",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5817,7 +5817,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬCool shootin', Jumbo! Plant the explosives in his place.",
-      "text": "ירי מעולה, ג'מבו! עכשיו שתול את חומר הנפץ במקומו.",
+      "text": "ירי מעולה, ג'מבו! עכשיו שתול את חומר הנפץ במקום שבו הוא עמד.",
       "gxtKey": "1505",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5853,7 +5853,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬThe J-Lab is history and the Loonies are safe in insanity. You are one real cool cat, Jumbo. Maybe we do business some other day. For now, here's $40,000.",
-      "text": "J-Lab חוסלה והלוניז יכולים להמשיך להשתגע. אתה בחור מגניב, ג'מבו. אולי נעשה עסקים שוב. בינתיים, קח $40,000.",
+      "text": "J-Lab הושמדה והלוניז יכולים להמשיך להשתגע. אתה בחור מגניב, ג'מבו. אולי נעשה עסקים שוב. בינתיים, קח $40,000.",
       "gxtKey": "1509",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5865,7 +5865,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬDuh!",
-      "text": "אה?",
+      "text": "נו, באמת!",
       "gxtKey": "1512",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -5901,7 +5901,7 @@
       "speaker": "Guider",
       "kind": "tutorial",
       "source": "Ⅾ#Try life in the big city on your own, ya worthless piece-a-shit!#",
-      "text": "נסה להסתדר לבד בעיר הגדולה, חתיכת אפס!",
+      "text": "נסה להסתדר לבד בעיר הגדולה, חתיכת חרא עלוב!",
       "gxtKey": "1603",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6033,7 +6033,7 @@
       "speaker": "Guider",
       "kind": "tutorial",
       "source": "Ⅾ#Now let's visit the #Yakuza territory#. These fellas dress sharp in the latest blue collection from Milan - and they don't mess around. So be cool.#",
-      "text": "עכשיו נבקר בשטח של יאקוזה. החבר׳ה האלה מתלבשים באופנה כחולה ממילאנו — והם לא משחקים. אז תיזהר.",
+      "text": "עכשיו נבקר בשטח של יאקוזה. החבר׳ה האלה לובשים את הקולקציה הכחולה האחרונה ממילאנו — והם לא משחקים. שמור על קור רוח.",
       "gxtKey": "1615",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6057,7 +6057,7 @@
       "speaker": "Guider",
       "kind": "tutorial",
       "source": "Ⅾ#I don't know much but I taught you all I know. Here's my #S-Uzi Machine Gun# - plus a #Special Token# for your trouble.#",
-      "text": "אני לא יודע הרבה, אבל לימדתי אותך כל מה שאני יודע. קח את ה־S-Uzi Machine Gun הזה וגם Special Token.",
+      "text": "אני לא יודע הרבה, אבל לימדתי אותך כל מה שאני יודע. הנה תת־המקלע S-Uzi שלי — וגם אסימון מיוחד, כפיצוי על הטרחה.",
       "gxtKey": "1617",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6189,7 +6189,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺYou needed that Cop Car, Gecko. Resignation accepted.",
-      "text": "היית צריך את ה־Cop Car הזה, גקו. אתה מפוטר.",
+      "text": "היית צריך את ה־Cop Car הזה, גקו. התפטרותך התקבלה.",
       "gxtKey": "1683",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6237,7 +6237,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺShit! That's Shady gone for good. And you just lost the job, Gecko.",
-      "text": "לעזאזל! שיידי איננו לתמיד. וגם איבדת את המשימה, גקו.",
+      "text": "שיט! איבדנו את שיידי לתמיד. וגם איבדת את המשימה, גקו.",
       "gxtKey": "1687",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6381,7 +6381,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺDoctor Cubana talked and the Yakuza gained many Zaibatsu pharmaceutical secrets. You were tough, Gecko, but not tough enough.",
-      "text": "דוקטור קובנה דיברה, ואנשי יאקוזה השיגו סודות תרופות רבים של זייבאצו. היית קשוח, גקו, אבל לא מספיק.",
+      "text": "דוקטור קובנה דיבר, ואנשי יאקוזה השיגו סודות תרופות רבים של זייבאצו. היית קשוח, גקו, אבל לא מספיק.",
       "gxtKey": "1705",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6513,7 +6513,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺI'm sick of Yakuza interference. Kill the tattooed scum!",
-      "text": "נמאס לי מההתערבות של יאקוזה. חיסל את המקועקעים העלובים!",
+      "text": "נמאס לי מההתערבות של יאקוזה. חסל את המקועקעים העלובים!",
       "gxtKey": "1728",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6525,7 +6525,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺWhere are you going? Get back to Central Station!",
-      "text": "לאן אתה הולך? חזור לתחנה המרכזית!",
+      "text": "לאן אתה הולך? חזור ל־Central Station!",
       "gxtKey": "7007",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6630,7 +6630,7 @@
       "id": "downtown.yakuza.follow-that-traitor.message-1197",
       "area": "Downtown",
       "mission": "Follow That Traitor!",
-      "speaker": "ג'וני זו",
+      "speaker": "ריפרייד נודל",
       "kind": "mission-message",
       "source": "ⅹI am Refried Noodle. Here is a weapon - if you need it.",
       "text": "אני ריפרייד נודל. הנה נשק, אם תצטרך אותו.",
@@ -6645,7 +6645,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹThe traitor and his men must die! Kill them all, Kosai!",
-      "text": "הבוגד ואנשיו חייבים למות! חיסל את כולם, קוסאי!",
+      "text": "הבוגד ואנשיו חייבים למות! חסל את כולם, קוסאי!",
       "gxtKey": "1198",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6729,7 +6729,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹThe Loonies are crazy for Mary Jane's Ice Cream. Get an Ice-Cream Van so you can access the City Asylum - then we will teach this idiot gang a lesson.",
-      "text": "אנשי לוניז משוגעים על הגלידה של מרי ג'יין. השג Ice-Cream Van כדי להיכנס לבית המשוגעים העירוני, ואז נלמד את הכנופיה המטומטמת הזאת לקח.",
+      "text": "אנשי לוניז משוגעים על הגלידה של מרי ג'יין. השג Ice-Cream Van כדי להיכנס ל־City Asylum, ואז נלמד את הכנופיה המטומטמת הזאת לקח.",
       "gxtKey": "1289",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6777,7 +6777,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹDrive the Ice-Cream Van to the Loony Asylum. Once you get inside destroy their Happy Gas tanks.",
-      "text": "סע ב־Ice-Cream Van לבית המשוגעים של לוניז. אחרי שתיכנס, השמד את מכלי הגז הצוחק שלהם.",
+      "text": "סע ב־Ice-Cream Van אל Loony Asylum. אחרי שתיכנס, השמד את מכלי Happy Gas שלהם.",
       "gxtKey": "1298",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6825,7 +6825,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹSuper-fantastic, Kosai! The Loonies are lost without their Happy Gas. Have $40,000 for your hard work.",
-      "text": "מעולה, קוסאי! אנשי לוניז אבודים בלי הגז הצוחק שלהם. קח $40,000 על העבודה הקשה.",
+      "text": "מעולה, קוסאי! אנשי לוניז אבודים בלי ה־Happy Gas שלהם. קח $40,000 על העבודה הקשה.",
       "gxtKey": "1303",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6885,7 +6885,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹExcellent, Kosai. Now collect Gama Rei from the City Hospital.",
-      "text": "מצוין, קוסאי. עכשיו אסוף את גאמה ריי מבית החולים העירוני.",
+      "text": "מצוין, קוסאי. עכשיו אסוף את גאמה ריי מ־City Hospital.",
       "gxtKey": "1372",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -6933,7 +6933,7 @@
       "speaker": "ג'וני זו",
       "kind": "mission-message",
       "source": "ⅹThe man who destroys a Medicar, Kosai, is not a well man. Such people don't get jobs.",
-      "text": "מי שמשמיד Medicar, קוסאי, לא שפוי. אנשים כאלה לא מקבלים עבודה.",
+      "text": "מי שמשמיד Medicar, קוסאי, הוא לא אדם בריא. אנשים כאלה לא מקבלים עבודה.",
       "gxtKey": "1376",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7173,7 +7173,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺGrab the briefcase and get the hell out of there!",
-      "text": "קח את התיק והסתלק משם!",
+      "text": "קח את התיק והעוף משם!",
       "gxtKey": "1138",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7209,7 +7209,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺRollo Tomassi was Zaibatsu connected, Gecko. Wasting his ass was a BAD move.",
-      "text": "לרולו טומאסי היו קשרים עם זייבאצו, גקו. להרוג אותו היה רעיון גרוע.",
+      "text": "לרולו טומאסי היו קשרים עם זייבאצו, גקו. להרוג אותו היה צעד ממש דפוק.",
       "gxtKey": "1141",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7221,7 +7221,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺGive the package to the Cop - with our thanks!",
-      "text": "תן את החבילה לשוטר — ודרישת שלום מאיתנו!",
+      "text": "תן את החבילה לשוטר — ותגיד תודה בשמנו!",
       "gxtKey": "1142",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7365,7 +7365,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺThe party's over in Crazy Town, Gecko. Dump the rigged Dementia in the Loony Garage and set the explosives.",
-      "text": "המסיבה נגמרה ב־Crazy Town, גקו. החנה את ה־Dementia הממולכדת במוסך של לוניז והפעל את חומר הנפץ.",
+      "text": "המסיבה נגמרה ב־Crazy Town, גקו. החנה את ה־Dementia הממולכדת ב־Loony Garage והפעל את חומר הנפץ.",
       "gxtKey": "1227",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7377,7 +7377,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺThe Dementia's rigged! Get your ass back in the car and drive cool to the Loony Garage.",
-      "text": "ה־Dementia ממולכדת! חזור למכונית וסע בזהירות למוסך של לוניז.",
+      "text": "ה־Dementia ממולכדת! חזור למכונית וסע בלי למשוך תשומת לב ל־Loony Garage.",
       "gxtKey": "1228",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7413,7 +7413,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺShit like you is only fit for the sidewalk, Gecko.",
-      "text": "טיפוסים כמוך מתאימים רק למדרכה, גקו.",
+      "text": "זבל כמוך טוב רק למדרכה, גקו.",
       "gxtKey": "1236",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7425,7 +7425,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺShit, Gecko, a group of crack Loonies are on their way. You need reinforcements - and fast. Take the Van and meet the Z-Men at North-West Zarelli.",
-      "text": "לעזאזל, גקו, קבוצה של לוניז מסוממים בדרך. צריך תגבורת ומהר. קח את הוואן ופגוש את אנשי Z בצפון־מערב Zarelli.",
+      "text": "שיט, גקו, חבורת לוניז מסוממים בדרך. צריך תגבורת ומהר. קח את הוואן ופגוש את אנשי Z בצפון־מערב Zarelli.",
       "gxtKey": "1241",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7449,7 +7449,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺYou flushed the Van down the toilet! Find someone else to wipe your sorry ass, Gecko.",
-      "text": "הורדת את הוואן באסלה! מצא מישהו אחר שינקה אחריך.",
+      "text": "השלכת את הוואן לאסלה! מצא מישהו אחר שינקה אחריך.",
       "gxtKey": "1244",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7509,7 +7509,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺExcellent, Gecko, you got the Z-Men. Now head for the Loony Garage and nail that band of crazies!",
-      "text": "מצוין, גקו, אספת את אנשי Z. עכשיו סע למוסך של לוניז וחסל את חבורת המשוגעים!",
+      "text": "מצוין, גקו, אספת את אנשי Z. עכשיו סע ל־Loony Garage וחסל את חבורת המשוגעים!",
       "gxtKey": "1249",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7773,7 +7773,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺRemember, Gecko - a Zaibatsu in custody never talks.",
-      "text": "זכור, גקו — זייבאצו שבמעצר לא מדברים.",
+      "text": "זכור, גקו — איש זייבאצו שנעצר לא פותח את הפה.",
       "gxtKey": "7085",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7989,7 +7989,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "Ⅼ#You already did this job, fruitcake!#",
-      "text": "כבר עשית את המשימה הזאת, עוגת פירות!",
+      "text": "כבר עשית את המשימה הזאת, אידיוט!",
       "gxtKey": "1108",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8169,7 +8169,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫGrasshopper - it's Sunbeam. The #Zaibatsu# are building Shopping Malls on Holy Krishna land. Pay a #visit# to their #Construction Yard# and end the destruction.",
-      "text": "גראסהופר, זה Sunbeam. אנשי זייבאצו בונים קניונים על אדמת קרישנה הקדושה. בקר באתר הבנייה שלהם ותעצור את ההרס.",
+      "text": "גראסהופר, זה סאנבים. אנשי זייבאצו בונים קניונים על אדמת קרישנה הקדושה. בקר באתר הבנייה שלהם ועצור את ההרס.",
       "gxtKey": "3160",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8205,7 +8205,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫI ain't helpin' no friend of Sunbeam. I'm busy!",
-      "text": "אני לא עוזר לחברים של Sunbeam. אני עסוק!",
+      "text": "אני לא עוזר לחברים של סאנבים. אני עסוק!",
       "gxtKey": "3165",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8289,7 +8289,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅺGet outta here, baldy!",
-      "text": "עוף מכאן, קרחוני!",
+      "text": "עוף מכאן, קרח!",
       "gxtKey": "3174",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8469,7 +8469,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫAh, Grasshopper - Sunbeam here. My #Faithful Krishna# are #captive# at the #Zaibatsu Power Plant#. Free them and Krishna will smile upon you.",
-      "text": "אה, גראסהופר — כאן Sunbeam. מאמיני קרישנה הנאמנים שלי מוחזקים בתחנת הכוח של זייבאצו. שחרר אותם וקרישנה יברכו אותך.",
+      "text": "אה, גראסהופר — כאן סאנבים. מאמיני קרישנה הנאמנים שלי מוחזקים בתחנת הכוח של זייבאצו. שחרר אותם וקרישנה יברך אותך.",
       "gxtKey": "3280",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8541,7 +8541,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫYou do well, young Grasshopper. #Follow my Faithful# free and #protect them# from harm.",
-      "text": "אתה עושה עבודה טובה, גראסהופר. מצא את המאמינים שלי ושחרר אותם, ואז הגן עליהם.",
+      "text": "עקוב אחרי המאמינים המשוחררים שלי והגן עליהם מפני סכנה, גראסהופר.",
       "gxtKey": "3286",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8589,7 +8589,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫIt seems that our path is blocked by #danger#, Grasshopper. Only you can #clear# a #way#!",
-      "text": "נראה שהדרך חסומה בסכנה, גראסהופר. רק אתה יכול לפנות אותה!",
+      "text": "נראה שהדרך חסומה בסכנה, גראסהופר. רק אתה יכול לפנות את הדרך!",
       "gxtKey": "3290",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8721,7 +8721,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫThe #Vedic Temple# is humming with a Grasshopper Chant. We will work again, young one. Here's #$80,000# - and may Krishna protect you.",
-      "text": "מקדש Vedic מהדהד בשירת גראסהופר. עוד נעבוד יחד, צעיר. קח $80,000 — וקרישנה יגן עליך.",
+      "text": "The Vedic Temple מהדהד בשירת גראסהופר. עוד נעבוד יחד, צעיר. קח $80,000 — וקרישנה יגן עליך.",
       "gxtKey": "3303",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8817,7 +8817,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫAh, Grasshopper, it's Sunbeam. The Krishna program of automotive clearance has been halted by the Cops. #Steal# me a #Cop Car# so we can resume our work!",
-      "text": "אה, גראסהופר, זה Sunbeam. משטרת העיר עצרה את תוכנית פינוי כלי הרכב של קרישנה. גנוב Cop Car כדי שנוכל להמשיך!",
+      "text": "אה, גראסהופר, זה סאנבים. משטרת העיר עצרה את תוכנית פינוי כלי הרכב של קרישנה. גנוב Cop Car כדי שנוכל להמשיך!",
       "gxtKey": "3480",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8937,7 +8937,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫYou are in #Russian territory#, Grasshopper. #Kill some Russians# to draw out the #Assassins#.",
-      "text": "אתה בשטח רוסי, גראסהופר. חיסל כמה רוסים כדי למשוך את המתנקשים החוצה.",
+      "text": "אתה בשטח רוסי, גראסהופר. חסל כמה רוסים כדי למשוך את המתנקשים החוצה.",
       "gxtKey": "3122",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -8997,7 +8997,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫPraise you, Grasshopper! But there are still #more Russian Assassins# in the woodwork. #Kill# some more #Russians# to draw them out!",
-      "text": "ברכות, גראסהופר! אבל עוד מתנקשים רוסים מסתתרים. חיסל עוד רוסים כדי להוציא אותם!",
+      "text": "ברכות, גראסהופר! אבל עוד מתנקשים רוסים מסתתרים. חסל עוד רוסים כדי להוציא אותם!",
       "gxtKey": "3129",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -9009,7 +9009,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫMore Russian Killers dead! Thank you, Grasshopper. But there are #STILL more Russian Assassins# at large! You better #kill more Russians# to attract attention.",
-      "text": "עוד רוצחים רוסים חוסלו! תודה, גראסהופר. אבל עדיין מסתובבים מתנקשים רוסים. חיסל עוד רוסים כדי למשוך תשומת לב.",
+      "text": "עוד רוצחים רוסים חוסלו! תודה, גראסהופר. אבל עדיין מסתובבים מתנקשים רוסים. חסל עוד רוסים כדי למשוך תשומת לב.",
       "gxtKey": "3130",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -9213,7 +9213,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫGrasshopper! Sunbeam here. We need to convert strong #Russian Workers#. #Steal# a #Truck# from #Lubyanka Warehouses# and head for #Mad Island Docks#. Beware - the guards are vicious.",
-      "text": "גראסהופר! זה Sunbeam. צריך להמיר פועלים רוסים חזקים. גנוב Truck ממחסני Lubyanka וסע למעגן Mad Island. היזהר — השומרים אכזריים.",
+      "text": "גראסהופר! זה סאנבים. צריך להמיר פועלים רוסים חזקים. גנוב Truck ממחסני Lubyanka וסע למעגן Mad Island. היזהר — השומרים אכזריים.",
       "gxtKey": "3252",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -9249,7 +9249,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫThe #Kovski Power Station# runs on old tires and reactor cores and is polluting our city. It must be #destroyed#. Pay them a visit!",
-      "text": "תחנת הכוח של קובסקי פועלת על צמיגים ישנים ודלק גרעיני, ומזהמת את העיר. צריך להשמיד אותה. גש לשם!",
+      "text": "תחנת הכוח של קובסקי פועלת על צמיגים ישנים וליבות כור, ומזהמת את העיר. צריך להשמיד אותה. גש לשם!",
       "gxtKey": "3320",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -9609,7 +9609,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫGrasshopper, it is Sunbeam. I have a wonderful opportunity for you. #Meet# my loyal #Krishna# helpers and I will tell you more.",
-      "text": "גראסהופר, זה Sunbeam. יש לי הזדמנות נהדרת בשבילך. פגוש את עוזרי הקרישנה הנאמנים שלי ואספר לך עוד.",
+      "text": "גראסהופר, זה סאנבים. יש לי הזדמנות נהדרת בשבילך. פגוש את עוזרי קרישנה הנאמנים שלי ואספר לך עוד.",
       "gxtKey": "3351",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -9633,7 +9633,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫGrasshopper! Sunbeam here. Loyal #Krishna# are being held as #Zaibatsu Guinea Pigs#. You must #save them# before Deconversion Drugs have their effect!",
-      "text": "גראסהופר! כאן Sunbeam. אנשי קרישנה נאמנים מוחזקים כשפני ניסוי של זייבאצו. עליך להציל אותם לפני שסם ביטול ההמרה ישפיע!",
+      "text": "גראסהופר! כאן סאנבים. מאמיני קרישנה הנאמנים מוחזקים כשפני ניסוי של זייבאצו. עליך להציל אותם לפני שהסמים שמבטלים את ההמרה ישפיעו!",
       "gxtKey": "3360",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -9885,7 +9885,7 @@
       "speaker": "Sunbeam",
       "kind": "mission-message",
       "source": "ⅫThe Vedic Temple is teeming with converted brothers and sisters! For your hard work we give you #$60,000#. Why not stay and chant, Grasshopper? Hari Hari Hari Ha...",
-      "text": "מקדש Vedic מלא באחים ואחיות שהומרו! על העבודה הקשה קבל $60,000. אולי תישאר לשיר, גראסהופר? הארי הארי הארי הא...",
+      "text": "The Vedic Temple מלא באחים ואחיות שהצטרפו לקרישנה! על העבודה הקשה קבל $60,000. אולי תישאר לשיר, גראסהופר? הארי הארי הארי הא...",
       "gxtKey": "3381",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -10317,7 +10317,7 @@
       "speaker": "ג'רקוב",
       "kind": "mission-message",
       "source": "ⅭHey, Comrade, it's Jerkov. Krishna free love is bankrupting my bitch action. #Find Ivan and his mercenary friends# to #spill some free blood#.",
-      "text": "היי, חבר, זה ג'רקוב. האהבה החופשית של קרישנה הורסת לי את עסקי המין. מצא את IVan וחבריו שכירי החרב כדי לשפוך קצת דם.",
+      "text": "היי, חבר, זה ג׳רקוב. האהבה החופשית של קרישנה הורסת לי את עסקי המין. מצא את איוואן ואת חבריו שכירי החרב כדי לשפוך קצת דם.",
       "gxtKey": "3453",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -10365,7 +10365,7 @@
       "speaker": "ג'רקוב",
       "kind": "mission-message",
       "source": "ⅭKILL! KILL! KILL! Overthrow the occultists, Comrade!",
-      "text": "להרוג! להרוג! להרוג! הפלת את עובדי האלילים, חבר!",
+      "text": "להרוג! להרוג! להרוג! הפילו את עובדי האלילים, חבר!",
       "gxtKey": "3457",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -11097,7 +11097,7 @@
       "speaker": "ג'רקוב",
       "kind": "mission-message",
       "source": "ⅭGet out of the vehicle and Uncle Vanka will interpret.",
-      "text": "צא מהרכב והדוד ואנקה יפענח את המידע.",
+      "text": "צא מהרכב. הדוד ואנקה ישמש כמתורגמן.",
       "gxtKey": "3990",
       "matchStatus": "verified-gxt",
       "reviewStatus": "context-reviewed"
@@ -11313,7 +11313,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺKill the Kovski cash-dodger and his pathetic little gang, Gecko.",
-      "text": "חסל את המתחמק של קובסקי ואת הכנופיה העלובה שלו, גקו.",
+      "text": "חסל את משתמט התשלומים של קובסקי ואת הכנופיה העלובה שלו, גקו.",
       "gxtKey": "3770",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -11337,7 +11337,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺThe last dealer's a real loose cannon - so be cool, Gecko.",
-      "text": "הסוחר האחרון הוא פצצת זמן. שמור על קור רוח, גקו.",
+      "text": "הסוחר האחרון בלתי צפוי במיוחד — שמור על קור רוח, גקו.",
       "gxtKey": "3773",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -11805,7 +11805,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺThere is an unmarked car containing two fine bitches near #Mad Island#. It's next on the shopping list for you, Gecko!",
-      "text": "יש מכונית לא מסומנת עם שתי יפהפיות ליד Mad Island. היא הבאה ברשימת הקניות שלך, גקו!",
+      "text": "יש מכונית לא מסומנת עם שתי כוסיות שוות ליד Mad Island. היא הבאה ברשימת הקניות שלך, גקו!",
       "gxtKey": "3890",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -11829,7 +11829,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺThe car and the bitches are wrecked and you are definitely no substitute, Gecko!",
-      "text": "המכונית והיפהפיות הרוסות, ואתה בהחלט לא תחליף ראוי, גקו!",
+      "text": "המכונית והכוסיות נהרסו, ואתה בהחלט לא תחליף ראוי, גקו!",
       "gxtKey": "3892",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -11841,7 +11841,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺCome to Daddy! Bring the #car# and the #bitches# to my #Zaibatsu Power Core Safehouse#.",
-      "text": "בוא לאבא! הבא את המכונית והנשים לבית המסתור שלי בליבת הכוח של זייבאצו.",
+      "text": "בוא לאבא! הבא את המכונית ואת הכוסיות לבית המסתור שלי בליבת הכוח של זייבאצו.",
       "gxtKey": "3893",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -11853,7 +11853,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺI'm hot and the bitches are getting cold, Gecko. Get back in the car!",
-      "text": "אני חרמן והבנות מתקררות, גקו. חזור למכונית!",
+      "text": "אני חרמן והכוסיות כבר מתקררות, גקו. חזור למכונית!",
       "gxtKey": "3894",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -12153,7 +12153,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺSatchmo was getting old anyway. Now steal a #Kovski Bulwark# and try to enter using Zaibatsu stealth!",
-      "text": "סאצ'מו כבר הזדקן. עכשיו גנוב קובסקי Bulwark ונסה להיכנס בהתגנבות של זייבאצו!",
+      "text": "סאצ'מו כבר הזדקן. עכשיו גנוב Kovski Bulwark ונסה להיכנס בהתגנבות של זייבאצו!",
       "gxtKey": "3929",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -12405,7 +12405,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺSatchmo weighs 300 pounds and takes it slow and easy. Find him now!",
-      "text": "סאצ'מו שוקל 135 קילו ומתקדם לאט. מצא אותו עכשיו!",
+      "text": "סאצ'מו שוקל כ־136 קילו ומתקדם לאט. מצא אותו עכשיו!",
       "gxtKey": "3952",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -12993,7 +12993,7 @@
       "speaker": "אונו קארב",
       "kind": "mission-message",
       "source": "ⅺI rigged a Kovski Limousine to be remote-controlled. Drive it into the Russian area.",
-      "text": "חיבלתי בלימוזינת קובסקי והפכתי אותה לשלט רחוק. סע איתה לאזור הרוסי.",
+      "text": "התקנתי שלט רחוק בלימוזינת קובסקי. סע איתה לאזור הרוסי.",
       "gxtKey": "4092",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13125,7 +13125,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅫThis is the karmic Krishna quarter. #Kill some Russians# and we will embrace you with our love!",
-      "text": "זה הרובע הקארמתי של קרישנה. חיסל כמה רוסים ואנחנו נקבל אותך באהבה!",
+      "text": "זה הרובע הקארמתי של קרישנה. חסל כמה רוסים ואנחנו נקבל אותך באהבה!",
       "gxtKey": "3092",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13221,7 +13221,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅭThis is the Russian Mafia zone. #Kill some Zaibatsu# if you want a job!",
-      "text": "זה אזור המאפיה הרוסית. חיסל אנשי זייבאצו אם אתה רוצה עבודה!",
+      "text": "זה אזור המאפיה הרוסית. חסל כמה מאנשי זייבאצו אם אתה רוצה עבודה!",
       "gxtKey": "3102",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13257,7 +13257,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅭThe Russian Mafia does no trade with friends of the Krishna!",
-      "text": "המאפיה הרוסית לא סוחרים עם חברים של קרישנה!",
+      "text": "המאפיה הרוסית לא עושה עסקים עם חברים של קרישנה!",
       "gxtKey": "3106",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13269,7 +13269,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅭThe Russian Mafia will NEVER work with friends of the Zaibatsu!",
-      "text": "המאפיה הרוסית לעולם לא יעבדו עם חברים של זייבאצו!",
+      "text": "המאפיה הרוסית לעולם לא תעבוד עם חברים של זייבאצו!",
       "gxtKey": "3107",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13317,7 +13317,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅺThis is the Zaibatsu zone. You must #eliminate Krishna# to be welcomed here!",
-      "text": "זה אזור זייבאצו. כדי שיקבלו אותך כאן, עליך לחסל את קרישנה!",
+      "text": "זה אזור זייבאצו. כדי שיקבלו אותך כאן, עליך לחסל כמה מאנשי קרישנה!",
       "gxtKey": "3112",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13437,7 +13437,7 @@
       "speaker": "Gang contact",
       "kind": "mission-message",
       "source": "ⅭHealth insurance just went up thanks to you, Comrade. Now I want to start getting serious... #Destroy a SWAT Van#!",
-      "text": "בזכותך ביטוח הבריאות התייקר. עכשיו נעבור לעניינים רציניים... השמד SWAT Van!",
+      "text": "בזכותך ביטוח הבריאות התייקר, חבר. עכשיו נעבור לעניינים רציניים... השמד SWAT Van!",
       "gxtKey": "3565",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13449,7 +13449,7 @@
       "speaker": "Gang contact",
       "kind": "mission-message",
       "source": "ⅭYou make this look easy, Comrade! Finally, we also intend to compete with the Government - so that means you need to #destroy TWO Special Agent Cars#!",
-      "text": "אתה עושה את זה קל, חבר! אנחנו מתכוונים להתחרות גם בממשלה — השמד שתי Special Agent Cars!",
+      "text": "אתה גורם לזה להיראות קל, חבר! סוף סוף אנחנו מתכוונים להתחרות גם בממשלה — אז השמד שתי מכוניות מסוג Special Agent Car!",
       "gxtKey": "3569",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13473,7 +13473,7 @@
       "speaker": "Gang contact",
       "kind": "mission-message",
       "source": "ⅭThe City's Emergency Services are troubled thanks to you, Comrade. Take this #$60,000# with our gratitude and drink to continued Kovski success!",
-      "text": "בזכותך שירותי החירום בעיר בצרות. קבל $60,000 בתודה, ושתה לחיי ההצלחה של קובסקי!",
+      "text": "בזכותך שירותי החירום בעיר בצרות, חבר. קבל $60,000 בתודה, ושתה לחיי ההצלחה של קובסקי!",
       "gxtKey": "3573",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13497,7 +13497,7 @@
       "speaker": "Gang contact",
       "kind": "mission-message",
       "source": "ⅭThe Cops do not wait around for Tortoise Terrorists, Comrade. Perhaps you need more exercise.",
-      "text": "השוטרים לא מחכים למחבלים איטיים, חבר. אולי כדאי שתעשה קצת כושר.",
+      "text": "השוטרים לא מחכים למחבלים שזוחלים בקצב של צב, חבר. אולי הגיע הזמן שתעשה קצת כושר.",
       "gxtKey": "3575",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13509,7 +13509,7 @@
       "speaker": "Gang contact",
       "kind": "mission-message",
       "source": "ⅭThe Special Agents were too much for you, Comrade. Perhaps I will find experienced Russian Kovski to attempt the job instead.",
-      "text": "הסוכנים המיוחדים היו יותר מדי בשבילך. אולי אמצא אנשי קובסקי מנוסים יותר.",
+      "text": "הסוכנים המיוחדים היו יותר מדי בשבילך, חבר. אולי אמצא רוסים מנוסים מקובסקי שינסו לבצע את העבודה במקומך.",
       "gxtKey": "3576",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13629,7 +13629,7 @@
       "speaker": "Gang contact",
       "kind": "mission-message",
       "source": "ⅭTop Karma Assassin #Nova Bright# lies in wait in an #Armored Bus#. Eradicate him, Comrade!",
-      "text": "נובה ברייט, המתנקש הראשי של קארמה, מסתתר בתוך Armored Bus. חיסל אותו, חבר!",
+      "text": "נובה ברייט, המתנקש הראשי של קארמה, מסתתר בתוך Armored Bus. חסל אותו, חבר!",
       "gxtKey": "3610",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13641,7 +13641,7 @@
       "speaker": "Gang contact",
       "kind": "mission-message",
       "source": "ⅭSend my regards to Krishna, Mr Bright. Good work, Comrade! Let me see... I think you deserve #$60,000#.",
-      "text": "מסור דרישת שלום לקרישנה, מר Bright. עבודה טובה, חבר! נראה לי שמגיעים לך $60,000.",
+      "text": "מסור דרישת שלום לקרישנה, מר ברייט. עבודה טובה, חבר! נראה לי שמגיעים לך $60,000.",
       "gxtKey": "3611",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13797,7 +13797,7 @@
       "speaker": "Gang contact",
       "kind": "phone-guidance",
       "source": "ⅺThe Zaibatsu hate the Krishna. #Kill the Krishna# to earn our respect!",
-      "text": "זייבאצו שונאים את קרישנה. חיסל אותם כדי לזכות בכבוד שלנו!",
+      "text": "זייבאצו שונאים את קרישנה. חסל כמה מאנשי קרישנה כדי לזכות בכבוד שלנו!",
       "gxtKey": "3725",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"

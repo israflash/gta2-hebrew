@@ -230,13 +230,15 @@
       .kb-key { height: 30px; font-size: 10px; }
       .kb, .kb-row { gap: 3px; }
       .kb { padding: 8px; }
+      #tools { flex-wrap: nowrap; width: calc(100% - 1rem); max-height: 2.25rem; overflow-x: auto; overflow-y: hidden;
+        justify-content: flex-start; -webkit-overflow-scrolling: touch; }
     }
     /* bottom centre: the game's HUD uses the top corners and edges */
-    #tools { position: fixed; bottom: .5rem; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: wrap;
-      justify-content: center; gap: .4rem; max-width: calc(100% - 1rem); opacity: .35; }
+    #tools { position: fixed; bottom: .5rem; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: nowrap;
+      justify-content: center; gap: .22rem; max-width: calc(100% - 1rem); overflow-x: auto; opacity: .24; }
     #tools[hidden] { display: none; }
     #tools:hover, #tools:focus-within { opacity: 1; }
-    #tools button, #tools label { white-space: nowrap; font: 12px system-ui, sans-serif; padding: .3rem .6rem; border-radius: 4px;
+    #tools button, #tools label { white-space: nowrap; font: 11px system-ui, sans-serif; padding: .2rem .38rem; border-radius: 4px;
       border: 1px solid #555; background: #1c1c20; color: var(--fg); cursor: pointer; }
     #tools input { display: none; }
     #tools button[aria-pressed="true"] { border-color: var(--accent); }
@@ -265,7 +267,6 @@
     .mission-brief-text .mission-brief-highlight { color: #43a7d4; }
     #mission-brief[dir="rtl"] .mission-brief-text { direction: rtl; text-align: right; }
     #mission-brief[dir="auto"] .mission-brief-text { direction: auto; text-align: left; }
-    body.mission-visible #map-radar { transform: translateY(-3.8rem); }
     #mission-history { position: fixed; z-index: 7; left: 1rem; right: max(7rem, 20vw); bottom: max(9rem, 22vh);
       max-height: min(55vh, 28rem); overflow: auto; padding: .8rem 1rem;
       box-sizing: border-box; border-radius: 8px; border: 1px solid #555; background: rgba(8,9,12,.97); }

@@ -296,15 +296,16 @@ extern "C" int gta2_port_native_mission_title_text_hidden()
 
 // Local QA hook: enqueue a real GXT brief so the game uses its own queue,
 // portrait selection, timing and renderer. Call only when testing local data.
-extern "C" EMSCRIPTEN_KEEPALIVE int gta2_dev_show_brief(const char* gxtKey)
+extern "C" EMSCRIPTEN_KEEPALIVE int gta2_dev_show_brief(const char* gxtKey, s32 cost_param)
 {
     if (!gHud_2B00_706620 || !gText_0x14_704DFC || !gxtKey || !gxtKey[0] ||
         !gText_0x14_704DFC->Find_5B5F90(gxtKey))
     {
         return 0;
     }
-    // Priority 2 preserves normal queue order when QA batches several keys.
-    gHud_2B00_706620->field_DC_brief.SetHudBrief_5D4400(2, gxtKey);
+    // Highest native priority makes the local QA draw deterministic without
+    // replacing the HUD queue, formatter, portrait, timing, or text renderer.
+    gHud_2B00_706620->field_DC_brief.SetHudBrief_5D3F10(3, gxtKey, cost_param);
     return 1;
 }
 

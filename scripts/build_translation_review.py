@@ -85,53 +85,91 @@ def main():
     titles = json.loads((ROOT / 'web/mission-titles.he.json').read_text(encoding='utf-8'))['titles']
     gxt_rows = json.loads((ROOT / 'web/gxt-gameplay.he.json').read_text(encoding='utf-8'))['records']
     additions = json.loads((ROOT / 'scripts/gxt-extra-translations.he.json').read_text(encoding='utf-8'))
+    evidence_path = ROOT / 'docs/translation-review-evidence.json'
+    evidence = json.loads(evidence_path.read_text(encoding='utf-8')) if evidence_path.exists() else {}
+    reviewed_missions = evidence.get('missions', {})
+    reviewed_sequences = evidence.get('missionSequences', {})
+    reviewed_mission_keys = evidence.get('missionKeys', {})
+    reviewed_titles = evidence.get('titles', {})
+    reviewed_gxt = evidence.get('gxt', {})
+    named_title_keys = {'9001': 'mfail', '9002': 'kfstart', '9003': 'kfpass', '9004': 'kffail'}
     output = []
 
+    def audit_columns(auto_verified, review):
+        review = review or {}
+        source_read = bool(review.get('sourceRead'))
+        context_checked = bool(review.get('contextChecked'))
+        observed = bool(review.get('observedInGame'))
+        level = ('נצפה במשחק' if observed else 'הגהה הקשרית' if context_checked
+                 else 'נקרא מול המקור' if source_read else 'לא עבר ביקורת לשונית ידנית')
+        return {
+            'מקור ומזהה — אימות אוטומטי': 'אומת' if auto_verified else 'לא אומת',
+            'נקרא מול המקור': 'כן' if source_read else 'לא',
+            'הקשר רצף/משימה מלאה': 'כן' if context_checked else 'לא',
+            'נצפה במשחק אמיתי': 'כן' if observed else 'לא',
+            'רמת ביקורת': level,
+            'ראיית ביקורת/הערה': review.get('evidence', ''),
+            'בדיקה נוספת': review.get('followUp', ''),
+        }
+
     for row in missions:
-        output.append({
+        entry = {
             'קטגוריה': 'הודעת משימה/דיאלוג', 'אזור': row.get('area', ''),
             'משימה': row.get('mission', ''), 'דובר': row.get('speaker', ''),
             'מזהה GXT': str(row.get('gxtKey', '')), 'מקור באנגלית': row.get('source', ''),
             'תרגום עברי סופי': row.get('text', ''),
             'הקשר/מקור': '; '.join(row.get('scripts', [])) or row.get('mission', ''),
-            'מצב ביקורת': 'נכלל במילון הקודם; flags של catalog אינם מעידים כשלעצמם על הגהה מחודשת בסבב זה',
-        })
+        }
+        manual = {}
+        for candidate in (reviewed_sequences.get(f"{row.get('area', '')}|{row.get('mission', '')}"),
+                          reviewed_mission_keys.get(f"{row.get('area', '')}|{row.get('gxtKey', '')}"),
+                          reviewed_missions.get(row.get('id', ''))):
+            if candidate:
+                manual.update(candidate)
+        entry.update(audit_columns(row.get('matchStatus') == 'verified-gxt', manual))
+        output.append(entry)
 
     for key, row in titles.items():
-        output.append({
+        entry = {
             'קטגוריה': 'כותרת/סטטוס', 'אזור': '', 'משימה': row.get('mission', ''),
             'דובר': '', 'מזהה GXT': str(key), 'מקור באנגלית': row.get('source', ''),
             'תרגום עברי סופי': row.get('text', ''),
             'הקשר/מקור': row.get('context', 'כותרת משימה גרפית או הודעת סטטוס'),
-            'מצב ביקורת': 'מפתח/מקור נבדקו אוטומטית מול GXT; לא אומת חזותית לכל הכותרות',
-        })
+        }
+        source_key = named_title_keys.get(str(key), str(key))
+        entry.update(audit_columns(source_key in gxt and gxt[source_key] == row.get('source', ''), reviewed_titles.get(str(key))))
+        output.append(entry)
 
     for row in gxt_rows:
         key = str(row['key'])
         references = refs.get(key, [])
         contexts = sorted({f'{area}: {path} (opcode {opcode})' for area, path, opcode in references})
         inv = by_key.get(key, {})
-        if key in additions:
-            review = 'נוסף בסבב זה; מקור GXT תואם; נדרשת בדיקה חזותית/הקשרית לכל מופע'
-        else:
-            review = 'תרגום קודם; התאמת מקור אוטומטית; לא נבדק חזותית לכל המופעים'
         if not contexts:
             contexts = [inv.get('הקשר/הערות', 'לא נמצאה הפניית SCR סטטית; אין להסיק מכך שהטקסט אינו פעיל')]
-        output.append({
+        entry = {
             'קטגוריה': 'HUD/תפריט/דיאלוג GXT',
             'אזור': ', '.join(sorted({area for area, _, _ in references})),
             'משימה': '', 'דובר': '', 'מזהה GXT': key,
             'מקור באנגלית': row.get('source', ''), 'תרגום עברי סופי': row.get('text', ''),
-            'הקשר/מקור': ' | '.join(contexts), 'מצב ביקורת': review,
-        })
+            'הקשר/מקור': ' | '.join(contexts),
+        }
+        entry.update(audit_columns(gxt.get(key) == row.get('source', ''), reviewed_gxt.get(key)))
+        output.append(entry)
 
-    columns = ['קטגוריה', 'אזור', 'משימה', 'דובר', 'מזהה GXT', 'מקור באנגלית', 'תרגום עברי סופי', 'הקשר/מקור', 'מצב ביקורת']
+    columns = ['קטגוריה', 'אזור', 'משימה', 'דובר', 'מזהה GXT', 'מקור באנגלית', 'תרגום עברי סופי', 'הקשר/מקור',
+               'מקור ומזהה — אימות אוטומטי', 'נקרא מול המקור', 'הקשר רצף/משימה מלאה', 'נצפה במשחק אמיתי',
+               'רמת ביקורת', 'ראיית ביקורת/הערה', 'בדיקה נוספת']
     destination = ROOT / 'docs/translation-review.csv'
     with destination.open('w', encoding='utf-8-sig', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=columns, lineterminator='\r\n')
         writer.writeheader()
         writer.writerows(output)
-    print(f'wrote {len(output)} source-linked entries to {destination.relative_to(ROOT)}')
+    verified = sum(r['מקור ומזהה — אימות אוטומטי'] == 'אומת' for r in output)
+    read = sum(r['נקרא מול המקור'] == 'כן' for r in output)
+    contextual = sum(r['הקשר רצף/משימה מלאה'] == 'כן' for r in output)
+    observed = sum(r['נצפה במשחק אמיתי'] == 'כן' for r in output)
+    print(f'wrote {len(output)} entries; auto-verified={verified}; human-read={read}; context-reviewed={contextual}; game-observed={observed}')
 
 
 if __name__ == '__main__':

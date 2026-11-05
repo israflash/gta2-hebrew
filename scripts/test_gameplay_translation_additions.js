@@ -65,9 +65,10 @@ for (const [key, text] of Object.entries(gxtExtras)) {
 }
 const correctionExpectations = {
   '3913': 'שתי כוסיות שוות',
-  '6166': 'לא קידם את העבודה',
+  '6166': 'הופעה עוצרת',
   '7002': 'ואן הגלידה הממולכד',
   '5500': 'חסל אנשים כדי לצבור',
+  '3579': 'אתה גורם לזה להיראות קל, חבר!',
 };
 for (const [key, expected] of Object.entries(correctionExpectations)) {
   assert.ok(gameplayGxt.find((r) => String(r.key) === key)?.text.includes(expected),
