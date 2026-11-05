@@ -1,0 +1,3982 @@
+{
+  "version": 1,
+  "language": "he",
+  "method": "in-place browser text draw hook; original GXT remains English fallback",
+  "records": [
+    {
+      "key": "1015",
+      "source": "You have been arrested!",
+      "text": "נעצרת!"
+    },
+    {
+      "key": "1124",
+      "source": "JOB COMPLETE!",
+      "text": "המשימה הושלמה!"
+    },
+    {
+      "key": "1125",
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    {
+      "key": "1902",
+      "source": "Well done! You did it, baby!",
+      "text": "כל הכבוד! הצלחת, מותק!"
+    },
+    {
+      "key": "1904",
+      "source": "You made a right mess of that, ya donkey!",
+      "text": "איזה בלגן עשית, יא חמור!"
+    },
+    {
+      "key": "2052",
+      "source": "ⅲYou got one, Rooster! Shoot, we got seven more comin'!",
+      "text": "אחד כבר נפל, רוסטר! לעזאזל, עוד שבעה בדרך!"
+    },
+    {
+      "key": "2053",
+      "source": "ⅲHell, it's Hitman Season! Six to go!",
+      "text": "בחיי, עונת הציד נפתחה! נשארו שישה!"
+    },
+    {
+      "key": "2054",
+      "source": "ⅲWhat an UGLY son-of-a-bitch! Five to kill, Rooster!",
+      "text": "איזה בן זונה מכוער! נשארו חמישה לחסל, רוסטר!"
+    },
+    {
+      "key": "2055",
+      "source": "ⅲYou chewin' special jerky, Rooster? I make it four more to kill!",
+      "text": "מה, אתה לועס ג׳רקי מיוחד, רוסטר? נשארו עוד ארבעה לחסל!"
+    },
+    {
+      "key": "2056",
+      "source": "ⅲHot damn, you are FAST! Three Zaibatsu Killers to go!",
+      "text": "לעזאזל, אתה מהיר! נשארו עוד שלושה רוצחי זייבאצו!"
+    },
+    {
+      "key": "2057",
+      "source": "ⅲThey are outta my league, Rooster! Two Assassins remainin'!",
+      "text": "הם כבר גדולים עליי, רוסטר! נשארו שני מתנקשים!"
+    },
+    {
+      "key": "2058",
+      "source": "ⅲC'mon, Rooster - one killer to kill!",
+      "text": "קדימה, רוסטר — נשאר עוד רוצח אחד!"
+    },
+    {
+      "key": "2059",
+      "source": "ⅲJesus H Christ, Rooster! I seen some dumb-ass shit in my time but that beats all!",
+      "text": "אלוהים אדירים, רוסטר! ראיתי בחיים שלי דברים מטומטמים, אבל זה שובר שיאים!"
+    },
+    {
+      "key": "2215",
+      "source": "GOING DOWN!",
+      "text": "הדרך למטה!"
+    },
+    {
+      "key": "2232",
+      "source": "PRISON",
+      "text": "כלא"
+    },
+    {
+      "key": "2997",
+      "source": "Your status has been saved!",
+      "text": "המצב שלך נשמר!"
+    },
+    {
+      "key": "2998",
+      "source": "Mission Failed!",
+      "text": "המשימה נכשלה!"
+    },
+    {
+      "key": "2999",
+      "source": "Mission Complete!",
+      "text": "המשימה הושלמה!"
+    },
+    {
+      "key": "3202",
+      "source": "ⅮHow did you possibly manage to pass?",
+      "text": "איך לעזאזל הצלחת לעבור את זה?"
+    },
+    {
+      "key": "3204",
+      "source": "ⅮHow did you possibly manage to fail?",
+      "text": "איך לעזאזל הצלחת להיכשל בזה?"
+    },
+    {
+      "key": "play",
+      "source": "PLAY",
+      "text": "שחק"
+    },
+    {
+      "key": "options",
+      "source": "OPTIONS",
+      "text": "אפשרויות"
+    },
+    {
+      "key": "quit",
+      "source": "QUIT",
+      "text": "יציאה"
+    },
+    {
+      "key": "loading",
+      "source": "GET READY...",
+      "text": "היכון…"
+    },
+    {
+      "key": "yes",
+      "source": "YEAH!",
+      "text": "כן!"
+    },
+    {
+      "key": "no",
+      "source": "NO WAY!",
+      "text": "אין סיכוי!"
+    },
+    {
+      "key": "sure",
+      "source": "ARE YOU SURE?",
+      "text": "בטוח?"
+    },
+    {
+      "key": "pause",
+      "source": "PAUSED",
+      "text": "השהיה"
+    },
+    {
+      "key": "contnue",
+      "source": "CONTINUE",
+      "text": "המשך"
+    },
+    {
+      "key": "strtlev",
+      "source": "START PLAY IN AREA",
+      "text": "התחל במחוז"
+    },
+    {
+      "key": "nxt_lvl",
+      "source": "PLAY NEXT AREA",
+      "text": "עבור למחוז הבא"
+    },
+    {
+      "key": "savepos",
+      "source": "RESUME SAVED STATUS",
+      "text": "המשך מהשמירה"
+    },
+    {
+      "key": "replay",
+      "source": "REPLAY PREVIOUS AREA",
+      "text": "שחק שוב במחוז הקודם"
+    },
+    {
+      "key": "mainmen",
+      "source": "BACK TO MAIN MENU",
+      "text": "חזרה לתפריט הראשי"
+    },
+    {
+      "key": "charctr",
+      "source": "PLAYER",
+      "text": "שחקן"
+    },
+    {
+      "key": "clrchar",
+      "source": "DELETE PLAYER",
+      "text": "מחק שחקן"
+    },
+    {
+      "key": "entrnam",
+      "source": "ENTER NAME",
+      "text": "הזן שם"
+    },
+    {
+      "key": "edtname",
+      "source": "EDIT NAME",
+      "text": "ערוך שם"
+    },
+    {
+      "key": "ed_det",
+      "source": "EDIT NAME",
+      "text": "ערוך שם"
+    },
+    {
+      "key": "back",
+      "source": "BACK",
+      "text": "חזרה"
+    },
+    {
+      "key": "quit1",
+      "source": "Is that it?",
+      "text": "זה הכול?"
+    },
+    {
+      "key": "quit2",
+      "source": "Press the ENTER key to quit play.",
+      "text": "לחץ ENTER כדי לצאת מהמשחק."
+    },
+    {
+      "key": "quit3",
+      "source": "Press the ESC key to resume play.",
+      "text": "לחץ ESC כדי להמשיך לשחק."
+    },
+    {
+      "key": "tport",
+      "source": "TELEPORT!",
+      "text": "העברה מיידית!"
+    },
+    {
+      "key": "connect",
+      "source": "Connecting...",
+      "text": "מתחבר…"
+    },
+    {
+      "key": "hi_scre",
+      "source": "VIEW HIGH SCORES",
+      "text": "הצגת שיאים"
+    },
+    {
+      "key": "hi_for",
+      "source": "HIGH SCORES FOR AREA",
+      "text": "שיאי המחוז"
+    },
+    {
+      "key": "hi_empt",
+      "source": "EMPTY",
+      "text": "ריק"
+    },
+    {
+      "key": "leagtab",
+      "source": "VIEW LEAGUE SCORE TABLE",
+      "text": "הצגת טבלת הליגה"
+    },
+    {
+      "key": "tot_hi",
+      "source": "TOTAL HIGH SCORE TABLE",
+      "text": "טבלת השיאים הכללית"
+    },
+    {
+      "key": "league",
+      "source": "LEAGUE SCORE TABLE",
+      "text": "טבלת הליגה"
+    },
+    {
+      "key": "bnslevs",
+      "source": "PLAY BONUS STAGES",
+      "text": "שחק בשלבי הבונוס"
+    },
+    {
+      "key": "nexbons",
+      "source": "PLAY NEXT BONUS STAGE",
+      "text": "שחק בשלב הבונוס הבא"
+    },
+    {
+      "key": "repbons",
+      "source": "REPLAY BONUS STAGE",
+      "text": "שחק שוב בשלב הבונוס"
+    },
+    {
+      "key": "bonslev",
+      "source": "BONUS STAGE",
+      "text": "שלב בונוס"
+    },
+    {
+      "key": "esc_i",
+      "source": "ESC",
+      "text": "ESC"
+    },
+    {
+      "key": "del_i",
+      "source": "DELETE",
+      "text": "DELETE"
+    },
+    {
+      "key": "ent_i",
+      "source": "ENTER",
+      "text": "ENTER"
+    },
+    {
+      "key": "bspc_i",
+      "source": "BACKSPACE",
+      "text": "BACKSPACE"
+    },
+    {
+      "key": "up_i",
+      "source": "UP",
+      "text": "UP"
+    },
+    {
+      "key": "down_i",
+      "source": "DOWN",
+      "text": "DOWN"
+    },
+    {
+      "key": "left_i",
+      "source": "LEFT",
+      "text": "LEFT"
+    },
+    {
+      "key": "right_i",
+      "source": "RIGHT",
+      "text": "RIGHT"
+    },
+    {
+      "key": "clrsl_i",
+      "source": "DELETE PLAYER",
+      "text": "מחק שחקן"
+    },
+    {
+      "key": "edtnm_i",
+      "source": "EDIT NAME",
+      "text": "ערוך שם"
+    },
+    {
+      "key": "delch_i",
+      "source": "DELETE LETTER",
+      "text": "מחק אות"
+    },
+    {
+      "key": "name_i",
+      "source": "ENTER NAME",
+      "text": "הזן שם"
+    },
+    {
+      "key": "g_over",
+      "source": "GAME OVER!",
+      "text": "המשחק נגמר!"
+    },
+    {
+      "key": "plr_ded",
+      "source": "YOU ARE DEAD!",
+      "text": "חוסלת!"
+    },
+    {
+      "key": "plr_qut",
+      "source": "PLAYER QUIT!",
+      "text": "השחקן יצא!"
+    },
+    {
+      "key": "cmpltd",
+      "source": "AREA COMPLETE!",
+      "text": "המחוז הושלם!"
+    },
+    {
+      "key": "gam_cmp",
+      "source": "GAME COMPLETE!",
+      "text": "המשחק הושלם!"
+    },
+    {
+      "key": "nicetry",
+      "source": "NICE TRY!",
+      "text": "ניסיון יפה!"
+    },
+    {
+      "key": "mfail",
+      "source": "JOB FAILED!",
+      "text": "המשימה נכשלה!"
+    },
+    {
+      "key": "kfstart",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "kfpass",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "kffail",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "wasted",
+      "source": "WASTED!",
+      "text": "חוסלת!"
+    },
+    {
+      "key": "fried",
+      "source": "TOASTED!",
+      "text": "נשרפת!"
+    },
+    {
+      "key": "shocked",
+      "source": "SHOCKING!",
+      "text": "התחשמלת!"
+    },
+    {
+      "key": "nicked",
+      "source": "BUSTED!",
+      "text": "נעצרת!"
+    },
+    {
+      "key": "yourit",
+      "source": "YOU ARE IT!",
+      "text": "תורך!"
+    },
+    {
+      "key": "wrngway",
+      "source": "BACK-TO-FRONT BONUS!",
+      "text": "בונוס נסיעה לאחור!"
+    },
+    {
+      "key": "fly_car",
+      "source": "INSANE STUNT BONUS!",
+      "text": "בונוס פעלול מטורף!"
+    },
+    {
+      "key": "bomb_on",
+      "source": "BOMB ARMED!",
+      "text": "הפצצה הופעלה!"
+    },
+    {
+      "key": "bonus_w",
+      "source": "BONUS COMPLETE!",
+      "text": "הבונוס הושלם!"
+    },
+    {
+      "key": "bonus_l",
+      "source": "TIME UP!",
+      "text": "הזמן נגמר!"
+    },
+    {
+      "key": "b_pass",
+      "source": "BONUS STAGE PASSED!",
+      "text": "שלב הבונוס הושלם!"
+    },
+    {
+      "key": "b_fail",
+      "source": "BONUS STAGE FAILED!",
+      "text": "שלב הבונוס נכשל!"
+    },
+    {
+      "key": "timeup",
+      "source": "Time Up!",
+      "text": "הזמן נגמר!"
+    },
+    {
+      "key": "demtime",
+      "source": "TIME UP!",
+      "text": "הזמן נגמר!"
+    },
+    {
+      "key": "demded",
+      "source": "PLAYER DEAD!",
+      "text": "השחקן חוסל!"
+    },
+    {
+      "key": "demquit",
+      "source": "PLAYER QUIT!",
+      "text": "השחקן יצא!"
+    },
+    {
+      "key": "svcanc",
+      "source": "Save Cancelled!",
+      "text": "השמירה בוטלה!"
+    },
+    {
+      "key": "fined",
+      "source": "SPOT FINE!",
+      "text": "קנס משטרתי!"
+    },
+    {
+      "key": "fined1",
+      "source": "FINED!",
+      "text": "נקנסת!"
+    },
+    {
+      "key": "comms1",
+      "source": "%s has left the game!",
+      "text": "השחקן {s} יצא מהמשחק!"
+    },
+    {
+      "key": "mult_w",
+      "source": "YOU WIN!",
+      "text": "ניצחת!"
+    },
+    {
+      "key": "mult_l",
+      "source": "YOU LOSE!",
+      "text": "הפסדת!"
+    },
+    {
+      "key": "mult_q",
+      "source": "QUITTER!",
+      "text": "פרשת!"
+    },
+    {
+      "key": "mult_d",
+      "source": "DRAWN!",
+      "text": "תיקו!"
+    },
+    {
+      "key": "nspray",
+      "source": "Come back when ya got the cash!",
+      "text": "תחזור כשיהיה לך מספיק כסף!"
+    },
+    {
+      "key": "nspraya",
+      "source": "You ain't got enough cash! You need $%d.",
+      "text": "אין לך מספיק כסף! צריך #$%d#."
+    },
+    {
+      "key": "nespray",
+      "source": "I ain't touchin' that! Get outta here!",
+      "text": "אני לא נוגע בזה! עוף מפה!"
+    },
+    {
+      "key": "sdone",
+      "source": "There ya go! Nice colour! That's $%d.",
+      "text": "הנה, צבע יפה! זה יעלה #$%d#."
+    },
+    {
+      "key": "cdone",
+      "source": "It's clean - the plates have been changed. That's $%d.",
+      "text": "נקי — החלפנו את לוחיות הרישוי. זה יעלה #$%d#."
+    },
+    {
+      "key": "bdone",
+      "source": "The vehicle's been rigged! That's $%d.",
+      "text": "הרכב ממולכד! זה יעלה #$%d#."
+    },
+    {
+      "key": "arig",
+      "source": "This vehicle's already rigged!",
+      "text": "הרכב הזה כבר ממולכד!"
+    },
+    {
+      "key": "svdone",
+      "source": "#Your #status# is #saved#!#",
+      "text": "#המצב שלך #נשמר#!#"
+    },
+    {
+      "key": "svscore",
+      "source": "#Get lost, ya bum! It costs #$50,000# to save the state of play here!#",
+      "text": "#עוף מפה, קבצן! שמירת המשחק כאן עולה #$50,000#!#"
+    },
+    {
+      "key": "svmiss",
+      "source": "#You #cannot save# your state of play while you are #on a job#. Get back to work!#",
+      "text": "#אי אפשר לשמור# את מצב המשחק בזמן #משימה#. תחזור לעבודה!"
+    },
+    {
+      "key": "score",
+      "source": "SCORE",
+      "text": "ניקוד"
+    },
+    {
+      "key": "best",
+      "source": "BEST",
+      "text": "שיא"
+    },
+    {
+      "key": "last",
+      "source": "LAST",
+      "text": "אחרון"
+    },
+    {
+      "key": "kills_h",
+      "source": "KILLS",
+      "text": "חיסולים"
+    },
+    {
+      "key": "frags_h",
+      "source": "FRAGS",
+      "text": "הריגות"
+    },
+    {
+      "key": "pnts_h",
+      "source": "POINTS",
+      "text": "נקודות"
+    },
+    {
+      "key": "times_h",
+      "source": "TIMES",
+      "text": "פעמים"
+    },
+    {
+      "key": "pscore",
+      "source": "Target Score: %d",
+      "text": "ניקוד יעד: %d"
+    },
+    {
+      "key": "pgmiss",
+      "source": "%s Jobs Passed: %d/%d",
+      "text": "משימות של {s} שהושלמו: %d/%d"
+    },
+    {
+      "key": "pmiss",
+      "source": "Total Jobs Passed: %d/%d",
+      "text": "כל המשימות שהושלמו: %d/%d"
+    },
+    {
+      "key": "psec",
+      "source": "Kill Frenzies Passed: %d/%d",
+      "text": "אתגרי חיסול שהושלמו: %d/%d"
+    },
+    {
+      "key": "pbon",
+      "source": "Collected: %d/%d",
+      "text": "פריטי בונוס שנאספו: %d/%d"
+    },
+    {
+      "key": "car_cst",
+      "source": "AUTO DAMAGE COST",
+      "text": "עלות תיקון נזקי רכב"
+    },
+    {
+      "key": "car_dam",
+      "source": "VEHICLES DAMAGED",
+      "text": "כלי רכב שניזוקו"
+    },
+    {
+      "key": "carjack",
+      "source": "VEHICLES HIJACKED",
+      "text": "כלי רכב שנגנבו"
+    },
+    {
+      "key": "carjaka",
+      "source": "Car Jacka!",
+      "text": "גנב רכבים!"
+    },
+    {
+      "key": "run_ovr",
+      "source": "CIVILIANS RUN DOWN",
+      "text": "אזרחים שנדרסו"
+    },
+    {
+      "key": "murder",
+      "source": "CIVILIANS MURDERED",
+      "text": "אזרחים שנרצחו"
+    },
+    {
+      "key": "cop_kl",
+      "source": "LAWMEN KILLED",
+      "text": "שוטרים שנהרגו"
+    },
+    {
+      "key": "copkill",
+      "source": "Cop Killa!",
+      "text": "קוטל שוטרים!"
+    },
+    {
+      "key": "gng_kl",
+      "source": "GANG MEMBERS KILLED",
+      "text": "חברי כנופיה שנהרגו"
+    },
+    {
+      "key": "evsnrtg",
+      "source": "FUGITIVE FACTOR",
+      "text": "מקדם בריחה"
+    },
+    {
+      "key": "excutin",
+      "source": "Expeditious Execution!",
+      "text": "הוצאה להורג מהירה!"
+    },
+    {
+      "key": "gencide",
+      "source": "Genocide!",
+      "text": "טבח!"
+    },
+    {
+      "key": "accurcy",
+      "source": "Accuracy Bonus!",
+      "text": "בונוס דיוק!"
+    },
+    {
+      "key": "elvis_d",
+      "source": "Elvis Has Left The Building!",
+      "text": "אלביס עזב את הבניין!"
+    },
+    {
+      "key": "em_dest",
+      "source": "Medical Emergency!",
+      "text": "מצב חירום רפואי!"
+    },
+    {
+      "key": "stl_all",
+      "source": "Grand Theft Auto!",
+      "text": "גניבת מכוניות!"
+    },
+    {
+      "key": "dst_all",
+      "source": "Wipe Out!",
+      "text": "השמדה מוחלטת!"
+    },
+    {
+      "key": "bnk_job",
+      "source": "BANK JOBS",
+      "text": "שוד בנקים"
+    },
+    {
+      "key": "slfkils",
+      "source": "PLAYER SUICIDES",
+      "text": "התאבדויות שחקן"
+    },
+    {
+      "key": "firearm",
+      "source": "WEAPON OFFENCES",
+      "text": "עבירות נשק"
+    },
+    {
+      "key": "unconc",
+      "source": "PEDS KO'D",
+      "text": "הולכי רגל שהוכו עד אובדן הכרה"
+    },
+    {
+      "key": "stl_car",
+      "source": "EMPTY VEHICLES STOLEN",
+      "text": "כלי רכב ריקים שנגנבו"
+    },
+    {
+      "key": "car_des",
+      "source": "VEHICLES DESTROYED",
+      "text": "כלי רכב שהושמדו"
+    },
+    {
+      "key": "hijack",
+      "source": "HIJACKS",
+      "text": "חטיפות רכב"
+    },
+    {
+      "key": "bus_hi",
+      "source": "BUSES HIJACKED",
+      "text": "אוטובוסים שנחטפו"
+    },
+    {
+      "key": "trn_hi",
+      "source": "TRAINS HIJACKED",
+      "text": "רכבות שנחטפו"
+    },
+    {
+      "key": "c00",
+      "source": "Pistol",
+      "text": "אקדח"
+    },
+    {
+      "key": "c01",
+      "source": "S-Uzi Machine Gun",
+      "text": "תת־מקלע S-Uzi"
+    },
+    {
+      "key": "c02",
+      "source": "Rocket Launcher",
+      "text": "מטול רקטות"
+    },
+    {
+      "key": "c03",
+      "source": "ElectroGun",
+      "text": "אקדח חשמלי"
+    },
+    {
+      "key": "c04",
+      "source": "Molotov Cocktails",
+      "text": "בקבוקי תבערה"
+    },
+    {
+      "key": "c05",
+      "source": "Grenades",
+      "text": "רימונים"
+    },
+    {
+      "key": "c06",
+      "source": "Shotgun",
+      "text": "רובה ציד"
+    },
+    {
+      "key": "c07",
+      "source": "ElectroBaton",
+      "text": "אלת חשמל"
+    },
+    {
+      "key": "c08",
+      "source": "Flamethrower",
+      "text": "להביור"
+    },
+    {
+      "key": "c09",
+      "source": "Silenced S-Uzi Machine Gun",
+      "text": "תת־מקלע S-Uzi מושתק"
+    },
+    {
+      "key": "c10",
+      "source": "Dual Pistol",
+      "text": "שני אקדחים"
+    },
+    {
+      "key": "c15",
+      "source": "Vehicle Bomb",
+      "text": "פצצת רכב"
+    },
+    {
+      "key": "c16",
+      "source": "Vehicle Oil Slick",
+      "text": "כתם שמן לרכב"
+    },
+    {
+      "key": "c17",
+      "source": "Vehicle Mines",
+      "text": "מוקשים לרכב"
+    },
+    {
+      "key": "c18",
+      "source": "Vehicle Machine Guns",
+      "text": "מקלעי רכב"
+    },
+    {
+      "key": "c19",
+      "source": "Tank Gun",
+      "text": "תותח טנק"
+    },
+    {
+      "key": "c20",
+      "source": "Water Cannon",
+      "text": "תותח מים"
+    },
+    {
+      "key": "c21",
+      "source": "Vehicle Flamethrower",
+      "text": "להביור לרכב"
+    },
+    {
+      "key": "c22",
+      "source": "Jeep Gun",
+      "text": "תותח ג׳יפ"
+    },
+    {
+      "key": "c23",
+      "source": "Instant Vehicle Bomb",
+      "text": "פצצת רכב מיידית"
+    },
+    {
+      "key": "c28",
+      "source": "Multiplier +1",
+      "text": "מכפיל ניקוד +1"
+    },
+    {
+      "key": "c29",
+      "source": "Life +1",
+      "text": "חיים +1"
+    },
+    {
+      "key": "c30",
+      "source": "Health",
+      "text": "בריאות"
+    },
+    {
+      "key": "c31",
+      "source": "Armor",
+      "text": "שריון"
+    },
+    {
+      "key": "c32",
+      "source": "Get Outta Jail Free Card",
+      "text": "כרטיס יציאה מהכלא"
+    },
+    {
+      "key": "c33",
+      "source": "Cop Bribe",
+      "text": "שוחד לשוטר"
+    },
+    {
+      "key": "c34",
+      "source": "Invulnerability*",
+      "text": "חסינות זמנית*"
+    },
+    {
+      "key": "c35",
+      "source": "Double Damage",
+      "text": "נזק כפול"
+    },
+    {
+      "key": "c36",
+      "source": "Fast Reload",
+      "text": "טעינה מהירה"
+    },
+    {
+      "key": "c37",
+      "source": "ElectroFingers",
+      "text": "אצבעות חשמליות"
+    },
+    {
+      "key": "c38",
+      "source": "Respect!",
+      "text": "כבוד!"
+    },
+    {
+      "key": "c39",
+      "source": "Invisibility",
+      "text": "אי־נראות"
+    },
+    {
+      "key": "c40",
+      "source": "Instant Gang",
+      "text": "כנופיה מיידית"
+    },
+    {
+      "key": "801",
+      "source": "GTA2 PREVIEW",
+      "text": "תצוגה מקדימה של GTA2"
+    },
+    {
+      "key": "802",
+      "source": "Hey there, kid. Sorry to break this to you but... You got a bellyful of explosives and only 6 minutes to live life to the full. Have fun!",
+      "text": "היי, ילד. לא נעים לי לבשר לך, אבל מילאו אותך בחומר נפץ ונשארו לך רק 6 דקות לחיות על מלא. תהנה!"
+    },
+    {
+      "key": "1014",
+      "source": "You are useless!",
+      "text": "אתה חסר תועלת!"
+    },
+    {
+      "key": "1115",
+      "source": "ⅺ#The Zaibatsu do not negotiate with Yakuza scum. GO!#",
+      "text": "#זייבאצו לא מנהלים משא ומתן עם החלאות של היאקוזה. קדימה!#"
+    },
+    {
+      "key": "1121",
+      "source": "#Nice one, Gecko! You certainly earned your #$40,000#.#",
+      "text": "#יפה, גקו! הרווחת ביושר את #$40,000# שלך.#"
+    },
+    {
+      "key": "1149",
+      "source": "ⅺThat wasn't so smart, Gecko. The job's OFF.",
+      "text": "לא היית חכם במיוחד, גקו. העבודה מבוטלת."
+    },
+    {
+      "key": "1201",
+      "source": "ⅹConsider yourself lucky this time, Kosai. I won't always be around to pay off the Cops.",
+      "text": "ראה את עצמך בר־מזל הפעם, קוסאי. לא תמיד אהיה כאן כדי לשחד את השוטרים בשבילך."
+    },
+    {
+      "key": "1242",
+      "source": "ⅺHow many times do you think you can screw up?",
+      "text": "כמה פעמים עוד תצליח לפשל?"
+    },
+    {
+      "key": "1263",
+      "source": "ⅺHey, you ain't my driver!",
+      "text": "היי, אתה לא הנהג שלי!"
+    },
+    {
+      "key": "1276",
+      "source": "ⅺI told you to watch and learn, Gecko! Lose yourself. The Zaibatsu have no time for the squeamish.",
+      "text": "אמרתי לך להסתכל וללמוד, גקו! תיעלם. לזייבאצו אין זמן לרגישים."
+    },
+    {
+      "key": "1288",
+      "source": "ⅹSound the horn, fool!",
+      "text": "צפור, אידיוט!"
+    },
+    {
+      "key": "1307",
+      "source": "ⅹThat was stupid, Kosai. I will pull some strings to set you free.",
+      "text": "טיפשי מצידך, קוסאי. אני אדאג לשחרר אותך בעזרת כמה קשרים."
+    },
+    {
+      "key": "1308",
+      "source": "ⅹThat is not the best way to avoid work, Kosai. Pull yourself together!",
+      "text": "ככה לא מתחמקים מעבודה, קוסאי. תתאפס על עצמך!"
+    },
+    {
+      "key": "1351",
+      "source": "ⅹGetting arrested was incompetent, Kosai. Now you cannot work!",
+      "text": "המעצר שלך היה מעשה של חסר יכולת, קוסאי. עכשיו אתה לא יכול לעבוד!"
+    },
+    {
+      "key": "1352",
+      "source": "ⅹYour performance is pathetic, Kosai. Goodbye.",
+      "text": "הביצועים שלך עלובים. שלום, קוסאי."
+    },
+    {
+      "key": "1382",
+      "source": "ⅹCompensating the Cops for your mistakes is not my style, Kosai. Be warned - my temper is short.",
+      "text": "אני לא נוהג לפצות שוטרים על הטעויות שלך, קוסאי. תיזהר — הפתיל שלי קצר."
+    },
+    {
+      "key": "1383",
+      "source": "ⅹI warned you, Kosai. You messed up and now the Cops will mess you up.",
+      "text": "הזהרתי אותך, קוסאי. פישלת, ועכשיו השוטרים יטפלו בך."
+    },
+    {
+      "key": "1436",
+      "source": "ⅬTo drive that bad takes practise. See you around, Jumbo.",
+      "text": "כדי לנהוג גרוע כל כך צריך להתאמן. נתראה, ג'מבו."
+    },
+    {
+      "key": "1468",
+      "source": "ⅬYou dope, Jumbo! Those hitmen put a cap in your ass!",
+      "text": "טמבל, ג'מבו! המתנקשים האלה פוצצו לך את התחת!"
+    },
+    {
+      "key": "1469",
+      "source": "ⅬWhen the cops grab you, Jumbo, all jobs are off!",
+      "text": "כשהשוטרים תופסים אותך, ג'מבו, כל העבודות מתבטלות!"
+    },
+    {
+      "key": "1632",
+      "source": "ⅹYou failed me at a critical time, Kosai, but I am prepared to overlook your incompetence.",
+      "text": "אכזבת אותי ברגע קריטי, קוסאי, אבל אהיה מוכן להתעלם מחוסר היכולת שלך."
+    },
+    {
+      "key": "1643",
+      "source": "ⅹThe Cops are a nuisance, Kosai, but I can help you this time.",
+      "text": "השוטרים הם מטרד, קוסאי, אבל הפעם אוכל לעזור לך."
+    },
+    {
+      "key": "1653",
+      "source": "ⅹThe odds were always against you pulling through, Kosai. I'm not so sure you have what it takes.",
+      "text": "הסיכויים שתצליח היו קלושים מלכתחילה, קוסאי. אני לא בטוח שיש לך את מה שצריך."
+    },
+    {
+      "key": "1656",
+      "source": "ⅹYou shouldn't wreck my cars, Kosai! You are OFF the job!",
+      "text": "אל תהרוס לי את המכוניות, קוסאי! אתה מפוטר מהמשימה!"
+    },
+    {
+      "key": "1660",
+      "source": "ⅹVery clumsy, Kosai. Next time there is heat on your tail I suggest respraying the vehicle.",
+      "text": "איזה חוסר זהירות. בפעם הבאה שהשוטרים בעקבותיך, צבע מחדש את הרכב."
+    },
+    {
+      "key": "1669",
+      "source": "ⅹYou may think it's cool to be arrested, Kosai, but you are mistaken.",
+      "text": "אתה אולי חושב שלהיעצר זה מגניב, קוסאי, אבל אתה טועה."
+    },
+    {
+      "key": "1670",
+      "source": "ⅹGetting arrested reduces your Cop Wanted Level, Kosai, but now you are unarmed, vulnerable... AND OUT OF A JOB!",
+      "text": "מעצר מוריד את רמת המבוקשות שלך, קוסאי, אבל עכשיו אתה בלי נשק, חשוף... ומחוץ לעבודה!"
+    },
+    {
+      "key": "1682",
+      "source": "ⅺYou only complete jobs if you stay out of trouble, Gecko.",
+      "text": "תשלים עבודות רק אם תתרחק מצרות, גקו."
+    },
+    {
+      "key": "1693",
+      "source": "ⅺCome on, Gecko, sound the horn!",
+      "text": "קדימה, גקו, תצפור!"
+    },
+    {
+      "key": "1698",
+      "source": "ⅺStop wasting my time, Gecko. Get back in the Cop car and sound that horn!",
+      "text": "תפסיק לבזבז לי את הזמן. חזור לניידת וצפור!"
+    },
+    {
+      "key": "1704",
+      "source": "ⅺI am disappointed, Gecko. I didn't expect you to fail.",
+      "text": "אני מאוכזב, גקו. לא ציפיתי שתיכשל."
+    },
+    {
+      "key": "1717",
+      "source": "ⅺYour failure is a pain in my ass, Gecko. Consider yourself persona non grata.",
+      "text": "הכישלון שלך יושב לי על העצבים, גקו. מבחינתי אתה מוקצה."
+    },
+    {
+      "key": "1724",
+      "source": "ⅺIt was a simple smash and grab, Gecko. How the hell could you screw that up?",
+      "text": "זאת הייתה גניבה פשוטה — לפרוץ ולקחת. איך לעזאזל הצלחת לפשל?"
+    },
+    {
+      "key": "1745",
+      "source": "ⅬThat was plain stupid, Jumbo, not Loony!",
+      "text": "זה היה מטומטם לגמרי, ג'מבו — לא משוגע!"
+    },
+    {
+      "key": "1774",
+      "source": "ⅬOh, Jumbo. Now what are we to do? Pick ourselves up, dust ourselves down and start all over again.",
+      "text": "אוי, ג'מבו. מה נעשה עכשיו? ננער את האבק וננסה שוב מהתחלה."
+    },
+    {
+      "key": "1803",
+      "source": "Ⅾ#That's you out of the running, monkey boy. I'm surprised you even managed to make it this far.#",
+      "text": "#זהו, יצאת מהמרוץ, קוף קטן. מפתיע שהצלחת להגיע עד לכאן.#"
+    },
+    {
+      "key": "1804",
+      "source": "Ⅾ#Don't think you will be safe in jail. The gangs are EVERYWHERE!#",
+      "text": "#אל תחשוב שתהיה בטוח בכלא. הכנופיות נמצאות בכל מקום!#"
+    },
+    {
+      "key": "1811",
+      "source": "Ⅾ#No no no! You #cannot save# your state of play while you are #on a job#. Get back to work!#",
+      "text": "#לא, לא, לא! אי אפשר #לשמור# את מצב המשחק כשאתה #באמצע עבודה#. חזור לעבוד!#"
+    },
+    {
+      "key": "1990",
+      "source": "ⅬThat was silly, Jumbo. Now I'm never going to be a Loony with a Limo.",
+      "text": "זה היה טיפשי, ג'מבו. עכשיו לעולם לא אהיה לוני עם לימוזינה."
+    },
+    {
+      "key": "1991",
+      "source": "ⅬI wash my hands of anyone who gets arrested.",
+      "text": "אני לא רוצה שום קשר למי שנעצר."
+    },
+    {
+      "key": "2011",
+      "source": "ⅲWell looky here, Rooster. Fat Boy Jim was home all along!",
+      "text": "תראו מי כאן, רוסטר. פאט בוי ג'ים היה בבית כל הזמן!"
+    },
+    {
+      "key": "2039",
+      "source": "ⅲYou ain't worth shit, boy. You blew it in SRS territory!",
+      "text": "אתה לא שווה כלום, ילד. פישלת בשטח של SRS!"
+    },
+    {
+      "key": "2041",
+      "source": "ⅲYou ain't squat, boy. You blew it in the #The Village#!",
+      "text": "אתה אפס, ילד. פישלת ב־#The Village#!"
+    },
+    {
+      "key": "2064",
+      "source": "ⅲJesus H Christ! There was me thinkin' you were hot, Rooster, but now I know you ain't worth spit.",
+      "text": "ישו כריסטוס! חשבתי שאתה תותח, רוסטר, אבל עכשיו ברור שאתה לא שווה יריקה."
+    },
+    {
+      "key": "2102",
+      "source": "ⅲJus' like you this vehicle ain't good for nothin', Rooster. I need a new Benson!",
+      "text": "בדיוק כמוך, הרכב הזה לא שווה כלום, רוסטר. אני צריך Benson חדש!"
+    },
+    {
+      "key": "2109",
+      "source": "ⅲGet another Truck Cab, Rooster, and make it FAST.",
+      "text": "תביא עוד Truck Cab, רוסטר, ומהר!"
+    },
+    {
+      "key": "2223",
+      "source": "ⅲThe Emergency Keycard will overheat the locking mechanisms and the prison gates will open.",
+      "text": "כרטיס המפתח לשעת חירום יחמם את מנגנוני הנעילה עד שהשערים ייפתחו."
+    },
+    {
+      "key": "2227",
+      "source": "ⅲYou killed everyone, Rooster, and that weren't the deal. Now the Good Ol' Boys are bayin' for blood!",
+      "text": "הרגת את כולם, רוסטר, וזה לא היה חלק מהעסקה. עכשיו הרדנקס דורשים דם!"
+    },
+    {
+      "key": "2230",
+      "source": "ⅲHow can I serve vengeance on those Guards if you can't hold it together?",
+      "text": "איך אנקום בשומרים אם אתה לא מצליח להחזיק מעמד?"
+    },
+    {
+      "key": "2231",
+      "source": "ⅲIf getting arrested was part of the plan, Rooster, I would have told you. I reckon you oughta get back to the phones.",
+      "text": "אם המעצר היה חלק מהתוכנית, הייתי אומר לך. כדאי שתחזור לטלפונים."
+    },
+    {
+      "key": "2313",
+      "source": "ⅳYou killed a delegate, THC-303. Now the truce is off and my perfect plan is in tatters.",
+      "text": "הרגת אחד מהנציגים, THC-303. ההפוגה נגמרה והתוכנית המושלמת שלי התרסקה."
+    },
+    {
+      "key": "2316",
+      "source": "ⅳAh, THC-303. Dr LaBrat here. The #Zaibatsu# and #Rednecks# want a peace meeting so I'm taking the opportunity to perform an experiment. Collect the old #Limo# and I will unravel my plan.",
+      "text": "אה, THC-303. כאן דוקטור לה־בראט. #זייבאצו# וה־#רדנקס# רוצים פגישת שלום, ואני מנצל את ההזדמנות לניסוי. אסוף את ה־#Limo# הישנה, ואפרוש בפניך את התוכנית."
+    },
+    {
+      "key": "2317",
+      "source": "ⅳUnfortunately, THC-303, the #Limo# was critical to the success of my plan. Consider yourself fired.",
+      "text": "לצערי, THC-303, ה־#Limo# הייתה חיונית לתוכנית. אתה מפוטר."
+    },
+    {
+      "key": "2318",
+      "source": "ⅳPlease get back on the #Limo#, THC-303. I have a plan - remember?",
+      "text": "חזור אל ה־#Limo#, THC-303. יש לי תוכנית, זוכר?"
+    },
+    {
+      "key": "2319",
+      "source": "ⅲOkay, boys, get on the #Limo# - and no spittin'!",
+      "text": "קדימה, חבר'ה, עלו ל־#Limo# — ובלי לירוק!"
+    },
+    {
+      "key": "2320",
+      "source": "ⅳYou did well, THC-303. Now get off the #Limo# and let my SRS Clones take it from here.",
+      "text": "עבודה טובה, THC-303. רד מה־#Limo# ותן לשיבוטי SRS להמשיך מכאן."
+    },
+    {
+      "key": "2366",
+      "source": "ⅳHere you are at #The Village#, THC-303. Now I don't care which ones you kill - just so long as you kill #17# of them.",
+      "text": "הגעת ל־#The Village#, THC-303. לא משנה את מי מהם תחסל — רק תחסל #17#."
+    },
+    {
+      "key": "2412",
+      "source": "ⅳGet back in the #Pickup#, THC-303, and get #Gran'pa#!",
+      "text": "חזור ל־#Pickup#, THC-303, והבא את #גראנפא#!"
+    },
+    {
+      "key": "2495",
+      "source": "⅓Here is another #Taxi#, THC-303.",
+      "text": "הנה עוד #Taxi#, THC-303."
+    },
+    {
+      "key": "2513",
+      "source": "ⅳHow could you fail such a simple task, THC-303? Find a new job.",
+      "text": "איך נכשלת במשימה פשוטה כל כך, THC-303? חפש עבודה אחרת."
+    },
+    {
+      "key": "2561",
+      "source": "ⅺThat should keep the SRS busy for a while. You are one sick operator, Gecko - but I like it! I'm giving you $15,000 plus a $15,000 bonus for style.",
+      "text": "זה יעסיק את אנשי SRS לזמן מה. אתה חולה בראש, גקו — וזה מוצא חן בעיניי! תקבל $15,000 ועוד $15,000 בונוס על הסגנון."
+    },
+    {
+      "key": "2615",
+      "source": "ⅺScorcher, Gecko! The Rednecks are roasting and the SRS are taking the blame! We have many jobs for the resourceful. In the meantime, please accept #$30,000#.",
+      "text": "איזה לוהט, גקו! הרדנקס נצלים, והאשמה נופלת על אנשי SRS! יש לנו עוד עבודות בשבילך. בינתיים קבל #$30,000#."
+    },
+    {
+      "key": "2616",
+      "source": "ⅺNow the new Fire Truck is ready let's put it to the test! Head for #Mobile RV# and barbecue at least #10# Rednecks!",
+      "text": "ה־Fire Truck החדש מוכן — בוא נבחן אותו! סע ל־#Mobile RV# ושרוף לפחות #10# רדנקס!"
+    },
+    {
+      "key": "2795",
+      "source": "ⅳWhy should we do business with friends of the Zaibatsu?",
+      "text": "למה שנעשה עסקים עם החברים של זייבאצו?"
+    },
+    {
+      "key": "2805",
+      "source": "ⅲWe don't go givin' jobs to anyone in bed with the Scientists!",
+      "text": "אנחנו לא נותנים עבודות למי שמתחכך במדענים!"
+    },
+    {
+      "key": "2815",
+      "source": "ⅺWe refuse to do business with respected Rednecks!",
+      "text": "אנחנו מסרבים לעשות עסקים עם אנשי Rednecks המכובדים!"
+    },
+    {
+      "key": "2853",
+      "source": "ⅺYou killed a Z-Operative! Very stupid, Gecko!",
+      "text": "הרגת סוכן Z! טיפשי מאוד, גקו!"
+    },
+    {
+      "key": "2854",
+      "source": "ⅺWe have been pumping iron since birth! This puny vehicle will not hold our girth!",
+      "text": "אנחנו מרימים משקולות מאז הלידה! הרכב העלוב הזה לא יחזיק את המשקל שלנו!"
+    },
+    {
+      "key": "2867",
+      "source": "ⅺWe will need transport, Operative! I recommend a fast car.",
+      "text": "נצטרך תחבורה, סוכן! אני ממליץ על מכונית מהירה."
+    },
+    {
+      "key": "2869",
+      "source": "ⅺDo not leave the Z-Men, Gecko. Get back in the vehicle!",
+      "text": "אל תעזוב את אנשי Z, גקו. חזור לרכב!"
+    },
+    {
+      "key": "2874",
+      "source": "ⅺUnlike you, Gecko, the #Cold Fusion Generators# are still working.",
+      "text": "בניגוד אליך, #גנרטורי היתוך קר# עדיין פועלים."
+    },
+    {
+      "key": "2876",
+      "source": "ⅺAccess to the #Research Center# appears impossible but we have found a way!",
+      "text": "נראה שאי אפשר להיכנס ל־#SRS Research Center#, אבל מצאנו דרך!"
+    },
+    {
+      "key": "2891",
+      "source": "ⅺMention the Zaibatsu, Gecko, and the torture will be eternal.",
+      "text": "תזכיר את זייבאצו, גקו, והעינויים לא ייגמרו לעולם."
+    },
+    {
+      "key": "2892",
+      "source": "ⅺClearly you are not suitable for the more challenging work I have in mind, Gecko. I suggest you take the time to improve your pathetic skills.",
+      "text": "ברור שאינך מתאים לעבודות המאתגרות יותר. כדאי שתנצל את הזמן כדי לשפר את הכישורים העלובים שלך."
+    },
+    {
+      "key": "2941",
+      "source": "ⅺYOU expect US to fit into THAT pathetic little vehicle?",
+      "text": "אתה מצפה מאיתנו להידחס לתוך הגרוטאה הקטנה הזאת?"
+    },
+    {
+      "key": "2942",
+      "source": "ⅺIt is not Zaibatsu Policy to go anywhere on foot. Bring us some transport!",
+      "text": "זייבאצו לא הולכים ברגל. תביא לנו תחבורה!"
+    },
+    {
+      "key": "2943",
+      "source": "ⅺGet back in the car, Gecko. The Z-Men are programmed to follow you.",
+      "text": "חזור למכונית, גקו. אנשי Z מתוכנתים לעקוב אחריך."
+    },
+    {
+      "key": "2946",
+      "source": "ⅺThat was a bitterly disappointing display, Gecko.",
+      "text": "איזו הופעה מאכזבת ומרה."
+    },
+    {
+      "key": "2948",
+      "source": "ⅺNow here's the deal. Kill 20 Scientists in The Mall - but no vehicles, understand! I want to see how well you can handle firepower under duress.",
+      "text": "הנה העסקה: חסל 20 מדענים ב־The Mall — בלי כלי רכב, ברור? נראה אם אתה יודע להשתמש בנשק תחת לחץ."
+    },
+    {
+      "key": "2996",
+      "source": "Come back when you ain't on a job!",
+      "text": "תחזור כשתסיים את העבודה!"
+    },
+    {
+      "key": "3095",
+      "source": "ⅫWe do not do business with the likes of you!",
+      "text": "אנחנו לא עושים עסקים עם טיפוסים כמוך!"
+    },
+    {
+      "key": "3105",
+      "source": "ⅭWe do not do business with the likes of you.",
+      "text": "אנחנו לא עושים עסקים עם טיפוסים כמוך."
+    },
+    {
+      "key": "3110",
+      "source": "ARSE BISCUITS!",
+      "text": "עוגיות תחת!"
+    },
+    {
+      "key": "3115",
+      "source": "ⅺThe Zaibatsu do not negotiate with the Krishna!",
+      "text": "זייבאצו לא מנהלים משא ומתן עם הקרישנה!"
+    },
+    {
+      "key": "3150",
+      "source": "ⅫThe loyal #Krishna# are #dead#, Grasshopper! #Kill# the Assassins by #yourself#.",
+      "text": "אנשי #קרישנה# הנאמנים #מתו#, גראסהופר! #חסל# את המתנקשים #בעצמך#."
+    },
+    {
+      "key": "3211",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3405",
+      "source": "ⅭFailing to steal the #Bus# confirms you are weak, Comrade! The job's OFF.",
+      "text": "אם לא תגנוב את ה־#Bus#, תוכיח שאתה חלש, חבר! העבודה מבוטלת!"
+    },
+    {
+      "key": "3406",
+      "source": "ⅭOnly a Western Shit disappears before the job is completed, Comrade.",
+      "text": "רק מערבי עלוב נעלם לפני שהעבודה נגמרת, חבר."
+    },
+    {
+      "key": "3418",
+      "source": "ⅭThe #Hot Dog Van# has gone, Comrade. Now my Kovski are looking for blood!",
+      "text": "ה־#Hot Dog Van# נעלמה, חבר. עכשיו אנשי Kovski שלי צמאים לדם!"
+    },
+    {
+      "key": "3425",
+      "source": "ⅭComrade! Jerkov here! A leading meat processing plant will make special hot dogs to feed my troops if I supply the meat. Pick up the #Krishna Bus# I have prepared for you.",
+      "text": "חבר! זה ג׳רקוב. מפעל בשר גדול יכין נקניקיות מיוחדות לחיילים שלי, אם אספק את הבשר. קח את ה־#Krishna Bus# שהכנתי לך."
+    },
+    {
+      "key": "3426",
+      "source": "ⅭYou IDIOT, Comrade! You wrecked the #Karma Bus#! Now there is no point in continuing with this job.",
+      "text": "אידיוט, חבר! הרסת את ה־#Karma Bus#! אין טעם להמשיך בעבודה."
+    },
+    {
+      "key": "3427",
+      "source": "ⅭNow take the #Bus# across to #Maharishi# and pick up some #Krishna#.",
+      "text": "עכשיו קח את ה־#Bus# אל #Maharishi# ואסוף כמה מאנשי #קרישנה#."
+    },
+    {
+      "key": "3428",
+      "source": "Ⅽ#Sound the horn# to get the attention of the #Krishna#, Comrade, then wait here.",
+      "text": "#צפור# כדי למשוך את תשומת לבם של אנשי #קרישנה#, חבר, ואז חכה כאן."
+    },
+    {
+      "key": "3429",
+      "source": "ⅭI told you to wait, Comrade! Take the #Bus# back the #Krishna# and pick up the fresh meat!",
+      "text": "אמרתי לך לחכות, חבר! סע עם ה־#Bus# בחזרה אל אנשי #קרישנה# ואסוף את הבשר הטרי!"
+    },
+    {
+      "key": "3430",
+      "source": "ⅭNow sit and #wait# for the Krishna fools to get on the Bus!",
+      "text": "שב ו־#חכה# שטיפשי #קרישנה# יעלו לאוטובוס!"
+    },
+    {
+      "key": "3431",
+      "source": "ⅭKilling them here is no use, Comrade! You were told to bring them to the meat processing plant!",
+      "text": "אין טעם להרוג אותם כאן, חבר! אמרו לך להביא אותם למפעל הבשר!"
+    },
+    {
+      "key": "3432",
+      "source": "ⅭHey, there is still room on the #Karma Bus# for more bald people! Be patient, Comrade!",
+      "text": "ה־#Karma Bus# עוד לא מלא — יש מקום לעוד קרחים! סבלנות, חבר!"
+    },
+    {
+      "key": "3433",
+      "source": "ⅫPlease don't take me! I'm all saturated fat!",
+      "text": "בבקשה, אל תיקחו אותי! אני כולו שומן רווי!"
+    },
+    {
+      "key": "3434",
+      "source": "ⅫPlease! No! I don't wanna be your hot dog!",
+      "text": "בבקשה! לא! אני לא רוצה להיות נקניקייה!"
+    },
+    {
+      "key": "3435",
+      "source": "ⅫThis is an outrageous violation of Health And Safety Regulations!",
+      "text": "זאת הפרה שערורייתית של תקנות הבריאות והבטיחות!"
+    },
+    {
+      "key": "3436",
+      "source": "ⅫWhat's that grinding noise? AAARRRGGGHH!",
+      "text": "מה זה רעש הטחינה הזה? אאאאאאא!"
+    },
+    {
+      "key": "3450",
+      "source": "ⅭThe Krishna are vegetarian, Comrade, but their dogs will eat your balls.",
+      "text": "אנשי #קרישנה# צמחונים, חבר, אבל הכלבים שלהם יאכלו לך את הביצים."
+    },
+    {
+      "key": "3564",
+      "source": "ⅭCop Cars are soft targets, Comrade. Your failure to destroy only two is contemptible.",
+      "text": "ניידות משטרה הן מטרות קלות. העובדה שלא הצלחת להשמיד אפילו שתיים בזויה."
+    },
+    {
+      "key": "3566",
+      "source": "ⅭAggression is good, Comrade. Only #one more SWAT Van# to destroy!",
+      "text": "תוקפנות זה טוב. נשארה רק #ניידת SWAT אחת# להשמיד!"
+    },
+    {
+      "key": "3567",
+      "source": "ⅭI thought destroying Cop Cars would be a simple enough task even for you, Comrade. How wrong I was...",
+      "text": "חשבתי שגם אתה תצליח להשמיד ניידות משטרה. כמה טעיתי..."
+    },
+    {
+      "key": "3568",
+      "source": "ⅭHow you could fail to destroy a couple of Special Agent Cars I do not know... Useless!",
+      "text": "אין לי מושג איך נכשלת בהשמדת שתי מכוניות של סוכנים מיוחדים. חסר תועלת!"
+    },
+    {
+      "key": "3577",
+      "source": "ⅭJerkov here, Comrade. Police Protection is a big earner - and I want a slice of that pie. You have #FIVE minutes# to #destroy a Cop Car# and disrupt the marketplace.",
+      "text": "זה ג'רקוב, חבר. הגנה משטרתית מכניסה כסף, ואני רוצה נתח. יש לך #חמש דקות# כדי #להשמיד ניידת משטרה# ולשבש את השוק."
+    },
+    {
+      "key": "3578",
+      "source": "ⅭHealth insurance just went up thanks to you, Comrade. Now I want to get serious... #Destroy a SWAT Van#!",
+      "text": "בזכותך ביטוח הבריאות התייקר. עכשיו נהיה רציניים... #השמד ניידת SWAT#!"
+    },
+    {
+      "key": "3579",
+      "source": "ⅭYou make this look easy, Comrade! Finally, we also intend to compete with the Government - so that means you need to #destroy a Special Agent Car#!",
+      "text": "אתה גורם לזה להיראות קל, חבר! סוף סוף אנחנו מתכוונים להתחרות גם בממשלה — אז #השמד מכונית אחת מסוג Special Agent Car#!"
+    },
+    {
+      "key": "3608",
+      "source": "ⅭYou stupid idiot, Comrade! Now I have to consider alternative resources to get this job done.",
+      "text": "אידיוט מטומטם! עכשיו אצטרך לחפש דרך אחרת לסיים את העבודה."
+    },
+    {
+      "key": "3613",
+      "source": "ⅭYou worked hard, Comrade - but not hard enough!",
+      "text": "עבדת קשה, חבר — אבל לא מספיק!"
+    },
+    {
+      "key": "3643",
+      "source": "ⅭYou fight like the Zaibatsu play cards, Comrade - with your eyes closed.",
+      "text": "אתה נלחם כמו שזייבאצו משחקים קלפים — בעיניים עצומות."
+    },
+    {
+      "key": "3651",
+      "source": "ⅭComrade! It's me, Jerkov! Last night Zaibatsu Executives lost everything at my poker table and now they want revenge. #TWO Tanks# have been sent to crush my precious Kovski Cars.",
+      "text": "חבר, זה אני, ג'רקוב! אמש מנהלי זייבאצו הפסידו הכול בשולחן הפוקר שלי ועכשיו הם רוצים נקמה. שלחו #שני טנקים# לרסק את מכוניות Kovski היקרות שלי."
+    },
+    {
+      "key": "3676",
+      "source": "ⅮCome back when you ain't on a job!",
+      "text": "תחזור כשתסיים את העבודה!"
+    },
+    {
+      "key": "3683",
+      "source": "ⅮYou blew it, baby! The job's over for you.",
+      "text": "פישלת, מותק! מבחינתך העבודה נגמרה."
+    },
+    {
+      "key": "3684",
+      "source": "ⅮAnd how are you going to wipe out the Bosses now?",
+      "text": "ואיך בדיוק תשמיד עכשיו את הבוסים?"
+    },
+    {
+      "key": "3762",
+      "source": "ⅺThe task was simple, Gecko, but you still end up making a mess!",
+      "text": "המשימה הייתה פשוטה, גקו, ובכל זאת הצלחת לחרב אותה!"
+    },
+    {
+      "key": "3771",
+      "source": "ⅺYou do nothing for Zaibatsu public relations, Gecko. I'm going to get Z-Spin Doctors to finish the job.",
+      "text": "אתה הורס את יחסי הציבור של זייבאצו, גקו. אני אשלח רופאי תדמית של Z להשלים את העבודה."
+    },
+    {
+      "key": "3817",
+      "source": "ⅺExcellent, Gecko! At least #TWENTY# Krishna nailed! Now steal a #Krishna Bus# and drive to the #Russian area#.",
+      "text": "מצוין, גקו! לפחות #עשרים# מאנשי #קרישנה# חוסלו! עכשיו גנוב #Krishna Bus# וסע ל־#האזור הרוסי#."
+    },
+    {
+      "key": "3818",
+      "source": "ⅺYou got the #Krishna Bus#, Gecko. Now make haste to the #Russian area# and execute #TWENTY# Kovski.",
+      "text": "השגת את #Krishna Bus#, גקו. מהר אל #האזור הרוסי# וחסל #עשרים# מאנשי #קובסקי#."
+    },
+    {
+      "key": "3819",
+      "source": "ⅺGreat work, Gecko! At least #TWENTY# Kovski dead and a full-blown gang war about to explode!",
+      "text": "עבודה מצוינת, גקו! לפחות #עשרים# מאנשי #קובסקי# מתים, ומלחמת כנופיות עומדת להתפוצץ!"
+    },
+    {
+      "key": "3913",
+      "source": "ⅺThere is an unmarked car containing two fine bitches near #Tedium Docks#. It's next on the shopping list for you, Gecko!",
+      "text": "ליד #Tedium Docks# יש מכונית בלי סימונים ובה שתי כוסיות שוות. היא הבאה ברשימת הקניות שלך, גקו!"
+    },
+    {
+      "key": "3914",
+      "source": "ⅺThe car is on the island near the #Docks#, Gecko. The only available access is via this walkway.",
+      "text": "המכונית באי ליד #Docks#, גקו. הדרך היחידה להגיע אליה היא דרך #שביל ההליכה# הזה."
+    },
+    {
+      "key": "3921",
+      "source": "ⅺHighly incompetent, Gecko. A feeble child would play better than you!",
+      "text": "חוסר יכולת מוחלט. אפילו ילד חלש היה משחק טוב יותר ממך!"
+    },
+    {
+      "key": "3948",
+      "source": "ⅺI turn my back and you crumple, Gecko. I need Zaibatsu Operatives who can keep the pace!",
+      "text": "רק הפניתי את הגב וכבר קרסת. אני צריך סוכני זייבאצו שיעמדו בקצב!"
+    },
+    {
+      "key": "3961",
+      "source": "ⅭThe kidnapped Kovski have #vital information# about a filthy Informant. Get them out, Comrade!",
+      "text": "לאנשי #קובסקי# שנחטפו יש #מידע חיוני# על מלשין מטונף. חלץ אותם, חבר!"
+    },
+    {
+      "key": "3974",
+      "source": "ⅭToo slow, Comrade. The Zaibatsu have donated my gangsters to medical science!",
+      "text": "איחרת, חבר. זייבאצו תרמו את הגנגסטרים שלי למדע!"
+    },
+    {
+      "key": "3976",
+      "source": "ⅭYou are wasting time! The doorway is open and my men are waiting.",
+      "text": "אתה מבזבז זמן! הדלת פתוחה והאנשים שלי מחכים."
+    },
+    {
+      "key": "3992",
+      "source": "ⅭThe instructions were clear, Comrade. How could you fail to transport my men?",
+      "text": "ההוראות היו ברורות, חבר. איך נכשלת בהעברת האנשים שלי?"
+    },
+    {
+      "key": "4052",
+      "source": "ⅺTo fall foul of ignorant military muscle is not Zaibatsu style. The job was above you, Gecko!",
+      "text": "להסתבך עם שרירים צבאיים בורים — זה לא הסגנון של זייבאצו. העבודה הייתה גדולה עליך, גקו!"
+    },
+    {
+      "key": "4063",
+      "source": "ⅺWhat happened to the #Special Package#, Gecko? Must I get a professional to complete the job instead?",
+      "text": "מה קרה ל־#חבילה המיוחדת#, גקו? צריך להביא מקצוען שיסיים את העבודה?"
+    },
+    {
+      "key": "4078",
+      "source": "ⅺThis is inefficient, Gecko. I am only interested in hiring those who are capable of finishing what they start.",
+      "text": "זה לא יעיל. אני שוכר רק מי שמסוגל לסיים את מה שהתחיל."
+    },
+    {
+      "key": "4081",
+      "source": "ⅺYou failed to deliver the poisoned hot dogs, Gecko. Our target has disappeared and the job is undone.",
+      "text": "לא מסרת את הנקניקיות המורעלות. המטרה נעלמה והעבודה נכשלה."
+    },
+    {
+      "key": "4089",
+      "source": "ⅺSilly me. I was beginning to believe you were up to the job, Gecko. Now a Z-Team will finish the task.",
+      "text": "חשבתי לרגע שאתה מתאים לעבודה, גקו. עכשיו צוות Z יסיים אותה."
+    },
+    {
+      "key": "4095",
+      "source": "ⅺHow could you fail from the safety of a rooftop, Gecko? You need help...",
+      "text": "איך נכשלת כשישבת בבטחה על הגג, גקו? אתה צריך עזרה..."
+    },
+    {
+      "key": "4200",
+      "source": "ⅫYour clumsiness has cut the job short and cost the Krishna dear, Grasshopper.",
+      "text": "חוסר הזהירות שלך קיצר את העבודה ועלה לאנשי #קרישנה# ביוקר, גראסהופר."
+    },
+    {
+      "key": "4201",
+      "source": "ⅫAh, Grasshopper! Such a pity to see you fail like this.",
+      "text": "אה, גראסהופר! חבל לראות אותך נכשל כך."
+    },
+    {
+      "key": "4202",
+      "source": "ⅫThat was an... interesting way to quit the job, Grasshopper.",
+      "text": "זאת הייתה... דרך מעניינת לפרוש מהעבודה, גראסהופר."
+    },
+    {
+      "key": "4203",
+      "source": "ⅫWhat a pity you couldn't find in you to see the job through, Grasshopper.",
+      "text": "חבל שלא מצאת בעצמך את הכוח לסיים את המשימה, גראסהופר."
+    },
+    {
+      "key": "4204",
+      "source": "ⅫA good effort, Grasshopper, but an unfortunate outcome.",
+      "text": "מאמץ טוב, גראסהופר, אבל התוצאה עגומה."
+    },
+    {
+      "key": "4205",
+      "source": "ⅫThe Cops will leave you with much to meditate, Grasshopper. Until we meet again...",
+      "text": "השוטרים ישאירו לך הרבה על מה להרהר, גראסהופר. עד הפעם הבאה..."
+    },
+    {
+      "key": "4206",
+      "source": "ⅫAh, Grasshopper, this is not the time to get in touch with your righteous side.",
+      "text": "גראסהופר, זה לא הזמן לגלות את הצד הצדיק שלך."
+    },
+    {
+      "key": "4207",
+      "source": "ⅫDo not despair, Grasshopper! We will find it in our hearts to receive you once again!",
+      "text": "אל תתייאש, גראסהופר! נמצא בלבנו דרך לקבל אותך בחזרה!"
+    },
+    {
+      "key": "4208",
+      "source": "ⅫA pity the Cops do not appreciate the way you work, Grasshopper!",
+      "text": "חבל שהשוטרים לא מעריכים את שיטת העבודה שלך, גראסהופר!"
+    },
+    {
+      "key": "4209",
+      "source": "ⅫBe strong, Grasshopper! Remember that iron bars do not a prison make... But they cause great pain when wielded by angry Cops.",
+      "text": "תחזיק מעמד, גראסהופר! אומרים שסורגים לא עושים כלא... אבל הם מכאיבים מאוד כששוטרים זועמים מניפים אותם."
+    },
+    {
+      "key": "4210",
+      "source": "ⅺWhat happened, Gecko? Must a real professional complete the job instead?",
+      "text": "מה קרה, גקו? צריך להביא מקצוען אמיתי שיסיים את העבודה?"
+    },
+    {
+      "key": "4211",
+      "source": "ⅺThis is inefficient, Gecko. I am only interested in hiring those who can finish what they start.",
+      "text": "זה לא יעיל. אני שוכר רק מי שמסוגל לסיים את מה שהתחיל."
+    },
+    {
+      "key": "4212",
+      "source": "ⅺSilly me. I was beginning to believe you were up to the job, Gecko. Must I use a Z-Team to finish the task?",
+      "text": "חשבתי לרגע שאתה מתאים לעבודה. לשלוח צוות Z לסיים אותה?"
+    },
+    {
+      "key": "4213",
+      "source": "ⅺYou ruined the plan, Gecko! This is no way for a Zaibatsu to behave!",
+      "text": "הרסת את התוכנית, גקו! ככה אנשי זייבאצו לא מתנהגים!"
+    },
+    {
+      "key": "4214",
+      "source": "ⅺI trust you to perform and you crumple, Gecko. I need Zaibatsu Operatives who can keep the pace!",
+      "text": "סמכתי עליך שתבצע, ואתה קורס. אני צריך סוכני זייבאצו שיעמדו בקצב!"
+    },
+    {
+      "key": "4215",
+      "source": "ⅺHold your tongue, Gecko, and I might find it in my heart to re-enlist your services.",
+      "text": "תסתום, גקו, ואולי עוד אמצא בלבי להעסיק אותך שוב."
+    },
+    {
+      "key": "4216",
+      "source": "ⅺOur support of the Cops will not always stretch to getting you off the hook, Gecko!",
+      "text": "לא תמיד נוכל להשתמש בקשרים שלנו עם השוטרים כדי לחלץ אותך מצרות, גקו!"
+    },
+    {
+      "key": "4217",
+      "source": "ⅺThat's the job over for you, Gecko. Perhaps your need to work on your technique before you take on new jobs.",
+      "text": "מבחינתך העבודה נגמרה. כדאי שתשפר את הטכניקה לפני שתיקח עבודות חדשות."
+    },
+    {
+      "key": "4218",
+      "source": "ⅺKeep this up and you might just find permanent residence in Alma Mater Prison.",
+      "text": "תמשיך ככה, ותמצא את עצמך תושב קבע בכלא Alma Mater."
+    },
+    {
+      "key": "4219",
+      "source": "ⅺThe Zaibatsu have just severed your relationship, Gecko!",
+      "text": "זייבאצו ניתקו איתך את הקשר, גקו!"
+    },
+    {
+      "key": "4220",
+      "source": "ⅭWhat a cowardly way to avoid completing a job, Comrade!",
+      "text": "איזו דרך פחדנית להתחמק מסיום העבודה, חבר!"
+    },
+    {
+      "key": "4221",
+      "source": "ⅭAfter such a poor effort you can rot in the street for all we care, Comrade.",
+      "text": "אחרי ביצוע גרוע כל כך, מצידנו אתה יכול להירקב ברחוב."
+    },
+    {
+      "key": "4222",
+      "source": "ⅭWhat kind of work ethic do you call this, Comrade?",
+      "text": "איזה מוסר עבודה זה בדיוק, חבר?"
+    },
+    {
+      "key": "4223",
+      "source": "ⅭWhat a disaster! Clearly you have no staying power, Comrade!",
+      "text": "איזה אסון! ברור שאין לך כוח להחזיק מעמד!"
+    },
+    {
+      "key": "4224",
+      "source": "ⅭHow could you make such a mess when we did not plan for this, Comrade?",
+      "text": "איך הצלחת לחרב הכול כשלא תכננו את זה?"
+    },
+    {
+      "key": "4225",
+      "source": "ⅭSuch incredible incompetence, Comrade! I suppose I should expect no less from Western Shit.",
+      "text": "חוסר יכולת מדהים, חבר! כנראה שלא ציפיתי ליותר מ'מערבי מסריח'."
+    },
+    {
+      "key": "4226",
+      "source": "ⅭStrong Kovski never allows themselves the luxury of arrest.",
+      "text": "אנשי קובסקי חזקים לא מרשים לעצמם את המותרות של מעצר."
+    },
+    {
+      "key": "4227",
+      "source": "ⅭThe Cops hate all Kovski, Comrade. Your arrest is likely to be very painful.",
+      "text": "השוטרים שונאים את כל אנשי קובסקי, חבר. המעצר שלך יהיה כואב במיוחד."
+    },
+    {
+      "key": "4228",
+      "source": "ⅭThat is a disgraceful way to shirk work, Comrade!",
+      "text": "איזו דרך מבישה להתחמק מעבודה, חבר!"
+    },
+    {
+      "key": "4229",
+      "source": "ⅭYou seem to be getting cosy with the Cops, Comrade. You disappoint me!",
+      "text": "נראה שאתה מתחבר לשוטרים, חבר. אכזבת אותי!"
+    },
+    {
+      "key": "4311",
+      "source": "Use a #Tank# to shoot #30 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #30 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "5007",
+      "source": "7TH PLACE! SPAMTASTIC! 6 VANS!",
+      "text": "מקום שביעי! ספאם פנטסטי! 6 ואנים!"
+    },
+    {
+      "key": "5021",
+      "source": "6TH PLACE! ARSON-TASTIC! YOU FRIED 7 VANS!",
+      "text": "מקום שישי! הצתה פנטסטית! שרפת 7 ואנים!"
+    },
+    {
+      "key": "5028",
+      "source": "What a LOOOOSER! Outwitted by a couple of kiddy Ice-Cream Vans and a bunch of Donut-Munchers! You are a complete waste of skin! Get outta here!",
+      "text": "איזה לוזר עלוב! כמה ואנים של גלידה לילדים וחבורת שוטרים זוללי סופגניות עשו ממך צחוק. אתה בזבוז מוחלט של עור. עוף מכאן!"
+    },
+    {
+      "key": "5035",
+      "source": "3RD PLACE! OOH! MR SKIDMARKS! 10 VANS!",
+      "text": "מקום שלישי! מר סימני ההחלקה! 10 ואנים!"
+    },
+    {
+      "key": "5052",
+      "source": "YOU SHOT YOUR LOAD!",
+      "text": "גמרת את כל התחמושת!"
+    },
+    {
+      "key": "5055",
+      "source": "CRISPY CRITTER!",
+      "text": "שרוף עד פריכות!"
+    },
+    {
+      "key": "5500",
+      "source": "#Race for #THREE# laps! Kill people for #bonus points#!#",
+      "text": "#מרוץ של #שלוש# הקפות! חסל אנשים כדי לצבור #נקודות בונוס#!#"
+    },
+    {
+      "key": "5501",
+      "source": "RACE OVER!",
+      "text": "המרוץ הסתיים!"
+    },
+    {
+      "key": "5502",
+      "source": "SECOND LAP!",
+      "text": "הקפה שנייה!"
+    },
+    {
+      "key": "5503",
+      "source": "FINAL LAP!",
+      "text": "הקפה אחרונה!"
+    },
+    {
+      "key": "5504",
+      "source": "RACE ON!",
+      "text": "המרוץ בעיצומו!"
+    },
+    {
+      "key": "5505",
+      "source": "HEY! 30 PEOPLE DOWN! MULTIPLIER X2",
+      "text": "היי! 30 אנשים חוסלו! מכפיל X2"
+    },
+    {
+      "key": "5506",
+      "source": "OOH! 60 PEOPLE DOWN! MULTIPLIER X3",
+      "text": "וואו! 60 אנשים חוסלו! מכפיל X3"
+    },
+    {
+      "key": "5507",
+      "source": "NICE! 90 PEOPLE DOWN! MULTIPLIER X4",
+      "text": "יפה! 90 אנשים חוסלו! מכפיל X4"
+    },
+    {
+      "key": "5508",
+      "source": "GREAT! 120 PEOPLE DOWN! MULTIPLIER X5",
+      "text": "נהדר! 120 אנשים חוסלו! מכפיל X5"
+    },
+    {
+      "key": "5509",
+      "source": "OUTSTANDING! 150 PEOPLE DOWN! MULTIPLIER X6",
+      "text": "יוצא מן הכלל! 150 אנשים חוסלו! מכפיל X6"
+    },
+    {
+      "key": "5510",
+      "source": "TIME OUT!",
+      "text": "הזמן נגמר!"
+    },
+    {
+      "key": "5511",
+      "source": "Kill people for points before the time runs out!",
+      "text": "חסל אנשים וצבור נקודות לפני שייגמר הזמן!"
+    },
+    {
+      "key": "5512",
+      "source": "HARMLESS!",
+      "text": "לא מזיק!"
+    },
+    {
+      "key": "5513",
+      "source": "MOSTLY HARMLESS!",
+      "text": "כמעט לא מזיק!"
+    },
+    {
+      "key": "5514",
+      "source": "POOR!",
+      "text": "עלוב!"
+    },
+    {
+      "key": "5515",
+      "source": "AVERAGE!",
+      "text": "ממוצע."
+    },
+    {
+      "key": "5516",
+      "source": "ABOVE AVERAGE!",
+      "text": "מעל הממוצע!"
+    },
+    {
+      "key": "5517",
+      "source": "COMPETENT!",
+      "text": "מיומן."
+    },
+    {
+      "key": "5518",
+      "source": "DANGEROUS!",
+      "text": "מסוכן!"
+    },
+    {
+      "key": "5519",
+      "source": "DEADLY!",
+      "text": "קטלני!"
+    },
+    {
+      "key": "5520",
+      "source": "VERY DEADLY!",
+      "text": "קטלני מאוד!"
+    },
+    {
+      "key": "5521",
+      "source": "ELITE!",
+      "text": "עילית!"
+    },
+    {
+      "key": "5522",
+      "source": "PUBLIC ENEMY NUMBER ONE!",
+      "text": "אויב הציבור מספר אחת!"
+    },
+    {
+      "key": "5523",
+      "source": "YOU MADE THE FRONT PAGES!",
+      "text": "הגעת לכותרות!"
+    },
+    {
+      "key": "5524",
+      "source": "HEY THERE, UZI LOVER!",
+      "text": "היי, חובב Uzi!"
+    },
+    {
+      "key": "5525",
+      "source": "TRIGGER HAPPY!",
+      "text": "אצבע קלה על ההדק!"
+    },
+    {
+      "key": "5526",
+      "source": "YOUR AIM'S IMPROVING!",
+      "text": "הדיוק שלך משתפר!"
+    },
+    {
+      "key": "5527",
+      "source": "YOU FIRING BLANKS, DUDE?",
+      "text": "יורה כדורי סרק, אחי?"
+    },
+    {
+      "key": "5528",
+      "source": "DON'T TRY SUICIDE, MAN!",
+      "text": "אל תנסה להתאבד, גבר!"
+    },
+    {
+      "key": "5529",
+      "source": "CRAWL BACK TO THE WOMB, BABY!",
+      "text": "תחזור לרחם, תינוק!"
+    },
+    {
+      "key": "5530",
+      "source": "YOU SURE ARE A SHIT SHOT!",
+      "text": "אתה יורה כמו חרא!"
+    },
+    {
+      "key": "5531",
+      "source": "YOU LIKE THE TASTE OF LEAD?",
+      "text": "אוהב את הטעם של עופרת?"
+    },
+    {
+      "key": "5532",
+      "source": "HEY! 15 PEOPLE DOWN! MULTIPLIER X2",
+      "text": "היי! 15 אנשים חוסלו! מכפיל X2"
+    },
+    {
+      "key": "5533",
+      "source": "OOH! 30 PEOPLE DOWN! MULTIPLIER X3",
+      "text": "וואו! 30 אנשים חוסלו! מכפיל X3"
+    },
+    {
+      "key": "5534",
+      "source": "NICE! 45 PEOPLE DOWN! MULTIPLIER X4",
+      "text": "יפה! 45 אנשים חוסלו! מכפיל X4"
+    },
+    {
+      "key": "5535",
+      "source": "GREAT! 60 PEOPLE DOWN! MULTIPLIER X5",
+      "text": "נהדר! 60 אנשים חוסלו! מכפיל X5"
+    },
+    {
+      "key": "5536",
+      "source": "OUTSTANDING! 75 PEOPLE DOWN! MULTIPLIER X6",
+      "text": "יוצא מן הכלל! 75 אנשים חוסלו! מכפיל X6"
+    },
+    {
+      "key": "6102",
+      "source": "Wowza, buddy! You did it!",
+      "text": "וואו, חבר! הצלחת!"
+    },
+    {
+      "key": "6104",
+      "source": "Bad luck, buddy! You blew it!",
+      "text": "חבל, חבר! פישלת."
+    },
+    {
+      "key": "6107",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6121",
+      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6127",
+      "source": "Use a #Tank# to shoot #20 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6141",
+      "source": "Use an #ElectroGun# to destroy #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6150",
+      "source": "ⅲYou just gone and got yourself out of job, Rooster.",
+      "text": "פשוט איבדת את העבודה, רוסטר."
+    },
+    {
+      "key": "6151",
+      "source": "ⅲCall yourself a tough guy, Rooster?",
+      "text": "אתה קורא לעצמך קשוח, רוסטר?"
+    },
+    {
+      "key": "6152",
+      "source": "ⅲThat was pure stupid, Rooster. I'm almost impressed.",
+      "text": "זה היה מטומטם לגמרי, רוסטר. כמעט הרשמת אותי."
+    },
+    {
+      "key": "6153",
+      "source": "ⅲShit, Rooster. I can't believe we ever employed you in the first place.",
+      "text": "לעזאזל, רוסטר. לא מאמין שהעסקנו אותך מלכתחילה."
+    },
+    {
+      "key": "6154",
+      "source": "ⅲHow did you manage to screw that up, Rooster? That was real dumb.",
+      "text": "איך הצלחת לחרב את זה, רוסטר? זה היה טיפשי לגמרי."
+    },
+    {
+      "key": "6155",
+      "source": "ⅲI hope fer your sake the Cops are in a good mood, Rooster.",
+      "text": "לטובתך, רוסטר, אני מקווה שהשוטרים במצב רוח טוב."
+    },
+    {
+      "key": "6156",
+      "source": "ⅲIt's busier than a battery farm where you are goin', Rooster.",
+      "text": "הכלא שלך יהיה צפוף כמו לול סוללות, רוסטר."
+    },
+    {
+      "key": "6157",
+      "source": "ⅲGettin' cosy with the Cops won't make you many friends at Mobile RV, Rooster!",
+      "text": "התחנפות לשוטרים לא תוסיף לך חברים ב־Mobile RV, רוסטר!"
+    },
+    {
+      "key": "6158",
+      "source": "ⅲWell, Rooster, that's you off the job fer the time being.",
+      "text": "טוב, רוסטר, אתה מחוץ לעבודה בינתיים."
+    },
+    {
+      "key": "6159",
+      "source": "ⅲI hope the Cops beat your bitch ass to a pulp. That should teach you to screw up a Redneck job.",
+      "text": "אני מקווה שהשוטרים יכסחו לך את הצורה. אולי תלמד לא להרוס משימה של רדנקס."
+    },
+    {
+      "key": "6160",
+      "source": "ⅳThat was an inadequate performance, THC-303. Worthy of a Redneck at its most backward, I think.",
+      "text": "ביצוע חלש, THC-303. מתאים לרדנק נחשל במיוחד, הייתי אומר."
+    },
+    {
+      "key": "6161",
+      "source": "ⅳPoor show, THC-303! I was hoping to avoid putting low-grade SRS Clone Drones to task.",
+      "text": "ביצוע עלוב, THC-303! קיוויתי לא לשלוח לעבודה את שיבוטי הרחפנים הנחותים של SRS."
+    },
+    {
+      "key": "6162",
+      "source": "ⅳThat's not the way to do it, THC-303. I think it is crystal clear that you are off the job.",
+      "text": "ככה לא עושים את זה, THC-303. אתה מפוטר, וזה ברור לגמרי."
+    },
+    {
+      "key": "6163",
+      "source": "ⅳHow pathetic, THC-303. Now who will finish the job for us?",
+      "text": "כמה פתטי, THC-303. מי יסיים עכשיו את העבודה?"
+    },
+    {
+      "key": "6164",
+      "source": "ⅳA pity, THC-303. We expected so much more from a healthy young specimen such as yourself.",
+      "text": "חבל, THC-303. ציפינו ליותר מדגימה צעירה ובריאה כמוך."
+    },
+    {
+      "key": "6165",
+      "source": "ⅳPerhaps you should reconsider your chosen career, THC-303.",
+      "text": "אולי כדאי שתחשוב מחדש על בחירת הקריירה שלך, THC-303."
+    },
+    {
+      "key": "6166",
+      "source": "ⅳThat was an arresting performance, THC-303, but far from productive.",
+      "text": "איזו הופעה עוצרת, THC-303 — אבל לא ממש מועילה."
+    },
+    {
+      "key": "6167",
+      "source": "ⅳYou will find no Scientists in Alma Mater, THC-303. Until we meet again then... You are on your own.",
+      "text": "לא תמצא מדענים בכלא Alma Mater, THC-303. עד שניפגש שוב... תסתדר לבד."
+    },
+    {
+      "key": "6168",
+      "source": "ⅳBe warned, THC-303. Reveal anything of your connections with the SRS and Clone Drones will eliminate you in custody.",
+      "text": "תיזהר, THC-303. אם תחשוף את קשריך ל־SRS, שיבוטי הרחפנים יחסלו אותך במעצר."
+    },
+    {
+      "key": "6169",
+      "source": "ⅳSuch inefficient use of our time, THC-303. Please ensure that you are better suited to this line of work in future.",
+      "text": "בזבזת לנו את הזמן. בפעם הבאה ודא שאתה מתאים לעבודה הזאת."
+    },
+    {
+      "key": "6170",
+      "source": "ⅺHow dare you waste our time and leave the job unfinished, Gecko!",
+      "text": "איך אתה מעז לבזבז את זמננו ולהשאיר את העבודה לא גמורה, גקו!"
+    },
+    {
+      "key": "6171",
+      "source": "ⅺSome might say that was a fitting conclusion to your unacceptable behaviour, Gecko.",
+      "text": "יש מי שיגידו שזה סוף הולם להתנהגות הבלתי נסבלת שלך, גקו."
+    },
+    {
+      "key": "6172",
+      "source": "ⅺSuch a bitterly disappointing outcome, Gecko. I suppose I must look elsewhere for suitable operatives.",
+      "text": "תוצאה מאכזבת ומרה, גקו. כנראה שאצטרך לחפש סוכנים מתאימים במקום אחר."
+    },
+    {
+      "key": "6173",
+      "source": "ⅺHow do you expect to rise up the Zaibatsu ranks with such pitiful displays, Gecko?",
+      "text": "איך תתקדם בדרגות זייבאצו עם הופעות עלובות כאלה, גקו?"
+    },
+    {
+      "key": "6174",
+      "source": "ⅺThis isn't working, Gecko. Consider yourself OFF the job.",
+      "text": "זה לא עובד, גקו. אתה מחוץ לעבודה."
+    },
+    {
+      "key": "6175",
+      "source": "ⅺSuch improper conduct deserves to be punished, Gecko.",
+      "text": "מגיע לך עונש על ההתנהגות הפסולה הזאת, גקו."
+    },
+    {
+      "key": "6176",
+      "source": "ⅺPutting yourself in the hands of the Cops, Gecko, is NOT Zaibatsu style.",
+      "text": "להסגיר את עצמך לשוטרים זה ממש לא הסגנון של זייבאצו, גקו."
+    },
+    {
+      "key": "6177",
+      "source": "ⅺGetting arrested is not Zaibatsu style, Gecko!",
+      "text": "להיעצר זה לא הסגנון של זייבאצו, גקו!"
+    },
+    {
+      "key": "6178",
+      "source": "ⅺThat was slack, Gecko. Must I now consider alternative operatives?",
+      "text": "התרשלת, גקו. לשקול סוכנים אחרים?"
+    },
+    {
+      "key": "6179",
+      "source": "ⅺWhat a wretched waste of time and money you are, Gecko!",
+      "text": "איזה בזבוז עלוב של זמן וכסף אתה, גקו!"
+    },
+    {
+      "key": "6180",
+      "source": "Shit, son, you sure know how to cut it fine. The name's Buster - at your service. Here's the $5,000 as agreed.",
+      "text": "בן אדם, אתה יודע להגיע בשנייה האחרונה. אני באסטר, לשירותך. הנה ה־$5,000 שסיכמנו עליהם."
+    },
+    {
+      "key": "7002",
+      "source": "ⅹIdiot! The rigged Ice-Cream Van must be parked by the Happy Gas tanks!",
+      "text": "אידיוט! צריך להחנות את ואן הגלידה הממולכד ליד מכלי Happy Gas!"
+    },
+    {
+      "key": "7012",
+      "source": "Hey! Wait for me!",
+      "text": "היי! חכה לי!"
+    },
+    {
+      "key": "7022",
+      "source": "Well done! You passed!",
+      "text": "כל הכבוד! הצלחת!"
+    },
+    {
+      "key": "7024",
+      "source": "You screwed up, asswipe!",
+      "text": "פישלת, חתיכת אפס!"
+    },
+    {
+      "key": "7032",
+      "source": "Nicely done! You did the business!",
+      "text": "יפה! עשית את העבודה!"
+    },
+    {
+      "key": "7034",
+      "source": "Well you certainly made a mess made of that!",
+      "text": "איזה בלגן עשית!"
+    },
+    {
+      "key": "7042",
+      "source": "Ooh-la-la! You made the grade!",
+      "text": "או־לה־לה! עברת בהצלחה!"
+    },
+    {
+      "key": "7044",
+      "source": "You blew it, shit-head!",
+      "text": "פישלת, חתיכת ראש־תחת!"
+    },
+    {
+      "key": "7052",
+      "source": "Mmm, nice!",
+      "text": "מממ, נחמד!"
+    },
+    {
+      "key": "7054",
+      "source": "You lost it, loser!",
+      "text": "איבדת את זה, לוזר!"
+    },
+    {
+      "key": "7062",
+      "source": "Smashing! You did it!",
+      "text": "ריסקת את זה! הצלחת!"
+    },
+    {
+      "key": "7064",
+      "source": "Ah, you useless piece-a-shit!",
+      "text": "חתיכת בן־זונה חסר תועלת!"
+    },
+    {
+      "key": "7071",
+      "source": "ⅬOoh, Jumbo, that must have hurt.",
+      "text": "אוי, ג'מבו, זה בטח כאב."
+    },
+    {
+      "key": "7072",
+      "source": "ⅬOh, Jumbo. Now what are we to do? Pick ourselves up, dust ourselves down and start all over again.",
+      "text": "אוי, ג'מבו. מה נעשה עכשיו? ננער את האבק וננסה שוב מהתחלה."
+    },
+    {
+      "key": "7073",
+      "source": "ⅬThat was plain stupid, Jumbo, not Loony!",
+      "text": "זה היה מטומטם לגמרי, ג'מבו — לא משוגע!"
+    },
+    {
+      "key": "7074",
+      "source": "ⅬOh... Jumbo Jumbo Jumbo! What a waste!",
+      "text": "אוי... ג'מבו, ג'מבו, ג'מבו! איזה בזבוז!"
+    },
+    {
+      "key": "7075",
+      "source": "ⅬHee-hoo! Your madcap mayhem has put you in jail, Jumbo!",
+      "text": "הי-הו! השיגעון שלך שלח אותך לכלא, ג'מבו!"
+    },
+    {
+      "key": "7078",
+      "source": "ⅬHow can you finish the job from jail, Dumbo Jumbo?",
+      "text": "איך תסיים את העבודה מהכלא, ג'מבו הטמבל?"
+    },
+    {
+      "key": "7079",
+      "source": "ⅬSilly Jumbo! You should know that all jobs are off when the Cops get hold of you!",
+      "text": "ג'מבו, טיפשון! אתה אמור לדעת שכל העבודות מתבטלות כשהשוטרים תופסים אותך!"
+    },
+    {
+      "key": "7080",
+      "source": "ⅺYour failure is pathetic, Gecko!",
+      "text": "הכישלון שלך פתטי, גקו!"
+    },
+    {
+      "key": "7081",
+      "source": "ⅺYour ineptitude is not Zaibatsu style, Gecko!",
+      "text": "חוסר היכולת שלך אינו הסגנון של זייבאצו, גקו!"
+    },
+    {
+      "key": "7082",
+      "source": "ⅺShit like you is only fit for the sidewalk, Gecko.",
+      "text": "טיפוסים כמוך מתאימים רק למדרכה, גקו."
+    },
+    {
+      "key": "7083",
+      "source": "ⅺYour performance is unacceptable, Gecko!",
+      "text": "הביצועים שלך לא מקובלים, גקו!"
+    },
+    {
+      "key": "7084",
+      "source": "ⅺYou clearly possess little intelligence, Gecko - artificial or otherwise.",
+      "text": "ברור שחסר לך שכל, גקו — מלאכותי או לא."
+    },
+    {
+      "key": "7086",
+      "source": "ⅺWe own the prison, Gecko, but don't expect any privileges.",
+      "text": "הכלא שייך לנו, גקו, אבל אל תצפה להטבות."
+    },
+    {
+      "key": "7087",
+      "source": "ⅺProfessionals do not get arrested, Gecko!",
+      "text": "מקצוענים לא נעצרים, גקו!"
+    },
+    {
+      "key": "7088",
+      "source": "ⅺThat wasn't so smart, Gecko. The job is OFF.",
+      "text": "לא היית חכם במיוחד, גקו. העבודה מבוטלת."
+    },
+    {
+      "key": "7089",
+      "source": "ⅺYour incarceration is sad, Gecko. The Zaibatsu are FREE!",
+      "text": "חבל שנכנסת לכלא, גקו. זייבאצו חופשיים!"
+    },
+    {
+      "key": "7090",
+      "source": "ⅹYour performance is pathetic, Kosai. Goodbye.",
+      "text": "הביצועים שלך עלובים. שלום, קוסאי."
+    },
+    {
+      "key": "7091",
+      "source": "ⅹYou failed me at a critical time, Kosai! You are OFF the job.",
+      "text": "אכזבת אותי ברגע קריטי, קוסאי! אתה מחוץ לעבודה."
+    },
+    {
+      "key": "7094",
+      "source": "ⅹThis job is over for you, Kosai!",
+      "text": "העבודה הזאת נגמרה מבחינתך, קוסאי!"
+    },
+    {
+      "key": "7097",
+      "source": "ⅹSuch ineptitude is intolerable, Kosai.",
+      "text": "חוסר היכולת הזה בלתי נסבל, קוסאי."
+    },
+    {
+      "key": "7098",
+      "source": "ⅹYou idiot, Kosai! Who will finish the job now?",
+      "text": "אידיוט, קוסאי! מי יסיים עכשיו את העבודה?"
+    },
+    {
+      "key": "7099",
+      "source": "ⅹGetting arrested does not impress the Yakuza, Kosai!",
+      "text": "היאקוזה לא מתרשמים ממעצר, קוסאי!"
+    },
+    {
+      "key": "7102",
+      "source": "Whey-hey! You made it!",
+      "text": "היי־היי! הצלחת!"
+    },
+    {
+      "key": "7104",
+      "source": "Aah, you failed. LOSER!",
+      "text": "אה, נכשלת. לוזר!"
+    },
+    {
+      "key": "7112",
+      "source": "YES! You did it!",
+      "text": "כן! הצלחת!"
+    },
+    {
+      "key": "7114",
+      "source": "NO! You blew it!",
+      "text": "לא! פישלת!"
+    },
+    {
+      "key": "7121",
+      "source": "Hee-hee! Use the #Fire Engine# to knock down #20 people# in #60 seconds#!",
+      "text": "הי־הי! השתמש ב־#רכב כיבוי אש# כדי לדרוס #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7122",
+      "source": "WOWZA! You did GREAT!",
+      "text": "וואו! היית מעולה!"
+    },
+    {
+      "key": "7124",
+      "source": "OH NO! You did LOUSY!",
+      "text": "אוי לא! היית גרוע!"
+    },
+    {
+      "key": "7132",
+      "source": "YEAH! Are you something special!",
+      "text": "כן! אתה משהו מיוחד!"
+    },
+    {
+      "key": "7134",
+      "source": "UH-OH! Are you ever shit!",
+      "text": "אוי ואבוי, איזה אפס!"
+    },
+    {
+      "key": "7142",
+      "source": "Way to go! You did it!",
+      "text": "כל הכבוד! הצלחת!"
+    },
+    {
+      "key": "7144",
+      "source": "Duh! You blew it!",
+      "text": "נו באמת! פישלת!"
+    },
+    {
+      "key": "7152",
+      "source": "Good show!",
+      "text": "יופי של ביצוע!"
+    },
+    {
+      "key": "7154",
+      "source": "Poor show!",
+      "text": "ביצוע עלוב!"
+    },
+    {
+      "key": "7162",
+      "source": "Super-duper! You made it!",
+      "text": "מעולה־מעולה! הצלחת!"
+    },
+    {
+      "key": "7164",
+      "source": "Super-pooper! You lost it!",
+      "text": "איום־ונורא! הפסדת!"
+    },
+    {
+      "key": "7172",
+      "source": "WOW! What a performance!",
+      "text": "וואו! איזו הופעה!"
+    },
+    {
+      "key": "7174",
+      "source": "PHEW! What a performance!",
+      "text": "פיו! איזו הופעה..."
+    },
+    {
+      "key": "7182",
+      "source": "A-MAZING! You did it!",
+      "text": "מ־ד־ה־י־ם! הצלחת!"
+    },
+    {
+      "key": "7184",
+      "source": "Oh dear. You blew it!",
+      "text": "אוי, פישלת."
+    },
+    {
+      "key": "7192",
+      "source": "Well done! You did it!",
+      "text": "כל הכבוד! הצלחת!"
+    },
+    {
+      "key": "7194",
+      "source": "Bad luck! You blew it!",
+      "text": "חבל! פישלת."
+    },
+    {
+      "key": "7202",
+      "source": "Oh yeah! That was terrific!",
+      "text": "כן! זה היה נהדר!"
+    },
+    {
+      "key": "7204",
+      "source": "Oh dear! That was terrible!",
+      "text": "אוי לא! זה היה נורא!"
+    },
+    {
+      "key": "7212",
+      "source": "Remarkable! You did it!",
+      "text": "ראוי לציון! הצלחת!"
+    },
+    {
+      "key": "7214",
+      "source": "Rubbish! You blew it!",
+      "text": "זבל! פישלת!"
+    },
+    {
+      "key": "7222",
+      "source": "UNBELIEVABLE! You did it!",
+      "text": "לא ייאמן! הצלחת!"
+    },
+    {
+      "key": "7224",
+      "source": "UNBELIEVABLE! You didn't do it!",
+      "text": "לא ייאמן! לא הצלחת!"
+    },
+    {
+      "key": "7232",
+      "source": "Nice! You did the deed!",
+      "text": "יפה! עשית את זה!"
+    },
+    {
+      "key": "7234",
+      "source": "Shit! What a waste of time that was!",
+      "text": "לעזאזל! איזה בזבוז זמן!"
+    },
+    {
+      "key": "8001",
+      "source": "Line Succeed!",
+      "text": "הקו הצליח!"
+    },
+    {
+      "key": "8002",
+      "source": "Line Fail!",
+      "text": "הקו נכשל!"
+    },
+    {
+      "key": "mpkill1",
+      "source": "You killed yourself",
+      "text": "חיסלת את עצמך"
+    },
+    {
+      "key": "mpkill2",
+      "source": "You wasted",
+      "text": "חיסלת את"
+    },
+    {
+      "key": "mpkill3",
+      "source": "killed you",
+      "text": "חיסל אותך"
+    },
+    {
+      "key": "mpkill4",
+      "source": "wasted",
+      "text": "חיסל את"
+    },
+    {
+      "key": "mpkill5",
+      "source": "committed suicide",
+      "text": "התאבד"
+    },
+    {
+      "key": "repdemo",
+      "source": "REPLAY",
+      "text": "צפה שוב"
+    },
+    {
+      "key": "frag_gm",
+      "source": "FRAG GAME",
+      "text": "משחק חיסולים"
+    },
+    {
+      "key": "pts_gm",
+      "source": "POINTS GAME",
+      "text": "משחק נקודות"
+    },
+    {
+      "key": "tag_gm",
+      "source": "TAG GAME",
+      "text": "משחק תופסת"
+    },
+    {
+      "key": "netui01",
+      "source": "&Join",
+      "text": "הצטרף"
+    },
+    {
+      "key": "netui02",
+      "source": "&Create",
+      "text": "צור משחק"
+    },
+    {
+      "key": "netui03",
+      "source": "Cancel",
+      "text": "ביטול"
+    },
+    {
+      "key": "netui04",
+      "source": "Name",
+      "text": "שם"
+    },
+    {
+      "key": "netui05",
+      "source": "Reject",
+      "text": "דחה"
+    },
+    {
+      "key": "netui06",
+      "source": "&Start",
+      "text": "התחל"
+    },
+    {
+      "key": "netui07",
+      "source": "Send",
+      "text": "שלח"
+    },
+    {
+      "key": "netui08",
+      "source": "Network GTA2",
+      "text": "רשת GTA2"
+    },
+    {
+      "key": "netui09",
+      "source": "Game Speed",
+      "text": "מהירות המשחק"
+    },
+    {
+      "key": "netui10",
+      "source": "Game Speed: Slow",
+      "text": "מהירות המשחק: איטית"
+    },
+    {
+      "key": "netui11",
+      "source": "Game Speed: Normal",
+      "text": "מהירות המשחק: רגילה"
+    },
+    {
+      "key": "netui12",
+      "source": "Game Speed: Fast",
+      "text": "מהירות המשחק: מהירה"
+    },
+    {
+      "key": "netui13",
+      "source": "Players Required:",
+      "text": "מספר השחקנים הדרוש:"
+    },
+    {
+      "key": "netui14",
+      "source": "Cops",
+      "text": "שוטרים"
+    },
+    {
+      "key": "netui15",
+      "source": "Cops ON",
+      "text": "שוטרים: כן"
+    },
+    {
+      "key": "netui16",
+      "source": "Cops OFF",
+      "text": "שוטרים: לא"
+    },
+    {
+      "key": "netui17",
+      "source": "Frags To Win",
+      "text": "מספר חיסולים לניצחון"
+    },
+    {
+      "key": "netui18",
+      "source": "Points To Win",
+      "text": "נקודות לניצחון"
+    },
+    {
+      "key": "netui19",
+      "source": "Frag Game",
+      "text": "משחק חיסולים"
+    },
+    {
+      "key": "netui20",
+      "source": "Points Game",
+      "text": "משחק נקודות"
+    },
+    {
+      "key": "netui21",
+      "source": "Time Limit (Minutes)",
+      "text": "מגבלת זמן (דקות)"
+    },
+    {
+      "key": "netui22",
+      "source": "Tag Game",
+      "text": "משחק תופסת"
+    },
+    {
+      "key": "no_cd1",
+      "source": "PLEASE QUIT GAME",
+      "text": "צא מהמשחק"
+    },
+    {
+      "key": "no_cd2",
+      "source": "AND",
+      "text": "והכנס את"
+    },
+    {
+      "key": "no_cd3",
+      "source": "INSERT GTA2 CD",
+      "text": "תקליטור GTA2"
+    },
+    {
+      "key": "psxan0",
+      "source": "ANALOG MODE IS",
+      "text": "מצב אנלוגי"
+    },
+    {
+      "key": "psxan1",
+      "source": "NOT SUPPORTED!",
+      "text": "אינו נתמך!"
+    },
+    {
+      "key": "psxcanc",
+      "source": "CANCEL",
+      "text": "ביטול"
+    },
+    {
+      "key": "psxchng",
+      "source": "CHANGE VOLUME",
+      "text": "שינוי עוצמת קול"
+    },
+    {
+      "key": "psxconf",
+      "source": "CONFIRM",
+      "text": "אישור"
+    },
+    {
+      "key": "psxdemo",
+      "source": "DEMO",
+      "text": "הדגמה"
+    },
+    {
+      "key": "psxeff",
+      "source": "EFFECTS VOLUME",
+      "text": "עוצמת אפקטים"
+    },
+    {
+      "key": "psxfast",
+      "source": "FAST",
+      "text": "מהיר"
+    },
+    {
+      "key": "psxmus",
+      "source": "MUSIC VOLUME",
+      "text": "עוצמת מוזיקה"
+    },
+    {
+      "key": "psxnorm",
+      "source": "NORMAL",
+      "text": "רגיל"
+    },
+    {
+      "key": "psxquit",
+      "source": "QUIT PLAY",
+      "text": "יציאה מהמשחק"
+    },
+    {
+      "key": "psxret",
+      "source": "RESUME PLAY",
+      "text": "חזרה למשחק"
+    },
+    {
+      "key": "psxrmv0",
+      "source": "CONTROLLER HAS BEEN",
+      "text": "השלט נותק"
+    },
+    {
+      "key": "psxrmv1",
+      "source": "REMOVED FROM CONTROLLER",
+      "text": "מיציאה"
+    },
+    {
+      "key": "psxrmv2",
+      "source": "PORT 1! RE-INSERT",
+      "text": "1! חבר מחדש את"
+    },
+    {
+      "key": "psxrmv3",
+      "source": "CONTROLLER TO CONTINUE!",
+      "text": "השלט כדי להמשיך!"
+    },
+    {
+      "key": "psxsel",
+      "source": "SELECT",
+      "text": "בחירה"
+    },
+    {
+      "key": "psxslow",
+      "source": "SLOW",
+      "text": "איטי"
+    },
+    {
+      "key": "psxsq0",
+      "source": "YOU SURE YOU",
+      "text": "בטוח שאתה"
+    },
+    {
+      "key": "psxsq1",
+      "source": "WANNA QUIT?",
+      "text": "רוצה לצאת?"
+    },
+    {
+      "key": "psxss0",
+      "source": "THIS IS A STATUS SAVE",
+      "text": "זוהי נקודת שמירת מצב"
+    },
+    {
+      "key": "psxss1",
+      "source": "POINT. DO YOU WANT",
+      "text": "משחק. האם ברצונך"
+    },
+    {
+      "key": "psxss2",
+      "source": "TO SAVE YOUR STATUS?",
+      "text": "לשמור את מצבך?"
+    },
+    {
+      "key": "psxtext",
+      "source": "TEXT SPEED:",
+      "text": "מהירות הטקסט:"
+    },
+    {
+      "key": "1290",
+      "source": "ⅹYou need $5,000 to rig the Ice-Cream Van with explosives.",
+      "text": "צריך $5,000 כדי למלכד את רכב הגלידה בחומר נפץ."
+    },
+    {
+      "key": "1402",
+      "source": "ⅹShit, Kosai! That Tank means business.",
+      "text": "לעזאזל, קוסאי! הטנק הזה רציני."
+    },
+    {
+      "key": "5000",
+      "source": "YOUR TIME IS EXTENDED!",
+      "text": "קיבלת הארכת זמן!"
+    },
+    {
+      "key": "5001",
+      "source": "1ST PLACE! YOU DA MAN, BABY! 12 VANS!",
+      "text": "מקום ראשון! אתה תותח, מותק! 12 ואנים!"
+    },
+    {
+      "key": "5002",
+      "source": "2ND PLACE! ONE SMOOTH OPERATOR! 11 VANS!",
+      "text": "מקום שני! איזה נהג חלקלק! 11 ואנים!"
+    },
+    {
+      "key": "5003",
+      "source": "3RD PLACE! YOU BIG SHOW-OFF! 10 VANS!",
+      "text": "מקום שלישי! איזה שוויצר! 10 ואנים!"
+    },
+    {
+      "key": "5004",
+      "source": "4TH PLACE! TOASTY TOASTY! 9 VANS!",
+      "text": "מקום רביעי! חם, חם! 9 ואנים!"
+    },
+    {
+      "key": "5005",
+      "source": "5TH PLACE! FLASH FELLA! 8 VANS!",
+      "text": "מקום חמישי! איזה זריז! 8 ואנים!"
+    },
+    {
+      "key": "5006",
+      "source": "6TH PLACE! MY HERO! 7 VANS!",
+      "text": "מקום שישי! אתה הגיבור שלי! 7 ואנים!"
+    },
+    {
+      "key": "5008",
+      "source": "8TH PLACE! BURN IN HELL, BABY! 5 VANS!",
+      "text": "מקום שמיני! תישרף בגיהינום, מותק! 5 ואנים!"
+    },
+    {
+      "key": "5009",
+      "source": "9TH PLACE! YA BIG PUSSY! ONLY 4 VANS!",
+      "text": "מקום תשיעי! איזה פחדן! נשארו רק 4 ואנים!"
+    },
+    {
+      "key": "5010",
+      "source": "10TH PLACE! BOTTOM-FEEDER! ONLY 3 VANS!",
+      "text": "מקום עשירי! בתחתית הטבלה. נשארו רק 3 ואנים!"
+    },
+    {
+      "key": "5011",
+      "source": "11TH PLACE! WHY BOTHER, PAL? 2 CRUMMY VANS!",
+      "text": "מקום אחד־עשר! בשביל מה לטרוח, חבר? נשארו 2 ואנים עלובים!"
+    },
+    {
+      "key": "5012",
+      "source": "12TH PLACE! POND LIFE, BUDDY! 1 LOUSY VAN!",
+      "text": "מקום שנים־עשר! יצור ביצה. נשאר ואן עלוב אחד!"
+    },
+    {
+      "key": "5013",
+      "source": "Kill all the Ice-Cream Vans within the time limit. Follow the markers to find them. Fail and you get ICED yourself! HAW! HAW! HAW!",
+      "text": "השמד את כל רכבי הגלידה בזמן המוקצב. עקוב אחרי הסימונים כדי למצוא אותם. תיכשל, וגם אותך יקררו! הא! הא! הא!"
+    },
+    {
+      "key": "5014",
+      "source": "YOU DA MAN!",
+      "text": "אתה מלך!"
+    },
+    {
+      "key": "5015",
+      "source": "TIME'S UP, PAL!",
+      "text": "נגמר הזמן, חבר!"
+    },
+    {
+      "key": "5016",
+      "source": "1ST PLACE! WORLD CHAMPION! 12 VANS!",
+      "text": "מקום ראשון! אלוף העולם! 12 ואנים!"
+    },
+    {
+      "key": "5017",
+      "source": "2ND PLACE! ONE BAD MUTHA! 11 VANS!",
+      "text": "מקום שני! איזה בן־זונה קשוח! 11 ואנים!"
+    },
+    {
+      "key": "5018",
+      "source": "3RD PLACE! WIDOWMAKER! 10 VANS!",
+      "text": "מקום שלישי! אלמן שחור! 10 ואנים!"
+    },
+    {
+      "key": "5019",
+      "source": "4TH PLACE! GIVE IT TO ME, BABY! 9 VANS!",
+      "text": "מקום רביעי! תן לי את זה, מותק! 9 ואנים!"
+    },
+    {
+      "key": "5020",
+      "source": "5TH PLACE! BURN, BABY, BURN! 8 VANS!",
+      "text": "מקום חמישי! תשרוף, מותק, תשרוף! 8 ואנים!"
+    },
+    {
+      "key": "5022",
+      "source": "7TH PLACE! FRYING TONIGHT! 6 VANS!",
+      "text": "מקום שביעי! הלילה צולים! 6 ואנים!"
+    },
+    {
+      "key": "5023",
+      "source": "8TH PLACE! FASTER, PUSSYCAT - KILL KILL! 5 VANS!",
+      "text": "מקום שמיני! מהר, חתלתולה — להרוג, להרוג! 5 ואנים!"
+    },
+    {
+      "key": "5024",
+      "source": "9TH PLACE! YOU JUST AIN'T TRYIN', SUCKA! 4 VANS!",
+      "text": "מקום תשיעי! אפילו לא ניסית, יא אפס! 4 ואנים!"
+    },
+    {
+      "key": "5025",
+      "source": "10TH PLACE! DEAD DOGS DRIVE FASTER THAN YOU! 3 VANS!",
+      "text": "מקום עשירי! אפילו כלבים מתים נוהגים מהר ממך! 3 ואנים!"
+    },
+    {
+      "key": "5026",
+      "source": "11TH PLACE! ARE YOU A SUNDAY DRIVER? DO IT AGAIN! 2 VANS!",
+      "text": "מקום אחד־עשר! אתה נוסע רק בימי ראשון? נסה שוב! 2 ואנים!"
+    },
+    {
+      "key": "5027",
+      "source": "12TH PLACE! DOES SPEED SCARE YOU, BOY? TRY HARDER! 1 VAN!",
+      "text": "מקום שנים־עשר! המהירות מפחידה אותך, ילד? תתאמץ יותר! ואן אחד!"
+    },
+    {
+      "key": "5029",
+      "source": "Nice work, sucka! With those Ice-Cream Vans out of the picture, we can introduce our own brand of Raspberry Rippled mayhem to the city and show them ALL the real meaning of 'I SCREAM'!",
+      "text": "כל הכבוד, יא אפס! עכשיו שוואני הגלידה האלה מחוץ לתמונה, נכניס לעיר מהומת גלידת פטל משלנו ונראה לכולם מה זה „אני צורח”!"
+    },
+    {
+      "key": "5030",
+      "source": "Collect as many power-ups as you can before the Cops catch up with you and turn you into cat food.",
+      "text": "אסוף כמה שיותר בונוסים לפני שהשוטרים ישיגו אותך ויהפכו אותך לאוכל לחתולים."
+    },
+    {
+      "key": "5031",
+      "source": "Oh, sorry about that... Did that hurt?",
+      "text": "אוי, סליחה... זה כאב?"
+    },
+    {
+      "key": "5032",
+      "source": "Nice work!",
+      "text": "יפה מאוד!"
+    },
+    {
+      "key": "5033",
+      "source": "1ST PLACE! WORLD CHAMPION! 12 VANS!",
+      "text": "מקום ראשון! אלוף העולם! 12 ואנים!"
+    },
+    {
+      "key": "5034",
+      "source": "2ND PLACE! SUPER-SPEEDY! 11 VANS!",
+      "text": "מקום שני! מהיר כמו טיל! 11 ואנים!"
+    },
+    {
+      "key": "5036",
+      "source": "4TH PLACE! MEESTER SLEEK! 9 VANS!",
+      "text": "מקום רביעי! מר חלקלק! 9 ואנים!"
+    },
+    {
+      "key": "5037",
+      "source": "5TH PLACE! EL PUMPO GRANDE! 8 VANS!",
+      "text": "מקום חמישי! אל פומפו הגדול! 8 ואנים!"
+    },
+    {
+      "key": "5038",
+      "source": "6TH PLACE! YOU BIG STINKER! 7 VANS!",
+      "text": "מקום שישי! חתיכת מסריח! 7 ואנים!"
+    },
+    {
+      "key": "5039",
+      "source": "7TH PLACE! TRYING TO SAVE GAS? SPEED UP NEXT TIME! 6 VANS!",
+      "text": "מקום שביעי! חוסך בדלק? בפעם הבאה תן גז! 6 ואנים!"
+    },
+    {
+      "key": "5040",
+      "source": "8TH PLACE! YOU AIN'T WORTH WASTING A BULLET ON! 5 VANS!",
+      "text": "מקום שמיני! אפילו לא שווה לבזבז עליך כדור! 5 ואנים!"
+    },
+    {
+      "key": "5041",
+      "source": "9TH PLACE! TAKE YOUR CAR OUT AND SHOOT IT! 4 VANS!",
+      "text": "מקום תשיעי! קח את המכונית שלך ותירה בה! 4 ואנים!"
+    },
+    {
+      "key": "5042",
+      "source": "10TH PLACE! JOIN THE GIRL SCOUTS, LOSER! 3 CRUMMY VANS!",
+      "text": "מקום עשירי! לך לצופים, לוזר! נשארו 3 ואנים עלובים!"
+    },
+    {
+      "key": "5043",
+      "source": "11TH PLACE! YOU BIG WET SLAP! 2 LOUSY VANS!",
+      "text": "מקום אחד־עשר! איזה סמרטוט רטוב! נשארו 2 ואנים עלובים!"
+    },
+    {
+      "key": "5044",
+      "source": "12TH PLACE! WHY BOTHER TRYING? 1 LOUSY VAN!",
+      "text": "מקום שנים־עשר! למה בכלל לנסות? נשאר ואן עלוב אחד!"
+    },
+    {
+      "key": "5045",
+      "source": "LOOOOSER! YOU ON SOFT DRUGS? TRY HARDER!",
+      "text": "לוזררר! אתה על סמים קלים? תתאמץ יותר!"
+    },
+    {
+      "key": "5050",
+      "source": "CHOCTASTIC!",
+      "text": "שוקולטסטי!"
+    },
+    {
+      "key": "5051",
+      "source": "RASPBERRY RIPPLE!",
+      "text": "גלידת פטל!"
+    },
+    {
+      "key": "5053",
+      "source": "OOH... DID THAT HURT?",
+      "text": "אוי... זה כאב?"
+    },
+    {
+      "key": "5054",
+      "source": "DEATH TO ICE-CREAM VANS!",
+      "text": "מוות לוואני הגלידה!"
+    },
+    {
+      "key": "5056",
+      "source": "YOU'RE TOAST, BUDDY!",
+      "text": "אתה שרוף, חבר!"
+    },
+    {
+      "key": "5057",
+      "source": "EAT LEADEN DEATH, PUNK!",
+      "text": "תטעם עופרת, חלאה!"
+    },
+    {
+      "key": "5058",
+      "source": "THAT'S GOTTA HURT!",
+      "text": "זה בטח כאב!"
+    },
+    {
+      "key": "5059",
+      "source": "SORRY ABOUT THAT!",
+      "text": "סליחה על זה!"
+    },
+    {
+      "key": "5060",
+      "source": "XIN LOI, MY MAN!",
+      "text": "סין לוי, אחי!"
+    },
+    {
+      "key": "5061",
+      "source": "DAMN SUNDAY DRIVERS!",
+      "text": "נהגי יום ראשון ארורים!"
+    },
+    {
+      "key": "5062",
+      "source": "SUCK IT AND SEE!",
+      "text": "תטעם ותראה!"
+    },
+    {
+      "key": "5063",
+      "source": "TASTE MY WRATH, ICE-CREAM BOY!",
+      "text": "תטעם את זעמי, ילד גלידה!"
+    },
+    {
+      "key": "1900",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "1901",
+      "source": "Kill #5 people# with #Molotov Cocktails# in #60 seconds#!",
+      "text": "חסל #5# אנשים באמצעות #בקבוקי תבערה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "1903",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "1905",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "1992",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "1993",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "1994",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "2070",
+      "source": "Use the Rocket Launcher to kill 20 people in 60 seconds!",
+      "text": "השתמש במטול רקטות כדי לחסל 20 אנשים בתוך 60 שניות!"
+    },
+    {
+      "key": "2071",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "2072",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "2073",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "3010",
+      "source": "ⅮUse a #Tank# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3011",
+      "source": "ⅮUse a #Tank# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3012",
+      "source": "ⅮUse #Vehicle Machine Guns# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3013",
+      "source": "ⅮUse #Vehicle Machine Guns# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3014",
+      "source": "ⅮUse #Vehicle Mines# to destroy #20 Cop Cars# in #60 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #20 ניידות משטרה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3015",
+      "source": "ⅮUse this #Car# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3016",
+      "source": "ⅮUse this #S-Uzi Machine Gun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi הזה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3017",
+      "source": "ⅮUse an #S-Uzi Machine Gun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3018",
+      "source": "ⅮUse #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3019",
+      "source": "ⅮUse #Molotov Cocktails# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3020",
+      "source": "ⅮUse a #Rocket Launcher# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3021",
+      "source": "ⅮUse a #Rocket Launcher# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3022",
+      "source": "ⅮUse a #Flamethrower# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3023",
+      "source": "ⅮUse a #Flamethrower# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3024",
+      "source": "ⅮUse an #ElectroGun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3025",
+      "source": "ⅮUse an #ElectroGun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3026",
+      "source": "ⅮUse an #ElectroGun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3027",
+      "source": "ⅮUse an #ElectroGun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3028",
+      "source": "ⅮUse a #Shotgun# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3029",
+      "source": "ⅮUse a #Shotgun# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3200",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "3201",
+      "source": "ⅮUse #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3203",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "3205",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "3210",
+      "source": "Use a #Tank# to shoot #20 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3212",
+      "source": "Use #Vehicle Machine Guns# to shoot #30 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3213",
+      "source": "Use this #vehicle# to kill #30 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #30 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3214",
+      "source": "Use #Vehicle Mines# to destroy #15 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #15 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3215",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3216",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #10 people# in #90 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #10 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3217",
+      "source": "Use #Molotov Cocktails# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3218",
+      "source": "Use #Molotov Cocktails# to destroy #15 vehicles# in #90 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #15 כלי רכב# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3219",
+      "source": "Use a #Rocket Launcher# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3220",
+      "source": "Use a #Rocket Launcher# to destroy #10 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #10 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3221",
+      "source": "Use a #Rocket Launcher# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3222",
+      "source": "Use a #Flamethrower# to torch #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3223",
+      "source": "Use a #Flamethrower# to torch #10 people# in #90 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #10 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3224",
+      "source": "Use an #ElectroGun# to fry #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3225",
+      "source": "Use an #ElectroGun# to fry #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3226",
+      "source": "Use an #ElectroGun# to fry #10 people# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #10 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "3227",
+      "source": "Use an #ElectroGun# to destroy #5 vehicles# in #90 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #5 כלי רכב# בתוך #90 שניות#!"
+    },
+    {
+      "key": "3228",
+      "source": "Use a #Shotgun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "3229",
+      "source": "Use a #Shotgun# to shoot #10 people# in #90 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #10 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4310",
+      "source": "Use a #Tank# to shoot #30 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4312",
+      "source": "Use #Vehicle Machine Guns# to shoot #60 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #60 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4313",
+      "source": "Use this #vehicle# to kill #60 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #60 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4314",
+      "source": "Use #Vehicle Mines# to destroy #20 Cop Cars# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #20 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4315",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #40 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4316",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4317",
+      "source": "Use #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4318",
+      "source": "Use #Molotov Cocktails# to destroy #30 vehicles# in #90 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #30 כלי רכב# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4319",
+      "source": "Use a #Rocket Launcher# to shoot #40 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4320",
+      "source": "Use a #Rocket Launcher# to destroy #20 Cop cars# in #120 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "4321",
+      "source": "Use a #Rocket Launcher# to destroy #15 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #15 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4322",
+      "source": "Use a #Flamethrower# to torch #40 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4323",
+      "source": "Use a #Flamethrower# to torch #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4324",
+      "source": "Use an #ElectroGun# to fry #40 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4325",
+      "source": "Use an #ElectroGun# to fry #40 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4326",
+      "source": "Use an #ElectroGun# to fry #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4327",
+      "source": "Use an #ElectroGun# to destroy #10 Cop cars# in #90 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #10 ניידות משטרה# בתוך #90 שניות#!"
+    },
+    {
+      "key": "4328",
+      "source": "Use a #Shotgun# to shoot #40 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #40 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "4329",
+      "source": "Use a #Shotgun# to shoot #20 Cops# in #90 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6100",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "6101",
+      "source": "Use an S-Uzi Machine Gun to kill 20 people in 60 seconds!",
+      "text": "השתמש בתת־מקלע S-Uzi כדי לחסל 20 אנשים בתוך 60 שניות!"
+    },
+    {
+      "key": "6103",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "6105",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "6106",
+      "source": "Use a #Tank# to shoot #20 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6108",
+      "source": "Use #Vehicle Machine Guns# to shoot #100 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #100 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6109",
+      "source": "Use this #Vehicle# to shoot #75 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #75 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6110",
+      "source": "Use #Vehicle Mines# to destroy #20 Cop Cars# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #20 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6111",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6112",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6113",
+      "source": "Use #Molotov Cocktails# to kill #20 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6114",
+      "source": "Use #Molotov Cocktails# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6115",
+      "source": "Use a #Rocket Launcher# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6116",
+      "source": "Use a #Rocket Launcher# to destroy #20 Cop cars# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 ניידות משטרה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6117",
+      "source": "Use a #Rocket Launcher# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6118",
+      "source": "Use a #Flamethrower# to torch #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6119",
+      "source": "Use a #Flamethrower# to torch #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6120",
+      "source": "Use an #ElectroGun# to fry #20 people# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6122",
+      "source": "Use an #ElectroGun# to fry #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6123",
+      "source": "Use an #ElectroGun# to destroy #20 Cop cars# in #60 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #20 ניידות משטרה# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6124",
+      "source": "Use a #Shotgun# to shoot #20 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6125",
+      "source": "Use a #Shotgun# to shoot #20 Cops# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #20 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6126",
+      "source": "Use a #Tank# to shoot #20 people# in #120 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6128",
+      "source": "Use #Vehicle Machine Guns# to shoot #30 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלעי רכב# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6129",
+      "source": "Use this #Vehicle# to kill #30 people# in #90 seconds#!",
+      "text": "השתמש ב#הרכב הזה# כדי לחסל #30 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6130",
+      "source": "Use #Vehicle Mines# to destroy #15 Cop Cars# in #120 seconds#!",
+      "text": "השתמש ב#מוקשים לרכב# כדי להשמיד #15 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6131",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #20 people# in #90 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #20 אנשים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6132",
+      "source": "Use an #S-Uzi Machine Gun# to shoot #10 Cops# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #10 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6133",
+      "source": "Use #Molotov Cocktails# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6134",
+      "source": "Use #Molotov Cocktails# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6135",
+      "source": "Use a #Rocket Launcher# to shoot #10 people# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6136",
+      "source": "Use a #Rocket Launcher# to destroy #10 Cop cars# in #120 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #10 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6137",
+      "source": "Use a #Rocket Launcher# to destroy #15 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #15 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6138",
+      "source": "Use a #Flamethrower# to torch #20 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #20 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6139",
+      "source": "Use a #Flamethrower# to torch #10 Cops# in #90 seconds#!",
+      "text": "השתמש ב#להביור# כדי לשרוף #10 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "6140",
+      "source": "Use an #ElectroGun# to fry #20 people# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #20 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6142",
+      "source": "Use an #ElectroGun# to fry #10 Cops# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי לחשמל #10 שוטרים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6143",
+      "source": "Use an #ElectroGun# to destroy #5 Cop cars# in #120 seconds#!",
+      "text": "השתמש ב#אקדח חשמלי# כדי להשמיד #5 ניידות משטרה# בתוך #120 שניות#!"
+    },
+    {
+      "key": "6144",
+      "source": "Use a #Shotgun# to shoot #15 people# in #60 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #15 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "6145",
+      "source": "Use a #Shotgun# to shoot #10 Cops# in #90 seconds#!",
+      "text": "השתמש ב#רובה ציד# כדי לחסל #10 שוטרים# בתוך #90 שניות#!"
+    },
+    {
+      "key": "7020",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7021",
+      "source": "Use the #Flamethrower# to kill #60 people# in #120 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #60 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7023",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7025",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7030",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7031",
+      "source": "Use the #Rocket Launcher# to destroy #10 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #10 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7033",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7035",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7040",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7041",
+      "source": "Use the #S-Uzi Machine Gun# to kill #70 people# in #120 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi# כדי לחסל #70 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7043",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7045",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7050",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7051",
+      "source": "Use the #Silenced S-Uzi Machine Gun# to kill #80 people# in #120 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi מושתק# כדי לחסל #80 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7053",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7055",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7060",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7061",
+      "source": "Use the #Silenced S-Uzi Machine Gun# to kill #25 people# in #60 seconds#!",
+      "text": "השתמש ב#תת־מקלע S-Uzi מושתק# כדי לחסל #25 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7063",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7065",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7100",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7101",
+      "source": "Use the #Tank# to kill #35 people# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי לחסל #35 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7103",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7105",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7110",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7111",
+      "source": "Use the #Tank# to destroy #20 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#טנק# כדי להשמיד #20 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7113",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7115",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7120",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7123",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7125",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7130",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7131",
+      "source": "Use #Molotov Cocktails# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7133",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7135",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7140",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7141",
+      "source": "Use #Molotov Cocktails# to kill #30 people# in #120 seconds#!",
+      "text": "השתמש ב#בקבוקי תבערה# כדי לחסל #30 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7143",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7145",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7150",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7151",
+      "source": "Use the #Rocket Launcher# to destroy #15 Vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי להשמיד #15 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7153",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7155",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7160",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7161",
+      "source": "Use the #Taxi# to run over #50 people# in #180 seconds#!",
+      "text": "השתמש ב#מונית# כדי לדרוס #50 אנשים# בתוך #180 שניות#!"
+    },
+    {
+      "key": "7163",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7165",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7170",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7171",
+      "source": "Use the #Flamethrower# to kill #10 people# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי לחסל #10 אנשים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7173",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7175",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7180",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7181",
+      "source": "Use the #Flamethrower# to destroy #10 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#להביור# כדי להשמיד #10 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7183",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7185",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7190",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7191",
+      "source": "Use the #Rocket Launcher# to kill #30 people# in #180 seconds#!",
+      "text": "השתמש ב#מטול רקטות# כדי לחסל #30 אנשים# בתוך #180 שניות#!"
+    },
+    {
+      "key": "7193",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7195",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7200",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7201",
+      "source": "Use the #Machine Gun# to kill #40 people# in #120 seconds#!",
+      "text": "השתמש ב#מקלע# כדי לחסל #40 אנשים# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7203",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7205",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7210",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7211",
+      "source": "Use the #Machine Gun# to destroy #8 vehicles# in #120 seconds#!",
+      "text": "השתמש ב#מקלע# כדי להשמיד #8 כלי רכב# בתוך #120 שניות#!"
+    },
+    {
+      "key": "7213",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7215",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7220",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7221",
+      "source": "Use the #Silenced Machine Gun# to kill #5 Cops# in #60 seconds#!",
+      "text": "השתמש ב#מקלע מושתק# כדי לחסל #5 שוטרים# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7223",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7225",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    },
+    {
+      "key": "7230",
+      "source": "KILL FRENZY!",
+      "text": "אתגר חיסול!"
+    },
+    {
+      "key": "7231",
+      "source": "Use the #Silenced Machine Gun# to destroy #4 vehicles# in #60 seconds#!",
+      "text": "השתמש ב#מקלע מושתק# כדי להשמיד #4 כלי רכב# בתוך #60 שניות#!"
+    },
+    {
+      "key": "7233",
+      "source": "FRENZY PASSED!",
+      "text": "אתגר החיסול הושלם!"
+    },
+    {
+      "key": "7235",
+      "source": "FRENZY FAILED!",
+      "text": "אתגר החיסול נכשל!"
+    }
+  ]
+}

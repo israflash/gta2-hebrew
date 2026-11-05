@@ -2,24 +2,24 @@
 // in-memory filesystem, wires input and the renderer, and starts the core.
 // No game file leaves the device (R01); nothing is fetched from the network
 // except the port itself, or local files in ?devdata=1 developer mode.
-import createGta2 from './gta2.js?v=6c3c0e4d0f';
-import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=6c3c0e4d0f';
-import { SavesScreen } from './saves.js?v=6c3c0e4d0f';
-import { ControlsScreen } from './controls.js?v=6c3c0e4d0f';
-import { Gta2Renderer } from './renderer.js?v=6c3c0e4d0f';
-import { SaveStorage } from './storage.js?v=6c3c0e4d0f';
-import { Gta2Audio } from './audio.js?v=6c3c0e4d0f';
-import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=6c3c0e4d0f';
-import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=6c3c0e4d0f';
-import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=6c3c0e4d0f';
-import { count, initStats, startPlayClock } from './stats.js?v=6c3c0e4d0f';
-import { CoopChat } from './chat.js?v=6c3c0e4d0f';
-import { GamepadInput } from './gamepad.js?v=6c3c0e4d0f';
-import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=6c3c0e4d0f';
-import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=6c3c0e4d0f';
-import { money } from './savestate.js?v=6c3c0e4d0f';
-import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=6c3c0e4d0f';
-import { bindHebrewGxtRenderer } from './gamegxt.js?v=6c3c0e4d0f';
+import createGta2 from './gta2.js?v=1f34ccf8dc';
+import { SAVE_KEY, SaveStates, exportSaves, importSaves, listSaves, toast } from './savestate.js?v=1f34ccf8dc';
+import { SavesScreen } from './saves.js?v=1f34ccf8dc';
+import { ControlsScreen } from './controls.js?v=1f34ccf8dc';
+import { Gta2Renderer } from './renderer.js?v=1f34ccf8dc';
+import { SaveStorage } from './storage.js?v=1f34ccf8dc';
+import { Gta2Audio } from './audio.js?v=1f34ccf8dc';
+import { GameFileCache, downloadFreeware, unpackInstallerFile } from './gamefiles.js?v=1f34ccf8dc';
+import { Gta2Map, exportDiscovery, importDiscovery } from './map.js?v=1f34ccf8dc';
+import { hideLanding, landingProgress, showContinue, showLanding, showLeaderboard } from './landing.js?v=1f34ccf8dc';
+import { count, initStats, startPlayClock } from './stats.js?v=1f34ccf8dc';
+import { CoopChat } from './chat.js?v=1f34ccf8dc';
+import { GamepadInput } from './gamepad.js?v=1f34ccf8dc';
+import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js?v=1f34ccf8dc';
+import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js?v=1f34ccf8dc';
+import { money } from './savestate.js?v=1f34ccf8dc';
+import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js?v=1f34ccf8dc';
+import { bindHebrewGxtRenderer } from './gamegxt.js?v=1f34ccf8dc';
 
 // The shell's own user-facing text, in the web languages (namespace shell.*).
 // Game text lives in data/*.gxt, translated by web/gxt-translations.js.
@@ -944,18 +944,17 @@ function wireHebrewMainMenu(Module, canvas) {
   const place = () => {
     const rect = canvas.getBoundingClientRect();
     // The original frontend is rendered into a 4:3 playfield, centered in
-    // the responsive canvas. Keep the labels aligned with that viewport.
+    // the responsive canvas. Keep the original English menu's text field and
+    // right-align Hebrew inside it; raw GXT coordinates are pre-layout values
+    // that incorrectly placed translated rows in the upper-left corner.
     const width = Math.min(rect.width, rect.height * (4 / 3));
     const height = width * (3 / 4);
-    const left = rect.left + (rect.width - width) / 2 + width * .44;
-    const top = rect.top + (rect.height - height) / 2 + height * .483;
+    const left = rect.left + (rect.width - width) / 2 + width * .465;
+    const top = rect.top + (rect.height - height) / 2 + height * .516;
     overlay.style.left = `${left}px`;
     overlay.style.top = `${top}px`;
-    overlay.style.width = `${width * .24}px`;
-    // Widen the opaque cover to hide the original English bitmap labels while
-    // keeping the Hebrew labels anchored at their previous right edge.
-    overlay.style.setProperty('--menu-label-shift', `${width * .11}px`);
-    overlay.style.height = `${height * .20}px`;
+    overlay.style.width = `${width * .175}px`;
+    overlay.style.height = `${height * .15}px`;
   };
   const sync = () => {
     const state = menuState();
@@ -966,7 +965,7 @@ function wireHebrewMainMenu(Module, canvas) {
       hasPlayer = !!(state && Module.HEAP32[state >> 2]);
     } catch { /* Keep the toolbar hidden until the game state is available. */ }
     if (tools) tools.hidden = page >= 0 || !hasPlayer;
-    overlay.hidden = page !== 0 || currentLang() !== 'he' || !!Module.gta2HebrewGxtReady;
+    overlay.hidden = page !== 0 || currentLang() !== 'he' || !Module.gta2HebrewGxtReady;
     if (page !== 0 || currentLang() !== 'he') return;
     const selected = state % 16;
     for (const option of options) option.classList.toggle('selected', Number(option.dataset.option) === selected);

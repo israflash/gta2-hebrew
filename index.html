@@ -25,11 +25,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
   <style>
     :root { color-scheme: dark; --bg: #0b0b0d; --fg: #e8e6e3; --muted: #9a978f; --accent: #e63946; }
-    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=4b03e30f19") format("truetype");
+    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=1f34ccf8dc") format("truetype");
       font-style: normal; font-weight: 400; font-display: swap; }
-    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=4b03e30f19") format("truetype");
+    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=1f34ccf8dc") format("truetype");
       font-style: normal; font-weight: 400 900; font-display: swap; }
-    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=4b03e30f19") format("truetype");
+    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=1f34ccf8dc") format("truetype");
       font-style: normal; font-weight: 900; font-display: swap; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
       font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -42,12 +42,11 @@
     label.button input { display: none; }
     #game { flex: 1; min-height: 0; display: flex; position: relative; }
     #screen { flex: 1; width: 100%; height: 100%; display: block; outline: none; image-rendering: pixelated; }
-    #main-menu-hebrew { position: absolute; z-index: 3; display: flex; flex-direction: column; justify-content: center; gap: .2em;
-      box-sizing: border-box; padding: .18em .55em; overflow: hidden; border-radius: 3px;
-      background: #000; color: #f4f4f4; direction: rtl; text-align: right;
-      font: 700 clamp(14px, 2.7vh, 24px)/1.25 system-ui, "Segoe UI", sans-serif; pointer-events: none; }
+    #main-menu-hebrew { position: absolute; z-index: 3; display: flex; flex-direction: column; justify-content: flex-start;
+      box-sizing: border-box; overflow: visible; color: #f4f4f4; direction: rtl; text-align: right;
+      font: 600 clamp(14px, 2.7vh, 24px)/1.5 system-ui, "Segoe UI", sans-serif; pointer-events: none; }
     #main-menu-hebrew[hidden] { display: none; }
-    #main-menu-hebrew span { white-space: nowrap; transform: translateX(calc(-1 * var(--menu-label-shift, 0px))); }
+    #main-menu-hebrew span { display: block; width: 100%; white-space: nowrap; }
     #main-menu-hebrew span.selected { color: #ed2024; }
     #status { position: fixed; left: 1rem; bottom: 2.2rem; margin: 0; color: var(--muted); }
     #status.error { color: #ff8a8a; }
@@ -564,6 +563,6 @@
   </main>
   <!-- strings.js is imported by shell.js (one module instance); it applies the stored
        language as soon as the page's markup is parsed. -->
-  <script type="module" src="shell.js?v=4b03e30f19"></script>
+  <script type="module" src="shell.js?v=1f34ccf8dc"></script>
 </body>
 </html>
