@@ -69,11 +69,14 @@
       padding: 16px; background: rgba(0, 0, 0, .72); }
     #controls-screen[hidden] { display: none; }
     .controls-panel { width: min(560px, 100%); }
+    #controls-screen[dir="rtl"] .controls-panel { text-align: right; }
     .controls-list { display: grid; gap: .35rem; }
     .controls-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .3rem .5rem;
       border-radius: 6px; background: #1d2027; }
+    #controls-screen[dir="rtl"] .controls-row { direction: rtl; }
     .controls-row button, .controls-actions button { min-width: 8.5rem; padding: .4rem .7rem; border-radius: 5px;
       border: 1px solid #3a3f4b; background: #262a33; color: #e8e8e8; cursor: pointer; font: inherit; font-size: .9rem; }
+    .controls-row button { direction: ltr; unicode-bidi: isolate; }
     .controls-row button.waiting { border-color: #f5c518; color: #f5c518; }
     .controls-actions { display: flex; justify-content: flex-end; gap: .5rem; }
     .controls-actions button.primary { background: #f5c518; border-color: #f5c518; color: #111; font-weight: 600; }

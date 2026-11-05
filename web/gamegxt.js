@@ -81,6 +81,8 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
   const nodes = new Map();
   let raf = 0;
   let frontendMenuState = null;
+  let menuLayoutKey = '';
+  let menuLayout = { anchorX: 0, width: 0, firstY: 0 };
   try { frontendMenuState = Module.cwrap('gta2_port_frontend_menu_state', 'number', []); } catch { /* menu stays at engine scale */ }
   const mainMenuOption = new Map([['שחק', 0], ['אפשרויות', 1], ['יציאה', 2]]);
   const render = () => {
@@ -98,20 +100,51 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     const inHebrewMainMenu = lang() === 'he' && menuState >= 0 && Math.floor(menuState / 16) === 0;
     document.body.classList.toggle('hebrew-main-menu', inHebrewMainMenu);
     const menuRows = inHebrewMainMenu ? [...nodes.values()].filter((item) => item.menuOption != null) : [];
-    const firstMenuY = menuRows.length ? Math.min(...menuRows.map((item) => item.y)) : 0;
     // This pixel font has very tall em metrics but tiny Hebrew glyphs. Use the
     // site's plain UI face for the three start-menu labels and size by ink,
     // rather than by the font's misleading line box.
     const menuFontSize = Math.max(20, Math.min(28, window.innerHeight * .03));
+    // Keep the menu's original left edge, but align every Hebrew label to the
+    // right edge of the widest row. Native x coordinates are left-text anchors;
+    // reusing them as RTL anchors made each translated option end at a different
+    // position and left the menu looking like three unrelated buttons. Measure
+    // only when the menu, font, or viewport changes; the draw hook runs per frame.
+    const nextMenuKey = inHebrewMainMenu
+      ? `${scale}:${dpr}:${menuFontSize}:${menuRows.map((item) => `${item.menuOption}:${item.node.textContent}:${item.x}`).join('|')}`
+      : '';
+    if (nextMenuKey !== menuLayoutKey) {
+      menuLayoutKey = nextMenuKey;
+      if (menuRows.length) {
+        const widths = menuRows.map((item) => {
+          const style = item.node.style;
+          const previous = [style.width, style.fontSize, style.fontFamily, style.fontWeight];
+          style.width = 'max-content';
+          style.fontSize = `${menuFontSize}px`;
+          style.fontFamily = 'system-ui, "Segoe UI", sans-serif';
+          style.fontWeight = '700';
+          const width = item.node.getBoundingClientRect().width;
+          [style.width, style.fontSize, style.fontFamily, style.fontWeight] = previous;
+          return width;
+        });
+        menuLayout = {
+          anchorX: Math.min(...menuRows.map((item) => item.x)),
+          width: Math.max(...menuRows.map((item, i) => item.x * scale + widths[i])) - Math.min(...menuRows.map((item) => item.x)) * scale,
+          firstY: Math.min(...menuRows.map((item) => item.y)),
+        };
+      } else {
+        menuLayout = { anchorX: 0, width: 0, firstY: 0 };
+      }
+    }
     for (const [key, item] of nodes) {
       if (lang() !== 'he' || now - item.updated > 130) {
         item.node.remove(); nodes.delete(key); continue;
       }
       const px = Math.max(9, item.lineHeight * scale * 1.32);
-      item.node.style.left = `${left + item.x * scale}px`;
       const isMenuRow = inHebrewMainMenu && item.menuOption != null;
+      item.node.style.left = `${left + (isMenuRow ? menuLayout.anchorX : item.x) * scale}px`;
+      item.node.style.width = isMenuRow ? `${menuLayout.width}px` : '';
       const menuY = isMenuRow ? item.menuOption * menuFontSize * 1.28 : 0;
-      item.node.style.top = `${top + (isMenuRow ? firstMenuY * scale : item.y * scale) + menuY}px`;
+      item.node.style.top = `${top + (isMenuRow ? menuLayout.firstY * scale : item.y * scale) + menuY}px`;
       item.node.style.fontSize = `${isMenuRow ? menuFontSize : px}px`;
       item.node.style.lineHeight = `${isMenuRow ? menuFontSize : Math.max(px, item.lineHeight * scale * 1.22)}px`;
       item.node.style.fontFamily = isMenuRow ? 'system-ui, "Segoe UI", sans-serif' : '"GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace';
