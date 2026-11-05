@@ -4,8 +4,8 @@
 // downloaded. Read-only towards the game, apart from pausing it while the map
 // screen is open.
 
-import { lang, registerDict, t } from './strings.js?v=22853b9006';
-import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=22853b9006';
+import { lang, registerDict, t } from './strings.js?v=7f4c166755';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=7f4c166755';
 
 loadMissionTranslations().catch((err) => console.error(err));
 loadMissionTitles().catch((err) => console.error(err));
@@ -615,6 +615,32 @@ export class Gta2Map {
     // Keep the HTML text to the native line budget, also respecting the minimap.
     panel.style.width = `${Math.max(120 * scale, Math.min(576 * scale, right - left))}px`;
     panel.style.bottom = `${Math.max(0, window.innerHeight - textBottom)}px`;
+    panel.style.maxHeight = 'none';
+    panel.style.overflow = 'visible';
+    const textNode = panel.querySelector('.mission-brief-text');
+    if (textNode) {
+      textNode.lang = 'he';
+      this.fitBriefTypography(textNode, Math.max(96 * scale, viewHeight * 0.58));
+    }
+  }
+
+  fitBriefTypography(textNode, maxHeight) {
+    textNode.style.removeProperty('font-size');
+    const base = parseFloat(getComputedStyle(textNode).fontSize) || 26;
+    const minimum = Math.min(22, base);
+    let size = base;
+    textNode.style.fontSize = `${size}px`;
+    while (textNode.getBoundingClientRect().height > maxHeight && size > minimum) {
+      size = Math.max(minimum, size - 1);
+      textNode.style.fontSize = `${size}px`;
+    }
+    const range = document.createRange();
+    range.selectNodeContents(textNode);
+    const lines = new Set([...range.getClientRects()].map(rect => Math.round(rect.top * 2) / 2)).size;
+    const height = textNode.getBoundingClientRect().height;
+    textNode.dataset.layoutLines = String(lines);
+    textNode.dataset.layoutOverflow = height > maxHeight + 1 ? 'true' : 'false';
+    return { fontSize: size, lines, height, maxHeight, overflow: height > maxHeight + 1 };
   }
 
   updateMissionTitleOverlay(s) {
@@ -627,10 +653,11 @@ export class Gta2Map {
     const visible = !!(s && s.hasPlayer && !s.paused && !this.open && record);
     panel.hidden = !visible;
     if (!visible) return;
-    if (panel.dataset.key !== String(key)) {
+    if (panel.dataset.key !== String(key) || panel.dataset.viewportWidth !== String(window.innerWidth)) {
       this.renderMissionTitle(panel, record.text);
       panel.setAttribute('aria-label', record.text);
       panel.dataset.key = String(key);
+      panel.dataset.viewportWidth = String(window.innerWidth);
     }
     const rect = this.gameCanvas.getBoundingClientRect();
     const vp = this.renderer.viewport;
@@ -647,21 +674,35 @@ export class Gta2Map {
   renderMissionTitle(canvas, text) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    const scale = 2;
-    const fontSize = 36;
-    const titleFont = 'GTA2 Impact Pixel';
+    const dpr = this.gameCanvas.width / Math.max(1, this.gameCanvas.getBoundingClientRect().width);
+    const scale = Math.max(1, 2 * (window.innerWidth / 1200));
+    const baseFontSize = 36;
+    const minimumFontSize = 28;
+    const titleFont = 'GTA2 Noto Title';
     canvas.dataset.text = text;
-    if (!document.fonts.check(`900 ${fontSize}px "${titleFont}"`)) {
-      document.fonts.load(`900 ${fontSize}px "${titleFont}"`).then(() => {
+    canvas.dataset.renderViewportWidth = String(window.innerWidth);
+    if (!document.fonts.check(`900 ${baseFontSize}px "${titleFont}"`)) {
+      document.fonts.load(`900 ${baseFontSize}px "${titleFont}"`).then(() => {
         if (!canvas.hidden && canvas.dataset.text === text) this.renderMissionTitle(canvas, text);
       });
     }
+    let fontSize = baseFontSize;
     ctx.font = `900 ${fontSize}px "${titleFont}", "Arial Black", Arial, sans-serif`;
     // Explicit direction lets the browser's BiDi algorithm position punctuation
     // correctly while retaining the order of embedded Latin names and numbers.
     ctx.direction = 'rtl';
-    const width = Math.ceil(ctx.measureText(text).width + 8);
-    const height = 44;
+    const viewWidth = this.renderer.viewport?.w ? this.renderer.viewport.w / dpr : window.innerWidth;
+    const availableWidth = Math.max(100, Math.min(window.innerWidth - 32, viewWidth - 32)) / scale;
+    let measured = ctx.measureText(text).width;
+    while (measured + 8 > availableWidth && fontSize > minimumFontSize) {
+      fontSize -= 1;
+      ctx.font = `900 ${fontSize}px "${titleFont}", "Arial Black", Arial, sans-serif`;
+      measured = ctx.measureText(text).width;
+    }
+    canvas.dataset.fontSizeUsed = String(fontSize);
+    canvas.dataset.fitOverflow = String(measured + 8 > availableWidth);
+    const width = Math.ceil(measured + 8);
+    const height = Math.max(44, Math.ceil(fontSize * 1.24));
     canvas.width = width;
     canvas.height = height;
     ctx.font = `900 ${fontSize}px "${titleFont}", "Arial Black", Arial, sans-serif`;
@@ -670,7 +711,7 @@ export class Gta2Map {
     ctx.textBaseline = 'middle';
     ctx.lineJoin = 'miter';
     ctx.miterLimit = 2;
-    ctx.lineWidth = 2.25;
+    ctx.lineWidth = 2.25 * (fontSize / baseFontSize);
     ctx.strokeStyle = '#48406d';
     ctx.shadowColor = '#30335e';
     ctx.shadowOffsetX = 0;

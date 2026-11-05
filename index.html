@@ -10,10 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
   <style>
     :root { color-scheme: dark; --bg: #0b0b0d; --fg: #e8e6e3; --muted: #9a978f; --accent: #e63946; }
-    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=22853b9006") format("truetype");
+    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=7f4c166755") format("truetype");
       font-style: normal; font-weight: 400; font-display: swap; }
-    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=22853b9006") format("truetype");
+    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=7f4c166755") format("truetype");
       font-style: normal; font-weight: 400 900; font-display: swap; }
+    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=7f4c166755") format("truetype");
+      font-style: normal; font-weight: 900; font-display: swap; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
       font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
     main { height: 100%; display: flex; flex-direction: column; }
@@ -241,8 +243,8 @@
       font-family: "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace; font-weight: 400; letter-spacing: -.015em;
       text-shadow: 1px 1px 0 #080705, -1px 0 #1a160e, 1px 0 #1a160e, 0 -1px #1a160e, 0 1px #1a160e; }
     #mission-brief-speaker { display: none; }
-    .mission-brief-text { font: 400 clamp(20px, 2.65vh, 22px)/1.38 "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace;
-      letter-spacing: 0; word-spacing: .1em;
+    .mission-brief-text { font: 400 clamp(24px, 3.15vh, 27px)/1.28 "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace;
+      letter-spacing: 0; word-spacing: .12em; word-break: normal;
       color: #c5ae5c; text-shadow: 1px 1px 0 #120e07, -1px 0 #32240b, 1px 0 #32240b, 0 -1px #32240b, 0 1px #32240b;
       overflow-wrap: break-word; white-space: pre-wrap; unicode-bidi: plaintext; }
     .mission-brief-text .mission-brief-highlight { color: #43a7d4; }
@@ -543,6 +545,6 @@
   </main>
   <!-- strings.js is imported by shell.js (one module instance); it applies the stored
        language as soon as the page's markup is parsed. -->
-  <script type="module" src="shell.js?v=22853b9006"></script>
+  <script type="module" src="shell.js?v=7f4c166755"></script>
 </body>
 </html>

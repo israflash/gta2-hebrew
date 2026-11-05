@@ -717,7 +717,7 @@
       "speaker": "Guider",
       "kind": "objective",
       "source": "That's #Uno Carb#! Kill him!",
-      "text": "זה אונו קארב! חַסל אותו!",
+      "text": "זה אונו קארב! חסל אותו!",
       "gxtKey": "3688",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -4893,7 +4893,7 @@
       "speaker": "אלמו",
       "kind": "mission-message",
       "source": "ⅬCool, you got the explosives. It's a RIOT at Futuro FM, pay them a visit Jumbo and crisp the DJ.",
-      "text": "קיבלת את חומרי הנפץ? יש מהומה בפוטורו FM. קפוץ לשם וצלֵה את השדרן, ג'מבו!",
+      "text": "קיבלת את חומרי הנפץ? יש מהומה בפוטורו FM. קפוץ לשם ותצלה את השדרן, ג'מבו!",
       "gxtKey": "1775",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
