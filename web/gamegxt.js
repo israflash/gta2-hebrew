@@ -81,8 +81,6 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
   const nodes = new Map();
   let raf = 0;
   let frontendMenuState = null;
-  let menuLayoutKey = '';
-  let menuLayout = { anchorX: 0, width: 0, firstY: 0 };
   try { frontendMenuState = Module.cwrap('gta2_port_frontend_menu_state', 'number', []); } catch { /* menu stays at engine scale */ }
   const mainMenuOption = new Map([['שחק', 0], ['אפשרויות', 1], ['יציאה', 2]]);
   const render = () => {
@@ -95,70 +93,41 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     const scale = renderer?.scale ? renderer.scale / dpr : rect.height / 480;
     const top = rect.top + (canvas.height - viewport.y - viewport.h) / dpr;
     const left = rect.left + viewport.x / dpr;
-    let menuState = -1;
-    try { menuState = frontendMenuState ? frontendMenuState() : -1; } catch { /* keep native placement */ }
-    const inHebrewMainMenu = lang() === 'he' && menuState >= 0 && Math.floor(menuState / 16) === 0;
-    document.body.classList.toggle('hebrew-main-menu', inHebrewMainMenu);
-    const menuRows = inHebrewMainMenu ? [...nodes.values()].filter((item) => item.menuOption != null) : [];
-    // This pixel font has very tall em metrics but tiny Hebrew glyphs. Use the
-    // site's plain UI face for the three start-menu labels and size by ink,
-    // rather than by the font's misleading line box.
-    const menuFontSize = Math.max(20, Math.min(28, window.innerHeight * .03));
-    // Keep the menu's original left edge, but align every Hebrew label to the
-    // right edge of the widest row. Native x coordinates are left-text anchors;
-    // reusing them as RTL anchors made each translated option end at a different
-    // position and left the menu looking like three unrelated buttons. Measure
-    // only when the menu, font, or viewport changes; the draw hook runs per frame.
-    const nextMenuKey = inHebrewMainMenu
-      ? `${scale}:${dpr}:${menuFontSize}:${menuRows.map((item) => `${item.menuOption}:${item.node.textContent}:${item.x}`).join('|')}`
-      : '';
-    if (nextMenuKey !== menuLayoutKey) {
-      menuLayoutKey = nextMenuKey;
-      if (menuRows.length) {
-        const widths = menuRows.map((item) => {
-          const style = item.node.style;
-          const previous = [style.width, style.fontSize, style.fontFamily, style.fontWeight];
-          style.width = 'max-content';
-          style.fontSize = `${menuFontSize}px`;
-          style.fontFamily = 'system-ui, "Segoe UI", sans-serif';
-          style.fontWeight = '700';
-          const width = item.node.getBoundingClientRect().width;
-          [style.width, style.fontSize, style.fontFamily, style.fontWeight] = previous;
-          return width;
-        });
-        menuLayout = {
-          anchorX: Math.min(...menuRows.map((item) => item.x)),
-          width: Math.max(...menuRows.map((item, i) => item.x * scale + widths[i])) - Math.min(...menuRows.map((item) => item.x)) * scale,
-          firstY: Math.min(...menuRows.map((item) => item.y)),
-        };
-      } else {
-        menuLayout = { anchorX: 0, width: 0, firstY: 0 };
-      }
-    }
     for (const [key, item] of nodes) {
       if (lang() !== 'he' || now - item.updated > 130) {
         item.node.remove(); nodes.delete(key); continue;
       }
-      const px = Math.max(9, item.lineHeight * scale * 1.32);
-      const isMenuRow = inHebrewMainMenu && item.menuOption != null;
-      item.node.style.left = `${left + (isMenuRow ? menuLayout.anchorX : item.x) * scale}px`;
-      item.node.style.width = isMenuRow ? `${menuLayout.width}px` : '';
-      const menuY = isMenuRow ? item.menuOption * menuFontSize * 1.28 : 0;
-      item.node.style.top = `${top + (isMenuRow ? menuLayout.firstY * scale : item.y * scale) + menuY}px`;
-      item.node.style.fontSize = `${isMenuRow ? menuFontSize : px}px`;
-      item.node.style.lineHeight = `${isMenuRow ? menuFontSize : Math.max(px, item.lineHeight * scale * 1.22)}px`;
-      item.node.style.fontFamily = isMenuRow ? 'system-ui, "Segoe UI", sans-serif' : '"GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace';
-      item.node.style.fontWeight = isMenuRow ? '700' : '400';
+      const drawScale = item.drawScale > 0 ? item.drawScale : 1;
+      const x = item.x / drawScale + item.hudOffsetX;
+      const y = item.y / drawScale;
+      const lineHeight = item.lineHeight / drawScale;
+      const px = Math.max(9, lineHeight * scale * .8);
+      const centeredHudBanner = item.centeredHudBanner;
+      item.node.style.left = `${left + (centeredHudBanner ? (renderer?.refW || 640) / 2 : x) * scale}px`;
+      item.node.style.width = '';
+      // The Hebrew pixel face has a taller ascender gap than the game's
+      // bitmap font; move this centered pickup label up to match the source
+      // glyph baseline at the same viewport scale.
+      item.node.style.top = `${top + y * scale - (centeredHudBanner ? 6 : 0)}px`;
+      item.node.style.transform = centeredHudBanner ? 'translateX(-50%)' : '';
+      item.node.style.textAlign = centeredHudBanner ? 'center' : 'right';
+      item.node.style.fontSize = `${px}px`;
+      item.node.style.lineHeight = `${Math.max(px, lineHeight * scale)}px`;
+      item.node.style.fontFamily = '"GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace';
+      item.node.style.fontWeight = '400';
       item.node.style.opacity = item.alpha > 0 && item.alpha < 255 ? String(item.alpha / 255) : '1';
-      const selectedMenuRow = isMenuRow && item.menuOption === menuState % 16;
-      item.node.style.color = selectedMenuRow ? '#ed2024' : item.palette === 0 || item.palette === 1 ? '#ffd34e' : '#f4edcf';
+      // The original pickup banner uses font-remap 5: a dark red, centered
+      // label. Preserve that source palette in the translated HUD path.
+      item.node.style.color = centeredHudBanner
+        ? '#9d2a23'
+        : item.palette === 0 || item.palette === 1 ? '#ffd34e' : '#f4edcf';
       if (item.html !== item.node.innerHTML) item.node.innerHTML = item.html;
     }
     if (nodes.size) raf = requestAnimationFrame(render);
   };
 
   Module.gta2HebrewGxtReady = true;
-  Module.gta2HebrewGxtDraw = (source, x, y, lineHeight, fontType, paletteType, palette, alpha) => {
+  Module.gta2HebrewGxtDraw = (source, x, y, lineHeight, drawScale, fontType, paletteType, palette, alpha, hudOffsetX) => {
     if (lang() !== 'he') return 0;
     const text = resolveGxt(source);
     if (text == null) {
@@ -173,6 +142,13 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
       }
       return 0;
     }
+    // The native English main-menu rows are positioned in the black panel at
+    // the lower-right of the splash. Their pre-render GXT coordinates do not
+    // correspond to the final canvas positions, so use the positioned HTML
+    // labels owned by wireHebrewMainMenu and suppress this native draw.
+    let menuState = -1;
+    try { menuState = frontendMenuState ? frontendMenuState() : -1; } catch { /* leave native text visible */ }
+    if (menuState >= 0 && Math.floor(menuState / 16) === 0 && mainMenuOption.has(clean(text))) return 1;
     const key = `${x.toFixed(2)}:${y.toFixed(2)}:${source}`;
     let item = nodes.get(key);
     if (!item) {
@@ -183,9 +159,11 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
       nodes.set(key, item);
     }
     item.updated = performance.now(); item.x = x; item.y = y;
+    item.drawScale = Number(drawScale) || 1; item.hudOffsetX = Number(hudOffsetX) || 0;
     item.lineHeight = lineHeight; item.fontType = fontType;
     item.paletteType = paletteType; item.palette = palette; item.alpha = alpha;
-    item.menuOption = mainMenuOption.has(clean(text)) ? mainMenuOption.get(clean(text)) : null;
+    const logicalY = item.y / item.drawScale;
+    item.centeredHudBanner = Number(fontType) === 1 && Number(paletteType) === 8 && Number(palette) === 5 && Math.abs(logicalY - 32) < 0.1;
     const details = { gxtX: x, gxtY: y, lineHeight, fontType, paletteType, palette };
     for (const [name, value] of Object.entries(details)) {
       if (item.node.dataset[name] !== String(value)) item.node.dataset[name] = String(value);

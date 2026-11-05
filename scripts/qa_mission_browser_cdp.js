@@ -19,8 +19,8 @@ const CHROME = process.env.GTA2_CHROME || CHROME_CANDIDATES.find((candidate) =>
   !path.isAbsolute(candidate) || fsSync.existsSync(candidate)) || CHROME_CANDIDATES[0];
 const CDP_HOST = '127.0.0.1';
 const CHROME_HOST = '127.0.0.1';
-const PORT = 9223;
-const BASE = 'http://127.0.0.1:8876/';
+const PORT = Number(process.env.GTA2_QA_PORT) || 9223;
+const BASE = process.env.GTA2_QA_BASE || 'http://127.0.0.1:8876/';
 const outDir = path.join(__dirname, '..', 'game', 'qa-screenshots');
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const auditSnapshots = [];
@@ -129,7 +129,7 @@ async function main() {
       return file;
     };
     const visibleTranslated = `(() => { const p=document.querySelector('#mission-brief'); const t=p?.querySelector('.mission-brief-text'); return p && !p.hidden && t?.innerText ? {text:t.innerText,dir:p.dir} : null; })()`;
-    const expected = [
+    const expected = (process.env.GTA2_QA_ONLY_PICKUP ? [] : [
       { key: '2306', text: 'קדימה, עלו!', name: 'short-hebrew' },
       { key: '2026', text: '50 מדענים', name: 'numbers-names' },
       { key: '3727', text: 'המאפיה הרוסית', name: 'long-industrial' },
@@ -138,7 +138,7 @@ async function main() {
       { key: '2042', text: '20 מדענים', name: 'supplemental-kill-frenzy', area: 'Residential' },
       { key: '2043', text: '20 מאנשי זייבאצו', name: 'supplemental-srs', area: 'Residential' },
       { key: '2226', text: 'השוטרים באים', name: 'supplemental-escape', area: 'Residential' },
-    ].filter((item) => !process.env.GTA2_QA_KEYS || process.env.GTA2_QA_KEYS.split(',').includes(item.key));
+    ]).filter((item) => !process.env.GTA2_QA_KEYS || process.env.GTA2_QA_KEYS.split(',').includes(item.key));
 
     if (process.env.GTA2_QA_COMPARE_KEY) {
       const compareKey = process.env.GTA2_QA_COMPARE_KEY;
@@ -346,6 +346,43 @@ async function main() {
       console.log(JSON.stringify({ nativeGxtDraw }));
     }
 
+    if (process.env.GTA2_QA_PICKUP) {
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'player spawn before native pickup-text test');
+      const pickupIndices = (process.env.GTA2_QA_PICKUP_INDICES || process.env.GTA2_QA_PICKUP_INDEX || '0')
+        .split(',').map((x) => Number(x.trim())).filter(Number.isInteger);
+      const triggerPickup = async (pickupIdx, language) => {
+        const shown = await evaluate(`window.gta2.Module.ccall('gta2_qa_show_pickup','number',['number'],[${pickupIdx}])`);
+        if (!shown) throw new Error(`native pickup HUD route rejected index ${pickupIdx}`);
+        await waitFor(`(() => {const n=[...document.querySelectorAll('.hebrew-gxt-text')].find(x=>x.innerText.trim());return document.documentElement.lang==='${language}' && ${language === 'he' ? '!!n' : '!n'} ? true : false})()`, Boolean, `${language} native pickup text route`);
+        await wait(80);
+        const probe = await evaluate(`(() => {const nodes=[...document.querySelectorAll('.hebrew-gxt-text')].filter(x=>x.innerText.trim()).map(n=>({text:n.innerText,rect:n.getBoundingClientRect().toJSON(),dataset:{x:n.dataset.gxtX,y:n.dataset.gxtY,lineHeight:n.dataset.lineHeight,fontType:n.dataset.fontType,palette:n.dataset.palette}}));return {language:document.documentElement.lang,layer:document.querySelector('#hebrew-gxt-layer')?.getBoundingClientRect().toJSON(),nodes,viewport:window.gta2.Module.gta2Renderer.viewport,scale:window.gta2.Module.gta2Renderer.scale}})()`);
+        return { probe, screenshot: await capture(`pickup-native-${language}-${pickupIdx}`) };
+      };
+      const setLanguage = async (language) => {
+        for (let i = 0; i < 4; i++) {
+          if (await evaluate('document.documentElement.lang') === language) return;
+          await evaluate(`document.querySelector('#lang-toggle')?.click()`);
+          await wait(80);
+        }
+        await waitFor(`document.documentElement.lang === '${language}'`, Boolean, `switch to ${language}`);
+      };
+      const initialLanguage = await evaluate('document.documentElement.lang');
+      if (initialLanguage !== 'he') throw new Error('pickup QA starts in Hebrew; reset the test profile language to he');
+      const comparisons = [];
+      for (const pickupIdx of pickupIndices) {
+        const hebrewBefore = await triggerPickup(pickupIdx, 'he');
+        await setLanguage('en');
+        const english = await triggerPickup(pickupIdx, 'en');
+        await setLanguage('he');
+        const hebrewAfter = await triggerPickup(pickupIdx, 'he');
+        comparisons.push({ pickupIdx, hebrewBefore, english, hebrewAfter });
+      }
+      console.log(JSON.stringify({ nativePickup: comparisons }));
+    }
+
+    if (process.env.GTA2_QA_ONLY_PICKUP) return;
+
     let saveRoundTrip = null;
     if (process.env.GTA2_QA_SAVE_ROUNDTRIP) {
       const rules = await evaluate(`window.gta2.states.rules()`);
@@ -473,24 +510,26 @@ async function main() {
 
     const menuNavigation = [];
     await evaluate(`document.querySelector('#screen')?.focus()`);
-    const menuKey = async (scanCode, virtualKey) => {
-      await evaluate(`window.gta2.Module.ccall('gta2_port_key','void',['number','number','number','number'],[${scanCode},${virtualKey},1,${virtualKey}])`);
+    const menuKey = async (key, code, virtualKey) => {
+      await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key, code, windowsVirtualKeyCode: virtualKey });
       await wait(180);
-      await evaluate(`window.gta2.Module.ccall('gta2_port_key','void',['number','number','number','number'],[${scanCode},${virtualKey},0,0])`);
+      await cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', key, code, windowsVirtualKeyCode: virtualKey });
       await wait(250);
     };
-    await menuKey(0xd0, 0x28);
+    await menuKey('ArrowDown', 'ArrowDown', 0x28);
     const selectedOption = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`,
       (value) => value >= 0 && value % 16 === 1, 'keyboard selection moves to the second main-menu option');
     menuNavigation.push({ state: selectedOption, screenshot: await capture('main-menu-keyboard-selection') });
-    await menuKey(0x1c, 0x0d);
+    await menuKey('Enter', 'Enter', 0x0d);
     await wait(500);
     const afterEnter = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
-    menuNavigation.push({ action: 'Enter on Options', state: afterEnter, screenshot: await capture('main-menu-options-after-enter') });
-    await menuKey(0x01, 0x1b);
-    await wait(500);
+    const optionsProbe = await evaluate(`(() => ({lang:document.documentElement.lang,menuState:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]),menuHidden:document.querySelector('#main-menu-hebrew')?.hidden,menuText:document.querySelector('#main-menu-hebrew')?.innerText,controlsHidden:document.querySelector('#controls-screen')?.hidden}))()`);
+    menuNavigation.push({ action: 'Enter on Options', state: afterEnter, probe: optionsProbe, screenshot: await capture('main-menu-options-after-enter') });
+    await menuKey('Escape', 'Escape', 0x1b);
+    await wait(1200);
     const returnedMenuState = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
-    menuNavigation.push({ action: 'Escape after Options', state: returnedMenuState, screenshot: await capture('menu-after-options-escape') });
+    const returnedMenuProbe = await evaluate(`(() => ({lang:document.documentElement.lang,menuState:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]),menuHidden:document.querySelector('#main-menu-hebrew')?.hidden,menuText:document.querySelector('#main-menu-hebrew')?.innerText,selected:document.querySelector('#main-menu-hebrew [data-option].selected')?.innerText,controlsHidden:document.querySelector('#controls-screen')?.hidden,toolsHidden:document.querySelector('#tools')?.hidden}))()`);
+    menuNavigation.push({ action: 'Escape after Options', state: returnedMenuState, probe: returnedMenuProbe, screenshot: await capture('menu-after-options-escape') });
 
     const currentGxtAudit = process.env.GTA2_QA_GXT_AUDIT
       ? await evaluate('window.gta2GxtAudit?.snapshot() || []') : null;

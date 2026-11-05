@@ -169,7 +169,10 @@ def main(argv=None):
         jobs.append((CORE / rel, out / 'obj/game' / (Path(rel).stem + '.o'), COMMON + OPT[a.preset] + GAME_ONLY))
     for sub in ('platform', 'render', 'audio', 'net'):
         for src in sorted((ROOT / 'port' / sub).glob('*.cpp')):
-            jobs.append((src, out / 'obj' / sub / (src.stem + '.o'), COMMON + OPT[a.preset] + PORT_ONLY))
+            flags = COMMON + OPT[a.preset] + PORT_ONLY
+            if a.preset == 'debug':
+                flags = flags + ['-DGTA2_PORT_QA=1']
+            jobs.append((src, out / 'obj' / sub / (src.stem + '.o'), flags))
 
     failed = []
     with concurrent.futures.ThreadPoolExecutor(a.jobs) as ex:
@@ -185,6 +188,9 @@ def main(argv=None):
     rsp = out / 'objects.rsp'
     rsp.write_text('\n'.join(f'"{o}"' for o in objs))
     link = [str(EMXX), *OPT[a.preset], *LINK, f'@{rsp}', '-o', str(out / 'gta2.js')]
+    if a.preset == 'debug':
+        exports_index = next(i for i, arg in enumerate(link) if arg.startswith('-sEXPORTED_FUNCTIONS='))
+        link[exports_index] += ',_gta2_qa_show_pickup'
     if os.environ.get('GTA2_ALLOW_UNDEFINED'):
         link.append('-sERROR_ON_UNDEFINED_SYMBOLS=0')
     r = subprocess.run(link, capture_output=True, text=True)

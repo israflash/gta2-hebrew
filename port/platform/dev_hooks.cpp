@@ -13,6 +13,9 @@
 #include "map_0x370.hpp"
 #include "sprite.hpp"
 #include "Frontend.hpp"
+#if defined(GTA2_PORT_QA)
+#include "Hud.hpp"
+#endif
 #include "Gang.hpp"
 #include "PlyDat_2BC0.hpp"
 #include "rng.hpp"
@@ -275,6 +278,20 @@ EMSCRIPTEN_KEEPALIVE int gta2_dev_give_weapon(int kind, int ammo)
     Ped* ped = PlayerPed();
     return ped ? ped->AddWeaponWithAmmo_45DD30(kind, static_cast<char_type>(ammo)) : 0;
 }
+
+// Debug-build-only QA probe: invoke the game's real pickup HUD path. This is
+// deliberately absent from the release WASM and does not create a UI overlay.
+#if defined(GTA2_PORT_QA)
+EMSCRIPTEN_KEEPALIVE int gta2_qa_show_pickup(int pickup_idx)
+{
+    if (!PlayerPed() || !gHud_2B00_706620 || pickup_idx < 0 || pickup_idx > 43)
+    {
+        return 0;
+    }
+    gHud_2B00_706620->field_1080_pickup_text.ShowPickupText_5D5600(static_cast<u8>(pickup_idx));
+    return 1;
+}
+#endif
 
 // Test aid: adds cash to the player (e.g. the $50,000 a church save costs).
 EMSCRIPTEN_KEEPALIVE int gta2_dev_add_cash(int cash)

@@ -944,18 +944,17 @@ function wireHebrewMainMenu(Module, canvas) {
   const place = () => {
     const rect = canvas.getBoundingClientRect();
     // The original frontend is rendered into a 4:3 playfield, centered in
-    // the responsive canvas. Keep the labels aligned with that viewport.
+    // the responsive canvas. Keep the original English menu's text field and
+    // right-align Hebrew inside it; raw GXT coordinates are pre-layout values
+    // that incorrectly placed translated rows in the upper-left corner.
     const width = Math.min(rect.width, rect.height * (4 / 3));
     const height = width * (3 / 4);
-    const left = rect.left + (rect.width - width) / 2 + width * .44;
-    const top = rect.top + (rect.height - height) / 2 + height * .483;
+    const left = rect.left + (rect.width - width) / 2 + width * .465;
+    const top = rect.top + (rect.height - height) / 2 + height * .516;
     overlay.style.left = `${left}px`;
     overlay.style.top = `${top}px`;
-    overlay.style.width = `${width * .24}px`;
-    // Widen the opaque cover to hide the original English bitmap labels while
-    // keeping the Hebrew labels anchored at their previous right edge.
-    overlay.style.setProperty('--menu-label-shift', `${width * .11}px`);
-    overlay.style.height = `${height * .20}px`;
+    overlay.style.width = `${width * .175}px`;
+    overlay.style.height = `${height * .15}px`;
   };
   const sync = () => {
     const state = menuState();
@@ -966,7 +965,7 @@ function wireHebrewMainMenu(Module, canvas) {
       hasPlayer = !!(state && Module.HEAP32[state >> 2]);
     } catch { /* Keep the toolbar hidden until the game state is available. */ }
     if (tools) tools.hidden = page >= 0 || !hasPlayer;
-    overlay.hidden = page !== 0 || currentLang() !== 'he' || !!Module.gta2HebrewGxtReady;
+    overlay.hidden = page !== 0 || currentLang() !== 'he' || !Module.gta2HebrewGxtReady;
     if (page !== 0 || currentLang() !== 'he') return;
     const selected = state % 16;
     for (const option of options) option.classList.toggle('selected', Number(option.dataset.option) === selected);

@@ -19,26 +19,30 @@
 #include "text_0x14.hpp"
 
 extern "C" double gta2_port_now_ms();
+extern "C" s32 gta2_port_hud_offset_x();
 
 EM_JS(int, gta2_js_hebrew_gxt_draw,
-      (const wchar_t* text, int x, int y, int line_height, int font_type, int palette_type, int palette, int alpha),
+      (const wchar_t* text, int x, int y, int line_height, int draw_scale, int font_type, int palette_type,
+       int palette, int alpha, int hud_offset_x),
       {
           if (!Module.gta2HebrewGxtDraw || !Module.UTF16ToString)
           {
               return 0;
           }
           return Module.gta2HebrewGxtDraw(Module.UTF16ToString(text), x / 65536, y / 65536,
-                                          line_height / 65536, font_type, palette_type, palette, alpha) ? 1 : 0;
+                                          line_height / 65536, draw_scale / 65536, font_type, palette_type,
+                                          palette, alpha, hud_offset_x) ? 1 : 0;
       });
 
 extern "C" int gta2_port_hebrew_gxt_draw(const wchar_t* text, s32 x, s32 y, s32 line_height,
-                                         s32 font_type, s32 palette_type, s32 palette, s32 alpha)
+                                         s32 draw_scale, s32 font_type, s32 palette_type, s32 palette, s32 alpha)
 {
     if (!text || !*text || line_height <= 0)
     {
         return 0;
     }
-    return gta2_js_hebrew_gxt_draw(text, x, y, line_height, font_type, palette_type, palette, alpha);
+    return gta2_js_hebrew_gxt_draw(text, x, y, line_height, draw_scale, font_type, palette_type, palette,
+                                   alpha, gta2_port_hud_offset_x());
 }
 
 namespace

@@ -16,7 +16,7 @@ index 22f9a5d8..ad3d2579 100644
  DEFINE_GLOBAL(DWORD, gWindowRight_70675C, 0x70675C);
  DEFINE_GLOBAL(DWORD, gWindowBottom_70679C, 0x70679C);
 +extern "C" int gta2_port_hebrew_gxt_draw(const wchar_t* text, s32 x, s32 y, s32 line_height,
-+                                         s32 font_type, s32 palette_type, s32 palette, s32 alpha);
++                                         s32 draw_scale, s32 font_type, s32 palette_type, s32 palette, s32 alpha);
 +extern "C" int gta2_port_try_mission_title_draw(const wchar_t* text);
  
  //u16 word_703BAA; //DEFINE_GLOBAL(u16, word_703BAA, 0x703BAA);
@@ -38,7 +38,7 @@ index 22f9a5d8..ad3d2579 100644
      Fix16 lineHeight = scale_fp * (u16)gGtx_0x106C_703DD4->GetLineSpacing_5AA800(&font_type);
  
 +    // Draw cataloged Hebrew text at the same coordinates; otherwise keep the original glyphs.
-+    if (gta2_port_hebrew_gxt_draw(pText, xpos_fp.mValue, ypos_fp.mValue, lineHeight.mValue,
++    if (gta2_port_hebrew_gxt_draw(pText, xpos_fp.mValue, ypos_fp.mValue, lineHeight.mValue, scale_fp.mValue,
 +                                  font_type, og_palette_type, og_palette, alpha_value))
 +    {
 +        return;

@@ -113,6 +113,11 @@ void Gta2Port_SetFrameLayout(int32_t width, int32_t hudOffsetX)
     gHudOffsetX = static_cast<float>(hudOffsetX);
 }
 
+int32_t gta2_port_hud_offset_x()
+{
+    return static_cast<int32_t>(gHudOffsetX);
+}
+
 uint32_t gta2_port_present_count()
 {
     return gPresents;
