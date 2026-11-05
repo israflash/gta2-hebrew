@@ -3,7 +3,7 @@
 // Controls button. It writes the same registry values GTA2 Manager wrote; the game reads them
 // again at once, and the shell keeps them in this browser with the other settings.
 
-import { lang, onLangChange, registerDict, t } from './strings.js?v=4b03e30f19';
+import { lang, onLangChange, registerDict, t } from './strings.js?v=1f34ccf8dc';
 
 registerDict({
   en: {
