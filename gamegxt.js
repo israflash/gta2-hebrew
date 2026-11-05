@@ -1,7 +1,7 @@
 // Translate selected native GXT text at the original DrawText coordinates.
 // The game's bitmap font has no Hebrew glyphs, so the native draw is suppressed
 // only when an exact or placeholder-aware catalog entry is available.
-import { lang } from './strings.js?v=22853b9006';
+import { lang } from './strings.js?v=b2bc4e2610';
 
 const clean = (value) => String(value || '').replace(/^n!/, '').replace(/^[\u2160-\u2188]+\s*/, '').replace(/#/g, '').replace(/\s+/g, ' ').trim();
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -42,7 +42,7 @@ function markup(value, baseColor) {
 }
 
 export async function bindHebrewGxtRenderer(Module, canvas) {
-  const response = await fetch('./gxt-gameplay.he.json?v=22853b9006');
+  const response = await fetch('./gxt-gameplay.he.json?v=b2bc4e2610');
   if (!response.ok) throw new Error(`Hebrew game GXT catalog: HTTP ${response.status}`);
   const data = await response.json();
   const exact = new Map();
@@ -53,6 +53,19 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     if (/%[ds]/.test(source)) patterns.push({ pattern: patternFor(source), text: row.text });
     else exact.set(source, row.text);
   }
+
+  // Optional, local-only diagnostics. Nothing is sent off-device and the log
+  // stays in memory until this page is closed.
+  let auditEnabled = new URLSearchParams(location.search).has('gxt-audit');
+  if (!auditEnabled) {
+    try { auditEnabled = localStorage.getItem('gta2-gxt-audit') === '1'; } catch { /* diagnostics remain off */ }
+  }
+  const missing = new Map();
+  const audit = {
+    enabled: auditEnabled,
+    reset() { missing.clear(); },
+    snapshot() { return [...missing.values()].sort((a, b) => b.draws - a.draws); },
+  };
 
   const layer = document.createElement('div');
   layer.id = 'hebrew-gxt-layer';
@@ -90,7 +103,18 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
   Module.gta2HebrewGxtDraw = (source, x, y, lineHeight, fontType, paletteType, palette, alpha) => {
     if (lang() !== 'he') return 0;
     const text = translatedFor(source, data.records, exact, patterns);
-    if (text == null) return 0;
+    if (text == null) {
+      if (auditEnabled) {
+        const original = String(source || '').replace(/\s+/g, ' ').trim();
+        if (original) {
+          const record = missing.get(original) || { text: original, draws: 0, firstSeenAt: Math.round(performance.now()) };
+          record.draws++;
+          record.lastSeenAt = Math.round(performance.now());
+          missing.set(original, record);
+        }
+      }
+      return 0;
+    }
     const key = `${x.toFixed(2)}:${y.toFixed(2)}:${source}`;
     let item = nodes.get(key);
     if (!item) {
@@ -107,5 +131,6 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     if (!raf) raf = requestAnimationFrame(render);
     return 1;
   };
+  if (auditEnabled) window.gta2GxtAudit = audit;
   return data.records.length;
 }

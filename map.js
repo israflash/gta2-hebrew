@@ -4,8 +4,8 @@
 // downloaded. Read-only towards the game, apart from pausing it while the map
 // screen is open.
 
-import { lang, registerDict, t } from './strings.js?v=7f4c166755';
-import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=7f4c166755';
+import { lang, registerDict, t } from './strings.js?v=b2bc4e2610';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=b2bc4e2610';
 
 loadMissionTranslations().catch((err) => console.error(err));
 loadMissionTitles().catch((err) => console.error(err));
@@ -395,6 +395,11 @@ export class Gta2Map {
     this.hover = null;
     this.legendScroll = 0;
     this.jobBriefScroll = 0;
+    this.briefRenderKey = null;
+    this.briefHistoryRenderKey = null;
+    this.briefLayoutKey = null;
+    this.nativeBriefHidden = null;
+    this.nativeBriefMaxWidth = null;
     this.legendBox = null;
     this.jobBriefBox = null;
     this.coop = null;         // co-op match: other players and their waypoints (shell.js coopView)
@@ -506,6 +511,7 @@ export class Gta2Map {
     if (s && s.epoch !== this.epoch) {
       this.saveSeen();
       this.epoch = s.epoch;
+      this.nativeBriefMaxWidth = null;
       const sameDistrict = s.mapId === this.mapId;
       this.mapId = s.mapId;
       this.image = null;
@@ -537,7 +543,7 @@ export class Gta2Map {
     if (!panel || !s || !s.hasPlayer || s.paused || this.open || modalOpen || lang() !== 'he') {
       if (panel) panel.hidden = true;
       if (history) history.hidden = true;
-      this.setNativeBriefTextHidden(0);
+      this.syncNativeBriefTextHidden(false);
       document.body.classList.remove('mission-visible');
       return;
     }
@@ -545,7 +551,7 @@ export class Gta2Map {
     const newest = briefs[0];
     if (!newest) {
       panel.hidden = true;
-      this.setNativeBriefTextHidden(0);
+      this.syncNativeBriefTextHidden(false);
       document.body.classList.remove('mission-visible');
       return;
     }
@@ -561,21 +567,26 @@ export class Gta2Map {
     const refreshed = missionText(newest.text, { gxtKey: newest.gxtKey });
     if (latest && (latest.result.text !== refreshed.text || latest.result.translated !== refreshed.translated)) latest.result = refreshed;
     panel.hidden = !active || !newest || !refreshed.translated;
-    this.setNativeBriefTextHidden(!panel.hidden ? 1 : 0);
+    this.syncNativeBriefTextHidden(!panel.hidden);
     document.body.classList.toggle('mission-visible', !panel.hidden);
     if (!panel.hidden) {
       const row = this.briefHistory?.[0];
       const textNode = panel.querySelector('.mission-brief-text');
       const colorRuns = row?.result.colorRuns || refreshed.colorRuns;
-      if (colorRuns?.length) {
-        textNode.replaceChildren(...colorRuns.map((run) => {
-          const span = document.createElement('span');
-          if (run.highlighted) span.className = 'mission-brief-highlight';
-          span.textContent = run.text;
-          return span;
-        }));
-      } else {
-        textNode.textContent = row?.result.text || refreshed.text;
+      const renderKey = JSON.stringify([row?.result.text || refreshed.text, row?.result.translated ?? refreshed.translated, colorRuns]);
+      if (renderKey !== this.briefRenderKey) {
+        this.briefRenderKey = renderKey;
+        if (colorRuns?.length) {
+          textNode.replaceChildren(...colorRuns.map((run) => {
+            const span = document.createElement('span');
+            if (run.highlighted) span.className = 'mission-brief-highlight';
+            span.textContent = run.text;
+            return span;
+          }));
+        } else {
+          textNode.textContent = row?.result.text || refreshed.text;
+        }
+        this.briefLayoutKey = null;
       }
       panel.dir = row?.result.translated ? 'rtl' : 'auto';
       panel.classList.toggle('untranslated', !row?.result.translated);
@@ -583,10 +594,21 @@ export class Gta2Map {
     }
     if (!history.hidden) {
       const list = history.querySelector('.mission-history-list');
-      list.replaceChildren(...(this.briefHistory || []).map((item) => {
-        const p = document.createElement('p'); p.dir = item.result.translated ? 'rtl' : 'auto'; p.textContent = item.result.text; return p;
-      }));
+      const historyKey = JSON.stringify((this.briefHistory || []).map((item) => [item.gxtKey, item.result.text, item.result.translated]));
+      if (historyKey !== this.briefHistoryRenderKey) {
+        this.briefHistoryRenderKey = historyKey;
+        list.replaceChildren(...(this.briefHistory || []).map((item) => {
+          const p = document.createElement('p'); p.dir = item.result.translated ? 'rtl' : 'auto'; p.textContent = item.result.text; return p;
+        }));
+      }
     }
+  }
+
+  syncNativeBriefTextHidden(visible) {
+    const hidden = visible ? 1 : 0;
+    if (this.nativeBriefHidden === hidden) return;
+    this.nativeBriefHidden = hidden;
+    this.setNativeBriefTextHidden(hidden);
   }
 
   positionNativeBriefText(panel) {
@@ -608,19 +630,26 @@ export class Gta2Map {
     const tools = document.getElementById('tools');
     const toolsTop = tools && !tools.hidden ? tools.getBoundingClientRect().top : window.innerHeight;
     const textBottom = Math.min(viewTop + viewHeight, toolsTop - 8);
-    panel.style.left = `${left}px`;
-    panel.style.right = 'auto';
+    const panelWidth = `${Math.max(120 * scale, Math.min(576 * scale, right - left))}px`;
+    const panelBottom = `${Math.max(0, window.innerHeight - textBottom)}px`;
+    if (panel.style.left !== `${left}px`) panel.style.left = `${left}px`;
+    if (panel.style.right !== 'auto') panel.style.right = 'auto';
     // Native Hud_Brief_704 wraps at MaxLineWidth_62689C (576 game pixels).
     // In RTL mode the original face is mirrored to the right; stop the text before it.
     // Keep the HTML text to the native line budget, also respecting the minimap.
-    panel.style.width = `${Math.max(120 * scale, Math.min(576 * scale, right - left))}px`;
-    panel.style.bottom = `${Math.max(0, window.innerHeight - textBottom)}px`;
-    panel.style.maxHeight = 'none';
-    panel.style.overflow = 'visible';
+    if (panel.style.width !== panelWidth) panel.style.width = panelWidth;
+    if (panel.style.bottom !== panelBottom) panel.style.bottom = panelBottom;
+    if (panel.style.maxHeight !== 'none') panel.style.maxHeight = 'none';
+    if (panel.style.overflow !== 'visible') panel.style.overflow = 'visible';
     const textNode = panel.querySelector('.mission-brief-text');
     if (textNode) {
-      textNode.lang = 'he';
-      this.fitBriefTypography(textNode, Math.max(96 * scale, viewHeight * 0.58));
+      if (textNode.lang !== 'he') textNode.lang = 'he';
+      const maxHeight = Math.max(96 * scale, viewHeight * 0.58);
+      const layoutKey = `${this.briefRenderKey}|${panelWidth}|${maxHeight}|${window.devicePixelRatio}`;
+      if (layoutKey !== this.briefLayoutKey) {
+        this.briefLayoutKey = layoutKey;
+        this.fitBriefTypography(textNode, maxHeight);
+      }
     }
   }
 
@@ -729,7 +758,7 @@ export class Gta2Map {
   }
   fitNativeBriefToMinimap(s) {
     const vp = s && s.hasPlayer && this.minimapOn ? this.gameViewport() : null;
-    if (!vp) { this.setNativeBriefMaxWidth(576); return; }
+    if (!vp) { this.setNativeBriefMaxWidthCached(576); return; }
     const radius = Math.round(Math.min(105, Math.max(56, vp.h * 0.15)));
     const border = Math.max(5, Math.round(radius * 0.11));
     const centerX = vp.x + vp.w - radius - border - 14;
@@ -738,7 +767,13 @@ export class Gta2Map {
     const scale = vp.w / vp.refW;
     const textLeft = vp.x + 64 * scale;
     const width = Math.floor((radarLeft - 8 * scale - textLeft) / scale);
-    this.setNativeBriefMaxWidth(Math.max(240, Math.min(576, width)));
+    this.setNativeBriefMaxWidthCached(Math.max(240, Math.min(576, width)));
+  }
+
+  setNativeBriefMaxWidthCached(width) {
+    if (this.nativeBriefMaxWidth === width) return;
+    this.nativeBriefMaxWidth = width;
+    this.setNativeBriefMaxWidth(width);
   }
 
   /** The waypoint goes once the player gets to it. */
