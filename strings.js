@@ -38,6 +38,8 @@ export function setLang(code) {
   try { localStorage.setItem(STORAGE_KEY, code); } catch { /* storage unavailable */ }
   if (typeof document !== 'undefined') {
     document.documentElement.lang = code;
+    const landing = document.getElementById('landing');
+    if (landing) landing.dir = code === 'he' ? 'rtl' : 'ltr';
     applyDom(document);
   }
   for (const fn of [...listeners]) fn(code);
@@ -529,5 +531,7 @@ registerDict(UI);
 // In the browser: apply the stored language as soon as the page's markup is parsed.
 if (typeof document !== 'undefined') {
   document.documentElement.lang = current;
+  const landing = document.getElementById('landing');
+  if (landing) landing.dir = current === 'he' ? 'rtl' : 'ltr';
   applyDom(document);
 }
