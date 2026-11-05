@@ -457,7 +457,7 @@ const UI = {
     'ui.tools.controlsTitle': 'שינוי מקשי המשחק',
     'ui.district.downtown': 'Downtown', 'ui.district.residential': 'Residential', 'ui.district.industrial': 'Industrial',
     'ui.help.q7': 'אילו שפות זמינות?',
-    'ui.help.a7': 'השפות הזמינות הן אנגלית, ספרדית, צרפתית ועברית. במצב עברית הודעות המשימה וכותרותיהן מתורגמות; שמות רחובות, רכבים, תפריטי משנה ואודיו נשארים באנגלית.',
+    'ui.help.a7': 'השפות הזמינות הן אנגלית, ספרדית, צרפתית ועברית. במצב עברית הודעות וכותרות משימה ומחרוזות משחק נבחרות מתורגמות; שמות רחובות, רכבים, שילוט ואודיו נשארים באנגלית.',
     'ui.foot.credit': '<a href="https://github.com/israflash/gta2-hebrew" target="_blank" rel="noopener">פרויקט המעריצים בעברית</a> · קוד המקור והקרדיטים למפתח המקורי: <a href="https://github.com/M1sterMo/gta2-browser" target="_blank" rel="noopener">M1sterMo/gta2-browser</a> · GTA2 © Rockstar Games',
 
     // Landing page, setup, controls, options, saves and multiplayer.
