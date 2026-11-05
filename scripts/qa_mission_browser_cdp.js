@@ -131,6 +131,17 @@ async function main() {
       await waitFor(`window.gta2.map.jobBriefs().briefs.some((b) => b.gxtKey === '${compareKey}')`, Boolean, `source GXT ${compareKey}`);
       const hebrewProbe = await evaluate(`(() => { const p=document.querySelector('#mission-brief'),t=p?.querySelector('.mission-brief-text'),m=window.gta2.map;return {panel:p?.getBoundingClientRect().toJSON(),text:t?.getBoundingClientRect().toJSON(),style:t?{font:getComputedStyle(t).font,fontFamily:getComputedStyle(t).fontFamily,lineHeight:getComputedStyle(t).lineHeight,whiteSpace:getComputedStyle(t).whiteSpace,direction:getComputedStyle(t).direction}:null,scrollWidth:t?.scrollWidth,clientWidth:t?.clientWidth,runs:[...(t?.children||[])].map(e=>({text:e.innerText,rect:e.getBoundingClientRect().toJSON()})),canvas:m.gameCanvas.getBoundingClientRect().toJSON(),viewport:m.renderer.viewport,scale:m.renderer.scale};})()`);
       const hebrewShot = await capture('font-compare-hebrew-after');
+      let sameStateDialogComparison = null;
+      if (process.env.GTA2_QA_DIALOG_SIZE_COMPARE) {
+        await evaluate(`(() => {const t=document.querySelector('#mission-brief .mission-brief-text');let s=document.getElementById('gta2-qa-old-dialog-size');if(!s){s=document.createElement('style');s.id='gta2-qa-old-dialog-size';document.head.append(s)}s.textContent='#mission-brief .mission-brief-text{font-size:clamp(20px,2.65vh,22px)!important;line-height:1.38!important;word-spacing:.1em!important}';return true})()`);
+        const beforeProbe = await evaluate(`(() => {const t=document.querySelector('#mission-brief .mission-brief-text');return {font:getComputedStyle(t).font,rect:t.getBoundingClientRect().toJSON(),scrollHeight:t.scrollHeight,clientHeight:t.clientHeight}})()`);
+        const beforeScreenshot = await capture('dialog-size-before-same-state');
+        await evaluate(`(() => {document.getElementById('gta2-qa-old-dialog-size')?.remove();const t=document.querySelector('#mission-brief .mission-brief-text');t.removeAttribute('style');window.gta2.map.positionNativeBriefText(document.querySelector('#mission-brief'));return true})()`);
+        await wait(100);
+        const afterProbe = await evaluate(`(() => {const t=document.querySelector('#mission-brief .mission-brief-text');return {font:getComputedStyle(t).font,rect:t.getBoundingClientRect().toJSON(),scrollHeight:t.scrollHeight,clientHeight:t.clientHeight}})()`);
+        const afterScreenshot = await capture('dialog-size-after-same-state');
+        sameStateDialogComparison = {beforeProbe,beforeScreenshot,afterProbe,afterScreenshot};
+      }
       const fontFiles = process.env.GTA2_QA_FONT_FILES ? JSON.parse(process.env.GTA2_QA_FONT_FILES) : null;
       const fontComparisons = [];
       if (fontFiles) {
@@ -154,7 +165,7 @@ async function main() {
       await wait(250);
       const englishShot = await capture('font-compare-english-native');
       await evaluate(`localStorage.setItem('gta2-port-lang', 'he')`);
-      console.log(JSON.stringify({ fontComparison: { gxtKey: compareKey, hebrew: hebrew.text, hebrewProbe, hebrewShot, fontComparisons, englishShot } }));
+      console.log(JSON.stringify({ fontComparison: { gxtKey: compareKey, hebrew: hebrew.text, hebrewProbe, hebrewShot, sameStateDialogComparison, fontComparisons, englishShot } }));
     }
 
     if (process.env.GTA2_QA_MAP_TEST) {
@@ -221,7 +232,33 @@ async function main() {
         const restored = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_mission_title','number',['number'],[${titleKey}])`);
         if (!restored) throw new Error(`mission title ${titleKey} could not be reissued after language switch`);
         await waitFor(`!document.querySelector('#mission-title')?.hidden`, Boolean, 'Hebrew mission title restored');
-      }      if (process.env.GTA2_QA_BIDI_TEST) {
+      }
+      if (process.env.GTA2_QA_TITLE_FONT_FILE) {
+        const file = process.env.GTA2_QA_TITLE_FONT_FILE;
+        const data = (await fs.readFile(file)).toString('base64');
+        const family = 'GTA2 QA Noto Title';
+        await evaluate(`(() => {const s=document.createElement('style');s.id='gta2-qa-title-font';s.textContent=${JSON.stringify(`@font-face{font-family:"${family}";src:url(data:font/ttf;base64,${data}) format('truetype');font-weight:900;font-display:block}`)};document.head.append(s);return true})()`);
+        await evaluate(`document.fonts.load('900 36px "${family}"')`);
+        const productionRenderer = await evaluate(`window.gta2.map.renderMissionTitle.toString()`);
+        const candidateRenderer = productionRenderer.replaceAll('GTA2 Impact Pixel', family);
+        await evaluate(`(() => {const m=window.gta2.map,c=document.querySelector('#mission-title');m.renderMissionTitle=new Function('return ({'+${JSON.stringify(candidateRenderer)}+'}).renderMissionTitle')();m.renderMissionTitle(c,${JSON.stringify(title)});return true})()`);
+        const titleFontProbe = await evaluate(`(() => {const c=document.querySelector('#mission-title');return {rect:c.getBoundingClientRect().toJSON(),pixelWidth:c.width,pixelHeight:c.height,fontLoaded:document.fonts.check('900 36px "${family}"')}})()`);
+        missionTitleTest.candidateFont = { family, probe: titleFontProbe, screenshot: await capture('mission-title-1975-noto-sans-hebrew-black') };
+        await evaluate(`(() => {const m=window.gta2.map,c=document.querySelector('#mission-title');m.renderMissionTitle=new Function('return ({'+${JSON.stringify(productionRenderer)}+'}).renderMissionTitle')();m.renderMissionTitle(c,${JSON.stringify(title)});document.getElementById('gta2-qa-title-font')?.remove();return true})()`);
+      }
+      if (process.env.GTA2_QA_TITLE_RESOLUTIONS) {
+        missionTitleTest.resolutionShots = [];
+        for (const size of [{ width: 1200, height: 800 }, { width: 1366, height: 768 }, { width: 1920, height: 1080 }]) {
+          await cdp.send('Emulation.setDeviceMetricsOverride', { ...size, deviceScaleFactor: 1, mobile: false });
+          await wait(450);
+          const shown = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_mission_title','number',['number'],[${titleKey}])`);
+          if (!shown) throw new Error(`could not show title ${titleKey} at ${size.width}x${size.height}`);
+          await wait(120);
+          missionTitleTest.resolutionShots.push({ ...size, screenshot: await capture(`mission-title-${titleKey}-${size.width}x${size.height}`), probe: await evaluate(`(()=>{const c=document.querySelector('#mission-title');return {rect:c.getBoundingClientRect().toJSON(),fontSize:c.dataset.fontSizeUsed,fitOverflow:c.dataset.fitOverflow,rendererScale:window.gta2.map.renderer.scale}})()`) });
+        }
+        await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1200, height: 800, deviceScaleFactor: 1, mobile: false });
+      }
+      if (process.env.GTA2_QA_BIDI_TEST) {
         const variants = ['חילוץ זיטזאקי!', 'איפה טריי?', 'נקודה, פסיק: (2)', 'חילוץ Yakuza 50!'];
         const bidiShots = [];
         const first = variants[0];

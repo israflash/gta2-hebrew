@@ -22,18 +22,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out the released source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.release.tag_name }}
           fetch-depth: 0
 
       - name: Set up Python and Node
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.13'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
+          package-manager-cache: false
 
       - name: Check source catalogs and runtime matching
         run: |
@@ -52,7 +53,7 @@ jobs:
           git -C research/toolchains/unshield checkout --quiet --detach 0d1e7cb
 
       - name: Install pinned Emscripten toolchain
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: emscripten-core/emsdk
           ref: main
@@ -106,13 +107,14 @@ jobs:
           fi
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: build/pages
+          include-hidden-files: true
 
       - name: Deploy Pages artifact
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
