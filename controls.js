@@ -3,7 +3,7 @@
 // Controls button. It writes the same registry values GTA2 Manager wrote; the game reads them
 // again at once, and the shell keeps them in this browser with the other settings.
 
-import { onLangChange, registerDict, t } from './strings.js?v=45fdea3e72';
+import { lang, onLangChange, registerDict, t } from './strings.js?v=4b03e30f19';
 
 registerDict({
   en: {
@@ -306,6 +306,9 @@ export class ControlsScreen {
 
   render() {
     if (!this.open) return;
+    const language = lang();
+    this.root.lang = language;
+    this.root.dir = language === 'he' ? 'rtl' : 'ltr';
     this.root.setAttribute('aria-label', t('ui.keys.title'));
     const current = this.bindings();
     const list = el('div', { class: 'controls-list' });
@@ -321,7 +324,7 @@ export class ControlsScreen {
     this.root.replaceChildren(el('div', { class: 'saves-panel controls-panel' },
       el('div', { class: 'saves-head' },
         el('h2', {}, t('ui.keys.title')),
-        el('span', { class: 'saves-keys' }, t('ui.keys.hint')),
+        el('span', { class: 'saves-keys', dir: 'auto' }, t('ui.keys.hint')),
         el('button', { type: 'button', class: 'saves-close', 'aria-label': t('ui.keys.close'), onclick: () => this.close() }, '✕')),
       list,
       el('p', { class: 'saves-note', role: 'status' }, this.message || t('ui.keys.menus')),

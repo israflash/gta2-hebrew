@@ -25,11 +25,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
   <style>
     :root { color-scheme: dark; --bg: #0b0b0d; --fg: #e8e6e3; --muted: #9a978f; --accent: #e63946; }
-    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=6c3c0e4d0f") format("truetype");
+    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=4b03e30f19") format("truetype");
       font-style: normal; font-weight: 400; font-display: swap; }
-    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=6c3c0e4d0f") format("truetype");
+    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=4b03e30f19") format("truetype");
       font-style: normal; font-weight: 400 900; font-display: swap; }
-    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=6c3c0e4d0f") format("truetype");
+    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=4b03e30f19") format("truetype");
       font-style: normal; font-weight: 900; font-display: swap; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
       font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -69,11 +69,14 @@
       padding: 16px; background: rgba(0, 0, 0, .72); }
     #controls-screen[hidden] { display: none; }
     .controls-panel { width: min(560px, 100%); }
+    #controls-screen[dir="rtl"] .controls-panel { text-align: right; }
     .controls-list { display: grid; gap: .35rem; }
     .controls-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .3rem .5rem;
       border-radius: 6px; background: #1d2027; }
+    #controls-screen[dir="rtl"] .controls-row { direction: rtl; }
     .controls-row button, .controls-actions button { min-width: 8.5rem; padding: .4rem .7rem; border-radius: 5px;
       border: 1px solid #3a3f4b; background: #262a33; color: #e8e8e8; cursor: pointer; font: inherit; font-size: .9rem; }
+    .controls-row button { direction: ltr; unicode-bidi: isolate; }
     .controls-row button.waiting { border-color: #f5c518; color: #f5c518; }
     .controls-actions { display: flex; justify-content: flex-end; gap: .5rem; }
     .controls-actions button.primary { background: #f5c518; border-color: #f5c518; color: #111; font-weight: 600; }
@@ -561,6 +564,6 @@
   </main>
   <!-- strings.js is imported by shell.js (one module instance); it applies the stored
        language as soon as the page's markup is parsed. -->
-  <script type="module" src="shell.js?v=6c3c0e4d0f"></script>
+  <script type="module" src="shell.js?v=4b03e30f19"></script>
 </body>
 </html>
