@@ -258,6 +258,26 @@ async function main() {
       console.log(JSON.stringify({ physicalPickupCollision: { target, teleportedTo: result, translatedText: observed, hebrewScreenshot, englishComparison } }, null, 2));
       return;
     }
+    if (process.env.GTA2_QA_FATAL_EVENTS_ONLY) {
+      const events = [
+        { name: 'arrest', hook: 'gta2_qa_bust_player', expected: 'נעצרת!', screenshot: 'fatal-event-arrest' },
+        { name: 'death', hook: 'gta2_qa_kill_player', expected: 'חוסלת!', screenshot: 'fatal-event-death' },
+      ];
+      const results = [];
+      for (const event of events) {
+        await navigate(`${BASE}?devdata&autostart`);
+        await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'production GXT renderer');
+        await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, `live game view before ${event.name} event`, 120000);
+        if (await evaluate('document.documentElement.lang') !== 'he') throw new Error('fatal-event QA expects Hebrew as the initial language');
+        const triggered = await evaluate(`window.gta2.Module.ccall(${JSON.stringify(event.hook)},'number',[],[])`);
+        if (!triggered) throw new Error(`engine rejected QA ${event.name} trigger`);
+        const text = await waitFor(`(() => [...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean))()`,
+          (values) => values.includes(event.expected), `translated ${event.name} HUD text`);
+        results.push({ event: event.name, expected: event.expected, text, screenshot: await capture(event.screenshot) });
+      }
+      console.log(JSON.stringify({ fatalEventHud: results }, null, 2));
+      return;
+    }
     if (process.env.GTA2_QA_DISTRICT_SWEEP === '1') {
       const districts = ['Downtown', 'Residential', 'Industrial'];
       const requested = process.env.GTA2_QA_DISTRICT_INDEX;

@@ -233,6 +233,29 @@ EMSCRIPTEN_KEEPALIVE int gta2_qa_force_main_stage(int stage)
     gFrontend_67DC84->UpdateMainStageArrows_4B7550();
     return 1;
 }
+
+// QA only: exercise the engine's real arrest/death presentation paths.
+EMSCRIPTEN_KEEPALIVE int gta2_qa_bust_player()
+{
+    Player* player = gGame_0x40_67E008 ? gGame_0x40_67E008->field_38_orf1 : nullptr;
+    if (!player || !PlayerPed())
+    {
+        return 0;
+    }
+    player->Busted_5679E0();
+    return 1;
+}
+
+EMSCRIPTEN_KEEPALIVE int gta2_qa_kill_player()
+{
+    Ped* ped = PlayerPed();
+    if (!ped)
+    {
+        return 0;
+    }
+    ped->TakeDamage(1000);
+    return 1;
+}
 #endif
 
 // Test aid: sets the player's respect with gang index (0..9) to value (-100..100).
