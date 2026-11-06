@@ -7,9 +7,9 @@
 //
 // The engine's own in-game Options screen is deliberately not involved (it has
 // a known bug); the web setting always wins.
-import { onLangChange, registerDict, t } from './strings.js?v=1f34ccf8dc';
-import { GAME_TRANSLATIONS } from './gxt-translations.js?v=1f34ccf8dc';
-import { translateGxt } from './gxtgen.js?v=1f34ccf8dc';
+import { onLangChange, registerDict, t } from './strings.js?v=708c628cc7';
+import { GAME_TRANSLATIONS } from './gxt-translations.js?v=708c628cc7';
+import { translateGxt } from './gxtgen.js?v=708c628cc7';
 
 const GAME_DIR = '/gta2';
 const GXT_LETTERS = { en: 'e', es: 's', fr: 'f', he: 'e' };
