@@ -34,13 +34,20 @@ function translatedFor(source, records, exact, patterns) {
 export function createGxtResolver(records) {
   const exact = new Map();
   const patterns = [];
+  // Pickup notifications are a semantic HUD group (GXT c00-c43). Their
+  // native x coordinate can differ between renderer paths, so placement must
+  // not depend on an exact font/palette/y tuple.
+  const pickupSources = new Set();
   for (const row of records || []) {
     const source = clean(row.source);
     if (!source || !row.text) continue;
+    if (/^c(?:0\d|[1-3]\d|4[0-3])$/i.test(String(row.key || ''))) pickupSources.add(source);
     if (/%[ds]/.test(source)) patterns.push({ pattern: patternFor(source), text: row.text });
     else exact.set(source, row.text);
   }
-  return (source) => translatedFor(source, records, exact, patterns);
+  const resolve = (source) => translatedFor(source, records, exact, patterns);
+  resolve.isPickupLabel = (source) => pickupSources.has(clean(source));
+  return resolve;
 }
 
 function markup(value, baseColor) {
@@ -162,8 +169,7 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     item.drawScale = Number(drawScale) || 1; item.hudOffsetX = Number(hudOffsetX) || 0;
     item.lineHeight = lineHeight; item.fontType = fontType;
     item.paletteType = paletteType; item.palette = palette; item.alpha = alpha;
-    const logicalY = item.y / item.drawScale;
-    item.centeredHudBanner = Number(fontType) === 1 && Number(paletteType) === 8 && Number(palette) === 5 && Math.abs(logicalY - 32) < 0.1;
+    item.centeredHudBanner = resolveGxt.isPickupLabel(source);
     const details = { gxtX: x, gxtY: y, lineHeight, fontType, paletteType, palette };
     for (const [name, value] of Object.entries(details)) {
       if (item.node.dataset[name] !== String(value)) item.node.dataset[name] = String(value);

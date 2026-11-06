@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+// Regression coverage for semantic placement of native pickup labels.
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+
+async function main() {
+  const file = path.join(__dirname, '..', 'web', 'gamegxt.js');
+  const source = fs.readFileSync(file, 'utf8')
+    .replace("import { lang } from './strings.js';", 'const lang = () => \'he\';');
+  const { createGxtResolver } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+  const resolver = createGxtResolver([
+    { key: 'c00', source: 'Pistol', text: 'אקדח' },
+    { key: 'c01', source: 'S-Uzi Machine Gun', text: 'תת־מקלע S-Uzi' },
+    { key: 'c28', source: 'Multiplier +1', text: 'מכפיל +1' },
+    { key: 'mfail', source: 'JOB FAILED!', text: 'המשימה נכשלה!' },
+  ]);
+
+  for (const label of ['Pistol', 'S-Uzi Machine Gun', 'Multiplier +1']) {
+    assert.equal(resolver.isPickupLabel(label), true, `${label} must use centered pickup placement`);
+  }
+  assert.equal(resolver.isPickupLabel('JOB FAILED!'), false, 'ordinary GXT text keeps native coordinates');
+  assert.equal(resolver.isPickupLabel('Pistol '), true, 'pickup recognition tolerates native whitespace');
+  assert.equal(resolver('Pistol'), 'אקדח', 'the original translation mapping remains intact');
+  console.log('test_hud_gxt_placement: OK (pickup placement follows GXT identity, not draw-style heuristics)');
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

@@ -39,6 +39,7 @@ jobs:
       - name: Check source catalogs and runtime matching
         run: |
           node scripts/test_gxt.js
+          node scripts/test_hud_gxt_placement.js
           node scripts/test_mission_translations.js
           node scripts/test_mission_names.js
           node scripts/test_mission_runtime.js
