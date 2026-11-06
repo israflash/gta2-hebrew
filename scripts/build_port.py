@@ -190,7 +190,7 @@ def main(argv=None):
     link = [str(EMXX), *OPT[a.preset], *LINK, f'@{rsp}', '-o', str(out / 'gta2.js')]
     if a.preset == 'debug':
         exports_index = next(i for i, arg in enumerate(link) if arg.startswith('-sEXPORTED_FUNCTIONS='))
-        link[exports_index] += ',_gta2_qa_show_pickup'
+        link[exports_index] += ',_gta2_qa_show_pickup,_gta2_qa_main_stage,_gta2_qa_force_main_stage'
     if os.environ.get('GTA2_ALLOW_UNDEFINED'):
         link.append('-sERROR_ON_UNDEFINED_SYMBOLS=0')
     r = subprocess.run(link, capture_output=True, text=True)

@@ -13,6 +13,7 @@
 #include "map_0x370.hpp"
 #include "sprite.hpp"
 #include "Frontend.hpp"
+#include "GameSession_578.hpp"
 #if defined(GTA2_PORT_QA)
 #include "Hud.hpp"
 #endif
@@ -210,6 +211,29 @@ EMSCRIPTEN_KEEPALIVE int gta2_dev_unlock_areas()
     gFrontend_67DC84->UpdateMenuForCurrPlayer_4B42E0();
     return 1;
 }
+
+// Debug QA probe: reports the currently selected campaign district so a
+// browser test can use the original Play menu arrows to select a district.
+#if defined(GTA2_PORT_QA)
+EMSCRIPTEN_KEEPALIVE int gta2_qa_main_stage()
+{
+    return gGameSession_67E8E0.GetMainStageIdx_4C5980();
+}
+
+// QA only: set the selected campaign district directly when a browser input
+// harness cannot drive the original selector; game loading still uses the
+// original menu action and district script.
+EMSCRIPTEN_KEEPALIVE int gta2_qa_force_main_stage(int stage)
+{
+    if (!gFrontend_67DC84 || stage < 0 || stage >= 3)
+    {
+        return 0;
+    }
+    gGameSession_67E8E0.SetMainStageIdx_4C58F0(static_cast<char_type>(stage));
+    gFrontend_67DC84->UpdateMainStageArrows_4B7550();
+    return 1;
+}
+#endif
 
 // Test aid: sets the player's respect with gang index (0..9) to value (-100..100).
 EMSCRIPTEN_KEEPALIVE int gta2_dev_set_respect(int gang, int value)

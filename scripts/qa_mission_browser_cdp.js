@@ -129,6 +129,218 @@ async function main() {
       return file;
     };
     const visibleTranslated = `(() => { const p=document.querySelector('#mission-brief'); const t=p?.querySelector('.mission-brief-text'); return p && !p.hidden && t?.innerText ? {text:t.innerText,dir:p.dir} : null; })()`;
+    if (process.env.GTA2_QA_PICKUP_RENDERER_ONLY) {
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'production GXT renderer');
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'live game view for pickup-position screenshot', 120000);
+      const results = [];
+      for (const item of [
+        { source: 'Pistol', expected: 'אקדח', name: 'pickup-semantic-pistol' },
+        { source: 'S-Uzi Machine Gun', expected: 'תת־מקלע S-Uzi', name: 'pickup-semantic-suzi' },
+      ]) {
+        const timer = await evaluate(`(() => {const draw=window.gta2.Module.gta2HebrewGxtDraw;return setInterval(()=>draw(${JSON.stringify(item.source)},5,32,24,1,1,8,5,255,0),40)})()`);
+        await waitFor(`(() => [...document.querySelectorAll('.hebrew-gxt-text')].some(n=>n.innerText.trim()===${JSON.stringify(item.expected)}))()`, Boolean, `${item.source} translated renderer node`);
+        const node = await evaluate(`(() => {
+          const n=[...document.querySelectorAll('.hebrew-gxt-text')].find(x=>x.innerText.trim()===${JSON.stringify(item.expected)});
+          const canvas=document.querySelector('#screen');
+          const rect=canvas.getBoundingClientRect();
+          const dpr=window.devicePixelRatio||1;
+          const viewport=window.gta2.Module.gta2Renderer?.viewport||{x:0,w:canvas.width};
+          const expectedCenter=rect.left+viewport.x/dpr+viewport.w/(2*dpr);
+          const textRect=n.getBoundingClientRect();
+          const title=document.querySelector('#mission-title');
+          const titleRect=title?.getBoundingClientRect();
+          const titleOverlap=!!(title&&!title.hidden&&titleRect&&textRect.left<titleRect.right&&textRect.right>titleRect.left&&textRect.top<titleRect.bottom&&textRect.bottom>titleRect.top);
+          return {text:n.innerText,rect:textRect.toJSON(),centered:n.style.transform==='translateX(-50%)',color:n.style.color,expectedCenter,titleOverlap,titleHidden:!title||title.hidden,titleRect:titleRect?.toJSON()};
+        })()`);
+        if (!node.centered || Math.abs(node.rect.x + node.rect.width / 2 - node.expectedCenter) > 2) throw new Error(`${item.source} was not centered in the rendered viewport: ${JSON.stringify(node)}`);
+        results.push({ ...item, node, screenshot: await capture(item.name) });
+        await evaluate(`clearInterval(${timer})`);
+        await evaluate(`document.querySelectorAll('.hebrew-gxt-text').forEach(n=>n.remove())`);
+      }
+      console.log(JSON.stringify({ semanticPickupRenderer: results }, null, 2));
+      return;
+    }
+    if (process.env.GTA2_QA_PICKUP_NATIVE_ONLY) {
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'production GXT renderer');
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'live game view for native pickup HUD test', 120000);
+      const pickupIndices = (process.env.GTA2_QA_PICKUP_INDICES || '0,1,2,6,9,10')
+        .split(',').map((value) => Number(value.trim())).filter(Number.isInteger);
+      const viewportSizes = (process.env.GTA2_QA_PICKUP_VIEWPORTS || '')
+        .split(',').map((value) => value.trim()).filter(Boolean)
+        .map((value) => value.split('x').map(Number))
+        .filter((size) => size.length === 2 && size.every((dimension) => Number.isInteger(dimension) && dimension > 0));
+      if (!viewportSizes.length) viewportSizes.push([
+        Number(process.env.GTA2_QA_WIDTH) || 1200,
+        Number(process.env.GTA2_QA_HEIGHT) || 800,
+      ]);
+      const results = [];
+      for (const [width, height] of viewportSizes) {
+        await cdp.send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
+        await wait(350);
+        for (const pickupIdx of pickupIndices) {
+          const shown = await evaluate(`window.gta2.Module.ccall('gta2_qa_show_pickup','number',['number'],[${pickupIdx}])`);
+          if (!shown) throw new Error(`native pickup HUD route rejected index ${pickupIdx}`);
+          await waitFor(`(() => [...document.querySelectorAll('.hebrew-gxt-text')].some(n=>n.innerText.trim()))()`, Boolean, `native pickup GXT ${pickupIdx}`);
+          await wait(80);
+          const node = await evaluate(`(() => {
+            const n=[...document.querySelectorAll('.hebrew-gxt-text')].find(x=>x.innerText.trim());
+            const canvas=document.querySelector('#screen');
+            const rect=canvas.getBoundingClientRect();
+            const dpr=window.devicePixelRatio||1;
+            const viewport=window.gta2.Module.gta2Renderer?.viewport||{x:0,w:canvas.width};
+            const expectedCenter=rect.left+viewport.x/dpr+viewport.w/(2*dpr);
+            const textRect=n.getBoundingClientRect();
+            const title=document.querySelector('#mission-title');
+            const titleRect=title?.getBoundingClientRect();
+            const titleOverlap=!!(title&&!title.hidden&&titleRect&&textRect.left<titleRect.right&&textRect.right>titleRect.left&&textRect.top<titleRect.bottom&&textRect.bottom>titleRect.top);
+            return {text:n.innerText,rect:textRect.toJSON(),centered:n.style.transform==='translateX(-50%)',color:n.style.color,expectedCenter,titleOverlap,titleHidden:!title||title.hidden,titleRect:titleRect?.toJSON()};
+          })()`);
+          if (!node.centered || Math.abs(node.rect.x + node.rect.width / 2 - node.expectedCenter) > 2) {
+            throw new Error(`native pickup ${pickupIdx} was not centered at ${width}x${height}: ${JSON.stringify(node)}`);
+          }
+          if (node.titleOverlap) throw new Error(`native pickup ${pickupIdx} overlaps the visible mission title: ${JSON.stringify(node)}`);
+          results.push({ viewport: `${width}x${height}`, pickupIdx, node, screenshot: await capture(`pickup-native-current-${width}x${height}-${pickupIdx}`) });
+          await wait(900);
+        }
+      }
+      console.log(JSON.stringify({ nativePickupHud: results }, null, 2));
+      return;
+    }
+    if (process.env.GTA2_QA_PICKUP_COLLISION_ONLY) {
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'production GXT renderer');
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'live game view for physical weapon pickup test', 120000);
+      const target = await evaluate(`(() => {
+        const m=window.gta2.Module;
+        const ptr=m._malloc(2048*5*4);
+        const count=m.ccall('gta2_port_map_objects','number',['number','number'],[ptr,2048]);
+        const objects=[];
+        for(let i=0;i<count;i++){
+          const off=(ptr>>2)+i*5;
+          const model=m.HEAP32[off],x=m.HEAP32[off+1],y=m.HEAP32[off+2],z=m.HEAP32[off+3];
+          if(model>=200&&model<=227) objects.push({model,x,y,z});
+        }
+        m._free(ptr);
+        const p=window.gta2.dev.state();
+        objects.sort((a,b)=>Math.hypot(a.x/16384-p.x,a.y/16384-p.y)-Math.hypot(b.x/16384-p.x,b.y/16384-p.y));
+        return {player:p,pickups:objects.slice(0,8)};
+      })()`);
+      if (!target.pickups.length) throw new Error(`no physical weapon pickups found in current map: ${JSON.stringify(target)}`);
+      const result = await evaluate(`(() => {
+        const p=${JSON.stringify(target.pickups[0])};
+        const x=Math.floor(p.x/16384),y=Math.floor(p.y/16384);
+        const moved=window.gta2.dev.teleport(x,y);
+        return {moved,x,y,target:p};
+      })()`);
+      if (!result.moved) throw new Error(`could not teleport the isolated QA player to a weapon pickup: ${JSON.stringify(result)}`);
+      await wait(500);
+      await evaluate(`window.gta2.dev.hold('ArrowUp',250)`);
+      const observed = await waitFor(`(() => {
+        const text=[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).find(Boolean);
+        return text||null;
+      })()`, Boolean, 'weapon pickup collision to produce native translated HUD text', 10000);
+      const hebrewScreenshot = await capture('pickup-physical-collision-hebrew');
+      let englishComparison = null;
+      if (target.pickups.length > 1) {
+        await evaluate(`document.querySelector('#lang-toggle')?.click()`);
+        await waitFor(`document.documentElement.lang==='en'`, Boolean, 'English toggle for physical pickup comparison');
+        const englishTarget = target.pickups[1];
+        const teleported = await evaluate(`(() => {const p=${JSON.stringify(englishTarget)};return {moved:window.gta2.dev.teleport(Math.floor(p.x/16384),Math.floor(p.y/16384)),target:p}})()`);
+        if (!teleported.moved) throw new Error(`could not move the isolated QA player to the English comparison pickup: ${JSON.stringify(teleported)}`);
+        await wait(500);
+        await evaluate(`window.gta2.dev.hold('ArrowUp',250)`);
+        const englishDomText = await waitFor(`(() => [...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).find(Boolean)||'')()`,
+          (value) => value === '', 'English pickup fallback without Hebrew overlay', 10000);
+        englishComparison = { englishDomText, target: teleported, screenshot: await capture('pickup-physical-collision-english') };
+      }
+      console.log(JSON.stringify({ physicalPickupCollision: { target, teleportedTo: result, translatedText: observed, hebrewScreenshot, englishComparison } }, null, 2));
+      return;
+    }
+    if (process.env.GTA2_QA_DISTRICT_SWEEP === '1') {
+      const districts = ['Downtown', 'Residential', 'Industrial'];
+      const requested = process.env.GTA2_QA_DISTRICT_INDEX;
+      const targets = requested === undefined ? [0, 1, 2] : [Number(requested)];
+      if (targets.some((n) => !Number.isInteger(n) || n < 0 || n > 2)) throw new Error(`invalid district index: ${requested}`);
+      const key = async (name, code, virtualKey) => {
+        await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key: name, code, windowsVirtualKeyCode: virtualKey });
+        await wait(160);
+        await cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', key: name, code, windowsVirtualKeyCode: virtualKey });
+        await wait(220);
+      };
+      const sweep = [];
+      for (const target of targets) {
+        await navigate(`${BASE}?devdata`);
+        await waitFor(`(() => {const m=window.gta2?.Module;return !!m && m.ccall('gta2_port_frontend_menu_state','number',[],[]) >= 0})()`, Boolean, `${districts[target]} original frontend menu`, 120000);
+        await evaluate(`document.querySelector('#screen')?.focus()`);
+        await wait(300);
+        let state = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+        if (Math.floor(state / 16) !== 0) throw new Error(`expected start menu before district selection, got ${state}`);
+        while (state % 16 > 0) {
+          await key('ArrowUp', 'ArrowUp', 0x26);
+          state = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+        }
+        await key('Enter', 'Enter', 0x0d);
+        await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, (v) => Math.floor(v / 16) === 1, 'Play menu');
+        const unlocked = await evaluate(`window.gta2.Module.ccall('gta2_dev_unlock_areas','number',[],[])`);
+        if (unlocked !== 1) throw new Error(`could not unlock test districts in isolated profile: ${unlocked}`);
+        await evaluate(`document.querySelector('#screen')?.focus()`);
+        await wait(250);
+        state = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+        while (state % 16 < 3) {
+          await key('ArrowDown', 'ArrowDown', 0x28);
+          state = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+        }
+        while (state % 16 > 3) {
+          await key('ArrowUp', 'ArrowUp', 0x26);
+          state = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+        }
+        let current = await evaluate(`window.gta2.Module.ccall('gta2_qa_main_stage','number',[],[])`);
+        const stageArrows = [];
+        for (let guard = 0; current !== target && guard < 4; guard++) {
+          const right = (target - current + 3) % 3 <= 1;
+          await key(right ? 'ArrowRight' : 'ArrowLeft', right ? 'ArrowRight' : 'ArrowLeft', right ? 0x27 : 0x25);
+          current = await evaluate(`window.gta2.Module.ccall('gta2_qa_main_stage','number',[],[])`);
+          stageArrows.push({current, state: await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`)});
+        }
+        let stageSelectionMethod = 'keyboard arrows';
+        if (current !== target) {
+          // QA-only fallback: set the selected district directly, then let the
+          // original menu action load its authentic map and mission scripts.
+          stageSelectionMethod = 'debug QA stage setter (CDP arrows did not change it)';
+          const set = await evaluate(`window.gta2.Module.ccall('gta2_qa_force_main_stage','number',['number'],[${target}])`);
+          if (set) current = await evaluate(`window.gta2.Module.ccall('gta2_qa_main_stage','number',[],[])`);
+        }
+        if (current !== target) throw new Error(`district selector ended at ${current}, expected ${target}; menu state=${state}; arrow probes=${JSON.stringify(stageArrows)}`);
+        const selectorScreenshot = await capture(`district-selector-${target}`);
+        await key('Enter', 'Enter', 0x0d);
+        await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, `${districts[target]} player spawn`, 120000);
+        const gameStartScreenshot = await capture(`district-game-start-${target}`);
+        for (let gang = 0; gang < 10; gang++) await evaluate(`window.gta2.Module.ccall('gta2_dev_set_respect','number',['number','number'],[${gang},100])`);
+        await waitFor(`window.gta2.map.jobs().active.length > 0`, Boolean, `${districts[target]} active mission phone`, 15000);
+        const initial = await evaluate(`(() => ({map:window.gta2.map.state(),jobs:window.gta2.map.jobs(),briefs:window.gta2.map.jobBriefs()}))()`);
+        const phone = initial.jobs.active.find((item) => item.shown) || initial.jobs.active[0] || null;
+        let phoneAccepted = false;
+        if (!initial.jobs.onMission && phone) {
+          await evaluate(`window.gta2.dev.teleport(${phone.x}, ${phone.y})`);
+          await wait(700);
+          await evaluate(`window.gta2.dev.hold('Enter', 900)`);
+          await waitFor(`window.gta2.map.jobs().onMission === true`, Boolean, `${districts[target]} mission accepted through the original phone`, 12000);
+          phoneAccepted = true;
+        }
+        const liveState = await evaluate(`(() => ({mission:window.gta2.map.jobs(),briefs:window.gta2.map.jobBriefs(),gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(x=>x.innerText).filter(Boolean)}))()`);
+        const title = await waitFor(`window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[])`, (v) => v > 0, `${districts[target]} native mission title`, 5000).catch(() => 0);
+        const titleScreenshot = title ? await capture(`district-mission-title-${target}`) : null;
+        const brief = await waitFor(visibleTranslated, Boolean, `${districts[target]} translated mission brief`, 10000).catch(() => null);
+        const briefScreenshot = brief ? await capture(`district-mission-brief-${target}`) : null;
+        const result = { district: districts[target], stage: current, stageSelectionMethod, mapId: initial.map?.mapId, startupOnMission: initial.jobs.onMission, startupBriefs: initial.briefs.briefs.map((item) => ({ gxtKey: item.gxtKey, face: item.face, text: item.text })), phone, phoneAccepted, liveState, titleKey: title, brief, selectorScreenshot, gameStartScreenshot, titleScreenshot, briefScreenshot };
+        sweep.push(result);
+        console.log(JSON.stringify({ districtLaunchAndMissionCheck: result }));
+      }
+      console.log(JSON.stringify({ districtLaunchAndMissionChecks: sweep, note: 'The original Play menu action started each district. If headless Chrome arrow events did not change the district, a debug-only setter selected it; this is not a normal input-path check. Only when no mission was already active did the test accept a gang-phone mission. Area unlock and respect changes occurred only in the isolated QA profile; no release gameplay rules were changed.' }, null, 2));
+      return;
+    }
     const expected = (process.env.GTA2_QA_ONLY_PICKUP ? [] : [
       { key: '2306', text: 'קדימה, עלו!', name: 'short-hebrew' },
       { key: '2026', text: '50 מדענים', name: 'numbers-names' },
@@ -508,6 +720,38 @@ async function main() {
     const mainMenu = await capture('main-menu');
     console.log('captured original main menu after gameplay reload');
 
+    let mainMenuFontCompare = null;
+    if (process.env.GTA2_QA_MENU_FONT_COMPARE) {
+      await evaluate(`document.fonts.load('21px "GTA2 Impact Pixel"')`);
+      const probeBefore = await evaluate(`(() => {const e=document.querySelector('#main-menu-hebrew');return {rect:e.getBoundingClientRect().toJSON(),font:getComputedStyle(e).font,fontFamily:getComputedStyle(e).fontFamily}})()`);
+      await evaluate(`(() => {let s=document.getElementById('gta2-qa-menu-font');if(!s){s=document.createElement('style');s.id='gta2-qa-menu-font';document.head.append(s)}s.textContent='#main-menu-hebrew{font-family:"GTA2 Impact Pixel",monospace!important;font-weight:400!important}';return true})()`);
+      await wait(100);
+      const probePixel = await evaluate(`(() => {const e=document.querySelector('#main-menu-hebrew');return {rect:e.getBoundingClientRect().toJSON(),font:getComputedStyle(e).font,fontFamily:getComputedStyle(e).fontFamily}})()`);
+      const pixelScreenshot = await capture('main-menu-hebrew-impact-pixel');
+      await evaluate(`document.getElementById('gta2-qa-menu-font').textContent='#main-menu-hebrew{font:400 40px/32.4px "GTA2 Impact Pixel",monospace!important}';document.fonts.load('40px "GTA2 Impact Pixel"')`);
+      await wait(100);
+      const probeScaled = await evaluate(`(() => {const e=document.querySelector('#main-menu-hebrew');return {rect:e.getBoundingClientRect().toJSON(),font:getComputedStyle(e).font,fontFamily:getComputedStyle(e).fontFamily}})()`);
+      mainMenuFontCompare = { probeBefore, systemScreenshot: mainMenu, probePixel, pixelScreenshot, probeScaled, scaledScreenshot: await capture('main-menu-hebrew-impact-pixel-scaled') };
+      await evaluate(`document.getElementById('gta2-qa-menu-font')?.remove()`);
+    }
+
+    let mainMenuEnglishCompare = null;
+    if (process.env.GTA2_QA_MENU_COMPARE) {
+      await evaluate(`localStorage.setItem('gta2-port-lang', 'en')`);
+      await navigate(`${BASE}?devdata`);
+      await waitFor(`document.documentElement.lang === 'en' && (() => {const m=window.gta2?.Module;return !!m && m.ccall('gta2_port_frontend_menu_state','number',[],[]) >= 0})()`, Boolean, 'English native main menu');
+      const englishProbe = await evaluate(`(() => {const p=document.querySelector('#main-menu-hebrew'),g=document.querySelector('#hebrew-gxt-layer');return {lang:document.documentElement.lang,menuState:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]),hebrewOverlayHidden:p?.hidden,hebrewOverlayRect:p?.getBoundingClientRect().toJSON(),translatedNodes:[...(g?.querySelectorAll('.hebrew-gxt-text')||[])].filter(e=>e.innerText.trim()).map(e=>e.innerText)}})()`);
+      mainMenuEnglishCompare = { englishProbe, englishScreenshot: await capture('main-menu-english-native') };
+      await evaluate(`localStorage.setItem('gta2-port-lang', 'he')`);
+      await navigate(`${BASE}?devdata`);
+      await waitFor(`document.documentElement.lang === 'he' && (() => {const m=window.gta2?.Module;return !!m && m.ccall('gta2_port_frontend_menu_state','number',[],[]) >= 0})()`, Boolean, 'Hebrew main menu restored after comparison');
+    }
+
+    if (process.env.GTA2_QA_MENU_COMPARE_ONLY) {
+      console.log(JSON.stringify({ mainMenu, mainMenuProbe, mainMenuFontCompare, mainMenuEnglishCompare }, null, 2));
+      return;
+    }
+
     const menuNavigation = [];
     await evaluate(`document.querySelector('#screen')?.focus()`);
     const menuKey = async (key, code, virtualKey) => {
@@ -533,7 +777,7 @@ async function main() {
 
     const currentGxtAudit = process.env.GTA2_QA_GXT_AUDIT
       ? await evaluate('window.gta2GxtAudit?.snapshot() || []') : null;
-    console.log(JSON.stringify({ sequence, missionTitleTest, nativeGxtDraw, saveRoundTrip, missionAttempt, fallback, pauseMenu, paused, mainMenu, mainMenuProbe, menuNavigation, auditSnapshots, currentGxtAudit, notes: 'Injected briefs and mission titles use their native HUD message queues; native GXT tests enqueue GXT strings in the live game and observe the production DrawText hook. A genuine mission is counted only when the engine mission flag changes after using an original gang phone.' }, null, 2));
+    console.log(JSON.stringify({ sequence, missionTitleTest, nativeGxtDraw, saveRoundTrip, missionAttempt, fallback, pauseMenu, paused, mainMenu, mainMenuProbe, mainMenuFontCompare, mainMenuEnglishCompare, menuNavigation, auditSnapshots, currentGxtAudit, notes: 'Injected briefs and mission titles use their native HUD message queues; native GXT tests enqueue GXT strings in the live game and observe the production DrawText hook. A genuine mission is counted only when the engine mission flag changes after using an original gang phone.' }, null, 2));
   } finally {
     if (cdp?.ws.readyState === WebSocket.OPEN) cdp.ws.close();
     chrome.kill();
