@@ -8,7 +8,7 @@ async function main() {
   const file = path.join(__dirname, '..', 'web', 'gamegxt.js');
   const source = fs.readFileSync(file, 'utf8')
     .replace("import { lang } from './strings.js';", 'const lang = () => \'he\';');
-  const { createGxtResolver } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+  const { createGxtResolver, hudViewportCenter } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
   const resolver = createGxtResolver([
     { key: 'c00', source: 'Pistol', text: 'אקדח' },
     { key: 'c01', source: 'S-Uzi Machine Gun', text: 'תת־מקלע S-Uzi' },
@@ -22,7 +22,16 @@ async function main() {
   assert.equal(resolver.isPickupLabel('JOB FAILED!'), false, 'ordinary GXT text keeps native coordinates');
   assert.equal(resolver.isPickupLabel('Pistol '), true, 'pickup recognition tolerates native whitespace');
   assert.equal(resolver('Pistol'), 'אקדח', 'the original translation mapping remains intact');
-  console.log('test_hud_gxt_placement: OK (pickup placement follows GXT identity, not draw-style heuristics)');
+  for (const [left, width, dpr, expected] of [
+    [0, 1200, 1, 600],
+    [13, 1334, 1, 680],
+    [20, 1920, 2, 500],
+    [0, 800, 1, 400],
+  ]) {
+    assert.equal(hudViewportCenter(left, width, dpr), expected,
+      `pickup labels must use the actual viewport center at ${width}px / DPR ${dpr}`);
+  }
+  console.log('test_hud_gxt_placement: OK (semantic pickup labels use the actual viewport center across sizes and DPRs)');
 }
 
 main().catch((error) => {

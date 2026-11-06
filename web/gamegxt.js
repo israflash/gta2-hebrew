@@ -50,6 +50,15 @@ export function createGxtResolver(records) {
   return resolve;
 }
 
+// Center HUD banners in the actual rendered game viewport. The renderer's
+// reference width can differ from its fitted viewport (for example after a
+// resize or when the page uses a non-native aspect ratio), so it is not a
+// reliable source for an on-screen center point.
+export function hudViewportCenter(left, viewportWidth, devicePixelRatio = 1) {
+  const dpr = Number(devicePixelRatio) > 0 ? Number(devicePixelRatio) : 1;
+  return Number(left) + Number(viewportWidth) / (2 * dpr);
+}
+
 function markup(value, baseColor) {
   const chunks = String(value).split('#');
   let highlighted = false;
@@ -110,7 +119,9 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
       const lineHeight = item.lineHeight / drawScale;
       const px = Math.max(9, lineHeight * scale * .8);
       const centeredHudBanner = item.centeredHudBanner;
-      item.node.style.left = `${left + (centeredHudBanner ? (renderer?.refW || 640) / 2 : x) * scale}px`;
+      item.node.style.left = `${centeredHudBanner
+        ? hudViewportCenter(left, viewport.w, dpr)
+        : left + x * scale}px`;
       item.node.style.width = '';
       // The Hebrew pixel face has a taller ascender gap than the game's
       // bitmap font; move this centered pickup label up to match the source
