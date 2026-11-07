@@ -96,12 +96,12 @@
     {
       "key": "3202",
       "source": "ⅮHow did you possibly manage to pass?",
-      "text": "איך לעזאזל הצלחת לעבור את זה?"
+      "text": "איך בכלל הצלחת לעבור?"
     },
     {
       "key": "3204",
       "source": "ⅮHow did you possibly manage to fail?",
-      "text": "איך לעזאזל הצלחת להיכשל בזה?"
+      "text": "איך בכלל הצלחת להיכשל?"
     },
     {
       "key": "play",
@@ -921,7 +921,7 @@
     {
       "key": "802",
       "source": "Hey there, kid. Sorry to break this to you but... You got a bellyful of explosives and only 6 minutes to live life to the full. Have fun!",
-      "text": "היי, ילד. לא נעים לי לבשר לך, אבל מילאו אותך בחומר נפץ ונשארו לך רק 6 דקות לחיות על מלא. תהנה!"
+      "text": "היי, ילד. מצטער לבשר לך, אבל מילאו אותך בחומר נפץ ונשארו לך רק 6 דקות לחיות את החיים עד תום. תיהנה!"
     },
     {
       "key": "1014",
@@ -936,7 +936,7 @@
     {
       "key": "1121",
       "source": "#Nice one, Gecko! You certainly earned your #$40,000#.#",
-      "text": "#יפה, גקו! הרווחת ביושר את #$40,000# שלך.#"
+      "text": "#יפה, גקו! בהחלט הרווחת את ה־#$40,000# שלך.#"
     },
     {
       "key": "1149",
@@ -1591,7 +1591,7 @@
     {
       "key": "4200",
       "source": "ⅫYour clumsiness has cut the job short and cost the Krishna dear, Grasshopper.",
-      "text": "חוסר הזהירות שלך קיצר את העבודה ועלה לאנשי #קרישנה# ביוקר, גראסהופר."
+      "text": "המגושמות שלך קיצרה את העבודה ועלתה לאנשי #קרישנה# ביוקר, גראסהופר."
     },
     {
       "key": "4201",
@@ -1601,7 +1601,7 @@
     {
       "key": "4202",
       "source": "ⅫThat was an... interesting way to quit the job, Grasshopper.",
-      "text": "זאת הייתה... דרך מעניינת לפרוש מהעבודה, גראסהופר."
+      "text": "זאת הייתה... דרך מעניינת לנטוש את המשימה, גראסהופר."
     },
     {
       "key": "4203",
@@ -2141,7 +2141,7 @@
     {
       "key": "6180",
       "source": "Shit, son, you sure know how to cut it fine. The name's Buster - at your service. Here's the $5,000 as agreed.",
-      "text": "בן אדם, אתה יודע להגיע בשנייה האחרונה. אני באסטר, לשירותך. הנה ה־$5,000 שסיכמנו עליהם."
+      "text": "לעזאזל, בן אדם, אתה יודע להגיע ברגע האחרון. אני באסטר, לשירותך. הנה ה־$5,000 שסיכמנו."
     },
     {
       "key": "7002",

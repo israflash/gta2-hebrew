@@ -535,8 +535,8 @@
     },
     "Downtown|1256": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול המקור. זו שורת תגובה כללית של דמות כנופיה ולא נמצא רצף משימה שמספק הקשר נוסף; לכן לא סומנה כבדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-08: מפתח זה נבדק מחדש כחלק מרצף Yutes Must Die! ב-wil/wil_zm2.SCR; הדיאלוג של Lefty מופיע לאחר הוראת החקירה של טריי. נשמרים הסירוב והסלנג. נרשם גם ב-missionSequences."
     }
   },
   "titles": {
@@ -991,7 +991,7 @@
     "802": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "evidence": "2026-11-08: הוחלף הסלנג הלא טבעי „לחיות על מלא” במשפט קריא ששומר על איום שש דקות החיים. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
     },
     "1014": {
       "sourceRead": true,
@@ -1011,7 +1011,7 @@
     "1121": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "evidence": "2026-11-08: הוסרה „ביושר”, שמוסיפה רמיזה שאינה במקור, ונשמרה הברכה עם הסכום. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
     },
     "1124": {
       "sourceRead": true,
@@ -1681,7 +1681,7 @@
     "3202": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. הקשר/נתיב ההצגה המדויק עדיין לא אומת; אין לספור כבדיקת הקשר."
+      "evidence": "2026-11-08: תיקון נוסח מול המקור: הוסרו „לעזאזל” ו„את זה”, שאינם במקור; המשמעות נשמרה כ„איך בכלל הצלחת לעבור?”. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
     },
     "3203": {
       "sourceRead": true,
@@ -1691,7 +1691,7 @@
     "3204": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. הקשר/נתיב ההצגה המדויק עדיין לא אומת; אין לספור כבדיקת הקשר."
+      "evidence": "2026-11-08: תיקון נוסח מול המקור: הוסרו „לעזאזל” ו„בזה”, שאינם במקור; המשמעות נשמרה כ„איך בכלל הצלחת להיכשל?”. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
     },
     "3205": {
       "sourceRead": true,
@@ -2070,128 +2070,153 @@
     },
     "4205": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4205.",
+      "observedInGame": false
     },
     "4206": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: ״get in touch with your righteous side״ הובן כהקשבה למצפון. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4206.",
+      "observedInGame": false
     },
     "4207": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: find it in our hearts to receive you נוסח כ„נמצא בלבנו מקום לקבל אותך שוב”, עברית טבעית ששומרת על הטון המלטף-ציני. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4207.",
+      "observedInGame": false
     },
     "4208": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4208.",
+      "observedInGame": false
     },
     "4209": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: נשמרת בדיחת הפתגם והמעבר לסורגים ככלי נשק. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4209.",
+      "observedInGame": false
     },
     "4210": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח עודכן מול מחרוזת המקור כדי לשמר את הפנייה לגקו והעוקץ. אין שיוך לרצף משימה בקובצי SCR; contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4210.",
+      "observedInGame": false
     },
     "4211": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח עודכן מול מחרוזת המקור כדי לשמר את הפנייה לגקו ואת תנאי ההעסקה. אין שיוך לרצף משימה בקובצי SCR; contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4211.",
+      "observedInGame": false
     },
     "4212": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח עודכן מול מחרוזת המקור כדי לשמר את ההלקאה העצמית, הפנייה לגקו ואיום צוות Z. אין שיוך לרצף משימה בקובצי SCR; contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4212.",
+      "observedInGame": false
     },
     "4213": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4213.",
+      "observedInGame": false
     },
     "4214": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח עודכן מול מחרוזת המקור כדי לשמר את קריסת גקו ואת דרישת קצב העבודה. אין שיוך לרצף משימה בקובצי SCR; contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4214.",
+      "observedInGame": false
     },
     "4215": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4215.",
+      "observedInGame": false
     },
     "4216": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח תוקן מול המקור; מדובר בתמיכת הכנופיה בשוטרים ובקשרים שלא תמיד יחלצו את גקו, לא בגיבוי שמגיע מהשוטרים. אין שיוך לרצף משימה בקובצי SCR; contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4216.",
+      "observedInGame": false
     },
     "4217": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח עודכן מול המקור כדי לשמר את סיום העבודה והעצה לשפר טכניקה. אין שיוך לרצף משימה בקובצי SCR; contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4217.",
+      "observedInGame": false
     },
     "4218": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4218.",
+      "observedInGame": false
     },
     "4219": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4219.",
+      "observedInGame": false
     },
     "4220": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4220.",
+      "observedInGame": false
     },
     "4221": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4221.",
+      "observedInGame": false
     },
     "4222": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4222.",
+      "observedInGame": false
     },
     "4223": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4223.",
+      "observedInGame": false
     },
     "4224": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: הוחזרה הפנייה Comrade שנשמטה. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4224.",
+      "observedInGame": false
     },
     "4225": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: תוקן הכינוי הגנאי Western Shit ל„המערביים המחורבנים” כדי לשמר את העלבון הבוטה של הדובר. הושווה למקור; אין שיוך SCR לרצף, ולכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4225.",
+      "observedInGame": false
     },
     "4226": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: הוחלף תרגום מילולי של “luxury of arrest” בניסוח עברי טבעי „הפריבילגיה להיעצר”; נשמרת הטענה שאנשי קובסקי קשוחים ואינם מרשים לעצמם להיעצר. הושווה למקור; אין שיוך SCR לרצף, ולכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4226.",
+      "observedInGame": false
     },
     "4227": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4227.",
+      "observedInGame": false
     },
     "4228": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4228.",
+      "observedInGame": false
     },
     "4229": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח עודכן מול המקור כדי לשמר את נזיפת ההתקרבות לשוטרים. אין שיוך לרצף משימה בקובצי SCR; contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Industrial District: הודעות כישלון של קרישנה, זייבאצו וקובסקי; GXT 4229.",
+      "observedInGame": false
     },
     "4310": {
       "sourceRead": true,
@@ -3010,158 +3035,188 @@
     },
     "6150": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: הוחזר הטון הכפרי והלעגני של gone and got yourself out of a job; נבדק מול המקור, ללא שיוך SCR מאומת. לא סומן contextChecked."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6150.",
+      "observedInGame": false
     },
     "6151": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6151.",
+      "observedInGame": false
     },
     "6152": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6152.",
+      "observedInGame": false
     },
     "6153": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6153.",
+      "observedInGame": false
     },
     "6154": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6154.",
+      "observedInGame": false
     },
     "6155": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6155.",
+      "observedInGame": false
     },
     "6156": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: הביטוי battery farm הותאם לדימוי המוכר של לול צפוף; נבדק מול המקור, ללא אימות טריגר/רצף. הקשר רצף מלא לא אומת; לא סומן contextChecked."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6156.",
+      "observedInGame": false
     },
     "6157": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6157.",
+      "observedInGame": false
     },
     "6158": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח off the job for the time being הותאם לעברית דיבורית: „בינתיים אתה בחוץ”; נבדק מול המקור, ללא שיוך SCR מאומת. לא סומן contextChecked."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6158.",
+      "observedInGame": false
     },
     "6159": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: הוחזר הטון הגס של bitch ass ו-screw up. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6159.",
+      "observedInGame": false
     },
     "6160": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: הובהר העלבון backward Redneck בעברית טבעית. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6160.",
+      "observedInGame": false
     },
     "6161": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6161.",
+      "observedInGame": false
     },
     "6162": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6162.",
+      "observedInGame": false
     },
     "6163": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6163.",
+      "observedInGame": false
     },
     "6164": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6164.",
+      "observedInGame": false
     },
     "6165": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6165.",
+      "observedInGame": false
     },
     "6166": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6166.",
+      "observedInGame": false
     },
     "6167": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6167.",
+      "observedInGame": false
     },
     "6168": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6168.",
+      "observedInGame": false
     },
     "6169": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6169.",
+      "observedInGame": false
     },
     "6170": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6170.",
+      "observedInGame": false
     },
     "6171": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6171.",
+      "observedInGame": false
     },
     "6172": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: bitterly disappointing outcome הותאם לביטוי עברי טבעי „אכזבה מרה”. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6172.",
+      "observedInGame": false
     },
     "6173": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: Zaibatsu ranks הובהר כסולם דרגות. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6173.",
+      "observedInGame": false
     },
     "6174": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: OFF the job תורגם בעקביות כביטול העסקה/פיטורים, ולא כ„מחוץ לעבודה”. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6174.",
+      "observedInGame": false
     },
     "6175": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6175.",
+      "observedInGame": false
     },
     "6176": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6176.",
+      "observedInGame": false
     },
     "6177": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6177.",
+      "observedInGame": false
     },
     "6178": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח הרטוריקה של Must I consider alternative operatives לעברית שיחתית ברורה. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6178.",
+      "observedInGame": false
     },
     "6179": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Residential: הודעות כישלון של רדנקס, SRS וזייבאצו; GXT 6179.",
+      "observedInGame": false
     },
     "6180": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "evidence": "2026-11-08: ליטוש מול המקור: הוחזרה קללת פתיחה והוחלף „בשנייה האחרונה” ב„ברגע האחרון”; נוסח $5,000 נשמר. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
     },
     "7002": {
       "sourceRead": true,
@@ -3325,8 +3380,9 @@
     },
     "7071": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7071.",
+      "observedInGame": false
     },
     "7072": {
       "sourceRead": true,
@@ -3335,8 +3391,9 @@
     },
     "7073": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7073.",
+      "observedInGame": false
     },
     "7074": {
       "sourceRead": true,
@@ -3345,28 +3402,33 @@
     },
     "7075": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: madcap mayhem הובהר כהשתוללות מטורפת. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7075.",
+      "observedInGame": false
     },
     "7078": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: נשמר משחק הצליל Dumbo Jumbo בתעתיק „ג׳מבו־דמבו”; נבדק מול המקור, ללא אימות רצף. הקשר רצף מלא לא אומת; לא סומן contextChecked."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7078.",
+      "observedInGame": false
     },
     "7079": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7079.",
+      "observedInGame": false
     },
     "7080": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7080.",
+      "observedInGame": false
     },
     "7081": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: ineptitude is not Zaibatsu style נוסח לעברית טבעית תוך שמירה על העלבון. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7081.",
+      "observedInGame": false
     },
     "7082": {
       "sourceRead": true,
@@ -3375,8 +3437,9 @@
     },
     "7083": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: performance תוקן ללשון יחיד בהקשר של הופעה/ניסיון בודד. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7083.",
+      "observedInGame": false
     },
     "7084": {
       "sourceRead": true,
@@ -3385,33 +3448,39 @@
     },
     "7086": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7086.",
+      "observedInGame": false
     },
     "7087": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7087.",
+      "observedInGame": false
     },
     "7088": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7088.",
+      "observedInGame": false
     },
     "7089": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7089.",
+      "observedInGame": false
     },
     "7090": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: Your performance is pathetic נוסח כלשון יחיד וטבעית, ופניית Kosai הועברה לסוף הצירוף; goodbye נשאר שלום. הקשר משימתי מלא לא אומת."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7090.",
+      "observedInGame": false
     },
     "7091": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: OFF the job תורגם לניסוח טבעי „אתה מפוטר”; נבדק מול המקור. הקשר רצף מלא לא אומת; לא סומן contextChecked."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7091.",
+      "observedInGame": false
     },
     "7094": {
       "sourceRead": true,
@@ -3420,18 +3489,21 @@
     },
     "7097": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7097.",
+      "observedInGame": false
     },
     "7098": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7098.",
+      "observedInGame": false
     },
     "7099": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "הקשר אומת בקריאת קוד המנוע: research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200 בוחר אקראית אחת מחמש הודעות מבסיס הכנופיה ומוסיף 5 במצב מעצר יעד; SCRCMD_DEC_DEATH_BASE_506010 קורא את בסיסי 3 הכנופיות מ-bil.scr/ste.scr/wil.scr. נבדקו המקור והתרגום בקבוצת 30 הודעות האזור. זו בדיקת הקשר סטטית, לא תצפית בזמן משחק. משפחה Downtown: הודעות כישלון של לוניז, זייבאצו והיאקוזה; GXT 7099.",
+      "observedInGame": false
     },
     "7100": {
       "sourceRead": true,
@@ -3500,8 +3572,9 @@
     },
     "7121": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-07: שם הרכב Fire Engine נשאר באנגלית לזיהוי; מטרה, כמות וזמן נשמרו. הקשר רצף מלא לא אומת; לא סומן contextChecked."
+      "contextChecked": true,
+      "observedInGame": false,
+      "evidence": "2026-11-08: `wil.scr` references GXT 7121 in START_BASIC_KF (opcode 422), whose brief ID is at command offset +10. `miss2_0x11C.cpp::SCRCMD_START_BASIC_KF_510100` sends that key to the native brief queue. The source challenge requires a Fire Engine, 20 people, and 60 seconds; the translation preserves all three. Static engine/script review, not observed in live gameplay."
     },
     "7122": {
       "sourceRead": true,
@@ -3855,8 +3928,9 @@
     },
     "8001": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "contextChecked": true,
+      "evidence": "2026-11-08: קריאת קוד המנוע research/gta2_re/Source/miss2_0x11C.cpp, MissionFailOnArrest_503200: כאשר אין דגל משימת כנופיה פעילה, מנגנון המעצר מציב GXT 8001 בתור ההודעות ומציג mfail. טקסט המקור הוא במפתיע Line Succeed!; נשמר תרגום מילולי ולא הומצא ניסוח אחר. אימות סטטי, לא תצפית במשחק.",
+      "observedInGame": false
     },
     "8002": {
       "sourceRead": true,
@@ -4675,28 +4749,33 @@
     },
     "mpkill1": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום; לא נטענה בדיקת רצף מלאה."
+      "contextChecked": true,
+      "evidence": "2026-11-08: קריאת Hud.cpp, Hud_MpMessage_D0::AnnounceKill_5D5770: הודעת התאבדות עצמית מוצגת לבדה; התרגום מתאים.",
+      "observedInGame": false
     },
     "mpkill2": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום; לא נטענה בדיקת רצף מלאה."
+      "contextChecked": true,
+      "evidence": "2026-11-08: קריאת Hud.cpp, Hud_MpMessage_D0::AnnounceKill_5D5770: הקוד מחבר You wasted לפני שם הקורבן; ״חיסלת את״ הוא קידומת עברית מתאימה.",
+      "observedInGame": false
     },
     "mpkill3": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום; לא נטענה בדיקת רצף מלאה."
+      "contextChecked": true,
+      "evidence": "2026-11-08: קריאת Hud.cpp, Hud_MpMessage_D0::AnnounceKill_5D5770: הקוד מחבר שם הרוצח לפני killed you; ״חיסל אותך״ מתאים לסיומת.",
+      "observedInGame": false
     },
     "mpkill4": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום; לא נטענה בדיקת רצף מלאה."
+      "contextChecked": true,
+      "evidence": "2026-11-08: קריאת Hud.cpp, Hud_MpMessage_D0::AnnounceKill_5D5770: הקוד מחבר שם הרוצח, wasted ושם הקורבן; ״חיסל את״ מתאים למבנה.",
+      "observedInGame": false
     },
     "mpkill5": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום; לא נטענה בדיקת רצף מלאה."
+      "contextChecked": true,
+      "evidence": "2026-11-08: קריאת Hud.cpp, Hud_MpMessage_D0::AnnounceKill_5D5770: הקוד מחבר שם שחקן שהתאבד לפני committed suicide; ״התאבד״ מתאים לסיומת.",
+      "observedInGame": false
     },
     "repdemo": {
       "sourceRead": true,

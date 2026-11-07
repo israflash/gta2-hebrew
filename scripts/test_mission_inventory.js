@@ -19,4 +19,7 @@ for (const record of catalog.records) {
 assert.deepEqual(inventory.sourceRoots.map((row) => [row.area, row.script]), [
   ['Downtown', 'wil.scr'], ['Residential', 'ste.scr'], ['Industrial District', 'bil.scr'],
 ]);
+const fireEngineFrenzy = inventory.messages.find((row) => row.area === 'Downtown' && row.gxtKey === '7121');
+assert.ok(fireEngineFrenzy?.scopes.includes('kill-frenzy-brief'), 'START_BASIC_KF references its GXT brief from command +10');
+assert.match(fireEngineFrenzy.source, /Fire Engine.*20 people.*60 seconds/);
 console.log(`test_mission_inventory: OK (${seen.size} translations matched original script GXT keys; ${inventory.counts.missionBriefKeys} brief IDs inventoried)`);

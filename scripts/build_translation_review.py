@@ -41,6 +41,14 @@ def read_gxt(path):
 def script_refs(gxt):
     numeric = {int(key): key for key in gxt if key.isdigit()}
     result = {}
+    # Only these commands pass a GXT key in the parameter at +8. Other
+    # commands store integers/flags there, so treating every parameter as a
+    # text reference creates false positives (e.g. a GOTO target that happens
+    # to equal a GXT key).
+    text_opcodes = {117, 118, 279, 321}  # DISPLAY_MESSAGE/BRIEF/NOW/SOON
+    phone_template_opcode = 263
+    basic_kf_opcode = 422  # START_BASIC_KF stores the challenge brief at +10
+    phone_brief_offsets = (-7, -6, -5, -4, -2, -1, 0, 1)
     for area, stem in [('Downtown', 'wil'), ('Residential', 'ste'), ('Industrial District', 'bil')]:
         root_script = DATA / f'{stem}.scr'
         files = [root_script, *sorted((DATA / stem).rglob('*.scr'))]
@@ -60,13 +68,22 @@ def script_refs(gxt):
                 command = data_at + offset - base
                 opcode = struct.unpack_from('<H', blob, command + 2)[0]
                 numeric_key = struct.unpack_from('<H', blob, command + 8)[0]
-                key = numeric.get(numeric_key)
-                if key is None:
+                if opcode in text_opcodes:
+                    keys = [numeric_key]
+                elif opcode == phone_template_opcode:
+                    keys = [numeric_key + delta for delta in phone_brief_offsets]
+                elif opcode == basic_kf_opcode:
+                    keys = [struct.unpack_from('<H', blob, command + 10)[0]]
+                else:
                     continue
                 rel = path.relative_to(DATA).as_posix()
-                entry = (area, rel, opcode)
-                if entry not in result.setdefault(key, []):
-                    result[key].append(entry)
+                for candidate in keys:
+                    key = numeric.get(candidate)
+                    if key is None:
+                        continue
+                    entry = (area, rel, opcode)
+                    if entry not in result.setdefault(key, []):
+                        result[key].append(entry)
     return result
 
 
