@@ -139,9 +139,9 @@ for (const row of rows) {
     changedUi++;
   } else if (row[idx.kind] === 'טקסט GXT אחר') {
     if (/REPORT DEAD BRIEF|PLEASE REPORT DEAD BRIEF|DEAD BRIEF/i.test(row[idx.source])) {
-      row[idx.status] = 'לא פעיל או מחרוזת פיתוח — הודעת REPORT DEAD BRIEF';
-      row[idx.importance] = 'לא רלוונטי לשחקן';
-      row[idx.recommendation] = 'להשאיר באנגלית; מחרוזת אבחון שאינה חלק מחוויית המשחק.';
+      row[idx.status] = 'מחרוזת debug/placeholder — יש לאמת את נתיב ההצגה לפני סיווג כלא פעיל';
+      row[idx.importance] = 'לא תוכן משחק מכוון; עלול להופיע אם הפניית fallback מגיעה למסך';
+      row[idx.recommendation] = 'להשאיר באנגלית לפי מדיניות למחרוזות פיתוח, אך לא להסיק שאינה פעילה בלי למפות SCR/opcode ותנאי ענף.';
     } else if (/^car\d+$/i.test(id)) {
       row[idx.status] = 'נשאר באנגלית בכוונה — שם דגם רכב רשמי';
       row[idx.importance] = 'זיהוי רכב במשחק';

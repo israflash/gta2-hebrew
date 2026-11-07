@@ -47,43 +47,68 @@ def script_refs(gxt):
     # to equal a GXT key).
     text_opcodes = {117, 118, 279, 321}  # DISPLAY_MESSAGE/BRIEF/NOW/SOON
     phone_template_opcode = 263
+    easy_phone_opcode = 329
     basic_kf_opcode = 422  # START_BASIC_KF stores the challenge brief at +10
-    phone_brief_offsets = (-7, -6, -5, -4, -2, -1, 0, 1)
-    for area, stem in [('Downtown', 'wil'), ('Residential', 'ste'), ('Industrial District', 'bil')]:
-        root_script = DATA / f'{stem}.scr'
-        files = [root_script, *sorted((DATA / stem).rglob('*.scr'))]
-        for path in files:
-            blob = path.read_bytes()
-            is_root = path == root_script
-            if is_root:
-                table_at, count, data_at, data_size, base = 0, 6000, 12000, 65536, 0
+    # PHONE_TEMPLATE and DO_EASY_PHONE use the same struct but different
+    # reachable brief offsets. Keep the offsets tied to the engine opcode so
+    # a neighboring GXT entry is not mistaken for an active phone response.
+    phone_brief_offsets = {
+        phone_template_opcode: (-7, -5, -2, -1, 0),
+        easy_phone_opcode: (-7, -6, -5, -4, -2, -1, 0, 1),
+    }
+    roots = {'wil': 'Downtown', 'ste': 'Residential', 'bil': 'Industrial District'}
+    multiplayer_prefixes = ('downtown-', 'industrial-', 'res-', 'mp')
+    files = sorted((p for p in DATA.rglob('*') if p.is_file() and p.suffix.lower() == '.scr'),
+                   key=lambda p: p.as_posix().lower())
+    for path in files:
+        blob = path.read_bytes()
+        is_root = path.parent == DATA and path.stem.lower() in roots
+        if is_root:
+            table_at, count, data_at, data_size, base = 0, 6000, 12000, 65536, 0
+        else:
+            if len(blob) < 3080:
+                continue
+            table_at, count, data_at = 8, 1536, 3080
+            data_size = min(struct.unpack_from('<I', blob, 4)[0], len(blob) - data_at)
+            base = struct.unpack_from('<H', blob, table_at)[0]
+
+        parts = [part.lower() for part in path.relative_to(DATA).parts]
+        if len(parts) == 1 and path.stem.lower() in roots:
+            area = roots[path.stem.lower()]
+        elif parts[0] in roots:
+            area = roots[parts[0]]
+        elif path.stem.lower().startswith(multiplayer_prefixes):
+            area = 'Multiplayer'
+        elif parts[0] == 'attract':
+            area = 'Attract'
+        elif path.stem.lower().startswith(('mike', 'lorne')):
+            area = 'Bonus/Legacy'
+        else:
+            area = 'Other scripts'
+
+        for index in range(count):
+            offset = struct.unpack_from('<H', blob, table_at + index * 2)[0]
+            if offset == 0xffff or offset < base or offset + 12 > base + data_size:
+                continue
+            command = data_at + offset - base
+            opcode = struct.unpack_from('<H', blob, command + 2)[0]
+            numeric_key = struct.unpack_from('<H', blob, command + 8)[0]
+            if opcode in text_opcodes:
+                keys = [numeric_key]
+            elif opcode in phone_brief_offsets:
+                keys = [numeric_key + delta for delta in phone_brief_offsets[opcode]]
+            elif opcode == basic_kf_opcode:
+                keys = [struct.unpack_from('<H', blob, command + 10)[0]]
             else:
-                table_at, count, data_at = 8, 1536, 3080
-                data_size = min(struct.unpack_from('<I', blob, 4)[0], len(blob) - data_at)
-                base = struct.unpack_from('<H', blob, table_at)[0]
-            for index in range(count):
-                offset = struct.unpack_from('<H', blob, table_at + index * 2)[0]
-                if offset == 0xffff or offset < base or offset + 10 > base + data_size:
+                continue
+            rel = path.relative_to(DATA).as_posix()
+            for candidate in keys:
+                key = numeric.get(candidate)
+                if key is None:
                     continue
-                command = data_at + offset - base
-                opcode = struct.unpack_from('<H', blob, command + 2)[0]
-                numeric_key = struct.unpack_from('<H', blob, command + 8)[0]
-                if opcode in text_opcodes:
-                    keys = [numeric_key]
-                elif opcode == phone_template_opcode:
-                    keys = [numeric_key + delta for delta in phone_brief_offsets]
-                elif opcode == basic_kf_opcode:
-                    keys = [struct.unpack_from('<H', blob, command + 10)[0]]
-                else:
-                    continue
-                rel = path.relative_to(DATA).as_posix()
-                for candidate in keys:
-                    key = numeric.get(candidate)
-                    if key is None:
-                        continue
-                    entry = (area, rel, opcode)
-                    if entry not in result.setdefault(key, []):
-                        result[key].append(entry)
+                entry = (area, rel, opcode)
+                if entry not in result.setdefault(key, []):
+                    result[key].append(entry)
     return result
 
 

@@ -138,13 +138,23 @@ for (const row of csvRows) {
   if (row[col['סוג טקסט']] !== 'טקסט GXT אחר') continue;
   if (/REPORT DEAD BRIEF/i.test(english)) {
     placeholders++;
-    row[col['מצב נוכחי']] = ref
-      ? 'מציין מקום/פיתוח: REPORT DEAD BRIEF; הופיע כהפניית fallback בלבד, לא כתוכן לשחקן'
-      : 'מציין מקום/פיתוח: REPORT DEAD BRIEF; אין הפניה לפקודת תצוגת SCR';
-    row[col['חשיבות']] = 'מחרוזת debug/fallback, לא דיאלוג או הוראה לשחקן';
-    row[col['המלצה']] = ref
-      ? `להשאיר באנגלית כ-fallback למפתח חסר; scopes=${ref.scopes.join('|')}; ${id}`
-      : 'להשאיר באנגלית; לא נמצאה הפניה בפקודות תצוגת SCR';
+    const directDisplay = ref?.scopes.some(scope => ['mission-brief', 'display-message', 'kill-frenzy-brief'].includes(scope));
+    const phoneTemplate = ref?.scopes.some(scope => scope.endsWith('phone-template'));
+    if (directDisplay) {
+      row[col['מצב נוכחי']] = 'מחרוזת debug המופנית ישירות מ-SCR; תנאי ההגעה לענף לא אומתו';
+      row[col['חשיבות']] = 'placeholder; קיימת הפניית תצוגה בקוד ואין הוכחה שהוא לא נראה לשחקן';
+      row[col['המלצה']] = `לא לסווג כלא פעיל. לבדוק תנאי זרימה; scopes=${ref.scopes.join('|')}; ${id}`;
+    } else if (phoneTemplate) {
+      row[col['מצב נוכחי']] = 'placeholder PHONE_TEMPLATE; תנאי ענף fallback לא הוכרעו';
+      row[col['חשיבות']] = 'מחרוזת debug/fallback; אפשרות הופעה לא אומתה במשחק';
+      row[col['המלצה']] = `להשאיר באנגלית לפי מדיניות למחרוזות פיתוח ולתעד לבדיקה; scopes=${ref.scopes.join('|')}; ${id}`;
+    } else {
+      row[col['מצב נוכחי']] = ref
+        ? 'מחרוזת debug/placeholder עם הפניית SCR; נגישות הענף לא הוכחה'
+        : 'מחרוזת debug/placeholder; לא נמצאה הפניית תצוגת SCR בסריקה הסטטית';
+      row[col['חשיבות']] = 'לא תוכן משחק מכוון; נגישות לשחקן לא הוכרעה';
+      row[col['המלצה']] = 'להשאיר באנגלית לפי מדיניות למחרוזות פיתוח; לא לסווג כלא פעיל בלי הוכחת נתיב.';
+    }
     continue;
   }
   if (intentional.has(id) && ref) {
@@ -157,9 +167,9 @@ for (const row of csvRows) {
   if (/^[\u2160-\u2188]/u.test(english)) {
     if (/DEAD BRIEF/i.test(english) && ref) {
       deadFallbacks++;
-      row[col['מצב נוכחי']] = 'מציין מקום PHONE_TEMPLATE: DEAD BRIEF, לא דיאלוג פעיל';
-      row[col['חשיבות']] = 'מחרוזת fallback לפיתוח, לא תוכן לשחקן';
-      row[col['המלצה']] = `להשאיר באנגלית; source ref=${ref.scripts.join('|')}; phone template בלבד`;
+      row[col['מצב נוכחי']] = 'placeholder PHONE_TEMPLATE; תנאי ענף fallback לא הוכרעו';
+      row[col['חשיבות']] = 'מחרוזת debug/fallback; אפשרות הופעה לא אומתה במשחק';
+      row[col['המלצה']] = `להשאיר באנגלית לפי מדיניות למחרוזות פיתוח ולתעד לבדיקה; מקור=${ref.scripts.join('|')}`;
     } else {
       unresolvedSpeaker++;
       row[col['מצב נוכחי']] = 'לא נמצאה הפניה ל-DISPLAY_BRIEF/DISPLAY_MESSAGE ב-SCR; לא סווג כלא פעיל בלי בדיקת נתיב דינמי';

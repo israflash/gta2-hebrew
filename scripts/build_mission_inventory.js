@@ -18,8 +18,12 @@ const AREA_ROOTS = [
 const BRIEF_TYPES = new Set([118, 279, 321]);
 const DISPLAY_MESSAGE = 117;
 const PHONE_TEMPLATE = 263;
+const EASY_PHONE_TEMPLATE = 329;
 const START_BASIC_KF = 422;
-const PHONE_BRIEF_OFFSETS = [-7, -6, -5, -4, -2, -1, 0, 1];
+const PHONE_BRIEF_OFFSETS = new Map([
+  [PHONE_TEMPLATE, [-7, -5, -2, -1, 0]],
+  [EASY_PHONE_TEMPLATE, [-7, -6, -5, -4, -2, -1, 0, 1]],
+]);
 const FACE_PREFIX = /^[\u2160-\u2188]/;
 
 function readGxt(filename) {
@@ -85,8 +89,8 @@ function scanScript(filename, isRoot) {
       // START_BASIC_KF stores its challenge brief key at command +10.
       refs.push({ key: String(b.readUInt16LE(at + 10)), type });
     }
-    else if (type === PHONE_TEMPLATE) {
-      for (const delta of PHONE_BRIEF_OFFSETS) refs.push({ key: String(key + delta), type, baseKey: key, delta });
+    else if (PHONE_BRIEF_OFFSETS.has(type)) {
+      for (const delta of PHONE_BRIEF_OFFSETS.get(type)) refs.push({ key: String(key + delta), type, baseKey: key, delta });
     }
   }
   return refs;
@@ -110,11 +114,13 @@ function main() {
         if (text == null) continue;
         const scope = ref.type === DISPLAY_MESSAGE ? 'display-message'
           : ref.type === PHONE_TEMPLATE ? 'phone-template'
+            : ref.type === EASY_PHONE_TEMPLATE ? 'easy-phone-template'
             : ref.type === START_BASIC_KF ? 'kill-frenzy-brief' : 'mission-brief';
         // DISPLAY_MESSAGE is a general HUD toast and may not carry a face prefix.
         // DISPLAY_BRIEF variants can also carry instruction/status text without a portrait.
         // Keep phone-template candidates face-gated because those offsets are only a heuristic.
-        if (!FACE_PREFIX.test(text) && (scope === 'phone-template' || scope === 'mission-brief' && !BRIEF_TYPES.has(ref.type))) continue;
+        const phoneScope = scope === 'phone-template' || scope === 'easy-phone-template';
+        if (!FACE_PREFIX.test(text) && (phoneScope || scope === 'mission-brief' && !BRIEF_TYPES.has(ref.type))) continue;
         const id = `${area}\u0000${ref.key}`;
         if (!records.has(id)) records.set(id, { area, gxtKey: ref.key, source: text, scopes: [], scripts: [], phoneBaseKeys: [] });
         const row = records.get(id);
@@ -126,14 +132,14 @@ function main() {
     }
   }
   const messages = [...records.values()].sort((a, b) => a.area.localeCompare(b.area) || Number(a.gxtKey) - Number(b.gxtKey));
-  const brief = messages.filter((x) => x.scopes.includes('mission-brief') || x.scopes.includes('phone-template'));
+  const brief = messages.filter((x) => x.scopes.includes('mission-brief') || x.scopes.some((scope) => scope.endsWith('phone-template')));
   const display = messages.filter((x) => x.scopes.includes('display-message'));
   const killFrenzy = messages.filter((x) => x.scopes.includes('kill-frenzy-brief'));
   const result = {
     version: 1,
     sourceGxt: 'game/data/e.gxt',
     sourceRoots: AREA_ROOTS.map((x) => ({ area: x.area, script: `${x.stem}.scr` })),
-    method: 'Parsed SCR command-pointer tables. Included face-marked GXT IDs passed to DISPLAY_BRIEF, DISPLAY_BRIEF_NOW, DISPLAY_BRIEF_SOON, the eight PHONE_TEMPLATE brief variants, and START_BASIC_KF challenge briefs (command +10). DISPLAY_MESSAGE is separated for review.',
+    method: 'Parsed SCR command-pointer tables. Included face-marked GXT IDs passed to DISPLAY_BRIEF, DISPLAY_BRIEF_NOW, DISPLAY_BRIEF_SOON, PHONE_TEMPLATE command offsets (-7,-5,-2,-1,0), DO_EASY_PHONE offsets (-7,-6,-5,-4,-2,-1,0,+1), and START_BASIC_KF challenge briefs (command +10). DISPLAY_MESSAGE is separated for review.',
     gxtEntryCount: gxt.size,
     rootScripts: rootSummaries,
     counts: {
