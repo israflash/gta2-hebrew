@@ -89,7 +89,7 @@ async function main() {
     });
     const evaluate = async (expression) => {
       const result = await cdp.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
-      if (result.exceptionDetails) throw new Error(result.exceptionDetails.text || 'page evaluation failed');
+      if (result.exceptionDetails) throw new Error(result.exceptionDetails.exception?.description || result.exceptionDetails.text || 'page evaluation failed');
       return result.result?.value;
     };
     const navigate = async (url) => {
@@ -605,9 +605,13 @@ async function main() {
       if (process.env.GTA2_QA_KF_TRY_PASS) {
         const spawned = await evaluate(`(() => {const spots=[[2,-2],[2,0],[2,2],[3,-3],[3,-1],[3,1],[3,3],[4,-2],[4,0],[4,2],[5,-3],[5,-1],[5,1],[5,3],[6,0],[6,2],[6,-2],[7,0]];return spots.map(([x,y])=>({x,y,ok:window.gta2.dev.spawnCar(10,x,y,720)}))})()`);
         if (spawned.some((car) => car.ok)) {
-          for (let i = 0; i < 12; i++) {
-            await evaluate(`window.gta2.dev.hold('KeyL',300)`);
-            await evaluate(`window.gta2.dev.hold('ArrowRight',120)`);
+          // Default browser controls are WASD; ArrowRight only affects frontend
+          // menus. Sweep the player aim while firing, so this exercises the
+          // real weapon and vehicle-destruction objective rather than timing out
+          // after shooting in one direction.
+          for (let i = 0; i < 24; i++) {
+            await evaluate(`window.gta2.dev.hold('KeyL',220)`);
+            await evaluate(`window.gta2.dev.hold('KeyD',120)`);
           }
         }
         const result = await waitFor(probe,

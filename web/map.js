@@ -96,7 +96,7 @@ registerDict({
     'ui.map.powerups.copBribe': 'שוחד לשוטר', 'ui.map.powerups.invulnerability': 'חסינות',
     'ui.map.powerups.doubleDamage': 'נזק כפול', 'ui.map.powerups.fastReload': 'טעינה מהירה',
     'ui.map.powerups.electroFingers': 'אצבעות חשמליות', 'ui.map.powerups.respect': 'כבוד',
-    'ui.map.powerups.invisibility': 'אי־נראות', 'ui.map.powerups.instantGang': 'כנופיה מיידית',
+    'ui.map.powerups.invisibility': 'אי־נראות', 'ui.map.powerups.instantGang': 'תגבורת כנופיה מיידית',
     'ui.map.poi.save': 'נקודות שמירה', 'ui.map.poi.garage': 'מוסכים', 'ui.map.poi.crusher': 'מגרסות רכב',
     'ui.map.poi.frenzy': 'אתגרי חיסול', 'ui.map.poi.weapon': 'נשקים', 'ui.map.poi.powerup': 'בונוסים',
     'ui.map.poi.token': 'אסימונים', 'ui.map.police': 'משטרה', 'ui.map.jobs.easy': 'משימה קלה',

@@ -4560,113 +4560,113 @@
     },
     "c15": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c16": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c17": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c18": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c19": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c20": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c21": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c22": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c23": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c28": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c29": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c30": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c31": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c32": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c33": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c34": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c35": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c36": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c37": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c38": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c39": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "c40": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "contextChecked": true,
+      "evidence": "2026-11-07: נבדק ההקשר מול קוד המקור: Ped.cpp מעביר model + 56 ל־Hud_PickupText; Hud.cpp בונה מפתח cNN ומצייר אותו במרכז HUD. enums.hpp ממפה c15-c23 לנשקי רכב; Player.cpp/Player.hpp ממפים c28-c40 לאפקטי power-up. התרגום הושווה לפעולה בפועל בקוד (כולל גיוס ארבעה הולכי רגל ב־c40). לא סומן כנצפה במשחק, כי כל מפתח לא נצפה בנפרד."
     },
     "mpkill1": {
       "sourceRead": true,
