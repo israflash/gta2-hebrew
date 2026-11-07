@@ -986,17 +986,23 @@
     "801": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-801.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "802": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוחלף הסלנג הלא טבעי „לחיות על מלא” במשפט קריא ששומר על איום שש דקות החיים. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-802.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1014": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1014.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1015": {
       "sourceRead": true,
@@ -1006,12 +1012,16 @@
     "1115": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1115.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1121": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוסרה „ביושר”, שמוסיפה רמיזה שאינה במקור, ונשמרה הברכה עם הסכום. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1121.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1124": {
       "sourceRead": true,
@@ -1031,12 +1041,16 @@
     "1201": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-07: Consider yourself lucky נוסח לעברית טבעית („יש לך מזל הפעם”); נשמר האיום המרומז לגבי שוחד לשוטרים. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1201.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1242": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. תפקיד המפתח ידוע אך רצף מלא לא קושר באופן מאומת; אין לספור בדיקת הקשר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1242.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1256": {
       "sourceRead": true,
@@ -1061,7 +1075,9 @@
     "1290": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-07: שם הרכב Ice-Cream Van נשאר באנגלית בהתאם למדיניות שמות כלי הרכב; עלות והוראת הפעולה נשמרו. הקשר רצף מלא לא אומת; לא סומן contextChecked."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-ice-cream-van-cost.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1307": {
       "sourceRead": true,
@@ -1096,7 +1112,9 @@
     "1402": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום; לא נטענה בדיקת רצף מלאה."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-tank-warning.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1436": {
       "sourceRead": true,
@@ -1216,7 +1234,9 @@
     "1902": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. הקשר/נתיב ההצגה המדויק עדיין לא אומת; אין לספור כבדיקת הקשר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1902.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1903": {
       "sourceRead": true,
@@ -1226,7 +1246,9 @@
     "1904": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. הקשר/נתיב ההצגה המדויק עדיין לא אומת; אין לספור כבדיקת הקשר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1904.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1905": {
       "sourceRead": true,
@@ -1681,7 +1703,9 @@
     "3202": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: תיקון נוסח מול המקור: הוסרו „לעזאזל” ו„את זה”, שאינם במקור; המשמעות נשמרה כ„איך בכלל הצלחת לעבור?”. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-3202.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "3203": {
       "sourceRead": true,
@@ -1691,7 +1715,9 @@
     "3204": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: תיקון נוסח מול המקור: הוסרו „לעזאזל” ו„בזה”, שאינם במקור; המשמעות נשמרה כ„איך בכלל הצלחת להיכשל?”. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-3204.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "3205": {
       "sourceRead": true,
@@ -2816,7 +2842,9 @@
     "6102": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-6102.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "6103": {
       "sourceRead": true,
@@ -2826,7 +2854,9 @@
     "6104": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-6104.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "6105": {
       "sourceRead": true,
@@ -3216,17 +3246,23 @@
     "6180": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: ליטוש מול המקור: הוחזרה קללת פתיחה והוחלף „בשנייה האחרונה” ב„ברגע האחרון”; נוסח $5,000 נשמר. בדיקת מקור בלבד; נתיב/הקשר לא אומתו."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-6180.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7002": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-07: שם סוג הרכב Ice-Cream Van נשאר באנגלית לזיהוי; ההוראה נשארה בעברית. הקשר רצף מלא לא אומת; לא סומן contextChecked."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-7002.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7012": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-7012.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7020": {
       "sourceRead": true,
@@ -3935,7 +3971,9 @@
     "8002": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-8002.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "play": {
       "sourceRead": true,
@@ -4780,7 +4818,9 @@
     "repdemo": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום; לא נטענה בדיקת רצף מלאה."
+      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-repdemo.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "frag_gm": {
       "sourceRead": true,
