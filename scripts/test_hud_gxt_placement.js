@@ -8,7 +8,7 @@ async function main() {
   const file = path.join(__dirname, '..', 'web', 'gamegxt.js');
   const source = fs.readFileSync(file, 'utf8')
     .replace("import { lang } from './strings.js';", 'const lang = () => \'he\';');
-  const { createGxtResolver, hudViewportCenter } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+  const { createGxtResolver, hudViewportCenter, isTopHudPickupBanner } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
   const resolver = createGxtResolver([
     { key: 'c00', source: 'Pistol', text: 'אקדח' },
     { key: 'c01', source: 'S-Uzi Machine Gun', text: 'תת־מקלע S-Uzi' },
@@ -22,6 +22,12 @@ async function main() {
   assert.equal(resolver.isPickupLabel('JOB FAILED!'), false, 'ordinary GXT text keeps native coordinates');
   assert.equal(resolver.isPickupLabel('Pistol '), true, 'pickup recognition tolerates native whitespace');
   assert.equal(resolver('Pistol'), 'אקדח', 'the original translation mapping remains intact');
+  assert.equal(isTopHudPickupBanner(resolver.isPickupLabel('Pistol'), 112, 740), true,
+    'a real top HUD weapon banner centers in the game viewport');
+  assert.equal(isTopHudPickupBanner(resolver.isPickupLabel('Pistol'), 690, 740), false,
+    'the same GXT weapon label inside a bottom speaker brief keeps its native position');
+  assert.equal(isTopHudPickupBanner(resolver.isPickupLabel('JOB FAILED!'), 112, 740), false,
+    'unrelated GXT text never receives pickup positioning');
   for (const [left, width, dpr, expected] of [
     [0, 1200, 1, 600],
     [13, 1334, 1, 680],

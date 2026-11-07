@@ -1641,17 +1641,17 @@
     {
       "key": "4210",
       "source": "ⅺWhat happened, Gecko? Must a real professional complete the job instead?",
-      "text": "מה קרה, גקו? צריך להביא מקצוען אמיתי שיסיים את העבודה?"
+      "text": "מה קרה, גקו? צריך להביא מקצוען אמיתי שיסיים את העבודה במקומך?"
     },
     {
       "key": "4211",
       "source": "ⅺThis is inefficient, Gecko. I am only interested in hiring those who can finish what they start.",
-      "text": "זה לא יעיל. אני שוכר רק מי שמסוגל לסיים את מה שהתחיל."
+      "text": "זה לא יעיל, גקו. אני מעסיק רק מי שמסוגל לסיים את מה שהתחיל."
     },
     {
       "key": "4212",
       "source": "ⅺSilly me. I was beginning to believe you were up to the job, Gecko. Must I use a Z-Team to finish the task?",
-      "text": "חשבתי לרגע שאתה מתאים לעבודה. לשלוח צוות Z לסיים אותה?"
+      "text": "איזה טיפש אני. לרגע חשבתי שאתה מסוגל לבצע את העבודה, גקו. צריך לשלוח צוות Z לסיים את המשימה?"
     },
     {
       "key": "4213",
@@ -1661,7 +1661,7 @@
     {
       "key": "4214",
       "source": "ⅺI trust you to perform and you crumple, Gecko. I need Zaibatsu Operatives who can keep the pace!",
-      "text": "סמכתי עליך שתבצע, ואתה קורס. אני צריך סוכני זייבאצו שיעמדו בקצב!"
+      "text": "סמכתי עליך שתעמוד במשימה, גקו, ואתה קרסת. אני צריך סוכני זייבאצו שמסוגלים לעמוד בקצב!"
     },
     {
       "key": "4215",
@@ -1671,12 +1671,12 @@
     {
       "key": "4216",
       "source": "ⅺOur support of the Cops will not always stretch to getting you off the hook, Gecko!",
-      "text": "לא תמיד נוכל להשתמש בקשרים שלנו עם השוטרים כדי לחלץ אותך מצרות, גקו!"
+      "text": "הגיבוי שלנו מהשוטרים לא תמיד יספיק כדי לחלץ אותך, גקו!"
     },
     {
       "key": "4217",
       "source": "ⅺThat's the job over for you, Gecko. Perhaps your need to work on your technique before you take on new jobs.",
-      "text": "מבחינתך העבודה נגמרה. כדאי שתשפר את הטכניקה לפני שתיקח עבודות חדשות."
+      "text": "מבחינתך העבודה נגמרה, גקו. אולי כדאי שתשפר את הטכניקה לפני שתיקח עבודות חדשות."
     },
     {
       "key": "4218",

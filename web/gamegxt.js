@@ -59,6 +59,16 @@ export function hudViewportCenter(left, viewportWidth, devicePixelRatio = 1) {
   return Number(left) + Number(viewportWidth) / (2 * dpr);
 }
 
+// Weapon/pickup names share GXT strings with mission briefs. Center only the
+// short top HUD banner; the same text in a speaker brief must keep its native
+// portrait-side position near the bottom of the screen.
+export function isTopHudPickupBanner(isPickupLabel, renderedY, viewportHeight) {
+  const y = Number(renderedY);
+  const height = Number(viewportHeight);
+  return Boolean(isPickupLabel) && Number.isFinite(y) && Number.isFinite(height) &&
+    height > 0 && y >= -24 && y < height * 0.35;
+}
+
 function markup(value, baseColor) {
   const chunks = String(value).split('#');
   let highlighted = false;
@@ -118,7 +128,11 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
       const y = item.y / drawScale;
       const lineHeight = item.lineHeight / drawScale;
       const px = Math.max(9, lineHeight * scale * .8);
-      const centeredHudBanner = item.centeredHudBanner;
+      const centeredHudBanner = isTopHudPickupBanner(
+        item.pickupLabel,
+        y * scale,
+        viewport.h / dpr,
+      );
       item.node.style.left = `${centeredHudBanner
         ? hudViewportCenter(left, viewport.w, dpr)
         : left + x * scale}px`;
@@ -180,7 +194,7 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     item.drawScale = Number(drawScale) || 1; item.hudOffsetX = Number(hudOffsetX) || 0;
     item.lineHeight = lineHeight; item.fontType = fontType;
     item.paletteType = paletteType; item.palette = palette; item.alpha = alpha;
-    item.centeredHudBanner = resolveGxt.isPickupLabel(source);
+    item.pickupLabel = resolveGxt.isPickupLabel(source);
     const details = { gxtX: x, gxtY: y, lineHeight, fontType, paletteType, palette };
     for (const [name, value] of Object.entries(details)) {
       if (item.node.dataset[name] !== String(value)) item.node.dataset[name] = String(value);
