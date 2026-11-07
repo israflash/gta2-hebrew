@@ -604,6 +604,8 @@ async function main() {
       }
       if (process.env.GTA2_QA_KF_TRY_PASS) {
         const spawned = await evaluate(`(() => {const spots=[[2,-2],[2,0],[2,2],[3,-3],[3,-1],[3,1],[3,3],[4,-2],[4,0],[4,2],[5,-3],[5,-1],[5,1],[5,3],[6,0],[6,2],[6,-2],[7,0]];return spots.map(([x,y])=>({x,y,ok:window.gta2.dev.spawnCar(10,x,y,720)}))})()`);
+        const modelCounts = await evaluate(`(() => {const m=window.gta2.Module,p=m._malloc(300*4),n=m.ccall('gta2_dev_object_models','number',['number'],[p]),c=Array.from(m.HEAP32.subarray(p>>2,(p>>2)+300));m._free(p);return {objects:n,model10:c[10],cars:c.slice(0,64).reduce((a,b)=>a+b,0)}})()`);
+        const combatSamples = [];
         if (spawned.some((car) => car.ok)) {
           // Default browser controls are WASD; ArrowRight only affects frontend
           // menus. Sweep the player aim while firing, so this exercises the
@@ -611,14 +613,22 @@ async function main() {
           // after shooting in one direction.
           for (let i = 0; i < 24; i++) {
             await evaluate(`window.gta2.dev.hold('KeyL',220)`);
+            const afterFire = await evaluate('window.gta2.dev.state()');
             await evaluate(`window.gta2.dev.hold('KeyD',120)`);
+            const afterTurn = await evaluate('window.gta2.dev.state()');
+            combatSamples.push({
+              shot: i + 1,
+              afterFire: { weapon: afterFire.weapon, ammo: afterFire.ammo, rot: afterFire.rot, x: afterFire.x, y: afterFire.y },
+              afterTurn: { weapon: afterTurn.weapon, ammo: afterTurn.ammo, rot: afterTurn.rot, x: afterTurn.x, y: afterTurn.y },
+            });
           }
         }
+        const modelCountsAfter = await evaluate(`(() => {const m=window.gta2.Module,p=m._malloc(300*4),n=m.ccall('gta2_dev_object_models','number',['number'],[p]),c=Array.from(m.HEAP32.subarray(p>>2,(p>>2)+300));m._free(p);return {objects:n,model10:c[10],cars:c.slice(0,64).reduce((a,b)=>a+b,0)}})()`);
         const result = await waitFor(probe,
           (value) => value.title === 'אתגר החיסול הושלם!' || value.title === 'אתגר החיסול נכשל!',
           'natural Kill Frenzy result after using the weapon', 70000).catch(async (error) => ({ error: error.message, ...(await evaluate(probe)) }));
         const resultScreenshot = await capture('kill-frenzy-try-pass-result');
-        console.log(JSON.stringify({ nativeKillFrenzyTryPass: { spawned, result, resultScreenshot } }, null, 2));
+        console.log(JSON.stringify({ nativeKillFrenzyTryPass: { spawned, modelCounts, modelCountsAfter, combatSamples, result, resultScreenshot } }, null, 2));
         return;
       }
       if (process.env.GTA2_QA_KF_WAIT_FOR_FAIL) {
