@@ -470,6 +470,18 @@ async function main() {
         return {text:node?.innerText.trim(),rect:rect?.toJSON(),canvasRect:canvasRect.toJSON(),centerDelta:rect?rect.left+rect.width/2-(canvasRect.left+canvasRect.width/2):null};
       })()`);
       const hebrewScreenshot = await capture(`pickup-physical-collision-hebrew-${hebrewIndex}`);
+      let weaponSwitch = null;
+      if (process.env.GTA2_QA_PICKUP_SWITCH_WEAPON) {
+        const before = await evaluate(`window.gta2.dev.state()`);
+        await evaluate(`window.gta2.dev.hold('KeyK',180)`);
+        await wait(250);
+        const afterNext = await evaluate(`(() => ({player:window.gta2.dev.state(),gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean)}))()`);
+        const nextScreenshot = await capture(`weapon-switch-next-after-pickup-${hebrewIndex}`);
+        await evaluate(`window.gta2.dev.hold('KeyJ',180)`);
+        await wait(250);
+        const afterPrevious = await evaluate(`(() => ({player:window.gta2.dev.state(),gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean)}))()`);
+        weaponSwitch = { before, afterNext, nextScreenshot, afterPrevious, previousScreenshot: await capture(`weapon-switch-previous-after-pickup-${hebrewIndex}`) };
+      }
       let englishComparison = null;
       if (target.pickups.length > 1) {
         await evaluate(`document.querySelector('#lang-toggle')?.click()`);
@@ -484,7 +496,7 @@ async function main() {
           (value) => value === '', 'English pickup fallback without Hebrew overlay', 10000);
         englishComparison = { englishDomText, target: teleported, screenshot: await capture(`pickup-physical-collision-english-${englishIndex}`) };
       }
-      console.log(JSON.stringify({ physicalPickupCollision: { target, hebrewIndex, teleportedTo: result, translatedText: observed, hebrewLayout, hebrewScreenshot, englishComparison } }, null, 2));
+      console.log(JSON.stringify({ physicalPickupCollision: { target, hebrewIndex, teleportedTo: result, translatedText: observed, hebrewLayout, hebrewScreenshot, weaponSwitch, englishComparison } }, null, 2));
       return;
     }
     if (process.env.GTA2_QA_FATAL_EVENTS_ONLY) {
