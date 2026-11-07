@@ -55,7 +55,14 @@ export function onLangChange(fn) {
 export function t(key, vars) {
   const text = dicts[current][key] ?? dicts.en[key] ?? key;
   if (!vars) return text;
-  return text.replace(/\{(\w+)\}/g, (whole, name) => (name in vars ? String(vars[name]) : whole));
+  // Dynamic codes, counts, names, and prices must keep their internal LTR order
+  // inside Hebrew sentences (UAX #9 isolate controls prevent surrounding RTL
+  // punctuation from reordering them).
+  return text.replace(/\{(\w+)\}/g, (whole, name) => {
+    if (!(name in vars)) return whole;
+    const value = String(vars[name]);
+    return current === 'he' ? `\u2068${value}\u2069` : value;
+  });
 }
 
 /** Merges { en: {key: str}, es: {...}, fr: {...} } into the dictionaries. */
