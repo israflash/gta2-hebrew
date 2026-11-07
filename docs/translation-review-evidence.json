@@ -2076,7 +2076,7 @@
     "4206": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-07: righteous side תורגם לפי העוקץ („להתחסד”), ולא באופן מילולי כ„הצד הצדיק”. הושווה מול מחרוזת המקור; שיוך רצף מלא לא אומת."
+      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: ״get in touch with your righteous side״ הובן כהקשבה למצפון. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
     },
     "4207": {
       "sourceRead": true,
@@ -2091,7 +2091,7 @@
     "4209": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-07: תוקן ניסוח האמרה כדי שתישמע טבעית בעברית ולשמר את הפאנץ׳ על הסורגים שמשמשים כנשק. הושווה למקור; אין שיוך SCR לרצף, ולכן contextChecked נשאר false."
+      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: נשמרת בדיחת הפתגם והמעבר לסורגים ככלי נשק. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
     },
     "4210": {
       "sourceRead": true,
@@ -2166,7 +2166,7 @@
     "4224": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: הוחזרה הפנייה Comrade שנשמטה. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
     },
     "4225": {
       "sourceRead": true,
@@ -3056,12 +3056,12 @@
     "6159": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: הוחזר הטון הגס של bitch ass ו-screw up. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
     },
     "6160": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: הובהר העלבון backward Redneck בעברית טבעית. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
     },
     "6161": {
       "sourceRead": true,
@@ -3126,7 +3126,7 @@
     "6173": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: Zaibatsu ranks הובהר כסולם דרגות. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
     },
     "6174": {
       "sourceRead": true,
@@ -3346,7 +3346,7 @@
     "7075": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: נקראה מול מחרוזת GXT המקורית והתרגום. בדיקת רצף מלאה לא נטענה."
+      "evidence": "2026-11-07: נוסח נבדק מול המקור ותוקן: madcap mayhem הובהר כהשתוללות מטורפת. לא נמצאה ראיה מספקת לרצף/טריגר, לכן contextChecked נשאר false."
     },
     "7078": {
       "sourceRead": true,
