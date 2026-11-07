@@ -141,7 +141,7 @@
       "speaker": "טריי וולש",
       "kind": "brief",
       "source": "Trey Welsh here. The small-time Yute gang is getting cocky, crushing our new Zaibatsu cars for scrap. I want answers. There's a snitch called Lefty by the Casino. Find out what he knows.",
-      "text": "הכנופייה הקטנה של היוטס נהיית חצופה ומרסקת את מכוניות זייבאצו החדשות שלנו לגרוטאות. אני רוצה תשובות. יש מלשן בשם לפטי ליד הקזינו. תברר מה הוא יודע.",
+      "text": "זה טריי וולש. הכנופייה הקטנה של היוטס נהיית חצופה ומרסקת את מכוניות זייבאצו החדשות שלנו לגרוטאות. אני רוצה תשובות. יש מלשן בשם לפטי ליד הקזינו. תברר מה הוא יודע.",
       "matchStatus": "verified-gxt",
       "gxtKey": "1251",
       "reviewStatus": "context-reviewed"
@@ -1425,7 +1425,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅮYou made it! Hot DAMN! Take this here Emergency Keycard and get a Uniform and a S-Uzi Machine Gun from the Guard Room.",
-      "text": "הגעת! לעזאזל! קח את כרטיס החירום, השג מדים ותת־מקלע S-Uzi מחדר השומרים.",
+      "text": "הגעת! לעזאזל! קח את כרטיס המפתח לשעת חירום, והשג מדים ותת־מקלע S-Uzi מחדר השומרים.",
       "gxtKey": "2217",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1461,7 +1461,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅲSuper shootin', Rooster. You need to use the Emergency Keycard on the locking mechanisms to blow open the prison gates.",
-      "text": "ירי מצוין, רוסטר. השתמש בכרטיס החירום במנגנוני הנעילה כדי לפוצץ את שערי הכלא.",
+      "text": "ירי מצוין, רוסטר. השתמש בכרטיס המפתח לשעת חירום במנגנוני הנעילה כדי לפוצץ את שערי הכלא.",
       "gxtKey": "2220",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -1497,7 +1497,7 @@
       "speaker": "בילי בוב בין",
       "kind": "mission-message",
       "source": "ⅲYee-ha! Them butt-slappin', shit-suckin' Guards are face down for the last time. Rooster, you really are a trouble-maker extraordinaire! Here - you take this $70,000.",
-      "text": "יי־הא! השומרים המתחנפים והדוחים האלה לא יקומו עוד. רוסטר, אתה בהחלט מקצוען בצרות! קח $70,000.",
+      "text": "יי־הא! השומרים האלה — מלקקי תחת ומוצצי חרא — לא יקומו עוד. רוסטר, אתה באמת אלוף בלעשות צרות! הנה, קח $70,000.",
       "gxtKey": "2228",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7545,7 +7545,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺYou needed that Yute Car, Gecko! Go home and pack your bags.",
-      "text": "היית צריך את מכונית יוט הזאת, גקו! לך הביתה וארוז את הדברים.",
+      "text": "היית צריך את המכונית של היוטס, גקו! לך הביתה וארוז את הדברים.",
       "gxtKey": "1257",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7557,7 +7557,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺSteal a Yute Car from the South Docks, Gecko - and don't take no shit.",
-      "text": "גנוב מכונית יוט מהמעגן הדרומי, גקו — ואל תיתן לאף אחד להתעסק איתך.",
+      "text": "גנוב מכונית של היוטס מה־South Docks, גקו — ואל תיתן לאף אחד להתעסק איתך.",
       "gxtKey": "1258",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -7617,7 +7617,7 @@
       "speaker": "טריי וולש",
       "kind": "mission-message",
       "source": "ⅺGood work, Gecko - you got the Yute Boss! Now bring him and the Yute Car to Zaibatsu headquarters. And make sure they both stay in one piece.",
-      "text": "עבודה טובה, גקו — תפסת את הבוס של יוט! הבא אותו ואת מכונית יוט למפקדת זייבאצו. שמור על שניהם שלמים.",
+      "text": "עבודה טובה, גקו — תפסת את הבוס של היוטס! הבא אותו ואת המכונית של היוטס למפקדת זייבאצו. שמור על שניהם שלמים.",
       "gxtKey": "1266",
       "matchStatus": "verified-gxt",
       "reviewStatus": "key-verified"
@@ -13968,10 +13968,10 @@
       "speaker": "",
       "kind": "brief",
       "source": "Hey, I don't know shit. Even if I did, I wouldn't tell you or Trey Welsh.",
-      "text": "היי, אין לי מושג בשיט. גם אם היה לי, לא הייתי מספר לך או לטריי וולש.",
+      "text": "היי, אין לי מושג בשיט. גם אם ידעתי משהו, לא הייתי מספר לך או לטריי וולש.",
       "matchStatus": "verified-gxt",
       "gxtKey": "1256",
-      "reviewStatus": "key-verified"
+      "reviewStatus": "context-reviewed"
     },
     {
       "id": "downtown.active.1262",
