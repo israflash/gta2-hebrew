@@ -129,6 +129,73 @@ async function main() {
       return file;
     };
     const visibleTranslated = `(() => { const p=document.querySelector('#mission-brief'); const t=p?.querySelector('.mission-brief-text'); return p && !p.hidden && t?.innerText ? {text:t.innerText,dir:p.dir} : null; })()`;
+    if (process.env.GTA2_QA_CROSS_VERSION_SAVE) {
+      const oldBuild = process.env.GTA2_QA_OLD_BUILD || '0e12350cadd27f59f6af8a3a';
+      await navigate(`${BASE}old/${oldBuild}/?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.states?.save === 'function'`, Boolean, 'archived version save API');
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'player spawn in archived version', 120000);
+      const oldRules = await evaluate(`window.gta2.states.rules()`);
+      if (!oldRules.player || oldRules.stars || oldRules.onJob) throw new Error(`archived save test needs safe gameplay: ${JSON.stringify(oldRules)}`);
+      const oldState = await evaluate(`window.gta2.dev.state()`);
+      const oldSaved = await evaluate(`window.gta2.states.save('s1',{free:true,quiet:true})`);
+      if (!oldSaved) throw new Error('archived version could not create a real game save');
+      const oldRecord = await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('gta2-port-states');r.onerror=()=>reject(r.error);r.onsuccess=()=>{const q=r.result.transaction('states','readonly').objectStore('states').get('s1');q.onsuccess=()=>resolve({slot:q.result?.slot,build:q.result?.build,size:q.result?.size,blob:q.result?.data?.size});q.onerror=()=>reject(q.error)}})`);
+      if (oldRecord.slot !== 's1' || oldRecord.build !== oldBuild || !oldRecord.blob) {
+        throw new Error(`archived version save metadata is unexpected: ${JSON.stringify({oldBuild,oldRecord})}`);
+      }
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.states?.load === 'function'`, Boolean, 'current version save UI');
+      const newBuild = await evaluate(`new Promise((resolve,reject)=>{fetch('gta2.wasm').then(r=>r.arrayBuffer()).then(b=>crypto.subtle.digest('SHA-256',b)).then(d=>resolve(Array.from(new Uint8Array(d).slice(0,12),x=>x.toString(16).padStart(2,'0')) .join(''))).catch(reject)})`);
+      const currentRecord = await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('gta2-port-states');r.onerror=()=>reject(r.error);r.onsuccess=()=>{const q=r.result.transaction('states','readonly').objectStore('states').get('s1');q.onsuccess=()=>resolve({slot:q.result?.slot,build:q.result?.build,size:q.result?.size});q.onerror=()=>reject(q.error)}})`);
+      if (currentRecord.build !== oldBuild || currentRecord.build === newBuild) throw new Error(`current app did not retain the archived save as an older build: ${JSON.stringify({oldBuild,newBuild,currentRecord})}`);
+      await evaluate(`document.querySelector('#saves-open')?.click()`);
+      const button = await waitFor(`(() => [...document.querySelectorAll('#saves-screen button')].find(b=>b.textContent.includes('פתיחה בגרסה המקורית'))?.textContent)()`, Boolean, 'open-in-original-version action');
+      const openRect = await evaluate(`(() => [...document.querySelectorAll('#saves-screen button')].find(b=>b.textContent.includes('פתיחה בגרסה המקורית')).getBoundingClientRect().toJSON())()`);
+      const targetBefore = (await json(`http://${CDP_HOST}:${PORT}/json/list`)).map((t) => t.id);
+      // Use actual CDP mouse input so window.open is covered by transient user activation.
+      const openX = openRect.x + openRect.width / 2, openY = openRect.y + openRect.height / 2;
+      await cdp.send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: openX, y: openY });
+      await cdp.send('Input.dispatchMouseEvent', { type: 'mousePressed', x: openX, y: openY, button: 'left', clickCount: 1 });
+      await cdp.send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: openX, y: openY, button: 'left', clickCount: 1 });
+      let oldTab;
+      for (let i = 0; i < 100 && !oldTab; i++) {
+        const targets = await json(`http://${CDP_HOST}:${PORT}/json/list`);
+        oldTab = targets.find((t) => t.type === 'page' && !targetBefore.includes(t.id) && t.url.includes(`/old/${oldBuild}/`));
+        if (!oldTab) await wait(100);
+      }
+      if (!oldTab) throw new Error('the save card did not open its archived game in a new tab');
+      const oldCdp = await connectCdp(oldTab.webSocketDebuggerUrl);
+      await oldCdp.send('Page.enable');
+      await oldCdp.send('Runtime.enable');
+      const oldEval = async (expression) => {
+        const result = await oldCdp.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
+        if (result.exceptionDetails) throw new Error(result.exceptionDetails.text || 'archived page evaluation failed');
+        return result.result?.value;
+      };
+      const oldWaitFor = async (probe, predicate, label, timeoutMs = 120000) => {
+        const end = Date.now() + timeoutMs;
+        let value;
+        while (Date.now() < end) {
+          try { value = await oldEval(probe); } catch { /* archived tab is loading */ }
+          if (predicate(value)) return value;
+          await wait(150);
+        }
+        throw new Error(`timed out waiting for ${label}; last value=${JSON.stringify(value)}`);
+      };
+      await oldWaitFor(`typeof window.gta2?.states?.load === 'function'`, Boolean, 'archived game reopened from save card');
+      const loaded = await oldEval(`window.gta2.states.load('s1')`);
+      if (!loaded) throw new Error('archived game could not load the save it created');
+      const restoredRules = await oldEval(`window.gta2.states.rules()`);
+      const restoredGameplay = restoredRules.player === 1 && restoredRules.cash === oldRules.cash && restoredRules.stars === oldRules.stars;
+      if (!restoredGameplay) {
+        throw new Error(`archived save did not restore its gameplay state: ${JSON.stringify({oldRules,restoredRules})}`);
+      }
+      await oldCdp.send('Page.close');
+      oldCdp.ws.close();
+      console.log(JSON.stringify({ crossVersionSave: { oldBuild, newBuild, oldRecord, currentRecord, openButton: button,
+        archivedTab: oldTab.url, loaded, restoredGameplay, restoredRules } }));
+      return;
+    }
     if (process.env.GTA2_QA_BRIEF_QUEUE_ONLY) {
       await navigate(`${BASE}?devdata&autostart`);
       await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'release shell and Hebrew renderer');
