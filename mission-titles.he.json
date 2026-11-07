@@ -348,15 +348,15 @@
     },
     "9002": {
       "source": "KILL FRENZY!",
-      "text": "אתגר Kill Frenzy!"
+      "text": "אתגר חיסול!"
     },
     "9003": {
       "source": "FRENZY PASSED!",
-      "text": "אתגר Kill Frenzy הושלם!"
+      "text": "אתגר החיסול הושלם!"
     },
     "9004": {
       "source": "FRENZY FAILED!",
-      "text": "אתגר Kill Frenzy נכשל!"
+      "text": "אתגר החיסול נכשל!"
     }
   }
 }

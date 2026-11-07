@@ -4,8 +4,8 @@
 // downloaded. Read-only towards the game, apart from pausing it while the map
 // screen is open.
 
-import { lang, registerDict, t } from './strings.js?v=6c3c0e4d0f';
-import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=6c3c0e4d0f';
+import { lang, registerDict, t } from './strings.js?v=750218f666';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=750218f666';
 
 loadMissionTranslations().catch((err) => console.error(err));
 loadMissionTitles().catch((err) => console.error(err));
@@ -98,14 +98,14 @@ registerDict({
     'ui.map.powerups.electroFingers': 'אצבעות חשמליות', 'ui.map.powerups.respect': 'כבוד',
     'ui.map.powerups.invisibility': 'אי־נראות', 'ui.map.powerups.instantGang': 'כנופיה מיידית',
     'ui.map.poi.save': 'נקודות שמירה', 'ui.map.poi.garage': 'מוסכים', 'ui.map.poi.crusher': 'מגרסות רכב',
-    'ui.map.poi.frenzy': 'אתגרי טירוף ההרג', 'ui.map.poi.weapon': 'נשקים', 'ui.map.poi.powerup': 'בונוסים',
+    'ui.map.poi.frenzy': 'אתגרי חיסול', 'ui.map.poi.weapon': 'נשקים', 'ui.map.poi.powerup': 'בונוסים',
     'ui.map.poi.token': 'אסימונים', 'ui.map.police': 'משטרה', 'ui.map.jobs.easy': 'משימה קלה',
     'ui.map.jobs.medium': 'משימה בינונית', 'ui.map.jobs.hard': 'משימה קשה',
     'ui.map.jobs.info': 'טלפון מידע', 'ui.map.jobNamed': '{gang} · {job}',
     'ui.map.garage.machineGun': 'מקלע לרכב', 'ui.map.garage.oilSlick': 'כתם שמן',
     'ui.map.garage.mines': 'מוקשים לרכב', 'ui.map.garage.bomb': 'פצצה לרכב',
     'ui.map.garage.respray': 'צביעה מחדש', 'ui.map.garageName': 'מוסך: {services}',
-    'ui.map.frenzy': 'אתגר טירוף ההרג', 'ui.map.weaponN': 'נשק {n}', 'ui.map.powerup': 'בונוס',
+    'ui.map.frenzy': 'אתגר חיסול', 'ui.map.weaponN': 'נשק {n}', 'ui.map.powerup': 'בונוס',
     'ui.map.token': 'אסימון', 'ui.map.savePointChurch': 'נקודת שמירה (כנסייה)',
     'ui.map.carCrusher': 'מגרסת רכב', 'ui.map.missionTarget': 'יעד המשימה',
     'ui.map.missionTargetsN': 'יעדי המשימה ({n})', 'ui.map.drawing': 'המפה בטעינה…',

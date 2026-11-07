@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "language": "he",
+  "method": "supplemental context-keyed mission briefs for verified player-facing GXT text outside the static brief inventory",
+  "records": [
+    {
+      "id": "downtown.supplemental.1011",
+      "area": "Downtown",
+      "mission": "Safe Passage",
+      "speaker": "",
+      "kind": "brief",
+      "source": "ⅹDrive to #Yakuza territory# and you will be safe, Kosai!",
+      "text": "סע אל #השטח של היאקוזה# ותהיה מוגן, קוסאי!",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "1011",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "downtown.supplemental.1602",
+      "area": "Downtown",
+      "mission": "Tutorial dialogue",
+      "speaker": "",
+      "kind": "brief",
+      "source": "Ⅾ#I don't do rough stuff, buddy. Shove your attitude up your ass.#",
+      "text": "#אני לא בקטע של אלימות, חבר. תדחוף את הגישה שלך לתחת.#",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "1602",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "downtown.supplemental.1611",
+      "area": "Downtown",
+      "mission": "Tutorial dialogue",
+      "speaker": "",
+      "kind": "brief",
+      "source": "Ⅾ#I... I was a cheap snitch who had it coming... But not from a punk like you...#",
+      "text": "#א... הייתי מלשין עלוב שהגיע לו... אבל לא מחלאה כמוך...#",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "1611",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "downtown.supplemental.1628",
+      "area": "Downtown",
+      "mission": "Special Tokens hint",
+      "speaker": "",
+      "kind": "brief",
+      "source": "ⅹSpecial Tokens# are hidden all around the city. Find them all to gain access to #exclusive gang activities#.#",
+      "text": "אסימונים מיוחדים# מוחבאים ברחבי העיר. מצא את כולם כדי לקבל גישה ל#פעילויות בלעדיות של הכנופיות#.#",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "1628",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "downtown.supplemental.1663",
+      "area": "Downtown",
+      "mission": "Yakuza mission update",
+      "speaker": "",
+      "kind": "brief",
+      "source": "ⅹHiroshi's dead! Shit, Kosai! Don't wait around - head for the Safehouse!",
+      "text": "הירושי מת! שיט, קוסאי! אל תתעכב — רוץ לבית המסתור!",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "1663",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "residential.supplemental.2042",
+      "area": "Residential",
+      "mission": "Kill Frenzy update",
+      "speaker": "",
+      "kind": "brief",
+      "source": "ⅲTime fer killin', Rooster! Run down 20 Scientists with the Zaibatsu Z-Type.",
+      "text": "יאללה, זמן לדרוס, רוסטר! דרוס 20 מדענים עם ה־Z-Type של זייבאצו.",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "2042",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "residential.supplemental.2043",
+      "area": "Residential",
+      "mission": "Kill Frenzy update",
+      "speaker": "",
+      "kind": "brief",
+      "source": "ⅲKill 20 of them there Zaibatsu with your SRS Meteor, Rooster!",
+      "text": "חסל 20 מאנשי זייבאצו עם ה־Meteor של אס־אר־אס, רוסטר!",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "2043",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "residential.supplemental.2226",
+      "area": "Residential",
+      "mission": "Escape update",
+      "speaker": "",
+      "kind": "brief",
+      "source": "ⅲThe Cops are comin'! Get back in the vehicle and DRIVE!",
+      "text": "השוטרים באים! חזור לרכב וסע!",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "2226",
+      "reviewStatus": "context-reviewed"
+    },
+    {
+      "id": "downtown.gang-guidance.1105",
+      "area": "Downtown",
+      "mission": "Gang phone and district messages",
+      "speaker": "Loonies",
+      "kind": "brief",
+      "source": "Ⅼ#We Loonies don't like the smell of Yakuza - and you stink. Poo-poo! Poo-poo!#",
+      "text": "אנחנו הלוניז לא סובלים את הסירחון של היאקוזה — ואתה מסריח. קקי־קקי!",
+      "matchStatus": "verified-gxt",
+      "gxtKey": "1105",
+      "reviewStatus": "key-verified"
+    }
+  ]
+}
