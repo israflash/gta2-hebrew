@@ -445,8 +445,12 @@ async function main() {
         return {player:p,pickups:objects.slice(0,8)};
       })()`);
       if (!target.pickups.length) throw new Error(`no physical weapon pickups found in current map: ${JSON.stringify(target)}`);
+      const hebrewIndex = Number(process.env.GTA2_QA_PICKUP_PHYSICAL_INDEX || 0);
+      if (!Number.isInteger(hebrewIndex) || hebrewIndex < 0 || hebrewIndex >= target.pickups.length) {
+        throw new Error(`invalid physical pickup index ${process.env.GTA2_QA_PICKUP_PHYSICAL_INDEX}; current map has ${target.pickups.length} pickups in the QA sample`);
+      }
       const result = await evaluate(`(() => {
-        const p=${JSON.stringify(target.pickups[0])};
+        const p=${JSON.stringify(target.pickups[hebrewIndex])};
         const x=Math.floor(p.x/16384),y=Math.floor(p.y/16384);
         const moved=window.gta2.dev.teleport(x,y);
         return {moved,x,y,target:p};
@@ -458,21 +462,29 @@ async function main() {
         const text=[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).find(Boolean);
         return text||null;
       })()`, Boolean, 'weapon pickup collision to produce native translated HUD text', 10000);
-      const hebrewScreenshot = await capture('pickup-physical-collision-hebrew');
+      const hebrewLayout = await evaluate(`(() => {
+        const node=[...document.querySelectorAll('.hebrew-gxt-text')].find(n=>n.innerText.trim());
+        const rect=node?.getBoundingClientRect();
+        const canvas=document.querySelector('#screen');
+        const canvasRect=canvas.getBoundingClientRect();
+        return {text:node?.innerText.trim(),rect:rect?.toJSON(),canvasRect:canvasRect.toJSON(),centerDelta:rect?rect.left+rect.width/2-(canvasRect.left+canvasRect.width/2):null};
+      })()`);
+      const hebrewScreenshot = await capture(`pickup-physical-collision-hebrew-${hebrewIndex}`);
       let englishComparison = null;
       if (target.pickups.length > 1) {
         await evaluate(`document.querySelector('#lang-toggle')?.click()`);
         await waitFor(`document.documentElement.lang==='en'`, Boolean, 'English toggle for physical pickup comparison');
-        const englishTarget = target.pickups[1];
+        const englishIndex = (hebrewIndex + 1) % target.pickups.length;
+        const englishTarget = target.pickups[englishIndex];
         const teleported = await evaluate(`(() => {const p=${JSON.stringify(englishTarget)};return {moved:window.gta2.dev.teleport(Math.floor(p.x/16384),Math.floor(p.y/16384)),target:p}})()`);
         if (!teleported.moved) throw new Error(`could not move the isolated QA player to the English comparison pickup: ${JSON.stringify(teleported)}`);
         await wait(500);
         await evaluate(`window.gta2.dev.hold('ArrowUp',250)`);
         const englishDomText = await waitFor(`(() => [...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).find(Boolean)||'')()`,
           (value) => value === '', 'English pickup fallback without Hebrew overlay', 10000);
-        englishComparison = { englishDomText, target: teleported, screenshot: await capture('pickup-physical-collision-english') };
+        englishComparison = { englishDomText, target: teleported, screenshot: await capture(`pickup-physical-collision-english-${englishIndex}`) };
       }
-      console.log(JSON.stringify({ physicalPickupCollision: { target, teleportedTo: result, translatedText: observed, hebrewScreenshot, englishComparison } }, null, 2));
+      console.log(JSON.stringify({ physicalPickupCollision: { target, hebrewIndex, teleportedTo: result, translatedText: observed, hebrewLayout, hebrewScreenshot, englishComparison } }, null, 2));
       return;
     }
     if (process.env.GTA2_QA_FATAL_EVENTS_ONLY) {
