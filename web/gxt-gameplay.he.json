@@ -946,7 +946,7 @@
     {
       "key": "1201",
       "source": "ⅹConsider yourself lucky this time, Kosai. I won't always be around to pay off the Cops.",
-      "text": "ראה את עצמך בר־מזל הפעם, קוסאי. לא תמיד אהיה כאן כדי לשחד את השוטרים בשבילך."
+      "text": "יש לך מזל הפעם, קוסאי. לא תמיד אהיה פה כדי לשחד את השוטרים בשבילך."
     },
     {
       "key": "1242",
@@ -1621,12 +1621,12 @@
     {
       "key": "4206",
       "source": "ⅫAh, Grasshopper, this is not the time to get in touch with your righteous side.",
-      "text": "גראסהופר, זה לא הזמן לגלות את הצד הצדיק שלך."
+      "text": "אה, גראסהופר, זה לא הזמן להתחיל להתחסד."
     },
     {
       "key": "4207",
       "source": "ⅫDo not despair, Grasshopper! We will find it in our hearts to receive you once again!",
-      "text": "אל תתייאש, גראסהופר! נמצא בלבנו דרך לקבל אותך בחזרה!"
+      "text": "אל תתייאש, גראסהופר! נמצא בלבנו מקום לקבל אותך שוב!"
     },
     {
       "key": "4208",
@@ -2101,7 +2101,7 @@
     {
       "key": "6172",
       "source": "ⅺSuch a bitterly disappointing outcome, Gecko. I suppose I must look elsewhere for suitable operatives.",
-      "text": "תוצאה מאכזבת ומרה, גקו. כנראה שאצטרך לחפש סוכנים מתאימים במקום אחר."
+      "text": "גקו, זאת אכזבה מרה. כנראה שאצטרך לחפש סוכנים מתאימים במקום אחר."
     },
     {
       "key": "6173",
@@ -2111,7 +2111,7 @@
     {
       "key": "6174",
       "source": "ⅺThis isn't working, Gecko. Consider yourself OFF the job.",
-      "text": "זה לא עובד, גקו. אתה מחוץ לעבודה."
+      "text": "זה לא עובד, גקו. אתה מפוטר."
     },
     {
       "key": "6175",
@@ -2131,7 +2131,7 @@
     {
       "key": "6178",
       "source": "ⅺThat was slack, Gecko. Must I now consider alternative operatives?",
-      "text": "התרשלת, גקו. לשקול סוכנים אחרים?"
+      "text": "התרשלת, גקו. עכשיו אצטרך לחפש סוכן אחר?"
     },
     {
       "key": "6179",
@@ -2246,7 +2246,7 @@
     {
       "key": "7081",
       "source": "ⅺYour ineptitude is not Zaibatsu style, Gecko!",
-      "text": "חוסר היכולת שלך אינו הסגנון של זייבאצו, גקו!"
+      "text": "חוסר היכולת הזאת לא מתאימה לזייבאצו, גקו!"
     },
     {
       "key": "7082",
@@ -2256,7 +2256,7 @@
     {
       "key": "7083",
       "source": "ⅺYour performance is unacceptable, Gecko!",
-      "text": "הביצועים שלך לא מקובלים, גקו!"
+      "text": "הביצוע שלך לא מקובל, גקו!"
     },
     {
       "key": "7084",
