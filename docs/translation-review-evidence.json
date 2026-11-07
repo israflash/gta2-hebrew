@@ -3011,7 +3011,7 @@
     "6150": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "evidence": "2026-11-07: הוחזר הטון הכפרי והלעגני של gone and got yourself out of a job; נבדק מול המקור, ללא שיוך SCR מאומת. לא סומן contextChecked."
     },
     "6151": {
       "sourceRead": true,
@@ -3051,7 +3051,7 @@
     "6158": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. לא ניתן היה לקשור בביטחון לרצף משימה מלא; הקשר מסומן כחסר."
+      "evidence": "2026-11-07: נוסח off the job for the time being הותאם לעברית דיבורית: „בינתיים אתה בחוץ”; נבדק מול המקור, ללא שיוך SCR מאומת. לא סומן contextChecked."
     },
     "6159": {
       "sourceRead": true,
