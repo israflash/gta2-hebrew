@@ -129,6 +129,88 @@ async function main() {
       return file;
     };
     const visibleTranslated = `(() => { const p=document.querySelector('#mission-brief'); const t=p?.querySelector('.mission-brief-text'); return p && !p.hidden && t?.innerText ? {text:t.innerText,dir:p.dir} : null; })()`;
+    if (process.env.GTA2_QA_COOP_TWO_TABS) {
+      const browserCdp = await connectCdp(version.webSocketDebuggerUrl);
+      const created = await browserCdp.send('Target.createTarget', { url: 'about:blank' });
+      let guestTarget;
+      for (let i = 0; i < 100 && !guestTarget; i++) {
+        guestTarget = (await json(`http://${CDP_HOST}:${PORT}/json/list`)).find((target) => target.id === created.targetId);
+        if (!guestTarget) await wait(100);
+      }
+      if (!guestTarget) throw new Error('could not create the isolated second browser tab');
+      const guest = await connectCdp(guestTarget.webSocketDebuggerUrl);
+      await guest.send('Page.enable');
+      await guest.send('Runtime.enable');
+      await guest.send('Emulation.setDeviceMetricsOverride', { width: 1200, height: 800, deviceScaleFactor: 1, mobile: false });
+      const guestEvaluate = async (expression) => {
+        const result = await guest.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
+        if (result.exceptionDetails) throw new Error(result.exceptionDetails.text || 'guest page evaluation failed');
+        return result.result?.value;
+      };
+      const guestWaitFor = async (probe, predicate, label, timeoutMs = 45000) => {
+        const end = Date.now() + timeoutMs;
+        let value;
+        while (Date.now() < end) {
+          try { value = await guestEvaluate(probe); } catch { /* page is loading */ }
+          if (predicate(value)) return value;
+          await wait(150);
+        }
+        throw new Error(`timed out waiting for ${label}; last value=${JSON.stringify(value)}`);
+      };
+      await navigate(`${BASE}?coop&devdata`);
+      await waitFor(`!!document.querySelector('#coop-host') && !document.querySelector('#coop')?.hidden && !document.body.classList.contains('booting')`, Boolean, 'host lobby controls ready');
+      await evaluate(`(() => {document.querySelector('#coop-name').value='QA Host';document.querySelector('#coop-host').click();return true})()`);
+      const code = await waitFor(`window.gta2Lobby?.host ? window.gta2Lobby.code : ''`, Boolean, 'host room code', 15000)
+        .catch(async (error) => {
+          const diagnostics = await evaluate(`(() => ({url:location.href,status:document.querySelector('#status')?.innerText,connectState:document.querySelector('#coop-state')?.innerText,hostDisabled:document.querySelector('#coop-host')?.disabled,errors:window.gta2Errors||[],scripts:[...performance.getEntriesByType('resource')].map(r=>r.name).filter(n=>/tracker|torrent|trystero|webrtc/i.test(n)).slice(-15)}))()`);
+          throw new Error(`${error.message}; WebRTC host diagnostics=${JSON.stringify(diagnostics)}`);
+        });
+      await guest.send('Page.navigate', { url: `${BASE}?coop&devdata` });
+      await guestWaitFor(`!!document.querySelector('#coop-join') && !document.querySelector('#coop')?.hidden && !document.body.classList.contains('booting')`, Boolean, 'guest lobby controls ready');
+      await guestEvaluate(`(() => {document.querySelector('#coop-name').value='QA Guest';document.querySelector('#coop-code').value=${JSON.stringify(code)};document.querySelector('#coop-join').click();return true})()`);
+      const players = await waitFor(`window.gta2Lobby?.players?.length`, (value) => value === 2, 'host sees the second WebRTC peer', 60000);
+      const guestPlayers = await guestWaitFor(`window.gta2Lobby?.players?.length`, (value) => value === 2, 'guest receives the two-player roster', 60000);
+      await wait(2500); // allow the transport's peer ping and roster refresh
+      const lobbyState = await evaluate(`(() => ({code:window.gta2Lobby.code,host:window.gta2Lobby.host,players:window.gta2Lobby.players.map(p=>({name:p.name,id:p.id,ping:p.ping??null})),startProblem:window.gta2Lobby.startProblem()}))()`);
+      const guestState = await guestEvaluate(`(() => ({host:window.gta2Lobby.host,players:window.gta2Lobby.players.map(p=>({name:p.name,id:p.id})),startProblem:window.gta2Lobby.startProblem()}))()`);
+      if (lobbyState.players.length !== 2 || guestState.players.length !== 2 || lobbyState.startProblem) {
+        throw new Error(`two-tab WebRTC lobby failed its roster/start checks: ${JSON.stringify({lobbyState,guestState,players,guestPlayers})}`);
+      }
+      const hostLobbyCapture = await cdp.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
+      const lobbyHostScreenshot = path.join(outDir, 'coop-two-tab-host-lobby.png');
+      await fs.writeFile(lobbyHostScreenshot, Buffer.from(hostLobbyCapture.data, 'base64'));
+      const guestLobbyCapture = await guest.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
+      const lobbyGuestScreenshot = path.join(outDir, 'coop-two-tab-guest-lobby.png');
+      await fs.writeFile(lobbyGuestScreenshot, Buffer.from(guestLobbyCapture.data, 'base64'));
+      if (!process.env.GTA2_QA_COOP_START_MATCH) {
+        await guest.send('Page.close');
+        guest.ws.close();
+        browserCdp.ws.close();
+        console.log(JSON.stringify({ twoTabWebRtcLobby: { lobbyState, guestState, lobbyHostScreenshot, lobbyGuestScreenshot,
+          gameplayStarted: false, note: 'P2P room, peer roster, and start readiness verified; full game startup requires loading 455 MB per tab in this local dev-data profile and was intentionally not attempted.' } }, null, 2));
+        return;
+      }
+      await evaluate(`document.querySelector('#coop-start')?.click()`);
+      await waitFor(`window.gta2?.coop && window.gta2?.Module && window.gta2?.map`, Boolean, 'host entered the multiplayer game', 120000);
+      await guestWaitFor(`window.gta2?.coop && window.gta2?.Module && window.gta2?.map`, Boolean, 'guest entered the multiplayer game', 120000);
+      await waitFor(`window.gta2.dev?.state()?.player === true`, Boolean, 'host game player spawn', 45000);
+      await guestWaitFor(`window.gta2.dev?.state()?.player === true`, Boolean, 'guest game player spawn', 45000);
+      await wait(4000);
+      const match = await evaluate(`(() => ({players:window.gta2.coop.players.map(p=>p.name),mySlot:window.gta2.coop.mySlot,mode:window.gta2.coop.mode,district:window.gta2.coop.district,banner:document.querySelector('#coop-banner')?.innerText||'',state:window.gta2.dev.state()}))()`);
+      const guestMatch = await guestEvaluate(`(() => ({players:window.gta2.coop.players.map(p=>p.name),mySlot:window.gta2.coop.mySlot,mode:window.gta2.coop.mode,district:window.gta2.coop.district,banner:document.querySelector('#coop-banner')?.innerText||'',state:window.gta2.dev.state()}))()`);
+      if (match.mySlot === guestMatch.mySlot || match.players.length !== 2 || guestMatch.players.length !== 2) {
+        throw new Error(`multiplayer match did not start consistently on both peers: ${JSON.stringify({match,guestMatch})}`);
+      }
+      const hostScreenshot = await capture('coop-two-tab-host-in-game');
+      const guestScreenshotResult = await guest.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
+      const guestScreenshot = path.join(outDir, 'coop-two-tab-guest-in-game.png');
+      await fs.writeFile(guestScreenshot, Buffer.from(guestScreenshotResult.data, 'base64'));
+      await guest.send('Page.close');
+      guest.ws.close();
+      browserCdp.ws.close();
+      console.log(JSON.stringify({ twoTabWebRtcMatch: { lobbyState, guestState, match, guestMatch, hostScreenshot, guestScreenshot } }, null, 2));
+      return;
+    }
     if (process.env.GTA2_QA_CROSS_VERSION_SAVE) {
       const oldBuild = process.env.GTA2_QA_OLD_BUILD || '0e12350cadd27f59f6af8a3a';
       await navigate(`${BASE}old/${oldBuild}/?devdata&autostart`);
