@@ -59,7 +59,7 @@ registerDict({
     'ui.save.slot': 'משבצת {n}',
     'ui.save.singlePlayerOnly': 'שמירה זמינה במשחק לשחקן יחיד.',
     'ui.save.jobDone': 'המשימה הושלמה',
-    'ui.save.frenzyPassed': 'אתגר Kill Frenzy הושלם',
+    'ui.save.frenzyPassed': 'אתגר החיסול הושלם',
     'ui.save.autosaved': '{what}: נשמר אוטומטית',
     'ui.save.savedTo': 'נשמר במשבצת {slot} · ‎-{cost}',
     'ui.save.couldNotSave': 'השמירה נכשלה: {err}',

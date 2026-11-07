@@ -129,6 +129,74 @@ async function main() {
       return file;
     };
     const visibleTranslated = `(() => { const p=document.querySelector('#mission-brief'); const t=p?.querySelector('.mission-brief-text'); return p && !p.hidden && t?.innerText ? {text:t.innerText,dir:p.dir} : null; })()`;
+    if (process.env.GTA2_QA_BRIEF_QUEUE_ONLY) {
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'release shell and Hebrew renderer');
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'gameplay spawn for native brief queue test', 120000);
+      for (let i = 0; i < 4 && await evaluate('document.documentElement.lang') !== 'he'; i++) {
+        await evaluate(`document.querySelector('#lang-toggle')?.click()`);
+        await wait(80);
+      }
+      await waitFor(`document.documentElement.lang==='he'`, Boolean, 'Hebrew language selection');
+      const enqueuedAt = Date.now();
+      const firstQueued = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_brief','number',['string','number'],['bdone',5000])`);
+      const secondQueued = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_brief','number',['string','number'],['arig',-1])`);
+      if (firstQueued !== 1 || secondQueued !== 1) throw new Error(`native brief queue rejected a message: ${firstQueued}, ${secondQueued}`);
+      const first = await waitFor(`${visibleTranslated}`, (value) => value?.text?.includes('הרכב ממולכד!') && value.text.includes('$5000'),
+        'first native brief with its formatted cost', 15000);
+      const firstAt = await evaluate('performance.now()');
+      const firstScreenshot = await capture('native-brief-queue-first-bdone');
+      const second = await waitFor(`${visibleTranslated}`, (value) => value?.text?.includes('הרכב הזה כבר ממולכד!'),
+        'second brief after the first message expires', 25000);
+      const secondAt = await evaluate('performance.now()');
+      const secondScreenshot = await capture('native-brief-queue-second-arig');
+      if (secondAt <= firstAt) throw new Error(`brief queue order/time was invalid: ${firstAt}, ${secondAt}`);
+      console.log(JSON.stringify({ focusedBriefQueue: { firstQueued, secondQueued, enqueuedAt, first, firstAt,
+        firstScreenshot, second, secondAt, secondScreenshot, jobBriefs: await evaluate('window.gta2.map.jobBriefs()') } }));
+      return;
+    }
+    if (process.env.GTA2_QA_TITLE_ONLY) {
+      const titleKey = Number(process.env.GTA2_QA_TITLE_TEST || 9002);
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'release shell and Hebrew renderer');
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'gameplay spawn for mission title comparison', 120000);
+      const setLanguage = async (language) => {
+        for (let i = 0; i < 4 && await evaluate('document.documentElement.lang') !== language; i++) {
+          await evaluate(`document.querySelector('#lang-toggle')?.click()`);
+          await wait(80);
+        }
+        await waitFor(`document.documentElement.lang==='${language}'`, Boolean, `${language} language selection`);
+      };
+      await setLanguage('he');
+      const showTitle = async () => {
+        const shown = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_mission_title','number',['number'],[${titleKey}])`);
+        if (!shown) throw new Error(`mission title ${titleKey} was rejected by the engine`);
+        const visible = await waitFor(`window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[])===${titleKey}`, Boolean,
+          `mission title ${titleKey} entered the native queue`, 5000).catch(() => false);
+        const translatedVisible = await evaluate(`document.documentElement.lang==='he'&&(()=>{const n=document.querySelector('#mission-title');return n&&!n.hidden&&n.dataset.key==='${titleKey}'})()`);
+        const nativeVisible = await evaluate(`document.documentElement.lang==='en'&&window.gta2.Module.ccall('gta2_port_native_mission_title_text_hidden','number',[],[])===0`);
+        if (!visible || (await evaluate('document.documentElement.lang')) === 'he' && !translatedVisible || (await evaluate('document.documentElement.lang')) === 'en' && !nativeVisible) {
+          const diagnostics = await evaluate(`(()=>{const n=document.querySelector('#mission-title');return {title:n?.outerHTML,engineKey:window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[]),nativeHidden:window.gta2.Module.ccall('gta2_port_native_mission_title_text_hidden','number',[],[]),frontend:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]),player:window.gta2.dev.state(),lang:document.documentElement.lang}})()`);
+          const screenshot = await capture(`mission-title-${titleKey}-not-visible`);
+          throw new Error(`mission title not visible after engine accepted it: ${JSON.stringify({ diagnostics, screenshot })}`);
+        }
+        return true;
+      };
+      await showTitle();
+      const hebrewProbe = await evaluate(`(()=>{const n=document.querySelector('#mission-title');return {lang:document.documentElement.lang,text:n.getAttribute('aria-label'),key:n.dataset.key,rect:n.getBoundingClientRect().toJSON(),fontSize:n.dataset.fontSizeUsed,fitOverflow:n.dataset.fitOverflow}})()`);
+      const hebrew = { probe: hebrewProbe, screenshot: await capture(`mission-title-${titleKey}-hebrew-release`) };
+      let english = null;
+      if (process.env.GTA2_QA_TITLE_ENGLISH_COMPARE) {
+        await setLanguage('en');
+        await showTitle();
+        await wait(120);
+        english = { screenshot: await capture(`mission-title-${titleKey}-english-release`),
+          probe: await evaluate(`(()=>{const n=document.querySelector('#mission-title');return {lang:document.documentElement.lang,text:n.getAttribute('aria-label'),key:n.dataset.key,rect:n.getBoundingClientRect().toJSON(),nativeHidden:window.gta2.Module.ccall('gta2_port_native_mission_title_text_hidden','number',[],[])}})()`) };
+        await setLanguage('he');
+      }
+      console.log(JSON.stringify({ focusedMissionTitle: { titleKey, hebrew, english } }));
+      return;
+    }
     if (process.env.GTA2_QA_PICKUP_RENDERER_ONLY) {
       await navigate(`${BASE}?devdata&autostart`);
       await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'production GXT renderer');
@@ -278,6 +346,118 @@ async function main() {
       console.log(JSON.stringify({ fatalEventHud: results }, null, 2));
       return;
     }
+    if (process.env.GTA2_QA_KF_COLLISION_ONLY) {
+      await navigate(`${BASE}?devdata`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'production GXT renderer');
+      await waitFor(`window.gta2?.Module?.ccall('gta2_port_frontend_menu_state','number',[],[]) >= 0`, Boolean, 'original frontend menu', 120000);
+      const menuKey = async (name, code, virtualKey) => {
+        await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key: name, code, windowsVirtualKeyCode: virtualKey });
+        await wait(160);
+        await cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', key: name, code, windowsVirtualKeyCode: virtualKey });
+        await wait(220);
+      };
+      await evaluate(`document.querySelector('#screen')?.focus()`);
+      let menuState = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+      if (Math.floor(menuState / 16) !== 0) throw new Error(`expected original start menu, got state ${menuState}`);
+      while (menuState % 16 > 0) {
+        await menuKey('ArrowUp', 'ArrowUp', 0x26);
+        menuState = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+      }
+      await menuKey('Enter', 'Enter', 0x0d);
+      await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, (v) => Math.floor(v / 16) === 1, 'original Play menu');
+      const unlocked = await evaluate(`window.gta2.Module.ccall('gta2_dev_unlock_areas','number',[],[])`);
+      if (unlocked !== 1) throw new Error(`could not unlock isolated QA districts: ${unlocked}`);
+      await evaluate(`document.querySelector('#screen')?.focus()`);
+      menuState = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+      while (menuState % 16 < 3) {
+        await menuKey('ArrowDown', 'ArrowDown', 0x28);
+        menuState = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+      }
+      while (menuState % 16 > 3) {
+        await menuKey('ArrowUp', 'ArrowUp', 0x26);
+        menuState = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
+      }
+      let district = await evaluate(`window.gta2.Module.ccall('gta2_qa_main_stage','number',[],[])`);
+      for (let i = 0; district !== 0 && i < 4; i++) {
+        const right = (3 - district) % 3 <= 1;
+        await menuKey(right ? 'ArrowRight' : 'ArrowLeft', right ? 'ArrowRight' : 'ArrowLeft', right ? 0x27 : 0x25);
+        district = await evaluate(`window.gta2.Module.ccall('gta2_qa_main_stage','number',[],[])`);
+      }
+      if (district !== 0) throw new Error(`could not select Downtown for Kill Frenzy test: ${district}`);
+      await menuKey('Enter', 'Enter', 0x0d);
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'Downtown gameplay for Kill Frenzy test', 120000);
+      if (await evaluate('document.documentElement.lang') !== 'he') throw new Error('Kill Frenzy QA requires Hebrew as the initial language');
+      await evaluate(`(() => {window.__gta2QaSeenGxt=[];const root=document.getElementById('hebrew-gxt-layer');if(!root)return false;new MutationObserver(()=>{for(const n of root.querySelectorAll('.hebrew-gxt-text')){const text=n.innerText.trim();if(text&&!window.__gta2QaSeenGxt.includes(text))window.__gta2QaSeenGxt.push(text)}}).observe(root,{childList:true,subtree:true,characterData:true});return true})()`);
+      const target = await evaluate(`(() => {
+        const m=window.gta2.Module,ptr=m._malloc(2048*5*4);
+        const count=m.ccall('gta2_port_map_objects','number',['number','number'],[ptr,2048]);
+        const objects=[];
+        for(let i=0;i<count;i++){const off=(ptr>>2)+i*5;const model=m.HEAP32[off];if(model===286)objects.push({x:m.HEAP32[off+1],y:m.HEAP32[off+2],z:m.HEAP32[off+3]})}
+        m._free(ptr);
+        const player=window.gta2.dev.state();
+        objects.sort((a,b)=>Math.abs(a.z/16384-player.z)-Math.abs(b.z/16384-player.z)||
+          Math.hypot(a.x/16384-player.x,a.y/16384-player.y)-Math.hypot(b.x/16384-player.x,b.y/16384-player.y));
+        return {player,objects};
+      })()`);
+      if (!target.objects.length) throw new Error(`no live Kill Frenzy marker (model 286) on the current map: ${JSON.stringify(target)}`);
+      const position = await evaluate(`(() => {const p=${JSON.stringify(target.objects[0])};return {moved:window.gta2.dev.teleport(Math.floor(p.x/16384),Math.floor(p.y/16384)),target:p}})()`);
+      position.playerBefore = target.player;
+      if (!position.moved) throw new Error(`could not move the isolated player to the native Kill Frenzy marker: ${JSON.stringify(position)}`);
+      await wait(500);
+      const probe = `(() => {const panel=document.querySelector('#mission-brief'),text=panel?.querySelector('.mission-brief-text'),title=document.querySelector('#mission-title');return {gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean),seen:window.__gta2QaSeenGxt||[],brief:text?.innerText||'',briefVisible:!!panel&&!panel.hidden&&!!text?.getClientRects().length,briefRect:text?.getBoundingClientRect().toJSON()||null,title:title?.dataset.text||'',titleKey:title?.dataset.key||'',titleVisible:!!title&&!title.hidden,player:window.gta2.dev.state()}})()`;
+      const beforeInteraction = await evaluate(probe);
+      const preInteractionScreenshot = await capture('kill-frenzy-before-interaction');
+      await evaluate(`window.gta2.dev.hold('ArrowUp',250)`);
+      await evaluate(`window.gta2.dev.hold('Enter',700)`);
+      const startState = await waitFor(probe, (value) => value.player.weapon >= 0, 'native Kill Frenzy weapon/timer activation', 12000);
+      const screenshot = await capture('kill-frenzy-native-start');
+      if (process.env.GTA2_QA_KF_NATIVE_MESSAGE) {
+        const cases = [
+          { key: 'kfstart', title: 'אתגר חיסול!', name: 'start' },
+          { key: 'kfpass', title: 'אתגר החיסול הושלם!', name: 'pass' },
+          { key: 'kffail', title: 'אתגר החיסול נכשל!', name: 'fail' },
+        ];
+        const messages = [];
+        for (const item of cases) {
+          const shown = await evaluate(`window.gta2.Module.ccall('gta2_qa_show_hud_gxt','number',['string'],[${JSON.stringify(item.key)}])`);
+          if (shown !== 1) throw new Error(`engine rejected native ${item.key} HUD message probe`);
+          const messageState = await waitFor(probe, (value) => value.title === item.title && value.titleVisible,
+            `translated ${item.key} through native HUD message queue`, 5000);
+          const messageScreenshot = await capture(`kill-frenzy-native-hud-${item.name}`);
+          messages.push({ key: item.key, shown, messageState, messageScreenshot });
+        }
+        console.log(JSON.stringify({ nativeKillFrenzyHudMessages: messages }, null, 2));
+        return;
+      }
+      if (process.env.GTA2_QA_KF_TRY_PASS) {
+        const spawned = await evaluate(`(() => {const spots=[[2,-2],[2,0],[2,2],[3,-3],[3,-1],[3,1],[3,3],[4,-2],[4,0],[4,2],[5,-3],[5,-1],[5,1],[5,3],[6,0],[6,2],[6,-2],[7,0]];return spots.map(([x,y])=>({x,y,ok:window.gta2.dev.spawnCar(10,x,y,720)}))})()`);
+        if (spawned.some((car) => car.ok)) {
+          for (let i = 0; i < 12; i++) {
+            await evaluate(`window.gta2.dev.hold('KeyL',300)`);
+            await evaluate(`window.gta2.dev.hold('ArrowRight',120)`);
+          }
+        }
+        const result = await waitFor(probe,
+          (value) => value.title === 'אתגר החיסול הושלם!' || value.title === 'אתגר החיסול נכשל!',
+          'natural Kill Frenzy result after using the weapon', 70000).catch(async (error) => ({ error: error.message, ...(await evaluate(probe)) }));
+        const resultScreenshot = await capture('kill-frenzy-try-pass-result');
+        console.log(JSON.stringify({ nativeKillFrenzyTryPass: { spawned, result, resultScreenshot } }, null, 2));
+        return;
+      }
+      if (process.env.GTA2_QA_KF_WAIT_FOR_FAIL) {
+        if (process.env.GTA2_QA_KF_FAST_FORWARD) {
+          await cdp.send('Emulation.setVirtualTimePolicy', { policy: 'advance', budget: 65000, maxVirtualTimeTaskStarvationCount: 10000 });
+        }
+        const failed = await waitFor(probe,
+          (value) => value.gxt.includes('אתגר החיסול נכשל!') || value.seen.includes('אתגר החיסול נכשל!') || value.title === 'אתגר החיסול נכשל!',
+          'natural Kill Frenzy timeout/failure message', 70000);
+        const failureScreenshot = await capture('kill-frenzy-natural-fail');
+        console.log(JSON.stringify({ nativeKillFrenzy: { start: startState, startScreenshot: screenshot, fail: failed, failureScreenshot } }, null, 2));
+        return;
+      }
+      console.log(JSON.stringify({ nativeKillFrenzyStart: { position, beforeInteraction, preInteractionScreenshot, active: startState, screenshot } }, null, 2));
+      return;
+    }
     if (process.env.GTA2_QA_DISTRICT_SWEEP === '1') {
       const districts = ['Downtown', 'Residential', 'Industrial'];
       const requested = process.env.GTA2_QA_DISTRICT_INDEX;
@@ -349,19 +529,26 @@ async function main() {
           await waitFor(`window.gta2.map.jobs().onMission === true`, Boolean, `${districts[target]} mission accepted through the original phone`, 12000);
           phoneAccepted = true;
         }
+        const postPhoneTimeline = [];
+        const settleMs = Math.max(0, Number(process.env.GTA2_QA_DISTRICT_SETTLE_MS) || 0);
+        const settleUntil = Date.now() + settleMs;
+        while (Date.now() < settleUntil) {
+          postPhoneTimeline.push(await evaluate(`(() => ({at:performance.now(),titleKey:window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[]),briefs:window.gta2.map.jobBriefs().briefs.map(({gxtKey,text})=>({gxtKey,text})),onMission:window.gta2.map.jobs().onMission}))()`));
+          await wait(500);
+        }
         const liveState = await evaluate(`(() => ({mission:window.gta2.map.jobs(),briefs:window.gta2.map.jobBriefs(),gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(x=>x.innerText).filter(Boolean)}))()`);
         const title = await waitFor(`window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[])`, (v) => v > 0, `${districts[target]} native mission title`, 5000).catch(() => 0);
         const titleScreenshot = title ? await capture(`district-mission-title-${target}`) : null;
         const brief = await waitFor(visibleTranslated, Boolean, `${districts[target]} translated mission brief`, 10000).catch(() => null);
         const briefScreenshot = brief ? await capture(`district-mission-brief-${target}`) : null;
-        const result = { district: districts[target], stage: current, stageSelectionMethod, mapId: initial.map?.mapId, startupOnMission: initial.jobs.onMission, startupBriefs: initial.briefs.briefs.map((item) => ({ gxtKey: item.gxtKey, face: item.face, text: item.text })), phone, phoneAccepted, liveState, titleKey: title, brief, selectorScreenshot, gameStartScreenshot, titleScreenshot, briefScreenshot };
+        const result = { district: districts[target], stage: current, stageSelectionMethod, mapId: initial.map?.mapId, startupOnMission: initial.jobs.onMission, startupBriefs: initial.briefs.briefs.map((item) => ({ gxtKey: item.gxtKey, face: item.face, text: item.text })), phone, phoneAccepted, postPhoneTimeline, liveState, titleKey: title, brief, selectorScreenshot, gameStartScreenshot, titleScreenshot, briefScreenshot };
         sweep.push(result);
         console.log(JSON.stringify({ districtLaunchAndMissionCheck: result }));
       }
       console.log(JSON.stringify({ districtLaunchAndMissionChecks: sweep, note: 'The original Play menu action started each district. If headless Chrome arrow events did not change the district, a debug-only setter selected it; this is not a normal input-path check. Only when no mission was already active did the test accept a gang-phone mission. Area unlock and respect changes occurred only in the isolated QA profile; no release gameplay rules were changed.' }, null, 2));
       return;
     }
-    const expected = (process.env.GTA2_QA_ONLY_PICKUP ? [] : [
+    const expected = (process.env.GTA2_QA_ONLY_PICKUP || process.env.GTA2_QA_SAVE_ONLY ? [] : [
       { key: '2306', text: 'קדימה, עלו!', name: 'short-hebrew' },
       { key: '2026', text: '50 מדענים', name: 'numbers-names' },
       { key: '3727', text: 'המאפיה הרוסית', name: 'long-industrial' },
@@ -443,6 +630,9 @@ async function main() {
     }
     // Keep one page and queue four real GXT briefs via Hud_Brief_704.
     await navigate(`${BASE}?devdata&autostart&brief-test=${expected.map((item) => item.key).join(',')}`);
+    if (process.env.GTA2_QA_SAVE_ONLY) {
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'player spawn before focused save round trip', 120000);
+    }
     const sequence = [];
     for (const item of expected) {
       let state;
@@ -619,6 +809,7 @@ async function main() {
     if (process.env.GTA2_QA_SAVE_ROUNDTRIP) {
       const rules = await evaluate(`window.gta2.states.rules()`);
       if (!rules.player || rules.stars || rules.onJob) throw new Error(`save test needs an ordinary safe state: ${JSON.stringify(rules)}`);
+      const stateBefore = await evaluate(`window.gta2.dev.state()`);
       const saved = await evaluate(`window.gta2.states.save('s1',{free:true,quiet:true})`);
       if (!saved) throw new Error('a real single-player game snapshot could not be saved');
       const before = await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('gta2-port-states');r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result, q=db.transaction('states','readonly').objectStore('states').get('s1');q.onsuccess=()=>resolve({slot:q.result?.slot,build:q.result?.build,size:q.result?.size,blob:q.result?.data?.size});q.onerror=()=>reject(q.error)}})`);
@@ -647,10 +838,20 @@ async function main() {
       const imported = await waitFor(`document.querySelector('#status')?.innerText`, (value) => /import/i.test(value || '') || /יובא/.test(value || ''), 'save import status');
       const after = await evaluate(`new Promise((resolve,reject)=>{const r=indexedDB.open('gta2-port-states');r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result, q=db.transaction('states','readonly').objectStore('states').get('s1');q.onsuccess=()=>resolve({slot:q.result?.slot,build:q.result?.build,size:q.result?.size});q.onerror=()=>reject(q.error)}})`);
       if (after.slot !== 's1' || after.build !== before.build || after.size !== before.size) throw new Error(`imported snapshot differs: ${JSON.stringify(after)}`);
+      await evaluate(`location.reload()`);
+      await waitFor(`typeof window.gta2?.states?.load === 'function' && window.gta2?.dev?.state()?.player === true`, Boolean,
+        'game startup after reloading the page with imported save data', 120000);
       const loaded = await evaluate(`window.gta2.states.load('s1')`);
       if (!loaded) throw new Error('imported game snapshot could not be loaded');
-      saveRoundTrip = { rules, before, exportedFileBytes: (await fs.stat(exportedPath)).size, importStatus: imported, after, loaded };
+      const stateAfter = await evaluate(`window.gta2.dev.state()`);
+      const rulesAfter = await evaluate(`window.gta2.states.rules()`);
+      const restoredPosition = Math.abs(stateAfter.x - stateBefore.x) < 0.05 && Math.abs(stateAfter.y - stateBefore.y) < 0.05;
+      if (!restoredPosition || rulesAfter.cash !== rules.cash || rulesAfter.stars !== rules.stars) {
+        throw new Error(`save did not restore the same safe player state: ${JSON.stringify({stateBefore,stateAfter,rules,rulesAfter})}`);
+      }
+      saveRoundTrip = { rules, stateBefore, before, exportedFileBytes: (await fs.stat(exportedPath)).size, importStatus: imported, after, reloadCompleted: true, loaded, stateAfter, rulesAfter, restoredPosition };
       console.log(JSON.stringify({ saveRoundTrip }));
+      if (process.env.GTA2_QA_SAVE_ONLY) return;
     }
 
     let missionAttempt = null;

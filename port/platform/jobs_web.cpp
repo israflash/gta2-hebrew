@@ -307,9 +307,10 @@ extern "C" EMSCRIPTEN_KEEPALIVE int gta2_dev_show_brief(const char* gxtKey, s32 
     {
         return 0;
     }
-    // Highest native priority makes the local QA draw deterministic without
-    // replacing the HUD queue, formatter, portrait, timing, or text renderer.
-    gHud_2B00_706620->field_DC_brief.SetHudBrief_5D3F10(3, gxtKey, cost_param);
+    // Normal priority appends to the engine's native brief queue. Priority 3
+    // preempts the current brief, which would make a rapid QA sequence test
+    // replacement rather than the original queue and message timing.
+    gHud_2B00_706620->field_DC_brief.SetHudBrief_5D3F10(0, gxtKey, cost_param);
     return 1;
 }
 
@@ -330,3 +331,22 @@ extern "C" EMSCRIPTEN_KEEPALIVE int gta2_dev_show_mission_title(int key)
     gHud_2B00_706620->field_111C_message.ShowMessage_5D1A00(title, hud_message_priority::important_3);
     return 1;
 }
+
+#if defined(GTA2_PORT_QA)
+// QA-only: exercise the native HUD message queue with an exact GXT key. The
+// message renderer, timing, and Hebrew draw hook remain the production paths.
+extern "C" EMSCRIPTEN_KEEPALIVE int gta2_qa_show_hud_gxt(const char* gxtKey)
+{
+    if (!gHud_2B00_706620 || !gText_0x14_704DFC || !gxtKey || !gxtKey[0])
+    {
+        return 0;
+    }
+    wchar_t* text = gText_0x14_704DFC->Find_5B5F90(gxtKey);
+    if (!text)
+    {
+        return 0;
+    }
+    gHud_2B00_706620->field_111C_message.ShowMessage_5D1A00(text, hud_message_priority::important_3);
+    return 1;
+}
+#endif

@@ -130,8 +130,8 @@ const addedTitles = {
   6184: ['SCIENTIST GANG COMPLETE!', 'כנופיית המדענים הושלמה!'],
   6185: ['REDNECK GANG COMPLETE!', 'כנופיית הרדנקס הושלמה!'],
   6186: ['ZAIBATSU GANG COMPLETE!', 'כנופיית זייבאצו הושלמה!'],
-  9001: ['JOB FAILED!', 'המשימה נכשלה!'], 9002: ['KILL FRENZY!', 'אתגר Kill Frenzy!'],
-  9003: ['FRENZY PASSED!', 'אתגר Kill Frenzy הושלם!'], 9004: ['FRENZY FAILED!', 'אתגר Kill Frenzy נכשל!'],
+  9001: ['JOB FAILED!', 'המשימה נכשלה!'], 9002: ['KILL FRENZY!', 'אתגר חיסול!'],
+  9003: ['FRENZY PASSED!', 'אתגר החיסול הושלם!'], 9004: ['FRENZY FAILED!', 'אתגר החיסול נכשל!'],
 };
 for (const [key, [source, text]] of Object.entries(addedTitles)) titles.titles[key] = { source, text };
 const titleOrder = [...Array.from({ length: 19 }, (_, i) => String(1970 + i)),
