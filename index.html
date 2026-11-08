@@ -25,11 +25,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
   <style>
     :root { color-scheme: dark; --bg: #0b0b0d; --fg: #e8e6e3; --muted: #9a978f; --accent: #e63946; }
-    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=5e2db648bc") format("truetype");
+    @font-face { font-family: "GTA2 Brief Pixel"; src: url("./fonts/gta2-sevenish-he.ttf?v=60b8a2f423") format("truetype");
       font-style: normal; font-weight: 400; font-display: swap; }
-    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=5e2db648bc") format("truetype");
+    @font-face { font-family: "GTA2 Impact Pixel"; src: url("./fonts/ImpactfulBits.ttf?v=60b8a2f423") format("truetype");
       font-style: normal; font-weight: 400 900; font-display: swap; }
-    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=5e2db648bc") format("truetype");
+    @font-face { font-family: "GTA2 Noto Title"; src: url("./fonts/NotoSansHebrew-Black.ttf?v=60b8a2f423") format("truetype");
       font-style: normal; font-weight: 900; font-display: swap; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
       font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -47,8 +47,11 @@
       font: 400 clamp(26px, 5vh, 44px)/clamp(20px, 4.05vh, 40px) "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace;
       pointer-events: none; }
     #main-menu-hebrew[hidden] { display: none; }
-    #main-menu-hebrew span { display: block; width: 100%; white-space: nowrap; }
+    #main-menu-hebrew span { display: block; position: relative; width: 100%; white-space: nowrap; }
     #main-menu-hebrew span.selected { color: #ed2024; }
+    #main-menu-hebrew span.selected::before { content: "▶"; position: absolute; left: -.95em; top: 50%;
+      transform: translateY(-50%); color: #ed2024; font-size: 1.05em; line-height: 1;
+      -webkit-text-stroke: .45px #fff; text-shadow: 1px 1px 0 #080705, 0 0 2px #080705; }
     #status { position: fixed; left: 1rem; bottom: 2.2rem; margin: 0; color: var(--muted); }
     #status.error { color: #ff8a8a; }
     #state-toast { position: fixed; left: 50%; bottom: 18%; transform: translateX(-50%); z-index: 30; pointer-events: none;
@@ -263,9 +266,10 @@
       font-family: "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace; font-weight: 400; letter-spacing: -.015em;
       text-shadow: 1px 1px 0 #080705, -1px 0 #1a160e, 1px 0 #1a160e, 0 -1px #1a160e, 0 1px #1a160e; }
     /* Keep the engine's red selected font and add a clear RTL cursor beside the active submenu row. */
-    .hebrew-gxt-text.native-menu-selected::before { content: "◀"; display: inline-block; margin-inline-start: .45em;
-      color: #ed2024; font-family: "GTA2 Impact Pixel", monospace; font-size: .8em; vertical-align: .05em;
-      text-shadow: 1px 1px 0 #080705, 0 0 2px #080705; }
+    .hebrew-gxt-text.native-menu-selected::before { content: "◀"; display: inline-block; margin-inline-start: .55em;
+      color: #ed2024; font-family: "GTA2 Impact Pixel", monospace; font-size: 1.2em; font-weight: 900;
+      vertical-align: -.02em; -webkit-text-stroke: .45px #fff;
+      text-shadow: 1px 1px 0 #080705, 0 0 3px #080705; }
     #mission-brief-speaker { display: none; }
     .mission-brief-text { font: 400 clamp(24px, 3.15vh, 27px)/1.28 "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace;
       letter-spacing: 0; word-spacing: .12em; word-break: normal;
@@ -568,6 +572,6 @@
   </main>
   <!-- strings.js is imported by shell.js (one module instance); it applies the stored
        language as soon as the page's markup is parsed. -->
-  <script type="module" src="shell.js?v=5e2db648bc"></script>
+  <script type="module" src="shell.js?v=60b8a2f423"></script>
 </body>
 </html>
