@@ -45,6 +45,11 @@ async function main() {
   assert.match(tutorialWeapon.text, /אסימון מיוחד/);
   const uniformBrief = runtimeRecords.find((row) => String(row.gxtKey) === '2217');
   assert.match(uniformBrief.text, /תת־מקלע S-Uzi/);
+  const industrialWelcome = runtimeRecords.find((row) => row.area === 'Industrial District' && String(row.gxtKey) === '3230');
+  assert.equal(industrialWelcome.text,
+    'הגעת ל־Industrial District... השתדל לא להסתכסך עם המאפיה הרוסית, לא למצוא את עצמך מומר בידי אנשי קרישנה ולא להיבלע בידי זייבאצו. בהצלחה!',
+    'Industrial welcome must preserve the source meaning of being converted by the Krishna');
+  assert.doesNotMatch(industrialWelcome.text, /להתפתות/, 'conversion must not be changed to temptation');
   for (const input of ['ⅲHey, Rooster! #Steal# the Pickup.', 'ⅮAn English #fallback# with 123']) {
     const normalized = mod.normalizeMissionText(input);
     assert.ok(normalized && !normalized.startsWith('ⅲ') && !normalized.startsWith('Ⅾ'));

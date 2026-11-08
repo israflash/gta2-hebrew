@@ -21,7 +21,9 @@ const CDP_HOST = '127.0.0.1';
 const CHROME_HOST = '127.0.0.1';
 const PORT = Number(process.env.GTA2_QA_PORT) || 9223;
 const BASE = process.env.GTA2_QA_BASE || 'http://127.0.0.1:8876/';
-const outDir = path.join(__dirname, '..', 'game', 'qa-screenshots');
+const outDir = process.env.GTA2_QA_SCREENSHOT_DIR
+  ? path.resolve(process.env.GTA2_QA_SCREENSHOT_DIR)
+  : path.join(__dirname, '..', 'game', 'qa-screenshots');
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const auditSnapshots = [];
 
@@ -111,6 +113,17 @@ async function main() {
         try { value = await evaluate(probe); } catch { /* startup may briefly block Runtime.evaluate */ }
         if (predicate(value)) return value;
         await wait(150);
+      }
+      if (process.env.GTA2_QA_DIAGNOSTICS) {
+        try {
+          const diagnostics = await evaluate(`(() => ({url: location.href, title: document.title,
+            status: document.querySelector('#status')?.innerText, body: document.body?.innerText?.slice(0,1200),
+            module: typeof window.gta2?.Module, renderer: typeof window.gta2?.Module?.gta2HebrewGxtDraw,
+            player: window.gta2?.dev?.state()?.player,
+            resources: performance.getEntriesByType('resource').slice(-20).map(x=>({name:x.name, duration:Math.round(x.duration), transferSize:x.transferSize})),
+            errors: window.__gta2QaErrors||[]}))()`);
+          console.error(`QA diagnostics for ${label}: ${JSON.stringify(diagnostics)}`);
+        } catch (error) { console.error(`QA diagnostics unavailable: ${error.message}`); }
       }
       throw new Error(`timed out waiting for ${label}; last value=${JSON.stringify(value)}`);
     };
@@ -321,7 +334,7 @@ async function main() {
     }
     if (process.env.GTA2_QA_BRIEF_QUEUE_ONLY) {
       await navigate(`${BASE}?devdata&autostart`);
-      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'release shell and Hebrew renderer');
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'release shell and Hebrew renderer', 180000);
       await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'gameplay spawn for native brief queue test', 120000);
       for (let i = 0; i < 4 && await evaluate('document.documentElement.lang') !== 'he'; i++) {
         await evaluate(`document.querySelector('#lang-toggle')?.click()`);
@@ -343,6 +356,37 @@ async function main() {
       if (secondAt <= firstAt) throw new Error(`brief queue order/time was invalid: ${firstAt}, ${secondAt}`);
       console.log(JSON.stringify({ focusedBriefQueue: { firstQueued, secondQueued, enqueuedAt, first, firstAt,
         firstScreenshot, second, secondAt, secondScreenshot, jobBriefs: await evaluate('window.gta2.map.jobBriefs()') } }));
+      return;
+    }
+    if (process.env.GTA2_QA_CONTEXTUAL_GXT_ONLY) {
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'release shell and Hebrew renderer', 180000);
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'gameplay spawn for contextual GXT checks', 120000);
+      for (let i = 0; i < 4 && await evaluate('document.documentElement.lang') !== 'he'; i++) {
+        await evaluate(`document.querySelector('#lang-toggle')?.click()`);
+        await wait(80);
+      }
+      await waitFor(`document.documentElement.lang==='he'`, Boolean, 'Hebrew language selection');
+      const checks = [
+        { key: '1117', text: 'יש לך כבר משימה פעילה', screenshot: 'native-gxt-phone-active-mission' },
+        { key: '1407', text: 'הטנק הושמד!', screenshot: 'native-gxt-stop-the-tank-result' },
+        { key: '2818', text: 'כבר השלמת את המשימה הזאת', screenshot: 'native-gxt-phone-already-passed' },
+        { key: '2819', text: 'המשימה הזאת כבר נכשלה', screenshot: 'native-gxt-phone-already-failed' },
+      ];
+      const displayed = [];
+      for (const test of checks) {
+        const queued = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_brief','number',['string','number'],[${JSON.stringify(test.key)},-1])`);
+        if (!queued) throw new Error(`contextual GXT ${test.key} was not queued`);
+        const state = await waitFor(`(() => {const g=[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText).join(' '),p=document.querySelector('#mission-brief'),b=p&&!p.hidden?p.querySelector('.mission-brief-text')?.innerText||'':'';return {g,b}})()`,
+          (value) => `${value.g} ${value.b}`.includes(test.text), `contextual Hebrew GXT ${test.key}`);
+        const inBriefPanel = state.b.includes(test.text);
+        if (!inBriefPanel) await evaluate(`document.querySelector('#mission-brief')?.classList.add('qa-hide-brief-panel')`);
+        const screenshot = await capture(test.screenshot);
+        displayed.push({ key: test.key, text: test.text, route: inBriefPanel ? 'native brief panel' : 'native GXT draw hook', screenshot });
+        if (!inBriefPanel) await evaluate(`document.querySelector('#mission-brief')?.classList.remove('qa-hide-brief-panel')`);
+        await wait(1100);
+      }
+      console.log(JSON.stringify({ contextualGxtChecks: displayed }, null, 2));
       return;
     }
     if (process.env.GTA2_QA_TITLE_ONLY) {
@@ -601,7 +645,7 @@ async function main() {
       await menuKey('Enter', 'Enter', 0x0d);
       await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'Downtown gameplay for Kill Frenzy test', 120000);
       if (await evaluate('document.documentElement.lang') !== 'he') throw new Error('Kill Frenzy QA requires Hebrew as the initial language');
-      await evaluate(`(() => {window.__gta2QaSeenGxt=[];const root=document.getElementById('hebrew-gxt-layer');if(!root)return false;new MutationObserver(()=>{for(const n of root.querySelectorAll('.hebrew-gxt-text')){const text=n.innerText.trim();if(text&&!window.__gta2QaSeenGxt.includes(text))window.__gta2QaSeenGxt.push(text)}}).observe(root,{childList:true,subtree:true,characterData:true});return true})()`);
+      await evaluate(`(() => {window.__gta2QaSeenGxt=[];window.__gta2QaSeenGxtDetails=[];window.__gta2QaDirectDraws=[];const m=window.gta2.Module,original=m.gta2HebrewGxtDraw;m.gta2HebrewGxtDraw=function(...args){const result=original(...args);if(args[0]==='K.F.'&&window.__gta2QaDirectDraws.length<12)window.__gta2QaDirectDraws.push({args,result});return result};const root=document.getElementById('hebrew-gxt-layer');if(!root)return false;new MutationObserver(()=>{for(const n of root.querySelectorAll('.hebrew-gxt-text')){const text=n.innerText.trim();if(text&&!window.__gta2QaSeenGxt.includes(text))window.__gta2QaSeenGxt.push(text);if(text==='חיסול')window.__gta2QaSeenGxtDetails.push({rect:n.getBoundingClientRect().toJSON(),computed:{display:getComputedStyle(n).display,visibility:getComputedStyle(n).visibility,opacity:getComputedStyle(n).opacity,color:getComputedStyle(n).color,fontSize:getComputedStyle(n).fontSize,lineHeight:getComputedStyle(n).lineHeight},dataset:{...n.dataset},html:n.innerHTML,clientRects:n.getClientRects().length})}}).observe(root,{childList:true,subtree:true,characterData:true});return true})()`);
       const target = await evaluate(`(() => {
         const m=window.gta2.Module,ptr=m._malloc(2048*5*4);
         const count=m.ccall('gta2_port_map_objects','number',['number','number'],[ptr,2048]);
@@ -618,7 +662,7 @@ async function main() {
       position.playerBefore = target.player;
       if (!position.moved) throw new Error(`could not move the isolated player to the native Kill Frenzy marker: ${JSON.stringify(position)}`);
       await wait(500);
-      const probe = `(() => {const panel=document.querySelector('#mission-brief'),text=panel?.querySelector('.mission-brief-text'),title=document.querySelector('#mission-title');return {gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean),seen:window.__gta2QaSeenGxt||[],brief:text?.innerText||'',briefVisible:!!panel&&!panel.hidden&&!!text?.getClientRects().length,briefRect:text?.getBoundingClientRect().toJSON()||null,title:title?.dataset.text||'',titleKey:title?.dataset.key||'',titleVisible:!!title&&!title.hidden,player:window.gta2.dev.state()}})()`;
+      const probe = `(() => {const panel=document.querySelector('#mission-brief'),text=panel?.querySelector('.mission-brief-text'),title=document.querySelector('#mission-title');return {gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean),gxtDetails:[...document.querySelectorAll('.hebrew-gxt-text')].filter(n=>n.innerText.trim()==='חיסול').map(n=>({rect:n.getBoundingClientRect().toJSON(),computed:{display:getComputedStyle(n).display,visibility:getComputedStyle(n).visibility,opacity:getComputedStyle(n).opacity,color:getComputedStyle(n).color,fontSize:getComputedStyle(n).fontSize,lineHeight:getComputedStyle(n).lineHeight,transform:getComputedStyle(n).transform},dataset:{...n.dataset},html:n.innerHTML,clientRects:n.getClientRects().length})),seen:window.__gta2QaSeenGxt||[],seenDetails:window.__gta2QaSeenGxtDetails||[],directDraws:window.__gta2QaDirectDraws||[],brief:text?.innerText||'',briefVisible:!!panel&&!panel.hidden&&!!text?.getClientRects().length,briefRect:text?.getBoundingClientRect().toJSON()||null,title:title?.dataset.text||'',titleKey:title?.dataset.key||'',titleVisible:!!title&&!title.hidden,player:window.gta2.dev.state()}})()`;
       const beforeInteraction = await evaluate(probe);
       const preInteractionScreenshot = await capture('kill-frenzy-before-interaction');
       await evaluate(`window.gta2.dev.hold('ArrowUp',250)`);
@@ -971,7 +1015,7 @@ async function main() {
       }
       await evaluate(`window.gta2.Module.ccall('gta2_port_set_native_brief_text_hidden','void',['number'],[0])`);
       await evaluate(`(() => {const s=document.createElement('style');s.textContent='#mission-brief.qa-hide-brief-panel{visibility:hidden!important}';document.head.append(s);return true})()`);
-      for (const test of [
+      const nativeGxtTests = [
         { key: 'bdone', cost: 5000, expected: 'הרכב ממולכד! זה יעלה', name: 'native-gxt-bdone-cost-5000' },
         { key: 'arig', expected: 'הרכב הזה כבר ממולכד', name: 'native-gxt-arig' },
         { key: 'c00', expected: 'אקדח', name: 'native-gxt-weapon' },
@@ -984,6 +1028,7 @@ async function main() {
         { key: '802', expected: 'בטן מלאה בחומר נפץ', name: 'native-gxt-review-802' },
         { key: '1014', expected: 'אתה חסר תועלת!', name: 'native-gxt-review-1014' },
         { key: '1115', expected: 'זייבאצו לא מנהלים משא ומתן', name: 'native-gxt-review-1115' },
+        { key: '1117', expected: 'יש לך כבר משימה פעילה', name: 'native-gxt-phone-active-mission' },
         { key: '1121', expected: '$40,000', name: 'native-gxt-review-1121' },
         { key: '1201', expected: 'לשחד את השוטרים', name: 'native-gxt-review-1201' },
         { key: '1242', expected: 'כמה פעמים עוד תצליח לפשל?', name: 'native-gxt-review-1242' },
@@ -993,6 +1038,9 @@ async function main() {
         { key: '7002', expected: 'צריך להחנות את ה־Ice-Cream Van', name: 'native-gxt-review-7002' },
         { key: '7012', expected: 'היי! חכה לי!', name: 'native-gxt-review-7012' },
         { key: '8002', expected: 'הקו נכשל!', name: 'native-gxt-review-8002' },
+        { key: '1407', expected: 'הטנק הושמד!', name: 'native-gxt-stop-the-tank-result' },
+        { key: '2818', expected: 'כבר השלמת את המשימה הזאת', name: 'native-gxt-phone-already-passed' },
+        { key: '2819', expected: 'המשימה הזאת כבר נכשלה', name: 'native-gxt-phone-already-failed' },
         { key: 'repdemo', expected: 'צפה שוב', name: 'native-gxt-review-repdemo' },
         { key: '1290', expected: '$5,000', name: 'native-gxt-ice-cream-van-cost' },
         { key: '1402', expected: 'הטנק הזה לא משחק', name: 'native-gxt-tank-warning' },
@@ -1001,7 +1049,11 @@ async function main() {
         { key: '5028', expected: 'לוזר עלוב', name: 'native-gxt-frenzy-failure' },
         { key: '5030', expected: 'אסוף כמה שיותר בונוסים', name: 'native-gxt-frenzy-objective' },
         { key: '5013', expected: 'רכבי הגלידה', name: 'native-gxt-ice-cream-frenzy' },
-      ]) {
+      ];
+      const selectedNativeGxtTests = process.env.GTA2_QA_CONTEXTUAL_GXT_ONLY
+        ? nativeGxtTests.filter((test) => ['1117', '1407', '2818', '2819'].includes(String(test.key)))
+        : nativeGxtTests;
+      for (const test of selectedNativeGxtTests) {
         const cost = Number.isInteger(test.cost) ? test.cost : -1;
         const shown = await evaluate(`window.gta2.Module.ccall('gta2_dev_show_brief','number',['string','number'],[${JSON.stringify(test.key)},${cost}])`);
         if (!shown) throw new Error(`native GXT test key ${test.key} was not queued`);
@@ -1020,6 +1072,7 @@ async function main() {
         await wait(900);
       }
       console.log(JSON.stringify({ nativeGxtDraw }));
+      if (process.env.GTA2_QA_NATIVE_GXT_ONLY) return;
     }
 
     if (process.env.GTA2_QA_PICKUP) {

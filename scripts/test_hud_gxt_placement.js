@@ -9,11 +9,13 @@ async function main() {
   const source = fs.readFileSync(file, 'utf8')
     .replace("import { lang } from './strings.js';", 'const lang = () => \'he\';');
   const { createGxtResolver, hudViewportCenter, isTopHudPickupBanner } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+  const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'web', 'gxt-gameplay.he.json'), 'utf8'));
   const resolver = createGxtResolver([
     { key: 'c00', source: 'Pistol', text: 'אקדח' },
     { key: 'c01', source: 'S-Uzi Machine Gun', text: 'תת־מקלע S-Uzi' },
     { key: 'c28', source: 'Multiplier +1', text: 'מכפיל +1' },
     { key: 'mfail', source: 'JOB FAILED!', text: 'המשימה נכשלה!' },
+    ...(catalog.directRecords || []),
   ]);
 
   for (const label of ['Pistol', 'S-Uzi Machine Gun', 'Multiplier +1']) {
@@ -22,6 +24,7 @@ async function main() {
   assert.equal(resolver.isPickupLabel('JOB FAILED!'), false, 'ordinary GXT text keeps native coordinates');
   assert.equal(resolver.isPickupLabel('Pistol '), true, 'pickup recognition tolerates native whitespace');
   assert.equal(resolver('Pistol'), 'אקדח', 'the original translation mapping remains intact');
+  assert.equal(resolver('K.F.'), 'חיסול', 'the hard-coded Kill Frenzy HUD label uses its Hebrew localization');
   assert.equal(isTopHudPickupBanner(resolver.isPickupLabel('Pistol'), 112, 740), true,
     'a real top HUD weapon banner centers in the game viewport');
   assert.equal(isTopHudPickupBanner(resolver.isPickupLabel('Pistol'), 690, 740), false,

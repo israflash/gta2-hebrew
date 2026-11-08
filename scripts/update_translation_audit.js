@@ -70,6 +70,8 @@ const supplemental = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-ext
 const allMissionRecords = [...mission, ...supplemental];
 const titles = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-titles.he.json'), 'utf8')).titles;
 const gxtGameplay = JSON.parse(fs.readFileSync(path.join(root, 'web/gxt-gameplay.he.json'), 'utf8')).records;
+const directGameplay = JSON.parse(fs.readFileSync(path.join(root, 'web/gxt-gameplay.he.json'), 'utf8')).directRecords || [];
+const byDirectGameplay = new Map(directGameplay.map((r) => [String(r.key), r]));
 const byMission = new Map(allMissionRecords.map((m) => [`${m.area}:${m.gxtKey}`, m]));
 const byGameplayGxt = new Map(gxtGameplay.map((r) => [String(r.key), r]));
 const normalizeGxt = (value) => String(value || '').replace(/^[\u2160-\u2188]+\s*/, '').replace(/^n!/, '').replace(/#([^#]*)#/g, '$1').replace(/#/g, '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en');
@@ -85,7 +87,11 @@ const naturallyObservedBriefs = new Map([
   ['6146', 'תורגם ונצפה בהודעת פתיחה חיה של Residential'],
   ['2272', 'תורגם ונצפה במהלך משימת Residential חיה'],
 ]);
-const visuallyVerifiedTitles = new Set(['9002', '1975']);
+const qaObservedBriefs = new Map([
+  ['3230', 'תורגם ונצפה בפתיחת Industrial עם בחירת מחוז בעזר QA; לא אומתה התקדמות טבעית'],
+]);
+const qaInjectedGxt = new Set(['1117', '1407', '2818', '2819']);
+const visuallyVerifiedTitles = new Set(['9002', '1975', '3840']);
 
 const dictFiles = [
   ['web/strings.js', 'UI'], ['web/shell.js'], ['web/landing.js'], ['web/saves.js'], ['web/savestate.js'],
@@ -103,7 +109,7 @@ for (const row of rows) {
   if (missionRecord && (!(titleKey) || row[idx.kind] === 'הודעת משימה/דיאלוג')) {
     const record = missionRecord;
     row[idx.kind] = 'הודעת משימה/דיאלוג'; row[idx.area] = record.area; row[idx.source] = record.source; row[idx.text] = record.text;
-    row[idx.status] = naturallyObservedBriefs.get(id) || (visuallyVerifiedBriefs.has(id) ? 'תורגם; הוזרק למנגנון HUD ונצפה בדפדפן' : reviewedKeys.has(id) ? 'תורגם ואומת בבדיקת הקשר ממוקדת' : 'תורגם; התאמת מפתח אומתה, לא נבדק חזותית');
+    row[idx.status] = naturallyObservedBriefs.get(id) || qaObservedBriefs.get(id) || (visuallyVerifiedBriefs.has(id) ? 'תורגם; הוזרק למנגנון HUD ונצפה בדפדפן' : reviewedKeys.has(id) ? 'תורגם ואומת בבדיקת הקשר ממוקדת' : 'תורגם; התאמת מפתח אומתה, לא נבדק חזותית');
     row[idx.importance] = 'חיוני להבנת משימה/סיפור';
     row[idx.recommendation] = 'לשמר את ההקשר ואת שמות היעד; לאמת חזותית במסגרת בדיקות משחק.';
     row[idx.tech] = `game/data/e.gxt; script refs; web/mission-translations.he.json · GXT ${id}`;
@@ -120,17 +126,27 @@ for (const row of rows) {
     row[idx.context] = isNamed ? 'C++ HUD key (mfail/kfstart/kfpass/kffail); exact string hook' : row[idx.context];
     row[idx.tech] = isNamed ? `game/data/e.gxt; port/platform/jobs_web.cpp; GXT ${id}` : `game/data/e.gxt; active mission script; port/platform/jobs_web.cpp; GXT ${id}`;
     changedTitles++;
+  } else if (byDirectGameplay.has(String(id))) {
+    const record = byDirectGameplay.get(String(id));
+    row[idx.kind] = 'מחרוזת HUD בקוד'; row[idx.area] = 'כללי'; row[idx.source] = record.source; row[idx.text] = record.text;
+    row[idx.status] = 'תורגם; מקור הקוד אומת, לא נצפה חזותית'; row[idx.importance] = 'חיוני להבנת מצב משחק';
+    row[idx.recommendation] = 'להציג במקום מחרוזת המקור ובאותו מיקום HUD; לא לשנות את לוגיקת המשחק.';
+    row[idx.context] = record.context; row[idx.tech] = `${record.sourceFile}; web/gamegxt.js · ${record.key}`;
   } else if (!uiSourceFiles.has(area) && ['טקסט GXT אחר', 'מחרוזת GXT — HUD/תפריט/אתגר'].includes(row[idx.kind]) && (byGameplayGxt.has(String(id)) || byGameplaySource.has(normalizeGxt(row[idx.source])))) {
     const record = byGameplayGxt.get(String(id)) || byGameplaySource.get(normalizeGxt(row[idx.source]));
     row[idx.kind] = 'מחרוזת GXT — HUD/תפריט/אתגר';
     row[idx.source] = record.source;
     row[idx.text] = record.text;
-    row[idx.status] = String(id) === '1115'
+    row[idx.status] = qaInjectedGxt.has(String(id))
+      ? 'תורגם ונצפה חזותית בהזרקה לתור ההודעה בזמן משחק; הנתיב הטבעי לא אומת'
+      : String(id) === '1115'
       ? 'תרגום קיים ומותאם למקור; הזרקת QA לא הציגה אותו; דרוש אימות בנתיב הטבעי'
       : 'תורגם; חיבור החלפה במנגנון הציור נוסף; טרם אומת חזותית לכל המצבים';
     row[idx.importance] = 'חיוני להבנת המשחק/הפעלתו';
     row[idx.recommendation] = 'להציג במקום המקורי דרך draw hook; להשאיר fallback באנגלית כשאין התאמה.';
-    row[idx.context] = String(id) === '1115'
+    row[idx.context] = /^fr_(?:ent[12]|pmpt|rnt[1-3])$/i.test(String(id))
+      ? 'מסך קוד בקרת הורים: הוראת הזנה/תווית או הודעת שגיאה וניסיון חוזר; נשלף ישירות ב־Frontend.cpp.'
+      : String(id) === '1115'
       ? 'דיאלוג עם סמן דובר; המפתח תורגם ממקור GXT, אך gta2_dev_show_brief לא יצר תצוגת DrawText בבדיקת QA.'
       : /FRENZY|seconds|people|vehicles|cops/i.test(record.source) ? 'אתגר זמן/תוצאה דרך GXT; מקור נשמר, סימוני # משמשים להדגשה.' : 'טקסט תפריט או HUD דרך GXT; התאמה לפי מחרוזת מקור.';
     row[idx.tech] = `game/data/e.gxt; port/platform/jobs_web.cpp; web/gamegxt.js · GXT ${record.key}`;

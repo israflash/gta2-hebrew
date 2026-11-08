@@ -21,7 +21,7 @@ const PHONE_TEMPLATE = 263;
 const EASY_PHONE_TEMPLATE = 329;
 const START_BASIC_KF = 422;
 const PHONE_BRIEF_OFFSETS = new Map([
-  [PHONE_TEMPLATE, [-7, -5, -2, -1, 0]],
+  [PHONE_TEMPLATE, [-7, -6, -5, -4, -2, -1, 0, 1]],
   [EASY_PHONE_TEMPLATE, [-7, -6, -5, -4, -2, -1, 0, 1]],
 ]);
 const FACE_PREFIX = /^[\u2160-\u2188]/;
@@ -139,7 +139,7 @@ function main() {
     version: 1,
     sourceGxt: 'game/data/e.gxt',
     sourceRoots: AREA_ROOTS.map((x) => ({ area: x.area, script: `${x.stem}.scr` })),
-    method: 'Parsed SCR command-pointer tables. Included face-marked GXT IDs passed to DISPLAY_BRIEF, DISPLAY_BRIEF_NOW, DISPLAY_BRIEF_SOON, PHONE_TEMPLATE command offsets (-7,-5,-2,-1,0), DO_EASY_PHONE offsets (-7,-6,-5,-4,-2,-1,0,+1), and START_BASIC_KF challenge briefs (command +10). DISPLAY_MESSAGE is separated for review.',
+    method: 'Parsed SCR command-pointer tables. Included face-marked GXT IDs passed to DISPLAY_BRIEF, DISPLAY_BRIEF_NOW, DISPLAY_BRIEF_SOON, PHONE_TEMPLATE and DO_EASY_PHONE offsets (-7,-6,-5,-4,-2,-1,0,+1), and START_BASIC_KF challenge briefs (command +10). DISPLAY_MESSAGE is separated for review.',
     gxtEntryCount: gxt.size,
     rootScripts: rootSummaries,
     counts: {

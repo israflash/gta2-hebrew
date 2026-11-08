@@ -183,7 +183,7 @@
     "Industrial District|District introduction": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: הודעת ההיכרות נבדקה; תוקן תרגום מטעה של conversion כאילו מדובר בגיור, לניסוח שמתאר הצטרפות/המרת דת בידי כת קרישנה."
+      "evidence": "2026-11-08: בהשוואה חוזרת מול המקור, converted by the Krishna תוקן מ׳לא להתפתות׳ ל׳לא למצוא את עצמך מומר בידי אנשי קרישנה׳, כדי לשמר את איום ההמרה/הצטרפות לכת במשפט הפתיחה המקביל למאפיה הרוסית ולזייבאצו."
     },
     "Industrial District|Gang War": {
       "sourceRead": true,
@@ -447,6 +447,12 @@
     }
   },
   "missionKeys": {
+    "Industrial District|3230": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": true,
+      "evidence": "2026-11-08: district-start QA entered Industrial using the original Play route (district selection used a QA setter because CDP arrows did not change the selector). GXT 3230 appeared in the original brief region with speaker portrait 8; updated Hebrew displayed without an English duplicate. Screenshot: game/qa-screenshots/industrial-welcome-fix/district-mission-brief-2.png. This is a live game observation with a QA-selected district, not natural progression through story unlocks."
+    },
     "Residential|6146": {
       "sourceRead": true,
       "contextChecked": true,
@@ -474,6 +480,12 @@
       "contextChecked": true,
       "observedInGame": true,
       "evidence": "מקור ורצף נבדקו; הודעה נצפתה במשימת Downtown חיה לפי docs/translation-audit.md."
+    },
+    "Industrial District|3160": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": true,
+      "evidence": "2026-11-06: GXT 3160 של Shopping Mall Construction נצפה במשחק ב-game/qa-screenshots/district-mission-brief-2.png. הטקסט העברי מוצג בתחתית באזור brief המקורי, לצד דיוקן Sunbeam; צילום QA השתמש בבורר מחוז ובטלפורט לטלפון, ולכן אינו נחשב התקדמות טבעית מלאה."
     },
     "Residential|2306": {
       "sourceRead": true,
@@ -846,7 +858,9 @@
     "3840": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: מקור הכותרת נבדק מול התרגום; המשמעות נבדקה מול רצף המשימה/מצב ההצלחה או הכישלון המתאים."
+      "observedInGame": true,
+      "observedMethod": "QA used gta2_dev_show_mission_title(3840) and the production mission-title renderer; same 1200x800 gameplay frame compared with the native English title.",
+      "evidence": "2026-11-05: מקור הכותרת נבדק מול התרגום; המשמעות נבדקה מול רצף המשימה. ב־2026-11-08 הכותרת הוזרקה דרך תור הכותרות המקורי ונצפתה בציור הייצורי: ׳מגרש ההריסות!׳, ללא האנגלית המקורית, בצבעים/צל/מיקום הכותרת. השוואת אנגלית באותה רזולוציה נשמרה ב־game/qa-screenshots/industrial-welcome-fix/mission-title-3840.png וב־mission-title-3840-english-native.png; זו בדיקת מסלול הכותרת, לא טריגר כותרת טבעי של משימה."
     },
     "3841": {
       "sourceRead": true,
@@ -997,22 +1011,22 @@
   "gxt": {
     "801": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-801.png after injecting GXT 801 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read with adjacent GXT 802 as the title and introduction of the GTA2 Preview text block. “תצוגה מקדימה של GTA2” is a direct, natural title. No static SCR or engine path was found; this review does not establish that the preview block is naturally shown.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "802": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-802.png after injecting GXT 802 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read with adjacent “GTA2 PREVIEW” title (801). The line is a darkly comic six-minute explosive countdown; “בטן מלאה בחומר נפץ” preserves the image and the time limit. No static SCR or engine path was found; natural display remains unproven.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1014": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-1014.png after injecting GXT 1014 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read against GXT 1012/1013 in Gang War A-Go-Go!: the caller insists on using a Z-Type or Miara, then insults the player. “אתה חסר תועלת!” preserves the blunt dismissal. No static reference for key 1014 was found; natural trigger remains unverified.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -1023,15 +1037,20 @@
     },
     "1115": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-1115.png after injecting GXT 1115 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: contextual review of the Zaibatsu phone-response family GXT 1113–1116/1118–1119. The neighboring Yakuza/Loony refusals establish GO! as a dismissal, so Hebrew was corrected to הסתלק!. Recaptured native-gxt-review-1115.png at 1200x800 through gta2_dev_show_brief and production DrawText: corrected text once in original lower brief position beside portrait. Natural trigger and a full mission sequence remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; screenshot recaptured after wording correction on 2026-11-08; not a natural trigger or full mission-context review."
+    },
+    "1117": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "Read the PHONE_TEMPLATE/DO_EASY_PHONE branch: when a gang-3 mission flag is active, the phone emits base key 1118 minus one. This is an active-mission refusal/fallback, so it is localized as a clear instruction. Static source review; natural branch not observed. Visual check completed by injecting GXT 1117 through gta2_dev_show_brief while the real local game was running; Hebrew rendered in the original mission-brief position beside the speaker portrait. This verifies the production display path, not the natural phone branch."
     },
     "1121": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-1121.png after injecting GXT 1121 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read the full line and its $40,000 amount as praise for a reward. Revised to natural Hebrew “כל הכבוד, גקו! בהחלט הרווחת $40,000.” The trigger and speaker context remain unverified; the wording review does not establish natural display.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -1052,15 +1071,15 @@
     },
     "1201": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-1201.png after injecting GXT 1201 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read against Follow That Traitor! lines 1198/1199, which address Kosai and the job; this line warns that the contact will not always pay off the Cops. “לשחד את השוטרים” preserves the explicit bribery. Key 1201 has no verified static reference; natural trigger remains unverified.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1242": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-1242.png after injecting GXT 1242 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read alongside the Lick Those Loonies! sequence and GXT 1241/1243/1244: the player is told to take the Van and meet the Z-Men, followed by branches for wrecking or losing the Van. The rebuke “כמה פעמים עוד תצליח לפשל?” matches repeated failure. This does not prove the GXT key’s natural call path; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -1086,8 +1105,8 @@
     },
     "1290": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-ice-cream-van-cost.png after injecting GXT 1290 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read with Happy Gas Smash! and GXT 1289/1291/1292. The player needs $5,000 to rig the Ice-Cream Van; the adjacent branches cover insufficient cash and wasting the van/job. The Hebrew preserves the exact cost, vehicle model, and explosive-rigging action. Natural call path for this extra key remains unproven; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -1123,10 +1142,15 @@
     },
     "1402": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-tank-warning.png after injecting GXT 1402 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read with Stop the Tank! and GXT 1401/1403/1404: Johnny Zoo asks Kosai for help against a military tank; adjacent lines define success and failure. “לעזאזל, קוסאי! הטנק הזה לא משחק.” conveys the danger and urgency without changing the objective. Natural trigger remains unproven; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+    },
+    "1407": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "Direct DISPLAY_BRIEF (opcode 118) in wil_yh2.SCR / Stop the Tank! follows the counter-1380 and IS_CAR_WRECKED checks for target 1371, then clears the brief, displays key 1407, removes the arrow, and sets mission counters. Placeholder replaced with a contextual status (“The tank is destroyed!”); inferred from the event and following commands, not naturally observed. Visual check completed by injecting GXT 1407 through gta2_dev_show_brief while the real local game was running; Hebrew rendered in the original mission-brief position beside the speaker portrait. This verifies the production display path, not natural completion of Stop the Tank!."
     },
     "1436": {
       "sourceRead": true,
@@ -1247,8 +1271,8 @@
     },
     "1902": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-1902.png after injecting GXT 1902 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read GXT 1900–1905 as the complete Molotov Kill Frenzy cluster: start, target/time instruction, passed/failed outcome labels, and their alternate success/failure quips. Hebrew “כל הכבוד! הצלחת, מותק!” matches success and preserves the teasing tone. Engine code uses generic kfpass/kffail on its observed path; natural display of this alternate key is still unproven. Prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -1259,8 +1283,8 @@
     },
     "1904": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-1904.png after injecting GXT 1904 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read GXT 1900–1905 as the complete Molotov Kill Frenzy cluster. This line accompanies FRENZY FAILED; “איזה בלגן עשית, יא חמור!” keeps the insult and comic donkey jab. Engine code uses generic kfpass/kffail on its observed path; natural display of this alternate key is still unproven. Prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -1494,6 +1518,16 @@
       "contextChecked": true,
       "evidence": "2026-11-05: המקור והתרגום נקראו ישירות. המשמעות הושוותה להקשר התפקיד/הדיאלוג או לרצף המשימה הידוע."
     },
+    "2818": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "Read SCRCMD_PHONE_TEMPLATE: in the already-passed branch, the command emits its base key when the relevant mission-state flags prevent the normal next-mission path. Replaced DEAD BRIEF with a plain already-completed status. Static source review; natural branch not observed. Visual check completed by injecting GXT 2818 through gta2_dev_show_brief while the real local game was running; Hebrew rendered in the original mission-brief position beside the speaker portrait. This verifies the production display path, not the natural phone branch."
+    },
+    "2819": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "Read SCRCMD_PHONE_TEMPLATE: in the already-failed branch, the command emits base key +1 when the relevant mission-state flags prevent the normal retry path. Replaced DEAD BRIEF with a retry-state message. Static source review; natural branch not observed. Visual check completed by injecting GXT 2819 through gta2_dev_show_brief while the real local game was running; Hebrew rendered in the original mission-brief position beside the speaker portrait. This verifies the production display path, not the natural phone branch."
+    },
     "2853": {
       "sourceRead": true,
       "contextChecked": true,
@@ -1716,8 +1750,8 @@
     },
     "3202": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-3202.png after injecting GXT 3202 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read GXT 3200–3205 as a full Kill Frenzy outcome group. The quip is explicitly attached to FRENZY PASSED; “איך בכלל הצלחת לעבור?” is clear and preserves the incredulous tone. Natural trigger for this alternate GXT entry is unproven; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -1728,8 +1762,8 @@
     },
     "3204": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-3204.png after injecting GXT 3204 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read GXT 3200–3205 as a full Kill Frenzy outcome group. The quip is explicitly attached to FRENZY FAILED; “איך בכלל הצלחת להיכשל?” accurately carries the sarcastic disbelief. Natural trigger for this alternate GXT entry is unproven; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -2865,8 +2899,8 @@
     },
     "6102": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-6102.png after injecting GXT 6102 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read GXT 6100–6105 as a full S-Uzi Kill Frenzy group. The line is a success quip; “וואו, חבר! הצלחת!” preserves the friendly, excited voice. Natural trigger for this alternate GXT entry is unproven; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -2877,8 +2911,8 @@
     },
     "6104": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-6104.png after injecting GXT 6104 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read GXT 6100–6105 as a full S-Uzi Kill Frenzy group. The line is a failure quip; “חבל, חבר! פישלת.” preserves the informal address and failure meaning. Natural trigger for this alternate GXT entry is unproven; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -3269,22 +3303,22 @@
     },
     "6180": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-6180.png after injecting GXT 6180 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read with adjacent reprimands 6178/6179 and nearby gang-job completion lines 6181/6182. “cut it fine” means arriving at the last moment; Buster introduces himself and pays the agreed $5,000. The Hebrew keeps the timing, name and amount. Natural trigger remains unverified.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7002": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-7002.png after injecting GXT 7002 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read with Happy Gas Smash! and GXT 7000/7001/7003. This is a corrective objective update: park the rigged Ice-Cream Van beside the Happy Gas tanks; nearby lines redirect the player to the deal or Gama Rei. The Hebrew makes the vehicle and parking condition explicit. Natural call path remains unproven; prior image was QA injection only.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7012": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-7012.png after injecting GXT 7012 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read within the adjacent escort/pickup dialogue block 7010–7014. This is a short call for the player to wait; “היי! חכה לי!” is direct and natural for the male player character. Key 7012 has no verified static reference; natural trigger remains unverified.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -3997,7 +4031,8 @@
       "contextChecked": false,
       "evidence": "2026-11-08: captured native-gxt-review-8002.png after injecting GXT 8002 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review.",
+      "followUp": "Static route check: MissionFailOnArrest_503200 selects GXT 8001, not 8002, when no gang mission flag is active. DEC_DEATH_BASE values parsed from the three district root scripts are 4200/4210/4220, 6150/6160/6170, and 7070/7080/7090; none can generate 8002 through the five-message arrest variants. This rules out only that route, not all possible engine/display routes."
     },
     "play": {
       "sourceRead": true,
@@ -4849,8 +4884,8 @@
     },
     "repdemo": {
       "sourceRead": true,
-      "contextChecked": false,
-      "evidence": "2026-11-08: captured native-gxt-review-repdemo.png after injecting GXT repdemo through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "contextChecked": true,
+      "evidence": "2026-11-08: Read with sibling menu labels repbons (“REPLAY BONUS STAGE”) and replay (“REPLAY PREVIOUS AREA”). “צפה שוב” fits the replay action. Frontend source looks up “replay”, not “repdemo”; the exact key’s natural UI path remains unverified.",
       "observedInGame": true,
       "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
@@ -5162,6 +5197,44 @@
       "observedInGame": false,
       "evidence": "2026-11-08: GXT value Russian mapped by Gang_144::GetArrowColourText_4BF340; Hud.cpp inserts it into the %s in pgmiss (“Jobs Passed: %d/%d”) on the pause-menu progress rows. Hebrew value המאפיה הרוסית is resolved by the production draw hook's dynamic-name map. Code context checked; no screenshot yet.",
       "followUp": "Capture a live pause-menu progress row when practical; code-path and interpolation test pass."
+    },
+    "fr_ent1": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "2026-11-08: Compared the French source with Frontend.cpp parental-lock screen setup and the wrong-password retry branch; translated the screen line in context. This is UI-context review, not a gameplay observation."
+    },
+    "fr_ent2": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "2026-11-08: Compared the French source with Frontend.cpp parental-lock screen setup and the wrong-password retry branch; translated the screen line in context. This is UI-context review, not a gameplay observation."
+    },
+    "fr_pmpt": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "2026-11-08: Compared the French source with Frontend.cpp parental-lock screen setup and the wrong-password retry branch; translated the screen line in context. This is UI-context review, not a gameplay observation."
+    },
+    "fr_rnt1": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "2026-11-08: Compared the French source with Frontend.cpp parental-lock screen setup and the wrong-password retry branch; translated the screen line in context. This is UI-context review, not a gameplay observation."
+    },
+    "fr_rnt2": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "2026-11-08: Compared the French source with Frontend.cpp parental-lock screen setup and the wrong-password retry branch; translated the screen line in context. This is UI-context review, not a gameplay observation."
+    },
+    "fr_rnt3": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "2026-11-08: Compared the French source with Frontend.cpp parental-lock screen setup and the wrong-password retry branch; translated the screen line in context. This is UI-context review, not a gameplay observation."
+    }
+  },
+  "directTexts": {
+    "HUD.KF": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "evidence": "2026-11-08: Compared Hud.cpp's literal K.F. with the ammo-count branch: it appears when the active frenzy weapon has unlimited ammo. Hebrew uses the existing in-game term חיסול. Source verified against the direct C++ literal; no new screenshot was taken.",
+      "observedInGame": false
     }
   }
 }

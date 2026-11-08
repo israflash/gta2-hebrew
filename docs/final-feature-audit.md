@@ -23,7 +23,7 @@ Audit date: 2026-11-04. The checkout's unmodified upstream base is `ad4cb1aa19ee
 
 ## Translation QA counts
 
-- Source inventory: 1,158 script-referenced brief IDs; 1,154 contain text, and four are unused `DEAD BRIEF` placeholders.
+- Source inventory snapshot (2026-11-04): 1,158 script-referenced brief IDs; 1,154 contain text and four contain `DEAD BRIEF` placeholder text. Later source review found candidate SCR references to those keys, so “unused” is not established; see the current `mission-coverage.md` for the updated inventory method.
 - Key coverage: 1,154/1,154 text-bearing messages translated and matched to original GXT IDs; all 34 title IDs matched to the original GXT.
 - Independent linguistic/context review in this final pass: 14 full brief messages and 34 title/objective pairs. The catalog's 1,154 `context-reviewed` flags are metadata and are not reported as 1,154 new human reviews.
 - Runtime display: five injected messages visually checked across the three districts; one brief and one title observed in a genuine Downtown mission. This does not establish that all conditional branches were seen.

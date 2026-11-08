@@ -1,0 +1,12 @@
+{
+  "records": [
+    {
+      "key": "HUD.KF",
+      "source": "K.F.",
+      "text": "חיסול",
+      "sourceFile": "research/gta2_re/Source/Hud.cpp",
+      "sourceLiteral": "L\"K.F.\"",
+      "context": "Short HUD label drawn instead of the ammo count while a Kill Frenzy weapon has unlimited ammo."
+    }
+  ]
+}

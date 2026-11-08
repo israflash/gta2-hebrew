@@ -53,7 +53,7 @@ def script_refs(gxt):
     # reachable brief offsets. Keep the offsets tied to the engine opcode so
     # a neighboring GXT entry is not mistaken for an active phone response.
     phone_brief_offsets = {
-        phone_template_opcode: (-7, -5, -2, -1, 0),
+        phone_template_opcode: (-7, -6, -5, -4, -2, -1, 0, 1),
         easy_phone_opcode: (-7, -6, -5, -4, -2, -1, 0, 1),
     }
     roots = {'wil': 'Downtown', 'ste': 'Residential', 'bil': 'Industrial District'}
@@ -125,7 +125,9 @@ def main():
 
     missions = json.loads((ROOT / 'web/mission-translations.he.json').read_text(encoding='utf-8'))['records']
     titles = json.loads((ROOT / 'web/mission-titles.he.json').read_text(encoding='utf-8'))['titles']
-    gxt_rows = json.loads((ROOT / 'web/gxt-gameplay.he.json').read_text(encoding='utf-8'))['records']
+    gameplay_catalog = json.loads((ROOT / 'web/gxt-gameplay.he.json').read_text(encoding='utf-8'))
+    gxt_rows = gameplay_catalog['records']
+    direct_rows = gameplay_catalog.get('directRecords', [])
     additions = json.loads((ROOT / 'scripts/gxt-extra-translations.he.json').read_text(encoding='utf-8'))
     evidence_path = ROOT / 'docs/translation-review-evidence.json'
     evidence = json.loads(evidence_path.read_text(encoding='utf-8')) if evidence_path.exists() else {}
@@ -134,6 +136,7 @@ def main():
     reviewed_mission_keys = evidence.get('missionKeys', {})
     reviewed_titles = evidence.get('titles', {})
     reviewed_gxt = evidence.get('gxt', {})
+    reviewed_direct = evidence.get('directTexts', {})
     named_title_keys = {'9001': 'mfail', '9002': 'kfstart', '9003': 'kfpass', '9004': 'kffail'}
     output = []
 
@@ -147,7 +150,7 @@ def main():
         return {
             'מקור ומזהה — אימות אוטומטי': 'אומת' if auto_verified else 'לא אומת',
             'נקרא מול המקור': 'כן' if source_read else 'לא',
-            'הקשר רצף/משימה מלאה': 'כן' if context_checked else 'לא',
+            'הקשר נבדק': 'כן' if context_checked else 'לא',
             'נצפה במשחק אמיתי': 'כן' if observed else 'לא',
             'רמת ביקורת': level,
             'ראיית ביקורת/הערה': review.get('evidence', ''),
@@ -199,8 +202,20 @@ def main():
         entry.update(audit_columns(gxt.get(key) == row.get('source', ''), reviewed_gxt.get(key)))
         output.append(entry)
 
+    for row in direct_rows:
+        source_path = ROOT / row['sourceFile']
+        source_present = row['sourceLiteral'] in source_path.read_text(encoding='utf-8')
+        entry = {
+            'קטגוריה': 'HUD literal בקוד', 'אזור': 'כללי', 'משימה': '', 'דובר': '',
+            'מזהה GXT': row['key'], 'מקור באנגלית': row['source'],
+            'תרגום עברי סופי': row['text'],
+            'הקשר/מקור': f"{row['context']} Source: {row['sourceFile']}",
+        }
+        entry.update(audit_columns(source_present, reviewed_direct.get(row['key'])))
+        output.append(entry)
+
     columns = ['קטגוריה', 'אזור', 'משימה', 'דובר', 'מזהה GXT', 'מקור באנגלית', 'תרגום עברי סופי', 'הקשר/מקור',
-               'מקור ומזהה — אימות אוטומטי', 'נקרא מול המקור', 'הקשר רצף/משימה מלאה', 'נצפה במשחק אמיתי',
+               'מקור ומזהה — אימות אוטומטי', 'נקרא מול המקור', 'הקשר נבדק', 'נצפה במשחק אמיתי',
                'רמת ביקורת', 'ראיית ביקורת/הערה', 'בדיקה נוספת']
     destination = ROOT / 'docs/translation-review.csv'
     with destination.open('w', encoding='utf-8-sig', newline='') as f:
@@ -209,7 +224,7 @@ def main():
         writer.writerows(output)
     verified = sum(r['מקור ומזהה — אימות אוטומטי'] == 'אומת' for r in output)
     read = sum(r['נקרא מול המקור'] == 'כן' for r in output)
-    contextual = sum(r['הקשר רצף/משימה מלאה'] == 'כן' for r in output)
+    contextual = sum(r['הקשר נבדק'] == 'כן' for r in output)
     observed = sum(r['נצפה במשחק אמיתי'] == 'כן' for r in output)
     print(f'wrote {len(output)} entries; auto-verified={verified}; human-read={read}; context-reviewed={contextual}; game-observed={observed}')
 

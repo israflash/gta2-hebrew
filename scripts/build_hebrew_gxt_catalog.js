@@ -153,5 +153,12 @@ const records = [...byKey].map(([key, text]) => {
   if (!source) throw new Error(`GXT key missing from source: ${key}`);
   return { key, source, text };
 });
-fs.writeFileSync(output, `${JSON.stringify({ version: 1, language: 'he', method: 'in-place browser text draw hook; original GXT remains English fallback', records }, null, 2)}\n`);
+const directRecords = JSON.parse(fs.readFileSync(path.join(__dirname, 'gxt-direct-translations.he.json'), 'utf8')).records;
+for (const row of directRecords) {
+  const source = fs.readFileSync(path.join(root, row.sourceFile), 'utf8');
+  if (!row.key || !row.source || !row.text || !source.includes(row.sourceLiteral) || !row.context) {
+    throw new Error(`Invalid or stale direct HUD translation: ${row.key}`);
+  }
+}
+fs.writeFileSync(output, `${JSON.stringify({ version: 1, language: 'he', method: 'in-place browser text draw hook for GXT and documented direct HUD strings; native English fallback', records, directRecords }, null, 2)}\n`);
 console.log(`wrote ${records.length} Hebrew gameplay GXT records to ${path.relative(root, output)}`);

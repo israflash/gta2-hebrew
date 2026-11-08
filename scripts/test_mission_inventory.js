@@ -28,5 +28,6 @@ assert.ok(downtownMessage('1407')?.scopes.includes('mission-brief'), 'direct DIS
 assert.ok(downtownMessage('1117')?.scopes.includes('easy-phone-template'), 'DO_EASY_PHONE fallback offset -1 is inventoried');
 assert.ok(residentialMessage('2818')?.scopes.includes('phone-template'), 'PHONE_TEMPLATE base placeholder remains inventoried');
 assert.ok(residentialMessage('2819')?.scopes.includes('easy-phone-template'), 'DO_EASY_PHONE fallback offset +1 is inventoried');
+assert.ok(residentialMessage('2819')?.scopes.includes('phone-template'), 'PHONE_TEMPLATE fallback offset +1 is inventoried');
 assert.ok(downtownMessage('1954')?.scopes.includes('display-message'), 'radio station toast is separated from mission briefs');
 console.log(`test_mission_inventory: OK (${seen.size} translations matched original script GXT keys; ${inventory.counts.missionBriefKeys} brief IDs inventoried)`);

@@ -61,14 +61,64 @@ for (const [key, expected] of Object.entries(sinkOrSwimExpected)) {
 }
 
 const gameplayGxt = JSON.parse(fs.readFileSync(path.join(root, 'web/gxt-gameplay.he.json'), 'utf8')).records;
+const gameplayCatalog = JSON.parse(fs.readFileSync(path.join(root, 'web/gxt-gameplay.he.json'), 'utf8'));
 const gxtExtras = JSON.parse(fs.readFileSync(path.join(__dirname, 'gxt-extra-translations.he.json'), 'utf8'));
 const missionExtras = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-extras.he.json'), 'utf8')).records;
-assert.equal(gameplayGxt.length, 802, 'native gameplay GXT plus supplemental dialogue, challenge, menu, and pause-screen gang labels are present');
+assert.equal(gameplayGxt.length, 812, 'native gameplay GXT plus supplemental dialogue, challenge, menu, parental-lock, contextual phone fallbacks, and pause-screen gang labels are present');
+assert.equal(gameplayCatalog.directRecords?.length, 1, 'direct player-facing HUD literals are cataloged separately from GXT keys');
+assert.deepEqual(gameplayCatalog.directRecords[0], {
+  key: 'HUD.KF', source: 'K.F.', text: 'חיסול', sourceFile: 'research/gta2_re/Source/Hud.cpp',
+  sourceLiteral: 'L"K.F."',
+  context: 'Short HUD label drawn instead of the ammo count while a Kill Frenzy weapon has unlimited ammo.',
+}, 'direct Kill Frenzy HUD text must stay source-linked and contextual');
+assert.ok(fs.readFileSync(path.join(root, gameplayCatalog.directRecords[0].sourceFile), 'utf8').includes(gameplayCatalog.directRecords[0].sourceLiteral),
+  'direct HUD source literal must still exist in engine source');
 assert.equal(new Set(gameplayGxt.map((r) => String(r.key))).size, gameplayGxt.length, 'GXT keys are unique');
 for (const row of gameplayGxt) {
   const preservedKeys = new Set(['esc_i', 'del_i', 'ent_i', 'bspc_i', 'up_i', 'down_i', 'left_i', 'right_i']);
   assert.ok(row.source && (/[\u0590-\u05ff]/u.test(row.text) || preservedKeys.has(String(row.key))), `GXT source/translation missing: ${row.key}`);
   if (gxt) assert.equal(gxt.get(String(row.key)), row.source, `gameplay GXT source mismatch: ${row.key}`);
+}
+const fatalEventTranslations = {
+  wasted: ['WASTED!', 'חוסלת!'],
+  fried: ['TOASTED!', 'נשרפת!'],
+  nicked: ['BUSTED!', 'נעצרת!'],
+  shocked: ['SHOCKING!', 'התחשמלת!'],
+};
+const contextualFallbackTranslations = {
+  '1117': ['ⅺPLEASE REPORT DEAD BRIEF 1117 TO ALAN JACK AND WILLY MILLS!', 'יש לך כבר משימה פעילה. סיים אותה קודם.'],
+  '1407': ['ⅹPLEASE REPORT DEAD BRIEF 1407 TO ALAN JACK AND WILLY MILLS!', 'הטנק הושמד!'],
+  '2818': ['ⅺDEAD BRIEF', 'כבר השלמת את המשימה הזאת.'],
+  '2819': ['ⅺDEAD BRIEF', 'המשימה הזאת כבר נכשלה.'],
+};
+const parentalLockTranslations = {
+  fr_ent1: ['VEUILLEZ SAISIR LE CODE DE VERROUILLAGE', 'הזן את קוד בקרת ההורים'],
+  fr_ent2: ['PARENTAL POUR JOUER A GTA2', 'כדי לשחק ב־GTA 2'],
+  fr_pmpt: ['CODE DE VERROUILLAGE PARENTAL:', 'קוד בקרת הורים:'],
+  fr_rnt1: ['CODE DE VERROUILLAGE PARENTAL', 'קוד בקרת ההורים שגוי'],
+  fr_rnt2: ['INCORRECT, VEUILLEZ VERIFIER SUR LA', 'בדוק בחוברת המצורפת'],
+  fr_rnt3: ['NOTICE JOINTE ET SAISISSEZ-LE A NOUVEAU', 'והזן את הקוד שוב'],
+};
+for (const [key, [source, text]] of Object.entries(parentalLockTranslations)) {
+  const row = gameplayGxt.find((entry) => String(entry.key) === key);
+  assert.ok(row, `parental-lock UI text missing from GXT catalog: ${key}`);
+  assert.equal(row.source, source, `parental-lock UI source changed: ${key}`);
+  assert.equal(row.text, text, `parental-lock UI translation changed: ${key}`);
+  if (gxt) assert.equal(gxt.get(key), source, `parental-lock UI source mismatch: ${key}`);
+}
+for (const [key, [source, text]] of Object.entries(contextualFallbackTranslations)) {
+  const row = gameplayGxt.find((entry) => String(entry.key) === key);
+  assert.ok(row, `contextual mission fallback missing from GXT catalog: ${key}`);
+  assert.equal(row.source, source, `contextual mission fallback source changed: ${key}`);
+  assert.equal(row.text, text, `contextual mission fallback translation changed: ${key}`);
+  if (gxt) assert.equal(gxt.get(key), source, `contextual mission fallback GXT source mismatch: ${key}`);
+}
+for (const [key, [source, text]] of Object.entries(fatalEventTranslations)) {
+  const row = gameplayGxt.find((entry) => String(entry.key) === key);
+  assert.ok(row, `player death/arrest text missing from GXT catalog: ${key}`);
+  assert.equal(row.source, source, `player death/arrest source changed: ${key}`);
+  assert.equal(row.text, text, `player death/arrest translation changed: ${key}`);
+  if (gxt) assert.equal(gxt.get(key), source, `player death/arrest source mismatch: ${key}`);
 }
 for (const key of ['ganga1', 'ganga2', 'ganga3', 'ganga4', 'ganga5', 'ganga6', 'ganga7']) {
   const row = gameplayGxt.find((entry) => entry.key === key);
@@ -108,7 +158,7 @@ const correctionExpectations = {
   '4202': 'לנטוש את המשימה',
   '3202': 'איך בכלל הצלחת לעבור?',
   '3204': 'איך בכלל הצלחת להיכשל?',
-  '1121': 'בהחלט הרווחת את ה־#$40,000#',
+  '1121': 'בהחלט הרווחת #$40,000#',
   '6180': 'לעזאזל, בן אדם, אתה יודע להגיע ברגע האחרון',
   '802': 'יש לך בטן מלאה בחומר נפץ',
   '1402': 'הטנק הזה לא משחק',

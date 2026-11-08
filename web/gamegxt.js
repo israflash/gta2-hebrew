@@ -102,7 +102,7 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
   const response = await fetch('./gxt-gameplay.he.json');
   if (!response.ok) throw new Error(`Hebrew game GXT catalog: HTTP ${response.status}`);
   const data = await response.json();
-  const resolveGxt = createGxtResolver(data.records);
+  const resolveGxt = createGxtResolver([...(data.records || []), ...(data.directRecords || [])]);
 
   // Optional, local-only diagnostics. Nothing is sent off-device and the log
   // stays in memory until this page is closed.
