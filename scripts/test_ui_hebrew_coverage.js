@@ -62,6 +62,13 @@ for (const [file, objectName] of files) {
 const missing = Object.keys(english).filter((key) => !(key in hebrew));
 assert.deepEqual(missing, [], `Hebrew UI translations missing: ${missing.join(', ')}`);
 
+const historyKeys = ['ui.missionHistory.toggle', 'ui.missionHistory.aria', 'ui.missionHistory.heading'];
+const indexHtml = fs.readFileSync(path.join(root, 'web/index.html'), 'utf8');
+for (const key of historyKeys) {
+  assert.ok(indexHtml.includes(key), `index.html applies the shared translation key ${key}`);
+  assert.ok(english[key] && hebrew[key], `${key} is translated in English and Hebrew`);
+}
+
 for (const [key, sourceText] of Object.entries(english)) {
   if (typeof sourceText !== 'string' || typeof hebrew[key] !== 'string') continue;
   const placeholders = (value) => [...value.matchAll(/\{([\w]+)\}/g)].map((match) => match[1]).sort();
@@ -80,4 +87,4 @@ const identical = Object.keys(english).filter((key) =>
 assert.deepEqual([...identical].sort(), [...intentionallyUnchanged].sort(),
   'only documented place names, hardware labels, formatting tokens, or numeric formats stay identical');
 
-console.log(`test_ui_hebrew_coverage: OK (${Object.keys(english).length} merged UI keys; ${identical.length} intentional unchanged labels)`);
+console.log(`test_ui_hebrew_coverage: OK (${Object.keys(english).length} merged UI keys; ${identical.length} intentional unchanged labels; ${historyKeys.length} history labels wired to language switching)`);

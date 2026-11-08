@@ -149,6 +149,10 @@ async function main() {
     if (process.env.GTA2_QA_MAIN_MENU_ONLY) {
       await navigate(`${BASE}?devdata`);
       await waitFor(`(() => {const m=window.gta2?.Module;return !!m&&m.ccall('gta2_port_frontend_menu_state','number',[],[])>=0&&document.documentElement.lang==='he'&&!document.querySelector('#main-menu-hebrew')?.hidden})()`, Boolean, 'Hebrew native main menu', 120000);
+      const historyHebrew = await evaluate(`(() => ({button:document.querySelector('#mission-history-toggle')?.textContent.trim(),heading:document.querySelector('#mission-history h2')?.textContent.trim(),aria:document.querySelector('#mission-history')?.getAttribute('aria-label')}))()`);
+      if (historyHebrew.button !== 'היסטוריית הודעות' || historyHebrew.heading !== 'הודעות אחרונות' || historyHebrew.aria !== 'היסטוריית הודעות משימה') {
+        throw new Error(`mission history labels are not Hebrew in Hebrew mode: ${JSON.stringify(historyHebrew)}`);
+      }
       await evaluate(`document.fonts.load('30px "GTA2 Impact Pixel"')`);
       const probe = await evaluate(`(() => {
         const root=document.querySelector('#main-menu-hebrew');
@@ -203,6 +207,10 @@ async function main() {
       await evaluate(`localStorage.setItem('gta2-port-lang', 'en')`);
       await navigate(`${BASE}?devdata`);
       await waitFor(`(() => {const m=window.gta2?.Module;return !!m&&document.documentElement.lang==='en'&&m.ccall('gta2_port_frontend_menu_state','number',[],[])===0})()`, Boolean, 'English native main menu');
+      const historyEnglish = await evaluate(`(() => ({button:document.querySelector('#mission-history-toggle')?.textContent.trim(),heading:document.querySelector('#mission-history h2')?.textContent.trim(),aria:document.querySelector('#mission-history')?.getAttribute('aria-label')}))()`);
+      if (historyEnglish.button !== 'Mission history' || historyEnglish.heading !== 'Recent messages' || historyEnglish.aria !== 'Mission message history') {
+        throw new Error(`mission history labels are not English after switching language: ${JSON.stringify(historyEnglish)}`);
+      }
       await evaluate(`document.querySelector('#screen')?.focus()`);
       await menuKey('Enter', 'Enter', 0x0d);
       const englishSubmenuState = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, (value) => value >= 16 && Math.floor(value / 16) === 1, 'English Play submenu');
@@ -210,9 +218,9 @@ async function main() {
       const englishSubmenu = await evaluate(`(() => ({state:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]),translated:[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean),overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden}))()`);
       if (englishSubmenu.translated.length || !englishSubmenu.overlayHidden) throw new Error(`English submenu shows Hebrew overlays: ${JSON.stringify(englishSubmenu)}`);
       const englishSubmenuScreenshot = await capture('main-menu-english-play-submenu');
-      console.log(JSON.stringify({ hebrewMainMenu: { probe, screenshot, selected, selectedMainMenu, selectionScreenshot, submenuState, submenu, submenuScreenshot,
+      console.log(JSON.stringify({ hebrewMainMenu: { historyHebrew, probe, screenshot, selected, selectedMainMenu, selectionScreenshot, submenuState, submenu, submenuScreenshot,
         movedSubmenuState, movedSubmenu, movedSubmenuScreenshot,
-        englishSubmenuState, englishSubmenu, englishSubmenuScreenshot,
+        historyEnglish, englishSubmenuState, englishSubmenu, englishSubmenuScreenshot,
         note: 'Same 1200x800 game viewport; original frontend handles menu selection and submenu.' } }, null, 2));
       return;
     }

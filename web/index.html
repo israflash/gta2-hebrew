@@ -551,14 +551,14 @@
     <p id="fps" hidden></p>
     <canvas id="mission-title" hidden aria-live="polite" aria-label=""></canvas>
     <section id="mission-brief" hidden aria-live="polite"><div id="mission-brief-speaker" class="mission-brief-speaker"></div><div class="mission-brief-text"></div></section>
-    <section id="mission-history" hidden aria-label="היסטוריית הודעות משימה"><h2>הודעות אחרונות</h2><div class="mission-history-list"></div></section>
+    <section id="mission-history" hidden data-i18n-aria="ui.missionHistory.aria" aria-label="היסטוריית הודעות משימה"><h2 data-i18n="ui.missionHistory.heading">הודעות אחרונות</h2><div class="mission-history-list"></div></section>
     <div id="tools" hidden>
       <!-- Stateful labels (they follow the button's state): no data-i18n here, the shell
            re-renders them on a language change. -->
       <button id="camera" type="button">Camera: Modern</button>
       <button id="view-distance" type="button">View: Normal</button>
       <button id="map-open" type="button" data-i18n="ui.tools.map" data-i18n-title="ui.tools.mapTitle" title="Full map (M): set a waypoint">Map (M)</button>
-      <button id="mission-history-toggle" type="button" aria-pressed="false">היסטוריית הודעות</button>
+      <button id="mission-history-toggle" type="button" data-i18n="ui.missionHistory.toggle" aria-pressed="false">היסטוריית הודעות</button>
       <button id="minimap-toggle" type="button" aria-pressed="true">Minimap</button>
       <button id="fps-toggle" type="button" aria-pressed="false">FPS</button>
       <button id="fullscreen" type="button">Full screen</button>
