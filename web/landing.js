@@ -5,6 +5,7 @@
 import { LOAD_KEY, SAVE_KEY, money, num } from './savestate.js';
 import { describe } from './saves.js';
 import { findPad, listPads, padName } from './gamepad.js';
+import { gangDisplayName } from './gang-names.js';
 import { lang, onLangChange, registerDict, setLang, t } from './strings.js';
 
 registerDict({
@@ -537,7 +538,7 @@ function renderLeaderboard() {
     const name = tr.insertCell();
     name.append(el('div', { class: 'crew-name' }, c.name),
       el('div', { class: 'members' }, c.members.map((m) => m.name).join(', ')
-        + (c.lastGang ? t('ui.board.lastGang', { gang: c.lastGang }) : '')));
+        + (c.lastGang ? t('ui.board.lastGang', { gang: gangDisplayName(c.lastGang, lang()) }) : '')));
     tr.insertCell().append(el('span', { class: 'rep' }, num(c.reputation)));
     tr.insertCell().append(`${num(c.wins)} / ${num(c.matches)}`);
     tr.insertCell().append(num(c.kills));

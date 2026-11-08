@@ -45,16 +45,34 @@ for (const key of ['1989', '2910', '2911', '3489', '3752', '3753', '1125', '1150
 }
 assert.equal(messages.length, 1175);
 assert.equal(new Set(messages.map((r) => `${r.area}:${r.gxtKey}`)).size, messages.length);
+const sinkOrSwimExpected = {
+  '2272': 'שלום, THC-303, כאן ד״ר לה־בראט. סוכני זייבאצו מחזיקים במידע הסודי של אס־אר־אס, ואני רוצה אותו בחזרה. #גנוב# את ה־#Taxi# ושמור עליו שלם — נזק רב מדי יזעיק את השוטרים.',
+  '2280': 'טוב, THC-303. אסוף את הפעיל #השני# של זייבאצו.',
+  '2282': 'יפה, THC-303. עכשיו מצא את איש זייבאצו #השלישי#.',
+  '2283': 'לקח לך זמן! הנה תעודת הזיהוי שלי מזייבאצו.',
+  '2284': 'נותר לך לאסוף רק פעיל זייבאצו #אחד#, THC-303.',
+  '2285': 'אה, יש פה מסיבה?',
+  '2288': 'עבודה יעילה ואפקטיבית, THC-303. הנה #$30,000#. השתמש בכסף בתבונה.',
+};
+for (const [key, expected] of Object.entries(sinkOrSwimExpected)) {
+  const row = messages.find((message) => message.mission === 'Sink or Swim!' && message.gxtKey === key);
+  assert.ok(row, `Sink or Swim! sequence is missing GXT ${key}`);
+  assert.equal(row.text, expected, `Sink or Swim! GXT ${key} translation drifted`);
+}
 
 const gameplayGxt = JSON.parse(fs.readFileSync(path.join(root, 'web/gxt-gameplay.he.json'), 'utf8')).records;
 const gxtExtras = JSON.parse(fs.readFileSync(path.join(__dirname, 'gxt-extra-translations.he.json'), 'utf8'));
 const missionExtras = JSON.parse(fs.readFileSync(path.join(root, 'web/mission-extras.he.json'), 'utf8')).records;
-assert.equal(gameplayGxt.length, 795, 'native gameplay GXT plus supplemental dialogue, challenge, and menu text is present');
+assert.equal(gameplayGxt.length, 802, 'native gameplay GXT plus supplemental dialogue, challenge, menu, and pause-screen gang labels are present');
 assert.equal(new Set(gameplayGxt.map((r) => String(r.key))).size, gameplayGxt.length, 'GXT keys are unique');
 for (const row of gameplayGxt) {
   const preservedKeys = new Set(['esc_i', 'del_i', 'ent_i', 'bspc_i', 'up_i', 'down_i', 'left_i', 'right_i']);
   assert.ok(row.source && (/[\u0590-\u05ff]/u.test(row.text) || preservedKeys.has(String(row.key))), `GXT source/translation missing: ${row.key}`);
   if (gxt) assert.equal(gxt.get(String(row.key)), row.source, `gameplay GXT source mismatch: ${row.key}`);
+}
+for (const key of ['ganga1', 'ganga2', 'ganga3', 'ganga4', 'ganga5', 'ganga6', 'ganga7']) {
+  const row = gameplayGxt.find((entry) => entry.key === key);
+  assert.ok(row && /[\u0590-\u05ff]/u.test(row.text), `Hebrew pause-screen gang label missing: ${key}`);
 }
 for (const [key, text] of Object.entries(gxtExtras)) {
   const row = gameplayGxt.find((entry) => String(entry.key) === key);
@@ -92,7 +110,8 @@ const correctionExpectations = {
   '3204': 'איך בכלל הצלחת להיכשל?',
   '1121': 'בהחלט הרווחת את ה־#$40,000#',
   '6180': 'לעזאזל, בן אדם, אתה יודע להגיע ברגע האחרון',
-  '802': 'מצטער לבשר לך, אבל מילאו אותך בחומר נפץ',
+  '802': 'יש לך בטן מלאה בחומר נפץ',
+  '1402': 'הטנק הזה לא משחק',
   '4209': 'אומרים שסורגים לא עושים כלא',
   '4224': 'כשלא תכננו את זה, חבר',
   '6159': 'יכסחו לך את התחת',

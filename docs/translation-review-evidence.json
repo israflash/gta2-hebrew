@@ -447,6 +447,18 @@
     }
   },
   "missionKeys": {
+    "Residential|6146": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": true,
+      "evidence": "2026-11-08: הודעת פתיחת Residential נקראה מול מקור GXT 6146 ונצפתה דרך מנגנון ההודעות הפעיל לאחר פתיחת האזור; תוקן ניסוח לא טבעי ל„מקום מושבם... החכמולוגים”. צילום: game/qa-screenshots/district-mission-brief-1.png."
+    },
+    "Residential|2272": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": true,
+      "evidence": "2026-11-08: כל 16 הודעות Sink or Swim! (GXT 2272–2288) נקראו מול המקור וברצף: שמירת ה-Taxi שלם, הימנעות מהרג פעיל זייבאצו, איסוף שלושת הפעילים, הצפירה, ההסעה לעגורן והיציאה לפני החיסול. תוקנו possess לעומת steal, מינוח Z-Operative/Z-Man, תעודת Z-ID והניסוח המקצועי של ד״ר לה־בראט. GXT 2272 נצפה במשימה חיה; הצילום game/qa-screenshots/district-mission-brief-1.png מציג את ההודעה לצד הדיוקן בשלוש שורות וללא אנגלית כפולה."
+    },
     "Downtown|1251": {
       "sourceRead": true,
       "contextChecked": true,
@@ -986,23 +998,23 @@
     "801": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-801.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-801.png after injecting GXT 801 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "802": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-802.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-802.png after injecting GXT 802 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1014": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1014.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-1014.png after injecting GXT 1014 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1015": {
       "sourceRead": true,
@@ -1012,16 +1024,16 @@
     "1115": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1115.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-1115.png after injecting GXT 1115 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1121": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1121.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-1121.png after injecting GXT 1121 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1124": {
       "sourceRead": true,
@@ -1041,16 +1053,16 @@
     "1201": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1201.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-1201.png after injecting GXT 1201 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1242": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1242.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-1242.png after injecting GXT 1242 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1256": {
       "sourceRead": true,
@@ -1075,9 +1087,9 @@
     "1290": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-ice-cream-van-cost.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-ice-cream-van-cost.png after injecting GXT 1290 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1307": {
       "sourceRead": true,
@@ -1112,9 +1124,9 @@
     "1402": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-tank-warning.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-tank-warning.png after injecting GXT 1402 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1436": {
       "sourceRead": true,
@@ -1229,14 +1241,16 @@
     "1901": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: נקראה בתוך רצף אתגר Kill Frenzy/אתגר נהיגה; נבדקו תנאי ההצלחה, הכלי, הכמות, הזמן וטקסטי התוצאה."
+      "evidence": "2026-11-08: captured native-gxt-colored-frenzy.png after injecting GXT 1901 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1902": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1902.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-1902.png after injecting GXT 1902 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1903": {
       "sourceRead": true,
@@ -1246,9 +1260,9 @@
     "1904": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-1904.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-1904.png after injecting GXT 1904 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "1905": {
       "sourceRead": true,
@@ -1703,9 +1717,9 @@
     "3202": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-3202.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-3202.png after injecting GXT 3202 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "3203": {
       "sourceRead": true,
@@ -1715,9 +1729,9 @@
     "3204": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-3204.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-3204.png after injecting GXT 3204 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "3205": {
       "sourceRead": true,
@@ -2347,12 +2361,16 @@
     "5000": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: נקראה כחלק מרצף תפריט/הודעה מחולק או כחלק מאתגר Ice-Cream Van; נבדקו חיבור המקטעים והמשמעות."
+      "evidence": "2026-11-08: captured native-gxt-time-extended.png after injecting GXT 5000 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "5001": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: נקראה כחלק מרצף תפריט/הודעה מחולק או כחלק מאתגר Ice-Cream Van; נבדקו חיבור המקטעים והמשמעות."
+      "evidence": "2026-11-08: captured native-gxt-frenzy-result.png after injecting GXT 5001 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "5002": {
       "sourceRead": true,
@@ -2412,7 +2430,9 @@
     "5013": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: נקראה כחלק מרצף תפריט/הודעה מחולק או כחלק מאתגר Ice-Cream Van; נבדקו חיבור המקטעים והמשמעות."
+      "evidence": "2026-11-08: captured native-gxt-ice-cream-frenzy.png after injecting GXT 5013 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "5014": {
       "sourceRead": true,
@@ -2487,7 +2507,9 @@
     "5028": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: נקראה בתוך רצף אתגר Kill Frenzy/אתגר נהיגה; נבדקו תנאי ההצלחה, הכלי, הכמות, הזמן וטקסטי התוצאה."
+      "evidence": "2026-11-08: captured native-gxt-frenzy-failure.png after injecting GXT 5028 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "5029": {
       "sourceRead": true,
@@ -2497,7 +2519,9 @@
     "5030": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: נקראה בתוך רצף אתגר Kill Frenzy/אתגר נהיגה; נבדקו תנאי ההצלחה, הכלי, הכמות, הזמן וטקסטי התוצאה."
+      "evidence": "2026-11-08: captured native-gxt-frenzy-objective.png after injecting GXT 5030 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "5031": {
       "sourceRead": true,
@@ -2842,9 +2866,9 @@
     "6102": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-6102.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-6102.png after injecting GXT 6102 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "6103": {
       "sourceRead": true,
@@ -2854,9 +2878,9 @@
     "6104": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-6104.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-6104.png after injecting GXT 6104 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "6105": {
       "sourceRead": true,
@@ -3246,23 +3270,23 @@
     "6180": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-6180.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-6180.png after injecting GXT 6180 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7002": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-7002.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-7002.png after injecting GXT 7002 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7012": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-7012.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-7012.png after injecting GXT 7012 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "7020": {
       "sourceRead": true,
@@ -3971,9 +3995,9 @@
     "8002": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-8002.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-8002.png after injecting GXT 8002 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "play": {
       "sourceRead": true,
@@ -4408,12 +4432,16 @@
     "bdone": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: מקור ותרגום נבדקו בהקשר הקטלוגי (תוצאת משחק, מסך שמירה, שירות רכב, נתון סטטיסטי, תוצאה מרובת משתתפים או שם נשק לפי המפתח); נבדקו משמעות, placeholders וסכומי כסף."
+      "evidence": "2026-11-08: captured native-gxt-bdone-cost-5000.png after injecting GXT bdone through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "arig": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: מקור ותרגום נבדקו בהקשר הקטלוגי (תוצאת משחק, מסך שמירה, שירות רכב, נתון סטטיסטי, תוצאה מרובת משתתפים או שם נשק לפי המפתח); נבדקו משמעות, placeholders וסכומי כסף."
+      "evidence": "2026-11-08: captured native-gxt-arig.png after injecting GXT arig through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "svdone": {
       "sourceRead": true,
@@ -4473,7 +4501,9 @@
     "pgmiss": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: מקור ותרגום נבדקו בהקשר הקטלוגי (תוצאת משחק, מסך שמירה, שירות רכב, נתון סטטיסטי, תוצאה מרובת משתתפים או שם נשק לפי המפתח); נבדקו משמעות, placeholders וסכומי כסף."
+      "observedInGame": true,
+      "evidence": "2026-11-08: שורת pgmiss צולמה במסך ההשהיה במשחק המקומי דרך F6, אחרי טעינת נכסי Hebrew GXT עדכניים. המקור עובר דרך Hud_PauseScreen_2::DrawPause_5D63B0 ומוצג עם ערך כנופיה דינמי; בצילום הופיעה השורה „משימות של יאקוזה שהושלמו: 0/7” במקום האנגלית, לצד אייקון הכנופיה ובתצוגה המקורית. צילום: game/qa-screenshots/pause-progress-gang-live.png. בדיקת משחק חיה, לא הזרקת brief.",
+      "followUp": "הדינמיקה של כל שבעת ערכי ganga מכוסה בבדיקת resolver; צילום בפועל מאמת את שורת Yakuza באזור פעיל."
     },
     "pmiss": {
       "sourceRead": true,
@@ -4623,7 +4653,9 @@
     "c00": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: מקור ותרגום נבדקו בהקשר הקטלוגי (תוצאת משחק, מסך שמירה, שירות רכב, נתון סטטיסטי, תוצאה מרובת משתתפים או שם נשק לפי המפתח); נבדקו משמעות, placeholders וסכומי כסף."
+      "evidence": "2026-11-08: captured native-gxt-weapon.png after injecting GXT c00 through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
+      "observedInGame": true,
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "c01": {
       "sourceRead": true,
@@ -4818,9 +4850,9 @@
     "repdemo": {
       "sourceRead": true,
       "contextChecked": false,
-      "evidence": "2026-11-08: הוזרק דרך תור ה־brief המקורי במנוע, צויר בקטלוג העדכני ונבדק חזותית בצילום game/qa-screenshots/native-gxt-review-repdemo.png. זו תצפית QA בהזרקה בלבד; הטריגר הטבעי והקשר המשימה לא אומתו.",
+      "evidence": "2026-11-08: captured native-gxt-review-repdemo.png after injecting GXT repdemo through the original HUD brief queue. Visual injection evidence only; natural trigger and mission context remain unverified.",
       "observedInGame": true,
-      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue -> production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
+      "observedMethod": "QA injection through gta2_dev_show_brief -> native Hud_Brief_704 queue and production Hebrew GXT draw hook; not a natural trigger or full mission-context review."
     },
     "frag_gm": {
       "sourceRead": true,
@@ -5081,6 +5113,55 @@
       "sourceRead": true,
       "contextChecked": true,
       "evidence": "2026-11-05: נקראה כחלק מרצף תפריט/הודעה מחולק או כחלק מאתגר Ice-Cream Van; נבדקו חיבור המקטעים והמשמעות."
+    },
+    "ganga1": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": false,
+      "evidence": "2026-11-08: GXT value Loony mapped by Gang_144::GetArrowColourText_4BF340; Hud.cpp inserts it into the %s in pgmiss (“Jobs Passed: %d/%d”) on the pause-menu progress rows. Hebrew value לוניז is resolved by the production draw hook's dynamic-name map. Code context checked; no screenshot yet.",
+      "followUp": "Capture a live pause-menu progress row when practical; code-path and interpolation test pass."
+    },
+    "ganga2": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": true,
+      "evidence": "2026-11-08: GXT Yakuza נצפה כערך הדינמי של שורת pgmiss במסך ההשהיה. מקור: Gang_144::GetArrowColourText_4BF340 → Hud_PauseScreen_2::DrawPause_5D63B0. הוצג „יאקוזה” בעברית בצילום game/qa-screenshots/pause-progress-gang-live.png; שאר ערכי הכנופיות מכוסים סטטית ובבדיקות resolver.",
+      "followUp": "ללא בדיקה חזותית נפרדת לששת הערכים שאינם פעילים באזור שנפתח."
+    },
+    "ganga3": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": false,
+      "evidence": "2026-11-08: GXT value Zaibatsu mapped by Gang_144::GetArrowColourText_4BF340; Hud.cpp inserts it into the %s in pgmiss (“Jobs Passed: %d/%d”) on the pause-menu progress rows. Hebrew value זייבאצו is resolved by the production draw hook's dynamic-name map. Code context checked; no screenshot yet.",
+      "followUp": "Capture a live pause-menu progress row when practical; code-path and interpolation test pass."
+    },
+    "ganga4": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": false,
+      "evidence": "2026-11-08: GXT value Redneck mapped by Gang_144::GetArrowColourText_4BF340; Hud.cpp inserts it into the %s in pgmiss (“Jobs Passed: %d/%d”) on the pause-menu progress rows. Hebrew value רדנקס is resolved by the production draw hook's dynamic-name map. Code context checked; no screenshot yet.",
+      "followUp": "Capture a live pause-menu progress row when practical; code-path and interpolation test pass."
+    },
+    "ganga5": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": false,
+      "evidence": "2026-11-08: GXT value Scientist mapped by Gang_144::GetArrowColourText_4BF340; Hud.cpp inserts it into the %s in pgmiss (“Jobs Passed: %d/%d”) on the pause-menu progress rows. Hebrew value מדענים is resolved by the production draw hook's dynamic-name map. Code context checked; no screenshot yet.",
+      "followUp": "Capture a live pause-menu progress row when practical; code-path and interpolation test pass."
+    },
+    "ganga6": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": false,
+      "evidence": "2026-11-08: GXT value Krishna mapped by Gang_144::GetArrowColourText_4BF340; Hud.cpp inserts it into the %s in pgmiss (“Jobs Passed: %d/%d”) on the pause-menu progress rows. Hebrew value קרישנה is resolved by the production draw hook's dynamic-name map. Code context checked; no screenshot yet.",
+      "followUp": "Capture a live pause-menu progress row when practical; code-path and interpolation test pass."
+    },
+    "ganga7": {
+      "sourceRead": true,
+      "contextChecked": true,
+      "observedInGame": false,
+      "evidence": "2026-11-08: GXT value Russian mapped by Gang_144::GetArrowColourText_4BF340; Hud.cpp inserts it into the %s in pgmiss (“Jobs Passed: %d/%d”) on the pause-menu progress rows. Hebrew value המאפיה הרוסית is resolved by the production draw hook's dynamic-name map. Code context checked; no screenshot yet.",
+      "followUp": "Capture a live pause-menu progress row when practical; code-path and interpolation test pass."
     }
   }
 }

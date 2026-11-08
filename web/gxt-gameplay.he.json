@@ -619,6 +619,41 @@
       "text": "פריטי בונוס שנאספו: %d/%d"
     },
     {
+      "key": "ganga1",
+      "source": "Loony",
+      "text": "לוניז"
+    },
+    {
+      "key": "ganga2",
+      "source": "Yakuza",
+      "text": "יאקוזה"
+    },
+    {
+      "key": "ganga3",
+      "source": "Zaibatsu",
+      "text": "זייבאצו"
+    },
+    {
+      "key": "ganga4",
+      "source": "Redneck",
+      "text": "רדנקס"
+    },
+    {
+      "key": "ganga5",
+      "source": "Scientist",
+      "text": "מדענים"
+    },
+    {
+      "key": "ganga6",
+      "source": "Krishna",
+      "text": "קרישנה"
+    },
+    {
+      "key": "ganga7",
+      "source": "Russian",
+      "text": "רוסים"
+    },
+    {
       "key": "car_cst",
       "source": "AUTO DAMAGE COST",
       "text": "עלות תיקון נזקי רכב"
@@ -921,7 +956,7 @@
     {
       "key": "802",
       "source": "Hey there, kid. Sorry to break this to you but... You got a bellyful of explosives and only 6 minutes to live life to the full. Have fun!",
-      "text": "היי, ילד. מצטער לבשר לך, אבל מילאו אותך בחומר נפץ ונשארו לך רק 6 דקות לחיות את החיים עד תום. תיהנה!"
+      "text": "היי, ילד. לא נעים לבשר לך, אבל יש לך בטן מלאה בחומר נפץ ונשארו לך רק 6 דקות ליהנות מהחיים. תיהנה!"
     },
     {
       "key": "1014",
@@ -2766,7 +2801,7 @@
     {
       "key": "1402",
       "source": "ⅹShit, Kosai! That Tank means business.",
-      "text": "לעזאזל, קוסאי! הטנק הזה רציני."
+      "text": "לעזאזל, קוסאי! הטנק הזה לא משחק."
     },
     {
       "key": "5000",

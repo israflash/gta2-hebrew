@@ -129,6 +129,47 @@ async function main() {
       return file;
     };
     const visibleTranslated = `(() => { const p=document.querySelector('#mission-brief'); const t=p?.querySelector('.mission-brief-text'); return p && !p.hidden && t?.innerText ? {text:t.innerText,dir:p.dir} : null; })()`;
+    if (process.env.GTA2_QA_MAIN_MENU_ONLY) {
+      await navigate(`${BASE}?devdata`);
+      await waitFor(`(() => {const m=window.gta2?.Module;return !!m&&m.ccall('gta2_port_frontend_menu_state','number',[],[])>=0&&document.documentElement.lang==='he'&&!document.querySelector('#main-menu-hebrew')?.hidden})()`, Boolean, 'Hebrew native main menu', 120000);
+      await evaluate(`document.fonts.load('30px "GTA2 Impact Pixel"')`);
+      const probe = await evaluate(`(() => {
+        const root=document.querySelector('#main-menu-hebrew');
+        const rows=[...root.querySelectorAll('[data-option]')].map(node=>{
+          const range=document.createRange();range.selectNodeContents(node);
+          const r=range.getBoundingClientRect();
+          return {text:node.innerText.trim(),x:r.x,right:r.right,y:r.y,color:getComputedStyle(node).color};
+        });
+        return {rect:root.getBoundingClientRect().toJSON(),align:getComputedStyle(root).textAlign,direction:getComputedStyle(root).direction,rows};
+      })()`);
+      const expectedLeft = probe.rect.x;
+      if (probe.align !== 'left' || probe.rows.length !== 3 || probe.rows.some(row => Math.abs(row.x - expectedLeft) > 4)) {
+        throw new Error(`Hebrew menu rows do not start at the original text anchor: ${JSON.stringify(probe)}`);
+      }
+      const screenshot = await capture('main-menu-hebrew-fixed');
+      const menuKey = async (key, code, virtualKey) => {
+        await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key, code, windowsVirtualKeyCode: virtualKey });
+        await wait(160);
+        await cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', key, code, windowsVirtualKeyCode: virtualKey });
+        await wait(220);
+      };
+      await evaluate(`document.querySelector('#screen')?.focus()`);
+      await menuKey('ArrowDown', 'ArrowDown', 0x28);
+      const selected = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value >= 0 && value % 16 === 1, 'second Hebrew menu selection');
+      const selectionScreenshot = await capture('main-menu-hebrew-selection');
+      await menuKey('ArrowUp', 'ArrowUp', 0x26);
+      await menuKey('Enter', 'Enter', 0x0d);
+      const submenuState = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value >= 0 && Math.floor(value / 16) === 1, 'native Play submenu');
+      const submenu = await evaluate(`(() => ({overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden,translated:[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean),mainMenuState:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])}))()`);
+      if (!submenu.overlayHidden || !submenu.translated.some(text => /מחוז|התחל|דאונטאון|Residential|Industrial/i.test(text))) {
+        throw new Error(`native Play submenu did not switch cleanly to Hebrew GXT text: ${JSON.stringify({submenuState,submenu})}`);
+      }
+      submenu.missingGxt = await evaluate(`window.gta2GxtAudit?.snapshot() || []`);
+      const submenuScreenshot = await capture('main-menu-hebrew-play-submenu');
+      console.log(JSON.stringify({ hebrewMainMenu: { probe, screenshot, selected, selectionScreenshot, submenuState, submenu, submenuScreenshot,
+        note: 'Same 1200x800 game viewport; original frontend handles menu selection and submenu.' } }, null, 2));
+      return;
+    }
     if (process.env.GTA2_QA_COOP_TWO_TABS) {
       const browserCdp = await connectCdp(version.webSocketDebuggerUrl);
       const created = await browserCdp.send('Target.createTarget', { url: 'about:blank' });
@@ -728,11 +769,13 @@ async function main() {
         const titleScreenshot = title ? await capture(`district-mission-title-${target}`) : null;
         const brief = await waitFor(visibleTranslated, Boolean, `${districts[target]} translated mission brief`, 10000).catch(() => null);
         const briefScreenshot = brief ? await capture(`district-mission-brief-${target}`) : null;
-        const result = { district: districts[target], stage: current, stageSelectionMethod, mapId: initial.map?.mapId, startupOnMission: initial.jobs.onMission, startupBriefs: initial.briefs.briefs.map((item) => ({ gxtKey: item.gxtKey, face: item.face, text: item.text })), phone, phoneAccepted, postPhoneTimeline, liveState, titleKey: title, brief, selectorScreenshot, gameStartScreenshot, titleScreenshot, briefScreenshot };
+        const gxtAudit = process.env.GTA2_QA_GXT_AUDIT ? await evaluate('window.gta2GxtAudit?.snapshot() || []') : null;
+        const result = { district: districts[target], stage: current, stageSelectionMethod, mapId: initial.map?.mapId, startupOnMission: initial.jobs.onMission, startupBriefs: initial.briefs.briefs.map((item) => ({ gxtKey: item.gxtKey, face: item.face, text: item.text })), phone, phoneAccepted, postPhoneTimeline, liveState, gxtAudit, titleKey: title, brief, selectorScreenshot, gameStartScreenshot, titleScreenshot, briefScreenshot };
         sweep.push(result);
         console.log(JSON.stringify({ districtLaunchAndMissionCheck: result }));
       }
-      console.log(JSON.stringify({ districtLaunchAndMissionChecks: sweep, note: 'The original Play menu action started each district. If headless Chrome arrow events did not change the district, a debug-only setter selected it; this is not a normal input-path check. Only when no mission was already active did the test accept a gang-phone mission. Area unlock and respect changes occurred only in the isolated QA profile; no release gameplay rules were changed.' }, null, 2));
+      const currentGxtAudit = process.env.GTA2_QA_GXT_AUDIT ? await evaluate('window.gta2GxtAudit?.snapshot() || []') : null;
+      console.log(JSON.stringify({ districtLaunchAndMissionChecks: sweep, auditSnapshots, currentGxtAudit, note: 'The original Play menu action started each district. If headless Chrome arrow events did not change the district, a debug-only setter selected it; this is not a normal input-path check. Only when no mission was already active did the test accept a gang-phone mission. Area unlock and respect changes occurred only in the isolated QA profile; no release gameplay rules were changed.' }, null, 2));
       return;
     }
     const expected = (process.env.GTA2_QA_ONLY_PICKUP || process.env.GTA2_QA_SAVE_ONLY ? [] : [
@@ -919,7 +962,13 @@ async function main() {
     let nativeGxtDraw = null;
     if (process.env.GTA2_QA_NATIVE_GXT) {
       await navigate(`${BASE}?devdata&autostart`);
-      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'player spawn before native GXT draw test');
+      try {
+        await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'player spawn before native GXT draw test', 120000);
+      } catch (error) {
+        const startup = await evaluate(`(() => ({status:document.querySelector('#status')?.innerText,landingHidden:document.querySelector('#landing')?.hidden,gameHidden:document.querySelector('#game')?.hidden,hasModule:!!window.gta2?.Module,hasCanvas:!!window.gta2?.map?.gameCanvas,devState:window.gta2?.dev?.state?.(),gxtReady:window.gta2?.Module?.gta2HebrewGxtReady}))()`);
+        console.log(JSON.stringify({ nativeGxtStartupFailure: startup }));
+        throw error;
+      }
       await evaluate(`window.gta2.Module.ccall('gta2_port_set_native_brief_text_hidden','void',['number'],[0])`);
       await evaluate(`(() => {const s=document.createElement('style');s.textContent='#mission-brief.qa-hide-brief-panel{visibility:hidden!important}';document.head.append(s);return true})()`);
       for (const test of [
@@ -932,7 +981,7 @@ async function main() {
         { key: '3202', expected: 'איך בכלל הצלחת לעבור?', name: 'native-gxt-review-3202' },
         { key: '3204', expected: 'איך בכלל הצלחת להיכשל?', name: 'native-gxt-review-3204' },
         { key: '801', expected: 'תצוגה מקדימה של GTA2', name: 'native-gxt-review-801' },
-        { key: '802', expected: 'מצטער לבשר לך', name: 'native-gxt-review-802' },
+        { key: '802', expected: 'בטן מלאה בחומר נפץ', name: 'native-gxt-review-802' },
         { key: '1014', expected: 'אתה חסר תועלת!', name: 'native-gxt-review-1014' },
         { key: '1115', expected: 'זייבאצו לא מנהלים משא ומתן', name: 'native-gxt-review-1115' },
         { key: '1121', expected: '$40,000', name: 'native-gxt-review-1121' },
@@ -946,7 +995,7 @@ async function main() {
         { key: '8002', expected: 'הקו נכשל!', name: 'native-gxt-review-8002' },
         { key: 'repdemo', expected: 'צפה שוב', name: 'native-gxt-review-repdemo' },
         { key: '1290', expected: '$5,000', name: 'native-gxt-ice-cream-van-cost' },
-        { key: '1402', expected: 'הטנק הזה רציני', name: 'native-gxt-tank-warning' },
+        { key: '1402', expected: 'הטנק הזה לא משחק', name: 'native-gxt-tank-warning' },
         { key: '5000', expected: 'הארכת זמן', name: 'native-gxt-time-extended' },
         { key: '5001', expected: 'מקום ראשון', name: 'native-gxt-frenzy-result' },
         { key: '5028', expected: 'לוזר עלוב', name: 'native-gxt-frenzy-failure' },

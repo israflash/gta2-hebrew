@@ -16,6 +16,7 @@ import { count, initStats, startPlayClock } from './stats.js';
 import { CoopChat } from './chat.js';
 import { GamepadInput } from './gamepad.js';
 import { CoopLobby, DISTRICTS, GANGS, LocalTransport, MODES, ServerTransport, WebRtcTransport } from './net.js';
+import { gangDisplayName } from './gang-names.js';
 import { LANGS, lang as currentLang, onLangChange, registerDict, setLang, t } from './strings.js';
 import { money } from './savestate.js';
 import { ensureGameLanguage, gxtLetterFor, initGameLanguage } from './gamelang.js';
@@ -1250,7 +1251,7 @@ function coopView(Module, { lobby, players, mySlot, mode = 'roam', crews = [] })
         }).sort((a, b) => b.points - a.points || b.kills - a.kills);
         const rows = [];
         for (const team of totals) {
-          rows.push({ cells: [`${team.c.name} · ${team.c.gang}`, team.kills, '', money(team.points)], colour: team.c.colour, strong: true });
+          rows.push({ cells: [`${team.c.name} · ${gangDisplayName(team.c.gang, currentLang())}`, team.kills, '', money(team.points)], colour: team.c.colour, strong: true });
           for (const p of team.members.sort((a, b) => b.points - a.points)) rows.push({ ...row(p), cells: [`  ${row(p).cells[0]}`, ...row(p).cells.slice(1)], strong: false });
         }
         const lead = totals[0];
@@ -1894,14 +1895,15 @@ function wireCoopLobby() {
         pick.append(Object.assign(document.createElement('option'), { value: '', textContent: t('shell.pickGang') }));
         for (const [code, label] of GANGS[s.district] || []) {
           const held = taken.has(code) && c.side !== code;
-          pick.append(Object.assign(document.createElement('option'), { value: code, textContent: held ? t('shell.gangTaken', { gang: label }) : label, disabled: held }));
+          const displayLabel = gangDisplayName(label, currentLang());
+          pick.append(Object.assign(document.createElement('option'), { value: code, textContent: held ? t('shell.gangTaken', { gang: displayLabel }) : displayLabel, disabled: held }));
         }
         pick.value = c.side || '';
         pick.addEventListener('change', () => (member ? lobby.pickSide(pick.value) : lobby.setSettings({ sides: { ...lobby.settings.sides, [c.name]: pick.value || undefined } })));
         row.append(pick);
       } else {
         const gang = document.createElement('span');
-        gang.textContent = c.gang ? t('shell.sidesWith', { gang: c.gang }) : t('shell.noGang');
+        gang.textContent = c.gang ? t('shell.sidesWith', { gang: gangDisplayName(c.gang, currentLang()) }) : t('shell.noGang');
         row.append(gang);
       }
       const who = document.createElement('span');

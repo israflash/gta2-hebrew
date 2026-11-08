@@ -19,6 +19,23 @@ async function main() {
   strings.setLang('en');
   assert.equal(strings.t('room', { code: '3NKWKF', count: 2 }), 'Room 3NKWKF: 2 of 6 players.',
     'left-to-right UI text remains unchanged');
+
+  const rendererSource = fs.readFileSync(path.join(__dirname, '..', 'web', 'gamegxt.js'), 'utf8')
+    .replace("import { lang } from './strings.js';", "const lang = () => 'he';");
+  const renderer = await import(`data:text/javascript;base64,${Buffer.from(rendererSource).toString('base64')}`);
+  const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'web', 'gxt-gameplay.he.json'), 'utf8'));
+  const resolve = renderer.createGxtResolver(catalog.records);
+  for (const gang of catalog.records.filter((row) => /^ganga[1-7]$/i.test(String(row.key)))) {
+    assert.equal(resolve(`${gang.source} Jobs Passed: 2/5`), `משימות של ${gang.text} שהושלמו: 2/5`,
+      `pause-menu gang label ${gang.key} is interpolated in Hebrew`);
+  }
+  assert.equal(resolve('Unknown Jobs Passed: 0/4'), 'משימות של Unknown שהושלמו: 0/4',
+    'unknown dynamic values retain the original text');
+  assert.equal(resolve('Toshi has left the game!'), 'השחקן Toshi יצא מהמשחק!',
+    'unmapped dynamic player names retain their original value');
+  assert.equal(resolve('PLAYER 0'), 'שחקן 0', 'the code-composed player-slot label is translated');
+  assert.equal(resolve('PLAYER 5'), 'שחקן 5', 'the final supported player slot is translated');
+  assert.equal(resolve('PLAYER 6'), null, 'unknown player-slot labels keep the English fallback');
   console.log('test_hebrew_bidi_interpolation: OK (dynamic values stay ordered in Hebrew and unchanged in English)');
 }
 

@@ -79,7 +79,7 @@ const newlyActive = [
   ['Downtown', '7005', 'Gang escort dialogue', 'Hey! Wait for me, stud!', 'היי! חכה לי, חתיך!'],
   ['Downtown', '7006', 'Gang escort dialogue', 'Where are you going? Watch Lance in action!', 'לאן אתה הולך? חכה ותראה את לאנס בפעולה!'],
   ['Downtown', '7010', 'Gang escort dialogue', 'Hey, where are you going? Come back and pick us up!', 'היי, לאן אתה הולך? תחזור לקחת אותנו!'],
-  ['Residential', '6146', 'Residential District introduction', 'Welcome to the Residential District, home to the roughneck #Redneck# gang, the smart-ass #SRS Scientists# and, of course, the cunning #Zaibatsu# Corporation. Good luck!', 'ברוך הבא למחוז Residential, ביתם של #כנופיית הרדנקס# הקשוחים, #מדעני אס־אר־אס# החכמים־בעיני־עצמם וכמובן #תאגיד זייבאצו# הערמומי. בהצלחה!'],
+  ['Residential', '6146', 'Residential District introduction', 'Welcome to the Residential District, home to the roughneck #Redneck# gang, the smart-ass #SRS Scientists# and, of course, the cunning #Zaibatsu# Corporation. Good luck!', 'ברוך הבא למחוז Residential, מקום מושבם של #הרדנקס הקשוחים#, #מדעני אס־אר־אס החכמולוגים# וכמובן #תאגיד זייבאצו הערמומי#. בהצלחה!'],
   ['Residential', '6181', 'Gang jobs complete', 'Well done, Gecko! You have passed all of the #Zaibatsu# jobs.', 'כל הכבוד, גקו! עברת את כל המשימות של זייבאצו.'],
   ['Residential', '6182', 'Gang jobs complete', "Jesus H Christ, Rooster! You've passed all of the #Redneck# jobs.", 'אלוהים אדירים, רוסטר! עברת את כל המשימות של הרדנקס.'],
   ['Residential', '6183', 'Gang jobs complete', 'Excellent work, THC-303! You have passed all of the #Scientist# jobs.', 'עבודה מצוינת, THC-303! עברת את כל המשימות של המדענים.'],

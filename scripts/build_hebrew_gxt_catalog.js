@@ -39,6 +39,9 @@ const he = {
   score: 'ניקוד', best: 'שיא', last: 'אחרון', kills_h: 'חיסולים', frags_h: 'הריגות', pnts_h: 'נקודות', times_h: 'פעמים',
   pscore: 'ניקוד יעד: %d', pgmiss: 'משימות של {s} שהושלמו: %d/%d', pmiss: 'כל המשימות שהושלמו: %d/%d',
   psec: 'אתגרי חיסול שהושלמו: %d/%d', pbon: 'פריטי בונוס שנאספו: %d/%d',
+  // The pause screen inserts these names into the translated pgmiss template.
+  ganga1: 'לוניז', ganga2: 'יאקוזה', ganga3: 'זייבאצו', ganga4: 'רדנקס',
+  ganga5: 'מדענים', ganga6: 'קרישנה', ganga7: 'רוסים',
   car_cst: 'עלות תיקון נזקי רכב', car_dam: 'כלי רכב שניזוקו', carjack: 'כלי רכב שנגנבו', carjaka: 'גנב רכבים!',
   run_ovr: 'אזרחים שנדרסו', murder: 'אזרחים שנרצחו', cop_kl: 'שוטרים שנהרגו', copkill: 'קוטל שוטרים!',
   gng_kl: 'חברי כנופיה שנהרגו', evsnrtg: 'מקדם בריחה', excutin: 'הוצאה להורג מהירה!', gencide: 'טבח!',

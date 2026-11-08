@@ -81,6 +81,10 @@ const titleKinds = new Set(Object.keys(titles).filter((key) => Number(key) < 900
 const statusKeys = new Set(['1016','1017','1018','1124','1125','1338','1339','2998','2999','3100','3730','3670','3672','3674','6147','6184','6185','6186','9001','9002','9003','9004']);
 const namedStatusKeys = { mfail: '9001', kfstart: '9002', kfpass: '9003', kffail: '9004' };
 const visuallyVerifiedBriefs = new Set(['1600', '2306', '2026', '3727', '1251', '1631']);
+const naturallyObservedBriefs = new Map([
+  ['6146', 'תורגם ונצפה בהודעת פתיחה חיה של Residential'],
+  ['2272', 'תורגם ונצפה במהלך משימת Residential חיה'],
+]);
 const visuallyVerifiedTitles = new Set(['9002', '1975']);
 
 const dictFiles = [
@@ -99,7 +103,7 @@ for (const row of rows) {
   if (missionRecord && (!(titleKey) || row[idx.kind] === 'הודעת משימה/דיאלוג')) {
     const record = missionRecord;
     row[idx.kind] = 'הודעת משימה/דיאלוג'; row[idx.area] = record.area; row[idx.source] = record.source; row[idx.text] = record.text;
-    row[idx.status] = visuallyVerifiedBriefs.has(id) ? 'תורגם; הוזרק למנגנון HUD ונצפה בדפדפן' : reviewedKeys.has(id) ? 'תורגם ואומת בבדיקת הקשר ממוקדת' : 'תורגם; התאמת מפתח אומתה, לא נבדק חזותית';
+    row[idx.status] = naturallyObservedBriefs.get(id) || (visuallyVerifiedBriefs.has(id) ? 'תורגם; הוזרק למנגנון HUD ונצפה בדפדפן' : reviewedKeys.has(id) ? 'תורגם ואומת בבדיקת הקשר ממוקדת' : 'תורגם; התאמת מפתח אומתה, לא נבדק חזותית');
     row[idx.importance] = 'חיוני להבנת משימה/סיפור';
     row[idx.recommendation] = 'לשמר את ההקשר ואת שמות היעד; לאמת חזותית במסגרת בדיקות משחק.';
     row[idx.tech] = `game/data/e.gxt; script refs; web/mission-translations.he.json · GXT ${id}`;

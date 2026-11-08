@@ -76,9 +76,9 @@ export const DISTRICTS = {
 };
 export const MAX_PLAYERS = 6;
 
-// Each district's three street gangs (the multiplayer maps have them all): internal name, name,
-// colour. In Gang Wars every crew sides with one; its members treat the crew as their own.
-// Gang names are proper nouns and are not translated.
+// Each district's three street gangs (the multiplayer maps have them all): internal name,
+// canonical English name and colour. Keep these names stable for game/network data; localize
+// them only at player-facing display sites.
 export const GANGS = {
   downtown: [['zai', 'Zaibatsu', '#c8c8c8'], ['loo', 'Loonies', '#3fd16a'], ['yak', 'Yakuza', '#4fa8ff']],
   residential: [['zai', 'Zaibatsu', '#c8c8c8'], ['red', 'Rednecks', '#ff8a3d'], ['sci', 'SRS Scientists', '#b38bff']],

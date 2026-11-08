@@ -17,7 +17,7 @@ function patternFor(source) {
   return new RegExp(`^${parts.join('')}$`, 'iu');
 }
 
-function translatedFor(source, records, exact, patterns) {
+function translatedFor(source, records, exact, patterns, dynamicValues) {
   const normalized = clean(source);
   if (exact.has(normalized)) return exact.get(normalized);
   for (const record of patterns) {
@@ -25,7 +25,13 @@ function translatedFor(source, records, exact, patterns) {
     if (!match) continue;
     let value = record.text;
     let at = 1;
-    value = value.replace(/%[ds]|\{s\}/g, () => match[at++] || '');
+    value = value.replace(/%[ds]|\{s\}/g, (token) => {
+      const captured = match[at++] || '';
+      if (token === '%s' || token === '{s}') {
+        return dynamicValues.get(clean(captured).toLocaleLowerCase('en')) || captured;
+      }
+      return captured;
+    });
     return value;
   }
   return null;
@@ -34,6 +40,7 @@ function translatedFor(source, records, exact, patterns) {
 export function createGxtResolver(records) {
   const exact = new Map();
   const patterns = [];
+  const dynamicValues = new Map();
   // Pickup notifications are a semantic HUD group (GXT c00-c43). Their
   // native x coordinate can differ between renderer paths, so placement must
   // not depend on an exact font/palette/y tuple.
@@ -41,11 +48,21 @@ export function createGxtResolver(records) {
   for (const row of records || []) {
     const source = clean(row.source);
     if (!source || !row.text) continue;
+    if (/^ganga[1-7]$/i.test(String(row.key || ''))) {
+      dynamicValues.set(source.toLocaleLowerCase('en'), row.text);
+    }
     if (/^c(?:0\d|[1-3]\d|4[0-3])$/i.test(String(row.key || ''))) pickupSources.add(source);
     if (/%[ds]/.test(source)) patterns.push({ pattern: patternFor(source), text: row.text });
     else exact.set(source, row.text);
   }
-  const resolve = (source) => translatedFor(source, records, exact, patterns);
+  const resolve = (source) => {
+    const normalized = clean(source);
+    // The frontend composes its player-slot label in code ("PLAYER 0") rather
+    // than looking up one GXT key, so it needs a small Hebrew template here.
+    const slot = normalized.match(/^PLAYER ([0-5])$/i);
+    if (slot) return `שחקן ${slot[1]}`;
+    return translatedFor(normalized, records, exact, patterns, dynamicValues);
+  };
   resolve.isPickupLabel = (source) => pickupSources.has(clean(source));
   return resolve;
 }
