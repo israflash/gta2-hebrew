@@ -265,10 +265,12 @@
       direction: rtl; text-align: right; unicode-bidi: plaintext; overflow-wrap: anywhere;
       font-family: "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace; font-weight: 400; letter-spacing: -.015em;
       text-shadow: 1px 1px 0 #080705, -1px 0 #1a160e, 1px 0 #1a160e, 0 -1px #1a160e, 0 1px #1a160e; }
-    /* Keep the engine's red selected font and add a clear RTL cursor beside the active submenu row. */
-    .hebrew-gxt-text.native-menu-selected::before { content: "◀"; display: inline-block; margin-inline-start: .55em;
-      color: #ed2024; font-family: "GTA2 Impact Pixel", monospace; font-size: 1.2em; font-weight: 900;
-      vertical-align: -.02em; -webkit-text-stroke: .45px #fff;
+    /* Keep the engine's red selected font and anchor the RTL cursor to the
+       physical right edge (the reading start) of the selected label. */
+    .hebrew-gxt-text.native-menu-selected::before { content: "◀"; position: absolute; left: 100%; top: 50%;
+      margin-left: .28em; transform: translateY(-50%); color: #ed2024;
+      font-family: "GTA2 Impact Pixel", monospace; font-size: 1.35em; font-weight: 900;
+      -webkit-text-stroke: .45px #fff;
       text-shadow: 1px 1px 0 #080705, 0 0 3px #080705; }
     #mission-brief-speaker { display: none; }
     .mission-brief-text { font: 400 clamp(24px, 3.15vh, 27px)/1.28 "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace;
