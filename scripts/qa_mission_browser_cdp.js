@@ -153,6 +153,11 @@ async function main() {
       if (historyHebrew.button !== 'היסטוריית הודעות' || historyHebrew.heading !== 'הודעות אחרונות' || historyHebrew.aria !== 'היסטוריית הודעות משימה') {
         throw new Error(`mission history labels are not Hebrew in Hebrew mode: ${JSON.stringify(historyHebrew)}`);
       }
+      const toolbarHebrew = await evaluate(`(() => Object.fromEntries(['camera','view-distance','minimap-toggle','fullscreen','mute','lang-toggle'].map(id=>[id,document.getElementById(id)?.textContent.replace(/[\\u2066-\\u2069]/g,'').trim()])))()`);
+      const expectedToolbarHebrew = {'camera':'מצלמה: מודרנית','view-distance':'תצוגה: רגיל','minimap-toggle':'מפה קטנה','fullscreen':'מסך מלא','mute':'השתקה','lang-toggle':'עברית'};
+      if (JSON.stringify(toolbarHebrew) !== JSON.stringify(expectedToolbarHebrew)) {
+        throw new Error(`stateful toolbar labels are not Hebrew in Hebrew mode: ${JSON.stringify({toolbarHebrew,expectedToolbarHebrew})}`);
+      }
       await evaluate(`document.fonts.load('30px "GTA2 Impact Pixel"')`);
       const probe = await evaluate(`(() => {
         const root=document.querySelector('#main-menu-hebrew');
@@ -212,6 +217,11 @@ async function main() {
       if (historyEnglish.button !== 'Mission history' || historyEnglish.heading !== 'Recent messages' || historyEnglish.aria !== 'Mission message history') {
         throw new Error(`mission history labels are not English after switching language: ${JSON.stringify(historyEnglish)}`);
       }
+      const toolbarEnglish = await evaluate(`(() => Object.fromEntries(['camera','view-distance','minimap-toggle','fullscreen','mute','lang-toggle'].map(id=>[id,document.getElementById(id)?.textContent.replace(/[\\u2066-\\u2069]/g,'').trim()])))()`);
+      const expectedToolbarEnglish = {'camera':'Camera: Modern','view-distance':'View: Normal','minimap-toggle':'Minimap','fullscreen':'Full screen','mute':'Mute','lang-toggle':'English'};
+      if (JSON.stringify(toolbarEnglish) !== JSON.stringify(expectedToolbarEnglish)) {
+        throw new Error(`stateful toolbar labels are not English in English mode: ${JSON.stringify({toolbarEnglish,expectedToolbarEnglish})}`);
+      }
       await evaluate(`document.querySelector('#screen')?.focus()`);
       await menuKey('Enter', 'Enter', 0x0d);
       const englishSubmenuState = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, (value) => value >= 16 && Math.floor(value / 16) === 1, 'English Play submenu');
@@ -222,6 +232,10 @@ async function main() {
       await evaluate(`localStorage.setItem('gta2-port-lang', 'he')`);
       await navigate(`${BASE}?devdata`);
       await waitFor(`(() => {const m=window.gta2?.Module;return !!m&&m.ccall('gta2_port_frontend_menu_state','number',[],[])===0&&document.documentElement.lang==='he'})()`, Boolean, 'Hebrew main menu before Options screen');
+      const toolbarHebrewRestored = await evaluate(`(() => Object.fromEntries(['camera','view-distance','minimap-toggle','fullscreen','mute','lang-toggle'].map(id=>[id,document.getElementById(id)?.textContent.replace(/[\\u2066-\\u2069]/g,'').trim()])))()`);
+      if (JSON.stringify(toolbarHebrewRestored) !== JSON.stringify(expectedToolbarHebrew)) {
+        throw new Error(`stateful toolbar labels did not return to Hebrew: ${JSON.stringify({toolbarHebrewRestored,expectedToolbarHebrew})}`);
+      }
       await evaluate(`document.querySelector('#screen')?.focus()`);
       await menuKey('ArrowDown', 'ArrowDown', 0x28);
       await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value === 1, 'Options entry selected');
@@ -229,9 +243,9 @@ async function main() {
       await wait(500);
       const optionsScreen = await evaluate(`(() => ({state:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]),overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden,labels:[...document.querySelectorAll('#main-menu-hebrew [data-option]')].map(n=>({text:n.innerText.trim(),selected:n.classList.contains('selected'),color:getComputedStyle(n).color,cursor:getComputedStyle(n,'::before').content})),gxt:[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.innerText.trim()).map(n=>({text:n.innerText.trim(),fontType:Number(n.dataset.fontType),selected:n.classList.contains('native-menu-selected'),color:getComputedStyle(n).color,cursor:getComputedStyle(n,'::before').content})),missing:window.gta2GxtAudit?.snapshot()||[]}))()`);
       const optionsScreenshot = await capture('main-menu-hebrew-options-screen');
-      console.log(JSON.stringify({ hebrewMainMenu: { historyHebrew, probe, screenshot, selected, selectedMainMenu, selectionScreenshot, submenuState, submenu, submenuScreenshot,
+      console.log(JSON.stringify({ hebrewMainMenu: { historyHebrew, toolbarHebrew, probe, screenshot, selected, selectedMainMenu, selectionScreenshot, submenuState, submenu, submenuScreenshot,
         movedSubmenuState, movedSubmenu, movedSubmenuScreenshot,
-        historyEnglish, englishSubmenuState, englishSubmenu, englishSubmenuScreenshot, optionsScreen, optionsScreenshot,
+        historyEnglish, toolbarEnglish, toolbarHebrewRestored, englishSubmenuState, englishSubmenu, englishSubmenuScreenshot, optionsScreen, optionsScreenshot,
         note: 'Same 1200x800 game viewport; original frontend handles menu selection and submenu.' } }, null, 2));
       return;
     }
