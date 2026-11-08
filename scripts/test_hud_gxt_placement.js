@@ -8,7 +8,7 @@ async function main() {
   const file = path.join(__dirname, '..', 'web', 'gamegxt.js');
   const source = fs.readFileSync(file, 'utf8')
     .replace("import { lang } from './strings.js';", 'const lang = () => \'he\';');
-  const { createGxtResolver, hudViewportCenter, isTopHudPickupBanner } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+  const { createGxtResolver, hudViewportCenter, isTopHudPickupBanner, isSelectedNativeMenuText } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
   const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'web', 'gxt-gameplay.he.json'), 'utf8'));
   const resolver = createGxtResolver([
     { key: 'c00', source: 'Pistol', text: 'אקדח' },
@@ -31,6 +31,14 @@ async function main() {
     'the same GXT weapon label inside a bottom speaker brief keeps its native position');
   assert.equal(isTopHudPickupBanner(resolver.isPickupLabel('JOB FAILED!'), 112, 740), false,
     'unrelated GXT text never receives pickup positioning');
+  assert.equal(isSelectedNativeMenuText(17, 5), true,
+    'the native selected font is carried into Hebrew submenu rows');
+  assert.equal(isSelectedNativeMenuText(17, 4), false,
+    'ordinary submenu rows keep the unselected palette');
+  assert.equal(isSelectedNativeMenuText(1, 5), false,
+    'the custom Hebrew main-menu overlay keeps its existing selection handling');
+  assert.equal(isSelectedNativeMenuText(-1, 5), false,
+    'selected-font text outside the native menu is not recolored');
   for (const [left, width, dpr, expected] of [
     [0, 1200, 1, 600],
     [13, 1334, 1, 680],

@@ -86,6 +86,15 @@ export function isTopHudPickupBanner(isPickupLabel, renderedY, viewportHeight) {
     height > 0 && y >= -24 && y < height * 0.35;
 }
 
+// In the original English frontend, normal menu rows use font 4 and the
+// highlighted row uses font 5 (Frontend::SetFontTypes_4AF0E0). The Hebrew
+// DOM renderer must carry that selection state over because it replaces the
+// original bitmap draw, including on native submenu pages.
+export function isSelectedNativeMenuText(menuState, fontType) {
+  const state = Number(menuState);
+  return Number.isInteger(state) && state >= 16 && Number(fontType) === 5;
+}
+
 function markup(value, baseColor) {
   const chunks = String(value).split('#');
   let highlighted = false;
@@ -136,6 +145,8 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     const scale = renderer?.scale ? renderer.scale / dpr : rect.height / 480;
     const top = rect.top + (canvas.height - viewport.y - viewport.h) / dpr;
     const left = rect.left + viewport.x / dpr;
+    let menuState = -1;
+    try { menuState = frontendMenuState ? frontendMenuState() : -1; } catch { /* Keep standard text colors. */ }
     for (const [key, item] of nodes) {
       if (lang() !== 'he' || now - item.updated > 130) {
         item.node.remove(); nodes.delete(key); continue;
@@ -167,7 +178,11 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
       item.node.style.opacity = item.alpha > 0 && item.alpha < 255 ? String(item.alpha / 255) : '1';
       // The original pickup banner uses font-remap 5: a dark red, centered
       // label. Preserve that source palette in the translated HUD path.
-      item.node.style.color = centeredHudBanner
+      const selectedMenuOption = isSelectedNativeMenuText(menuState, item.fontType);
+      item.node.classList.toggle('native-menu-selected', selectedMenuOption);
+      item.node.style.color = selectedMenuOption
+        ? '#ed2024'
+        : centeredHudBanner
         ? '#9d2a23'
         : item.palette === 0 || item.palette === 1 ? '#ffd34e' : '#f4edcf';
       if (item.html !== item.node.innerHTML) item.node.innerHTML = item.html;
