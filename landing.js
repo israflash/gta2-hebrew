@@ -2,10 +2,11 @@
 // friends, the controls on a drawn keyboard, options and help. Layout in the
 // spirit of browser-game launchers such as Eaglercraft's; our own code and style.
 
-import { LOAD_KEY, SAVE_KEY, money, num } from './savestate.js?v=45fdea3e72';
-import { describe } from './saves.js?v=45fdea3e72';
-import { findPad, listPads, padName } from './gamepad.js?v=45fdea3e72';
-import { lang, onLangChange, registerDict, setLang, t } from './strings.js?v=45fdea3e72';
+import { LOAD_KEY, SAVE_KEY, money, num } from './savestate.js?v=5777f8ac37';
+import { describe } from './saves.js?v=5777f8ac37';
+import { findPad, listPads, padName } from './gamepad.js?v=5777f8ac37';
+import { gangDisplayName } from './gang-names.js?v=5777f8ac37';
+import { lang, onLangChange, registerDict, setLang, t } from './strings.js?v=5777f8ac37';
 
 registerDict({
   en: {
@@ -537,7 +538,7 @@ function renderLeaderboard() {
     const name = tr.insertCell();
     name.append(el('div', { class: 'crew-name' }, c.name),
       el('div', { class: 'members' }, c.members.map((m) => m.name).join(', ')
-        + (c.lastGang ? t('ui.board.lastGang', { gang: c.lastGang }) : '')));
+        + (c.lastGang ? t('ui.board.lastGang', { gang: gangDisplayName(c.lastGang, lang()) }) : '')));
     tr.insertCell().append(el('span', { class: 'rep' }, num(c.reputation)));
     tr.insertCell().append(`${num(c.wins)} / ${num(c.matches)}`);
     tr.insertCell().append(num(c.kills));

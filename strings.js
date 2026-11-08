@@ -152,7 +152,7 @@ const UI = {
     'ui.help.q6': 'Is it legal?',
     'ui.help.a6': 'GTA2 was released as freeware by Rockstar Games in 2004. This is an unofficial, non-commercial fan project, not affiliated with Rockstar Games or Take-Two Interactive. GTA2 is © Rockstar Games.',
     'ui.help.q7': 'Which languages are there?',
-    'ui.help.a7': "English, Spanish, French and Hebrew are available for the game menus. Hebrew mode also translates mission briefings and mission titles. The landing page's Hebrew introduction is shown above; other page content remains in English.",
+    'ui.help.a7': "English, Spanish, French and Hebrew are available. Hebrew mode also translates mission briefings, mission titles and selected game text. Street names, vehicle names, signs and audio remain in their original language.",
     'ui.help.q8': 'Do you track me?',
     'ui.help.a8': 'No cookies and no personal data. This site counts visits, games started, how long games run (in steps such as "over 30 minutes") and first-time downloads, anonymously with <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a>, so we know how many people play.',
 
@@ -270,7 +270,7 @@ const UI = {
     'ui.help.q6': '¿Es legal?',
     'ui.help.a6': 'Rockstar Games publicó GTA2 como freeware en 2004. Este es un proyecto de fans, no oficial y sin ánimo de lucro, no afiliado a Rockstar Games ni a Take-Two Interactive. GTA2 es © Rockstar Games.',
     'ui.help.q7': '¿Qué idiomas hay?',
-    'ui.help.a7': 'El juego ofrece menús en inglés, español, francés y hebreo. El modo hebreo también traduce las instrucciones y los títulos de las misiones. La introducción hebrea aparece arriba; el resto de la página sigue en inglés.',
+    'ui.help.a7': 'El juego está disponible en inglés, español, francés y hebreo. El modo hebreo también traduce las instrucciones, los títulos de las misiones y algunos textos del juego. Los nombres de calles y vehículos, los letreros y el audio se conservan en su idioma original.',
     'ui.help.q8': '¿Me rastreáis?',
     'ui.help.a8': 'Sin cookies ni datos personales. Este sitio cuenta las visitas, las partidas iniciadas, cuánto duran (en tramos como «más de 30 minutos») y las primeras descargas, de forma anónima con <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a>, para saber cuánta gente juega.',
 
@@ -388,7 +388,7 @@ const UI = {
     'ui.help.q6': 'Est-ce légal ?',
     'ui.help.a6': 'GTA2 a été publié en freeware par Rockstar Games en 2004. C’est un projet de fans non officiel et non commercial, sans affiliation avec Rockstar Games ni Take-Two Interactive. GTA2 est © Rockstar Games.',
     'ui.help.q7': 'Quelles langues sont disponibles ?',
-    'ui.help.a7': "Les menus du jeu sont disponibles en anglais, espagnol, français et hébreu. Le mode hébreu traduit aussi les briefings et les titres des missions. L'introduction en hébreu est affichée ci-dessus ; le reste de la page reste en anglais.",
+    'ui.help.a7': "Le jeu est disponible en anglais, espagnol, français et hébreu. Le mode hébreu traduit aussi les briefings, les titres des missions et certains textes du jeu. Les noms de rues et de véhicules, les panneaux et l'audio restent dans leur langue d'origine.",
     'ui.help.q8': 'Est-ce que vous me pistez ?',
     'ui.help.a8': "Ni cookies ni données personnelles. Ce site compte les visites, les parties lancées, leur durée (par paliers comme « plus de 30 minutes ») et les premiers téléchargements, anonymement avec <a href=\"https://www.goatcounter.com\" target=\"_blank\" rel=\"noopener\">GoatCounter</a>, pour savoir combien de personnes jouent.",
 

@@ -4,8 +4,9 @@
 // downloaded. Read-only towards the game, apart from pausing it while the map
 // screen is open.
 
-import { lang, registerDict, t } from './strings.js?v=750218f666';
-import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=750218f666';
+import { lang, registerDict, t } from './strings.js?v=5777f8ac37';
+import { gangDisplayName } from './gang-names.js?v=5777f8ac37';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=5777f8ac37';
 
 loadMissionTranslations().catch((err) => console.error(err));
 loadMissionTitles().catch((err) => console.error(err));
@@ -83,7 +84,7 @@ registerDict({
   he: {
     'ui.map.speaker.loonies': 'לוניז', 'ui.map.speaker.yakuza': 'יאקוזה',
     'ui.map.speaker.zaibatsu': 'זייבאצו', 'ui.map.speaker.rednecks': 'רדנקס',
-    'ui.map.speaker.scientists': 'המדענים', 'ui.map.speaker.krishnas': 'קרישנאים',
+    'ui.map.speaker.scientists': 'מדענים', 'ui.map.speaker.krishnas': 'קרישנה',
     'ui.map.speaker.russians': 'רוסים',
     'ui.map.weapons.pistol': 'אקדח', 'ui.map.weapons.machineGun': 'מקלע',
     'ui.map.weapons.rocketLauncher': 'מטול רקטות', 'ui.map.weapons.electroGun': 'אקדח חשמלי',
@@ -96,7 +97,7 @@ registerDict({
     'ui.map.powerups.copBribe': 'שוחד לשוטר', 'ui.map.powerups.invulnerability': 'חסינות',
     'ui.map.powerups.doubleDamage': 'נזק כפול', 'ui.map.powerups.fastReload': 'טעינה מהירה',
     'ui.map.powerups.electroFingers': 'אצבעות חשמליות', 'ui.map.powerups.respect': 'כבוד',
-    'ui.map.powerups.invisibility': 'אי־נראות', 'ui.map.powerups.instantGang': 'כנופיה מיידית',
+    'ui.map.powerups.invisibility': 'אי־נראות', 'ui.map.powerups.instantGang': 'תגבורת כנופיה מיידית',
     'ui.map.poi.save': 'נקודות שמירה', 'ui.map.poi.garage': 'מוסכים', 'ui.map.poi.crusher': 'מגרסות רכב',
     'ui.map.poi.frenzy': 'אתגרי חיסול', 'ui.map.poi.weapon': 'נשקים', 'ui.map.poi.powerup': 'בונוסים',
     'ui.map.poi.token': 'אסימונים', 'ui.map.police': 'משטרה', 'ui.map.jobs.easy': 'משימה קלה',
@@ -983,7 +984,7 @@ export class Gta2Map {
         const same = jobs.find((j) => j.gang === p.gang && j.colour === colour && Math.hypot(j.x - p.x, j.y - p.y) < 4);
         if (same) { same.shown = same.shown || p.shown; same.available = same.available || available; continue; }
         const jobText = t(JOBS[colour].label).toLowerCase();
-        jobs.push({ ...p, colour, available, name: p.gang ? t('ui.map.jobNamed', { gang: p.gang, job: jobText }) : jobText });
+        jobs.push({ ...p, colour, available, name: p.gang ? t('ui.map.jobNamed', { gang: gangDisplayName(p.gang, lang()), job: jobText }) : jobText });
       } else {
         targets.push({ ...p, name: t('ui.map.missionTarget') });
       }

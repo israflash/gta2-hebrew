@@ -71,7 +71,7 @@
     {
       "key": "2215",
       "source": "GOING DOWN!",
-      "text": "הדרך למטה!"
+      "text": "בדרך לכלא!"
     },
     {
       "key": "2232",
@@ -96,12 +96,12 @@
     {
       "key": "3202",
       "source": "ⅮHow did you possibly manage to pass?",
-      "text": "איך לעזאזל הצלחת לעבור את זה?"
+      "text": "איך בכלל הצלחת לעבור?"
     },
     {
       "key": "3204",
       "source": "ⅮHow did you possibly manage to fail?",
-      "text": "איך לעזאזל הצלחת להיכשל בזה?"
+      "text": "איך בכלל הצלחת להיכשל?"
     },
     {
       "key": "play",
@@ -619,6 +619,41 @@
       "text": "פריטי בונוס שנאספו: %d/%d"
     },
     {
+      "key": "ganga1",
+      "source": "Loony",
+      "text": "לוניז"
+    },
+    {
+      "key": "ganga2",
+      "source": "Yakuza",
+      "text": "יאקוזה"
+    },
+    {
+      "key": "ganga3",
+      "source": "Zaibatsu",
+      "text": "זייבאצו"
+    },
+    {
+      "key": "ganga4",
+      "source": "Redneck",
+      "text": "רדנקס"
+    },
+    {
+      "key": "ganga5",
+      "source": "Scientist",
+      "text": "מדענים"
+    },
+    {
+      "key": "ganga6",
+      "source": "Krishna",
+      "text": "קרישנה"
+    },
+    {
+      "key": "ganga7",
+      "source": "Russian",
+      "text": "רוסים"
+    },
+    {
       "key": "car_cst",
       "source": "AUTO DAMAGE COST",
       "text": "עלות תיקון נזקי רכב"
@@ -911,7 +946,7 @@
     {
       "key": "c40",
       "source": "Instant Gang",
-      "text": "כנופיה מיידית"
+      "text": "תגבורת כנופיה מיידית"
     },
     {
       "key": "801",
@@ -921,7 +956,7 @@
     {
       "key": "802",
       "source": "Hey there, kid. Sorry to break this to you but... You got a bellyful of explosives and only 6 minutes to live life to the full. Have fun!",
-      "text": "היי, ילד. לא נעים לי לבשר לך, אבל מילאו אותך בחומר נפץ ונשארו לך רק 6 דקות לחיות על מלא. תהנה!"
+      "text": "היי, ילד. לא נעים לבשר לך, אבל יש לך בטן מלאה בחומר נפץ ונשארו לך רק 6 דקות ליהנות מהחיים. תיהנה!"
     },
     {
       "key": "1014",
@@ -936,7 +971,7 @@
     {
       "key": "1121",
       "source": "#Nice one, Gecko! You certainly earned your #$40,000#.#",
-      "text": "#יפה, גקו! הרווחת ביושר את #$40,000# שלך.#"
+      "text": "#יפה, גקו! בהחלט הרווחת את ה־#$40,000# שלך.#"
     },
     {
       "key": "1149",
@@ -946,7 +981,7 @@
     {
       "key": "1201",
       "source": "ⅹConsider yourself lucky this time, Kosai. I won't always be around to pay off the Cops.",
-      "text": "ראה את עצמך בר־מזל הפעם, קוסאי. לא תמיד אהיה כאן כדי לשחד את השוטרים בשבילך."
+      "text": "יש לך מזל הפעם, קוסאי. לא תמיד אהיה פה כדי לשחד את השוטרים בשבילך."
     },
     {
       "key": "1242",
@@ -1591,7 +1626,7 @@
     {
       "key": "4200",
       "source": "ⅫYour clumsiness has cut the job short and cost the Krishna dear, Grasshopper.",
-      "text": "חוסר הזהירות שלך קיצר את העבודה ועלה לאנשי #קרישנה# ביוקר, גראסהופר."
+      "text": "המגושמות שלך קיצרה את העבודה ועלתה לאנשי #קרישנה# ביוקר, גראסהופר."
     },
     {
       "key": "4201",
@@ -1601,7 +1636,7 @@
     {
       "key": "4202",
       "source": "ⅫThat was an... interesting way to quit the job, Grasshopper.",
-      "text": "זאת הייתה... דרך מעניינת לפרוש מהעבודה, גראסהופר."
+      "text": "זאת הייתה... דרך מעניינת לנטוש את המשימה, גראסהופר."
     },
     {
       "key": "4203",
@@ -1621,12 +1656,12 @@
     {
       "key": "4206",
       "source": "ⅫAh, Grasshopper, this is not the time to get in touch with your righteous side.",
-      "text": "גראסהופר, זה לא הזמן לגלות את הצד הצדיק שלך."
+      "text": "אה, גראסהופר, זה לא הזמן להקשיב למצפון שלך."
     },
     {
       "key": "4207",
       "source": "ⅫDo not despair, Grasshopper! We will find it in our hearts to receive you once again!",
-      "text": "אל תתייאש, גראסהופר! נמצא בלבנו דרך לקבל אותך בחזרה!"
+      "text": "אל תתייאש, גראסהופר! נמצא בלבנו מקום לקבל אותך שוב!"
     },
     {
       "key": "4208",
@@ -1636,22 +1671,22 @@
     {
       "key": "4209",
       "source": "ⅫBe strong, Grasshopper! Remember that iron bars do not a prison make... But they cause great pain when wielded by angry Cops.",
-      "text": "תחזיק מעמד, גראסהופר! אומרים שסורגים לא עושים כלא... אבל הם מכאיבים מאוד כששוטרים זועמים מניפים אותם."
+      "text": "תחזיק מעמד, גראסהופר! אומרים שסורגים לא עושים כלא... אבל כשהשוטרים הזועמים מניפים אותם, זה כואב."
     },
     {
       "key": "4210",
       "source": "ⅺWhat happened, Gecko? Must a real professional complete the job instead?",
-      "text": "מה קרה, גקו? צריך להביא מקצוען אמיתי שיסיים את העבודה?"
+      "text": "מה קרה, גקו? צריך להביא מקצוען אמיתי שיסיים את העבודה במקומך?"
     },
     {
       "key": "4211",
       "source": "ⅺThis is inefficient, Gecko. I am only interested in hiring those who can finish what they start.",
-      "text": "זה לא יעיל. אני שוכר רק מי שמסוגל לסיים את מה שהתחיל."
+      "text": "זה לא יעיל, גקו. אני מעסיק רק מי שמסוגל לסיים את מה שהתחיל."
     },
     {
       "key": "4212",
       "source": "ⅺSilly me. I was beginning to believe you were up to the job, Gecko. Must I use a Z-Team to finish the task?",
-      "text": "חשבתי לרגע שאתה מתאים לעבודה. לשלוח צוות Z לסיים אותה?"
+      "text": "איזה טיפש אני. לרגע חשבתי שאתה מסוגל לבצע את העבודה, גקו. צריך לשלוח צוות Z לסיים את המשימה?"
     },
     {
       "key": "4213",
@@ -1661,7 +1696,7 @@
     {
       "key": "4214",
       "source": "ⅺI trust you to perform and you crumple, Gecko. I need Zaibatsu Operatives who can keep the pace!",
-      "text": "סמכתי עליך שתבצע, ואתה קורס. אני צריך סוכני זייבאצו שיעמדו בקצב!"
+      "text": "סמכתי עליך שתעמוד במשימה, גקו, ואתה קרסת. אני צריך סוכני זייבאצו שמסוגלים לעמוד בקצב!"
     },
     {
       "key": "4215",
@@ -1671,12 +1706,12 @@
     {
       "key": "4216",
       "source": "ⅺOur support of the Cops will not always stretch to getting you off the hook, Gecko!",
-      "text": "לא תמיד נוכל להשתמש בקשרים שלנו עם השוטרים כדי לחלץ אותך מצרות, גקו!"
+      "text": "לא תמיד נוכל להיעזר בקשרים שלנו עם השוטרים כדי לחלץ אותך מצרות, גקו!"
     },
     {
       "key": "4217",
       "source": "ⅺThat's the job over for you, Gecko. Perhaps your need to work on your technique before you take on new jobs.",
-      "text": "מבחינתך העבודה נגמרה. כדאי שתשפר את הטכניקה לפני שתיקח עבודות חדשות."
+      "text": "מבחינתך העבודה נגמרה, גקו. אולי כדאי שתשפר את הטכניקה לפני שתיקח עבודות חדשות."
     },
     {
       "key": "4218",
@@ -1711,17 +1746,17 @@
     {
       "key": "4224",
       "source": "ⅭHow could you make such a mess when we did not plan for this, Comrade?",
-      "text": "איך הצלחת לחרב הכול כשלא תכננו את זה?"
+      "text": "איך הצלחת לחרב הכול כשלא תכננו את זה, חבר?"
     },
     {
       "key": "4225",
       "source": "ⅭSuch incredible incompetence, Comrade! I suppose I should expect no less from Western Shit.",
-      "text": "חוסר יכולת מדהים, חבר! כנראה שלא ציפיתי ליותר מ'מערבי מסריח'."
+      "text": "חוסר יכולת מדהים, חבר! כנראה שלא ציפיתי ליותר מהמערביים המחורבנים."
     },
     {
       "key": "4226",
       "source": "ⅭStrong Kovski never allows themselves the luxury of arrest.",
-      "text": "אנשי קובסקי חזקים לא מרשים לעצמם את המותרות של מעצר."
+      "text": "אנשי קובסקי הקשוחים לא מרשים לעצמם את הפריבילגיה להיעצר."
     },
     {
       "key": "4227",
@@ -1736,7 +1771,7 @@
     {
       "key": "4229",
       "source": "ⅭYou seem to be getting cosy with the Cops, Comrade. You disappoint me!",
-      "text": "נראה שאתה מתחבר לשוטרים, חבר. אכזבת אותי!"
+      "text": "נראה שאתה מתחבר יותר מדי לשוטרים, חבר. אכזבת אותי!"
     },
     {
       "key": "4311",
@@ -1991,7 +2026,7 @@
     {
       "key": "6150",
       "source": "ⅲYou just gone and got yourself out of job, Rooster.",
-      "text": "פשוט איבדת את העבודה, רוסטר."
+      "text": "נו, הלכת וסידרת לעצמך פיטורים, רוסטר."
     },
     {
       "key": "6151",
@@ -2021,7 +2056,7 @@
     {
       "key": "6156",
       "source": "ⅲIt's busier than a battery farm where you are goin', Rooster.",
-      "text": "הכלא שלך יהיה צפוף כמו לול סוללות, רוסטר."
+      "text": "הכלא שאתה בדרך אליו יהיה צפוף כמו לול תרנגולות, רוסטר."
     },
     {
       "key": "6157",
@@ -2031,17 +2066,17 @@
     {
       "key": "6158",
       "source": "ⅲWell, Rooster, that's you off the job fer the time being.",
-      "text": "טוב, רוסטר, אתה מחוץ לעבודה בינתיים."
+      "text": "טוב, רוסטר, בינתיים אתה בחוץ."
     },
     {
       "key": "6159",
       "source": "ⅲI hope the Cops beat your bitch ass to a pulp. That should teach you to screw up a Redneck job.",
-      "text": "אני מקווה שהשוטרים יכסחו לך את הצורה. אולי תלמד לא להרוס משימה של רדנקס."
+      "text": "אני מקווה שהשוטרים יכסחו לך את התחת. אולי תלמד לא לדפוק משימה של רדנקס."
     },
     {
       "key": "6160",
       "source": "ⅳThat was an inadequate performance, THC-303. Worthy of a Redneck at its most backward, I think.",
-      "text": "ביצוע חלש, THC-303. מתאים לרדנק נחשל במיוחד, הייתי אומר."
+      "text": "ביצוע עלוב, THC-303. כזה שרק רדנק פרימיטיבי היה נותן, לדעתי."
     },
     {
       "key": "6161",
@@ -2101,17 +2136,17 @@
     {
       "key": "6172",
       "source": "ⅺSuch a bitterly disappointing outcome, Gecko. I suppose I must look elsewhere for suitable operatives.",
-      "text": "תוצאה מאכזבת ומרה, גקו. כנראה שאצטרך לחפש סוכנים מתאימים במקום אחר."
+      "text": "גקו, זאת אכזבה מרה. כנראה שאצטרך לחפש סוכנים מתאימים במקום אחר."
     },
     {
       "key": "6173",
       "source": "ⅺHow do you expect to rise up the Zaibatsu ranks with such pitiful displays, Gecko?",
-      "text": "איך תתקדם בדרגות זייבאצו עם הופעות עלובות כאלה, גקו?"
+      "text": "איך תתקדם בסולם הדרגות של זייבאצו עם ביצועים עלובים כאלה, גקו?"
     },
     {
       "key": "6174",
       "source": "ⅺThis isn't working, Gecko. Consider yourself OFF the job.",
-      "text": "זה לא עובד, גקו. אתה מחוץ לעבודה."
+      "text": "זה לא עובד, גקו. אתה מפוטר."
     },
     {
       "key": "6175",
@@ -2131,7 +2166,7 @@
     {
       "key": "6178",
       "source": "ⅺThat was slack, Gecko. Must I now consider alternative operatives?",
-      "text": "התרשלת, גקו. לשקול סוכנים אחרים?"
+      "text": "התרשלת, גקו. עכשיו אצטרך לחפש סוכן אחר?"
     },
     {
       "key": "6179",
@@ -2141,12 +2176,12 @@
     {
       "key": "6180",
       "source": "Shit, son, you sure know how to cut it fine. The name's Buster - at your service. Here's the $5,000 as agreed.",
-      "text": "בן אדם, אתה יודע להגיע בשנייה האחרונה. אני באסטר, לשירותך. הנה ה־$5,000 שסיכמנו עליהם."
+      "text": "לעזאזל, בן אדם, אתה יודע להגיע ברגע האחרון. אני באסטר, לשירותך. הנה ה־$5,000 שסיכמנו."
     },
     {
       "key": "7002",
       "source": "ⅹIdiot! The rigged Ice-Cream Van must be parked by the Happy Gas tanks!",
-      "text": "אידיוט! צריך להחנות את ואן הגלידה הממולכד ליד מכלי Happy Gas!"
+      "text": "אידיוט! צריך להחנות את ה־Ice-Cream Van הממולכד ליד מכלי Happy Gas!"
     },
     {
       "key": "7012",
@@ -2226,12 +2261,12 @@
     {
       "key": "7075",
       "source": "ⅬHee-hoo! Your madcap mayhem has put you in jail, Jumbo!",
-      "text": "הי-הו! השיגעון שלך שלח אותך לכלא, ג'מבו!"
+      "text": "הי-הו! ההשתוללות המטורפת שלך שלחה אותך לכלא, ג'מבו!"
     },
     {
       "key": "7078",
       "source": "ⅬHow can you finish the job from jail, Dumbo Jumbo?",
-      "text": "איך תסיים את העבודה מהכלא, ג'מבו הטמבל?"
+      "text": "איך תסיים את העבודה מהכלא, ג׳מבו־דמבו?"
     },
     {
       "key": "7079",
@@ -2246,7 +2281,7 @@
     {
       "key": "7081",
       "source": "ⅺYour ineptitude is not Zaibatsu style, Gecko!",
-      "text": "חוסר היכולת שלך אינו הסגנון של זייבאצו, גקו!"
+      "text": "חוסר היכולת הזאת לא מתאימה לזייבאצו, גקו!"
     },
     {
       "key": "7082",
@@ -2256,7 +2291,7 @@
     {
       "key": "7083",
       "source": "ⅺYour performance is unacceptable, Gecko!",
-      "text": "הביצועים שלך לא מקובלים, גקו!"
+      "text": "הביצוע שלך לא מקובל, גקו!"
     },
     {
       "key": "7084",
@@ -2286,12 +2321,12 @@
     {
       "key": "7090",
       "source": "ⅹYour performance is pathetic, Kosai. Goodbye.",
-      "text": "הביצועים שלך עלובים. שלום, קוסאי."
+      "text": "הביצוע שלך פתטי, קוסאי. שלום."
     },
     {
       "key": "7091",
       "source": "ⅹYou failed me at a critical time, Kosai! You are OFF the job.",
-      "text": "אכזבת אותי ברגע קריטי, קוסאי! אתה מחוץ לעבודה."
+      "text": "אכזבת אותי ברגע קריטי, קוסאי! אתה מפוטר."
     },
     {
       "key": "7094",
@@ -2336,7 +2371,7 @@
     {
       "key": "7121",
       "source": "Hee-hee! Use the #Fire Engine# to knock down #20 people# in #60 seconds#!",
-      "text": "הי־הי! השתמש ב־#רכב כיבוי אש# כדי לדרוס #20 אנשים# בתוך #60 שניות#!"
+      "text": "הי־הי! השתמש ב#Fire Engine# כדי לדרוס #20 אנשים# בתוך #60 שניות#!"
     },
     {
       "key": "7122",
@@ -2761,12 +2796,12 @@
     {
       "key": "1290",
       "source": "ⅹYou need $5,000 to rig the Ice-Cream Van with explosives.",
-      "text": "צריך $5,000 כדי למלכד את רכב הגלידה בחומר נפץ."
+      "text": "צריך $5,000 כדי למלכד את ה־Ice-Cream Van בחומר נפץ."
     },
     {
       "key": "1402",
       "source": "ⅹShit, Kosai! That Tank means business.",
-      "text": "לעזאזל, קוסאי! הטנק הזה רציני."
+      "text": "לעזאזל, קוסאי! הטנק הזה לא משחק."
     },
     {
       "key": "5000",

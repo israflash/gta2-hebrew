@@ -1,7 +1,7 @@
 // Translate selected native GXT text at the original DrawText coordinates.
 // The game's bitmap font has no Hebrew glyphs, so the native draw is suppressed
 // only when an exact or placeholder-aware catalog entry is available.
-import { lang } from './strings.js?v=708c628cc7';
+import { lang } from './strings.js?v=5777f8ac37';
 
 const clean = (value) => String(value || '').replace(/^n!/, '').replace(/^[\u2160-\u2188]+\s*/, '').replace(/#/g, '').replace(/\s+/g, ' ').trim();
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -17,7 +17,7 @@ function patternFor(source) {
   return new RegExp(`^${parts.join('')}$`, 'iu');
 }
 
-function translatedFor(source, records, exact, patterns) {
+function translatedFor(source, records, exact, patterns, dynamicValues) {
   const normalized = clean(source);
   if (exact.has(normalized)) return exact.get(normalized);
   for (const record of patterns) {
@@ -25,7 +25,13 @@ function translatedFor(source, records, exact, patterns) {
     if (!match) continue;
     let value = record.text;
     let at = 1;
-    value = value.replace(/%[ds]|\{s\}/g, () => match[at++] || '');
+    value = value.replace(/%[ds]|\{s\}/g, (token) => {
+      const captured = match[at++] || '';
+      if (token === '%s' || token === '{s}') {
+        return dynamicValues.get(clean(captured).toLocaleLowerCase('en')) || captured;
+      }
+      return captured;
+    });
     return value;
   }
   return null;
@@ -34,6 +40,7 @@ function translatedFor(source, records, exact, patterns) {
 export function createGxtResolver(records) {
   const exact = new Map();
   const patterns = [];
+  const dynamicValues = new Map();
   // Pickup notifications are a semantic HUD group (GXT c00-c43). Their
   // native x coordinate can differ between renderer paths, so placement must
   // not depend on an exact font/palette/y tuple.
@@ -41,11 +48,21 @@ export function createGxtResolver(records) {
   for (const row of records || []) {
     const source = clean(row.source);
     if (!source || !row.text) continue;
+    if (/^ganga[1-7]$/i.test(String(row.key || ''))) {
+      dynamicValues.set(source.toLocaleLowerCase('en'), row.text);
+    }
     if (/^c(?:0\d|[1-3]\d|4[0-3])$/i.test(String(row.key || ''))) pickupSources.add(source);
     if (/%[ds]/.test(source)) patterns.push({ pattern: patternFor(source), text: row.text });
     else exact.set(source, row.text);
   }
-  const resolve = (source) => translatedFor(source, records, exact, patterns);
+  const resolve = (source) => {
+    const normalized = clean(source);
+    // The frontend composes its player-slot label in code ("PLAYER 0") rather
+    // than looking up one GXT key, so it needs a small Hebrew template here.
+    const slot = normalized.match(/^PLAYER ([0-5])$/i);
+    if (slot) return `שחקן ${slot[1]}`;
+    return translatedFor(normalized, records, exact, patterns, dynamicValues);
+  };
   resolve.isPickupLabel = (source) => pickupSources.has(clean(source));
   return resolve;
 }
@@ -57,6 +74,16 @@ export function createGxtResolver(records) {
 export function hudViewportCenter(left, viewportWidth, devicePixelRatio = 1) {
   const dpr = Number(devicePixelRatio) > 0 ? Number(devicePixelRatio) : 1;
   return Number(left) + Number(viewportWidth) / (2 * dpr);
+}
+
+// Weapon/pickup names share GXT strings with mission briefs. Center only the
+// short top HUD banner; the same text in a speaker brief must keep its native
+// portrait-side position near the bottom of the screen.
+export function isTopHudPickupBanner(isPickupLabel, renderedY, viewportHeight) {
+  const y = Number(renderedY);
+  const height = Number(viewportHeight);
+  return Boolean(isPickupLabel) && Number.isFinite(y) && Number.isFinite(height) &&
+    height > 0 && y >= -24 && y < height * 0.35;
 }
 
 function markup(value, baseColor) {
@@ -72,7 +99,7 @@ function markup(value, baseColor) {
 }
 
 export async function bindHebrewGxtRenderer(Module, canvas) {
-  const response = await fetch('./gxt-gameplay.he.json?v=708c628cc7');
+  const response = await fetch('./gxt-gameplay.he.json?v=5777f8ac37');
   if (!response.ok) throw new Error(`Hebrew game GXT catalog: HTTP ${response.status}`);
   const data = await response.json();
   const resolveGxt = createGxtResolver(data.records);
@@ -118,7 +145,11 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
       const y = item.y / drawScale;
       const lineHeight = item.lineHeight / drawScale;
       const px = Math.max(9, lineHeight * scale * .8);
-      const centeredHudBanner = item.centeredHudBanner;
+      const centeredHudBanner = isTopHudPickupBanner(
+        item.pickupLabel,
+        y * scale,
+        viewport.h / dpr,
+      );
       item.node.style.left = `${centeredHudBanner
         ? hudViewportCenter(left, viewport.w, dpr)
         : left + x * scale}px`;
@@ -180,7 +211,7 @@ export async function bindHebrewGxtRenderer(Module, canvas) {
     item.drawScale = Number(drawScale) || 1; item.hudOffsetX = Number(hudOffsetX) || 0;
     item.lineHeight = lineHeight; item.fontType = fontType;
     item.paletteType = paletteType; item.palette = palette; item.alpha = alpha;
-    item.centeredHudBanner = resolveGxt.isPickupLabel(source);
+    item.pickupLabel = resolveGxt.isPickupLabel(source);
     const details = { gxtX: x, gxtY: y, lineHeight, fontType, paletteType, palette };
     for (const [name, value] of Object.entries(details)) {
       if (item.node.dataset[name] !== String(value)) item.node.dataset[name] = String(value);
