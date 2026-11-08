@@ -1,7 +1,7 @@
 {
   "version": 1,
   "language": "he",
-  "method": "in-place browser text draw hook; original GXT remains English fallback",
+  "method": "in-place browser text draw hook for GXT and documented direct HUD strings; native English fallback",
   "records": [
     {
       "key": "1015",
@@ -966,12 +966,17 @@
     {
       "key": "1115",
       "source": "ⅺ#The Zaibatsu do not negotiate with Yakuza scum. GO!#",
-      "text": "#זייבאצו לא מנהלים משא ומתן עם החלאות של היאקוזה. קדימה!#"
+      "text": "#זייבאצו לא מנהלים משא ומתן עם החלאות של היאקוזה. הסתלק!#"
+    },
+    {
+      "key": "1117",
+      "source": "ⅺPLEASE REPORT DEAD BRIEF 1117 TO ALAN JACK AND WILLY MILLS!",
+      "text": "יש לך כבר משימה פעילה. סיים אותה קודם."
     },
     {
       "key": "1121",
       "source": "#Nice one, Gecko! You certainly earned your #$40,000#.#",
-      "text": "#יפה, גקו! בהחלט הרווחת את ה־#$40,000# שלך.#"
+      "text": "#כל הכבוד, גקו! בהחלט הרווחת #$40,000#.#"
     },
     {
       "key": "1149",
@@ -1032,6 +1037,11 @@
       "key": "1383",
       "source": "ⅹI warned you, Kosai. You messed up and now the Cops will mess you up.",
       "text": "הזהרתי אותך, קוסאי. פישלת, ועכשיו השוטרים יטפלו בך."
+    },
+    {
+      "key": "1407",
+      "source": "ⅹPLEASE REPORT DEAD BRIEF 1407 TO ALAN JACK AND WILLY MILLS!",
+      "text": "הטנק הושמד!"
     },
     {
       "key": "1436",
@@ -1277,6 +1287,16 @@
       "key": "2815",
       "source": "ⅺWe refuse to do business with respected Rednecks!",
       "text": "אנחנו מסרבים לעשות עסקים עם אנשי Rednecks המכובדים!"
+    },
+    {
+      "key": "2818",
+      "source": "ⅺDEAD BRIEF",
+      "text": "כבר השלמת את המשימה הזאת."
+    },
+    {
+      "key": "2819",
+      "source": "ⅺDEAD BRIEF",
+      "text": "המשימה הזאת כבר נכשלה."
     },
     {
       "key": "2853",
@@ -2502,6 +2522,36 @@
       "key": "8002",
       "source": "Line Fail!",
       "text": "הקו נכשל!"
+    },
+    {
+      "key": "fr_ent1",
+      "source": "VEUILLEZ SAISIR LE CODE DE VERROUILLAGE",
+      "text": "הזן את קוד בקרת ההורים"
+    },
+    {
+      "key": "fr_ent2",
+      "source": "PARENTAL POUR JOUER A GTA2",
+      "text": "כדי לשחק ב־GTA 2"
+    },
+    {
+      "key": "fr_pmpt",
+      "source": "CODE DE VERROUILLAGE PARENTAL:",
+      "text": "קוד בקרת הורים:"
+    },
+    {
+      "key": "fr_rnt1",
+      "source": "CODE DE VERROUILLAGE PARENTAL",
+      "text": "קוד בקרת ההורים שגוי"
+    },
+    {
+      "key": "fr_rnt2",
+      "source": "INCORRECT, VEUILLEZ VERIFIER SUR LA",
+      "text": "בדוק בחוברת המצורפת"
+    },
+    {
+      "key": "fr_rnt3",
+      "source": "NOTICE JOINTE ET SAISISSEZ-LE A NOUVEAU",
+      "text": "והזן את הקוד שוב"
     },
     {
       "key": "mpkill1",
@@ -4012,6 +4062,16 @@
       "key": "7235",
       "source": "FRENZY FAILED!",
       "text": "אתגר החיסול נכשל!"
+    }
+  ],
+  "directRecords": [
+    {
+      "key": "HUD.KF",
+      "source": "K.F.",
+      "text": "חיסול",
+      "sourceFile": "research/gta2_re/Source/Hud.cpp",
+      "sourceLiteral": "L\"K.F.\"",
+      "context": "Short HUD label drawn instead of the ammo count while a Kill Frenzy weapon has unlimited ammo."
     }
   ]
 }
