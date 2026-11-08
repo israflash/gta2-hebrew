@@ -173,17 +173,21 @@ async function main() {
       await evaluate(`document.querySelector('#screen')?.focus()`);
       await menuKey('ArrowDown', 'ArrowDown', 0x28);
       const selected = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value >= 0 && value % 16 === 1, 'second Hebrew menu selection');
+      const selectedMainMenu = await evaluate(`(() => {const row=document.querySelector('#main-menu-hebrew [data-option].selected');return row?{text:row.innerText.trim(),color:getComputedStyle(row).color,cursor:getComputedStyle(row,'::before').content}:null})()`);
+      if (!selectedMainMenu || selectedMainMenu.color !== 'rgb(237, 32, 36)' || selectedMainMenu.cursor !== '"▶"') {
+        throw new Error(`the selected Hebrew start-menu row needs a visible arrow: ${JSON.stringify({selected,selectedMainMenu})}`);
+      }
       const selectionScreenshot = await capture('main-menu-hebrew-selection');
       await menuKey('ArrowUp', 'ArrowUp', 0x26);
       await menuKey('Enter', 'Enter', 0x0d);
       const submenuState = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value >= 0 && Math.floor(value / 16) === 1, 'native Play submenu');
       await wait(120);
-      const submenu = await evaluate(`(() => {const state=window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]);const rows=[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.innerText.trim()).map(n=>({text:n.innerText.trim(),fontType:Number(n.dataset.fontType),color:getComputedStyle(n).color,selected:n.classList.contains('native-menu-selected'),cursor:getComputedStyle(n,'::before').content,rect:n.getBoundingClientRect().toJSON()}));return {overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden,translated:rows.map(row=>row.text),rows,mainMenuState:state}})()`);
+      const submenu = await evaluate(`(() => {const state=window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]);const rows=[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.innerText.trim()).map(n=>({text:n.innerText.trim(),fontType:Number(n.dataset.fontType),color:getComputedStyle(n).color,selected:n.classList.contains('native-menu-selected'),cursor:getComputedStyle(n,'::before').content,cursorSize:getComputedStyle(n,'::before').fontSize,rect:n.getBoundingClientRect().toJSON()}));return {overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden,translated:rows.map(row=>row.text),rows,mainMenuState:state}})()`);
       if (!submenu.overlayHidden || !submenu.translated.some(text => /מחוז|התחל|דאונטאון|Residential|Industrial/i.test(text))) {
         throw new Error(`native Play submenu did not switch cleanly to Hebrew GXT text: ${JSON.stringify({submenuState,submenu})}`);
       }
       const highlighted = submenu.rows.filter((row) => row.selected);
-      if (highlighted.length !== 1 || highlighted[0].color !== 'rgb(237, 32, 36)' || highlighted[0].cursor !== '"◀"') {
+      if (highlighted.length !== 1 || highlighted[0].color !== 'rgb(237, 32, 36)' || highlighted[0].cursor !== '"◀"' || parseFloat(highlighted[0].cursorSize) < 20) {
         throw new Error(`the native selected submenu option needs its original red color and visible RTL cursor: ${JSON.stringify({submenuState,submenu})}`);
       }
       submenu.missingGxt = await evaluate(`window.gta2GxtAudit?.snapshot() || []`);
@@ -191,8 +195,8 @@ async function main() {
       await menuKey('ArrowUp', 'ArrowUp', 0x26);
       const movedSubmenuState = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, (value) => value === 18, 'Hebrew submenu selection moves to the previous row');
       await wait(120);
-      const movedSubmenu = await evaluate(`(() => [...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.classList.contains('native-menu-selected')).map(n=>({text:n.innerText.trim(),color:getComputedStyle(n).color,cursor:getComputedStyle(n,'::before').content})))()`);
-      if (movedSubmenu.length !== 1 || movedSubmenu[0].text !== 'הצגת שיאים' || movedSubmenu[0].color !== 'rgb(237, 32, 36)' || movedSubmenu[0].cursor !== '"◀"') {
+      const movedSubmenu = await evaluate(`(() => [...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.classList.contains('native-menu-selected')).map(n=>({text:n.innerText.trim(),color:getComputedStyle(n).color,cursor:getComputedStyle(n,'::before').content,cursorSize:getComputedStyle(n,'::before').fontSize})))()`);
+      if (movedSubmenu.length !== 1 || movedSubmenu[0].text !== 'הצגת שיאים' || movedSubmenu[0].color !== 'rgb(237, 32, 36)' || movedSubmenu[0].cursor !== '"◀"' || parseFloat(movedSubmenu[0].cursorSize) < 20) {
         throw new Error(`the red selection indicator did not move with keyboard navigation: ${JSON.stringify({movedSubmenuState,movedSubmenu})}`);
       }
       const movedSubmenuScreenshot = await capture('main-menu-hebrew-play-submenu-selection-moved');
@@ -206,7 +210,7 @@ async function main() {
       const englishSubmenu = await evaluate(`(() => ({state:window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]),translated:[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].map(n=>n.innerText.trim()).filter(Boolean),overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden}))()`);
       if (englishSubmenu.translated.length || !englishSubmenu.overlayHidden) throw new Error(`English submenu shows Hebrew overlays: ${JSON.stringify(englishSubmenu)}`);
       const englishSubmenuScreenshot = await capture('main-menu-english-play-submenu');
-      console.log(JSON.stringify({ hebrewMainMenu: { probe, screenshot, selected, selectionScreenshot, submenuState, submenu, submenuScreenshot,
+      console.log(JSON.stringify({ hebrewMainMenu: { probe, screenshot, selected, selectedMainMenu, selectionScreenshot, submenuState, submenu, submenuScreenshot,
         movedSubmenuState, movedSubmenu, movedSubmenuScreenshot,
         englishSubmenuState, englishSubmenu, englishSubmenuScreenshot,
         note: 'Same 1200x800 game viewport; original frontend handles menu selection and submenu.' } }, null, 2));
