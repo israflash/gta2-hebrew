@@ -44,9 +44,17 @@ const translated = mapped.size;
 const simulatedVerified = new Set((runtime.simulatedRuntime || [])
   .filter((row) => row.status === 'displayed-and-inspected')
   .map((row) => key(row.area, row.gxtKey)));
-const liveVerified = new Set((runtime.liveMissions || [])
-  .filter((row) => row.status === 'displayed-and-inspected')
+const liveMissionRows = (runtime.liveMissions || []).filter((row) => row.status === 'displayed-and-inspected');
+const areaEntryRows = (runtime.areaEntryMessages || []).filter((row) => row.status === 'displayed-and-inspected');
+const liveMissionVerified = new Set(liveMissionRows.map((row) => key(row.area, row.gxtKey)));
+const areaEntryVerified = new Set(areaEntryRows.map((row) => key(row.area, row.gxtKey)));
+const qaAssistedMissionVerified = new Set(liveMissionRows
+  .filter((row) => row.activationMode === 'qa-assisted-original-phone')
   .map((row) => key(row.area, row.gxtKey)));
+const naturalMissionVerified = new Set(liveMissionRows
+  .filter((row) => row.activationMode === 'unassisted-natural')
+  .map((row) => key(row.area, row.gxtKey)));
+const liveVerified = new Set([...liveMissionVerified, ...areaEntryVerified]);
 const fallbackVerified = (runtime.fallbackRuntime || []).filter((row) => row.status === 'displayed-original-English').length;
 const uiVerified = (runtime.uiTransitions || []).filter((row) => row.status === 'displayed-and-inspected').length;
 const untranslated = total - translated;
@@ -70,7 +78,9 @@ const report = `# Mission message coverage audit\n\n` +
 `| Translated and matched to source key | ${translated} |\n` +
 `| Brief records covered by contextual review (sequence-level evidence may apply) | ${reviewed.size} |\n` +
 `| Displayed and inspected through the engine's local runtime injection harness | ${simulatedVerified.size} |\n` +
-`| Displayed and inspected during an actual mission | ${liveVerified.size} |\n` +
+`| Original phone mission briefs displayed with QA assistance | ${qaAssistedMissionVerified.size} |\n` +
+`| District-entry messages displayed with QA assistance | ${areaEntryVerified.size} |\n` +
+`| Unassisted natural mission briefs displayed | ${naturalMissionVerified.size} |\n` +
 `| Untranslated fallback messages visually confirmed in original English | ${fallbackVerified} |\n` +
 `| Pause/main-menu UI states visually inspected | ${uiVerified} |\n` +
 `| Untranslated | ${untranslated} |\n` +
@@ -81,9 +91,9 @@ const report = `# Mission message coverage audit\n\n` +
 `## Interpretation and limits\n\n` +
 `Static translation coverage is ${translated === total ? '100%' : `${Math.floor(translated / total * 100)}%`}; this does not certify visual display or full gameplay acceptance. The catalog contains ${translations.length} unique records and ${reviewed.size} rows marked context-reviewed against ${total} text-bearing brief keys. ` +
 `The engine-native injection harness queues a real GXT key through Hud_Brief_704, but only entries recorded as displayed-and-inspected count above. ` +
-`The simulated display count represents engine-queue injection and screenshot inspection, not a mission script run. ${runtime.notes || ''} ` +
+`The simulated display count represents engine-queue injection and screenshot inspection, not a mission script run. QA-assisted phone starts verify the original phone/mission/HUD path but do not count as unassisted campaign play. ${runtime.notes || ''} ` +
 `The script inventory also cannot prove runtime reachability of branches; conditional messages still need in-game exercise before they can be counted as seen.\n`;
 const out = path.join(root, 'docs/mission-coverage.md');
 fs.writeFileSync(out, report);
-console.log(`coverage report: ${translated}/${total} translated; ${reviewed.size} context-reviewed; ${simulatedVerified.size} runtime-injected displayed; ${liveVerified.size} live-mission displayed; ${untranslated} untranslated; ${displayUnverified} display-unverified`);
+console.log(`coverage report: ${translated}/${total} translated; ${reviewed.size} context-reviewed; ${simulatedVerified.size} injected; ${qaAssistedMissionVerified.size} QA-assisted phone missions; ${areaEntryVerified.size} QA-assisted district entries; ${naturalMissionVerified.size} unassisted mission displays; ${untranslated} untranslated; ${displayUnverified} display-unverified`);
 console.log(out);
