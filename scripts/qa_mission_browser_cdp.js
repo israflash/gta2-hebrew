@@ -623,7 +623,8 @@ async function main() {
         const rect=node?.getBoundingClientRect();
         const canvas=document.querySelector('#screen');
         const canvasRect=canvas.getBoundingClientRect();
-        return {text:node?.innerText.trim(),rect:rect?.toJSON(),canvasRect:canvasRect.toJSON(),centerDelta:rect?rect.left+rect.width/2-(canvasRect.left+canvasRect.width/2):null};
+        const style=node&&getComputedStyle(node);
+        return {text:node?.innerText.trim(),rect:rect?.toJSON(),canvasRect:canvasRect.toJSON(),centerDelta:rect?rect.left+rect.width/2-(canvasRect.left+canvasRect.width/2):null,opacity:style?.opacity,color:style?.color,visibility:style?.visibility,display:style?.display,zIndex:style?.zIndex,textShadow:style?.textShadow,inlineOpacity:node?.style.opacity};
       })()`);
       const hebrewScreenshot = await capture(`pickup-physical-collision-hebrew-${hebrewIndex}`);
       let weaponSwitch = null;
@@ -642,7 +643,7 @@ async function main() {
       if (target.pickups.length > 1) {
         await evaluate(`document.querySelector('#lang-toggle')?.click()`);
         await waitFor(`document.documentElement.lang==='en'`, Boolean, 'English toggle for physical pickup comparison');
-        const englishIndex = (hebrewIndex + 1) % target.pickups.length;
+        const englishIndex = hebrewIndex;
         const englishTarget = target.pickups[englishIndex];
         const teleported = await evaluate(`(() => {const p=${JSON.stringify(englishTarget)};return {moved:window.gta2.dev.teleport(Math.floor(p.x/16384),Math.floor(p.y/16384)),target:p}})()`);
         if (!teleported.moved) throw new Error(`could not move the isolated QA player to the English comparison pickup: ${JSON.stringify(teleported)}`);
