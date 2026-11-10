@@ -182,32 +182,36 @@ async function main() {
       await evaluate(`document.querySelector('#screen')?.focus()`);
       await menuKey('ArrowDown', 'ArrowDown', 0x28);
       const selected = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value >= 0 && value % 16 === 1, 'second Hebrew menu selection');
-      const selectedMainMenu = await evaluate(`(() => {const row=document.querySelector('#main-menu-hebrew [data-option].selected');return row?{text:row.innerText.trim(),color:getComputedStyle(row).color,cursor:getComputedStyle(row,'::before').content,cursorPosition:getComputedStyle(row,'::before').position,cursorLeft:getComputedStyle(row,'::before').left,rect:row.getBoundingClientRect().toJSON()}:null})()`);
-      if (!selectedMainMenu || selectedMainMenu.color !== 'rgb(237, 32, 36)' || selectedMainMenu.cursor !== '"◀"' ||
-          selectedMainMenu.cursorPosition !== 'absolute' || parseFloat(selectedMainMenu.cursorLeft) + 0.5 < selectedMainMenu.rect.width) {
-        throw new Error(`the selected Hebrew start-menu row needs a cursor at the label's right edge: ${JSON.stringify({selected,selectedMainMenu})}`);
+      const selectedMainMenu = await evaluate(`(() => {const row=document.querySelector('#main-menu-hebrew [data-option].selected');const cursor=row&&getComputedStyle(row,'::before');const inset=row&&getComputedStyle(row,'::after');return row?{text:row.innerText.trim(),color:getComputedStyle(row).color,cursor:cursor.content,cursorPosition:cursor.position,cursorLeft:cursor.left,cursorClip:cursor.clipPath,cursorFill:cursor.backgroundColor,cursorWidth:cursor.width,insetFill:inset.backgroundColor,rect:row.getBoundingClientRect().toJSON()}:null})()`);
+      if (!selectedMainMenu || selectedMainMenu.color !== 'rgb(237, 32, 36)' || selectedMainMenu.cursor !== '""' ||
+          selectedMainMenu.cursorPosition !== 'absolute' || selectedMainMenu.cursorClip !== 'polygon(0px 50%, 100% 0px, 100% 100%)' ||
+          selectedMainMenu.cursorFill !== 'rgb(244, 237, 207)' || selectedMainMenu.insetFill !== 'rgb(237, 32, 36)' ||
+          parseFloat(selectedMainMenu.cursorLeft) + 0.5 < selectedMainMenu.rect.width) {
+        throw new Error(`the selected Hebrew start-menu row needs a clear outlined pointer at the label's right edge: ${JSON.stringify({selected,selectedMainMenu})}`);
       }
       const selectionScreenshot = await capture('main-menu-hebrew-selection');
       await menuKey('ArrowUp', 'ArrowUp', 0x26);
       await menuKey('Enter', 'Enter', 0x0d);
       const submenuState = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value >= 0 && Math.floor(value / 16) === 1, 'native Play submenu');
       await wait(120);
-      const submenu = await evaluate(`(() => {const state=window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]);const rows=[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.innerText.trim()).map(n=>({text:n.innerText.trim(),fontType:Number(n.dataset.fontType),color:getComputedStyle(n).color,selected:n.classList.contains('native-menu-selected'),cursor:getComputedStyle(n,'::before').content,cursorSize:getComputedStyle(n,'::before').fontSize,cursorPosition:getComputedStyle(n,'::before').position,cursorLeft:getComputedStyle(n,'::before').left,rect:n.getBoundingClientRect().toJSON()}));return {overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden,translated:rows.map(row=>row.text),rows,mainMenuState:state}})()`);
+      const submenu = await evaluate(`(() => {const state=window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[]);const rows=[...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.innerText.trim()).map(n=>{const p=getComputedStyle(n,'::before'),q=getComputedStyle(n,'::after');return {text:n.innerText.trim(),fontType:Number(n.dataset.fontType),color:getComputedStyle(n).color,selected:n.classList.contains('native-menu-selected'),cursor:p.content,cursorClip:p.clipPath,cursorFill:p.backgroundColor,cursorWidth:p.width,cursorHeight:p.height,insetFill:q.backgroundColor,cursorPosition:p.position,cursorLeft:p.left,rect:n.getBoundingClientRect().toJSON()}});return {overlayHidden:document.querySelector('#main-menu-hebrew')?.hidden,translated:rows.map(row=>row.text),rows,mainMenuState:state}})()`);
       if (!submenu.overlayHidden || !submenu.translated.some(text => /מחוז|התחל|דאונטאון|Residential|Industrial/i.test(text))) {
         throw new Error(`native Play submenu did not switch cleanly to Hebrew GXT text: ${JSON.stringify({submenuState,submenu})}`);
       }
       const highlighted = submenu.rows.filter((row) => row.selected);
-      if (highlighted.length !== 1 || highlighted[0].color !== 'rgb(237, 32, 36)' || highlighted[0].cursor !== '"◀"' ||
-          highlighted[0].cursorPosition !== 'absolute' || parseFloat(highlighted[0].cursorLeft) < highlighted[0].rect.width || parseFloat(highlighted[0].cursorSize) < 20) {
-        throw new Error(`the native selected submenu option needs its original red color and RTL cursor at the label's right edge: ${JSON.stringify({submenuState,submenu})}`);
+      if (highlighted.length !== 1 || highlighted[0].color !== 'rgb(237, 32, 36)' || highlighted[0].cursor !== '""' ||
+          highlighted[0].cursorPosition !== 'absolute' || highlighted[0].cursorClip !== 'polygon(0px 50%, 100% 0px, 100% 100%)' ||
+          highlighted[0].cursorFill !== 'rgb(244, 237, 207)' || highlighted[0].insetFill !== 'rgb(237, 32, 36)' ||
+          parseFloat(highlighted[0].cursorLeft) < highlighted[0].rect.width) {
+        throw new Error(`the native selected submenu option needs a clear outlined RTL pointer at the label's right edge: ${JSON.stringify({submenuState,submenu})}`);
       }
       submenu.missingGxt = await evaluate(`window.gta2GxtAudit?.snapshot() || []`);
       const submenuScreenshot = await capture('main-menu-hebrew-play-submenu');
       await menuKey('ArrowUp', 'ArrowUp', 0x26);
       const movedSubmenuState = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, (value) => value === 18, 'Hebrew submenu selection moves to the previous row');
       await wait(120);
-      const movedSubmenu = await evaluate(`(() => [...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.classList.contains('native-menu-selected')).map(n=>({text:n.innerText.trim(),color:getComputedStyle(n).color,cursor:getComputedStyle(n,'::before').content,cursorSize:getComputedStyle(n,'::before').fontSize,cursorPosition:getComputedStyle(n,'::before').position,cursorLeft:getComputedStyle(n,'::before').left,rect:n.getBoundingClientRect().toJSON()})))()`);
-      if (movedSubmenu.length !== 1 || movedSubmenu[0].text !== 'הצגת שיאים' || movedSubmenu[0].color !== 'rgb(237, 32, 36)' || movedSubmenu[0].cursor !== '"◀"' || movedSubmenu[0].cursorPosition !== 'absolute' || parseFloat(movedSubmenu[0].cursorLeft) < movedSubmenu[0].rect.width || parseFloat(movedSubmenu[0].cursorSize) < 20) {
+      const movedSubmenu = await evaluate(`(() => [...document.querySelectorAll('#hebrew-gxt-layer .hebrew-gxt-text')].filter(n=>n.classList.contains('native-menu-selected')).map(n=>{const p=getComputedStyle(n,'::before'),q=getComputedStyle(n,'::after');return {text:n.innerText.trim(),color:getComputedStyle(n).color,cursor:p.content,cursorClip:p.clipPath,cursorFill:p.backgroundColor,insetFill:q.backgroundColor,cursorPosition:p.position,cursorLeft:p.left,rect:n.getBoundingClientRect().toJSON()}}))()`);
+      if (movedSubmenu.length !== 1 || movedSubmenu[0].text !== 'הצגת שיאים' || movedSubmenu[0].color !== 'rgb(237, 32, 36)' || movedSubmenu[0].cursor !== '""' || movedSubmenu[0].cursorPosition !== 'absolute' || movedSubmenu[0].cursorClip !== 'polygon(0px 50%, 100% 0px, 100% 100%)' || movedSubmenu[0].cursorFill !== 'rgb(244, 237, 207)' || movedSubmenu[0].insetFill !== 'rgb(237, 32, 36)' || parseFloat(movedSubmenu[0].cursorLeft) < movedSubmenu[0].rect.width) {
         throw new Error(`the red selection indicator did not move with keyboard navigation: ${JSON.stringify({movedSubmenuState,movedSubmenu})}`);
       }
       const movedSubmenuScreenshot = await capture('main-menu-hebrew-play-submenu-selection-moved');
