@@ -4327,12 +4327,14 @@
     "fried": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. נבדקה גם משמעותו לפי רצף המשימה/מצב הממשק הידוע."
+      "observedInGame": true,
+      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. נבדקה גם משמעותו לפי רצף המשימה/מצב הממשק הידוע. 2026-11-10: הוזרק במשחק פעיל דרך gta2_dev_show_brief ותור ה-HUD המקורי; נצפה בעברית לצד דיוקן הדובר, צילום build/qa-death-texts/native-gxt-death-toasted.png. זו הזרקת QA, לא אירוע מוות טבעי."
     },
     "shocked": {
       "sourceRead": true,
       "contextChecked": true,
-      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. נבדקה גם משמעותו לפי רצף המשימה/מצב הממשק הידוע."
+      "observedInGame": true,
+      "evidence": "2026-11-05: המקור האנגלי והתרגום נקראו והשוו ישירות. נבדקה גם משמעותו לפי רצף המשימה/מצב הממשק הידוע. 2026-11-10: הוזרק במשחק פעיל דרך gta2_dev_show_brief ותור ה-HUD המקורי; נצפה בעברית לצד דיוקן הדובר, צילום build/qa-death-texts/native-gxt-death-shocking.png. זו הזרקת QA, לא אירוע מוות טבעי."
     },
     "nicked": {
       "sourceRead": true,

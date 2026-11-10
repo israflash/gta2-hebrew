@@ -1116,8 +1116,12 @@ async function main() {
         { key: '5028', expected: 'לוזר עלוב', name: 'native-gxt-frenzy-failure' },
         { key: '5030', expected: 'אסוף כמה שיותר בונוסים', name: 'native-gxt-frenzy-objective' },
         { key: '5013', expected: 'רכבי הגלידה', name: 'native-gxt-ice-cream-frenzy' },
+        { key: 'fried', expected: 'נשרפת!', name: 'native-gxt-death-toasted' },
+        { key: 'shocked', expected: 'התחשמלת!', name: 'native-gxt-death-shocking' },
       ];
-      const selectedNativeGxtTests = process.env.GTA2_QA_CONTEXTUAL_GXT_ONLY
+      const selectedNativeGxtTests = process.env.GTA2_QA_DEATH_TEXT_ONLY
+        ? nativeGxtTests.filter((test) => ['fried', 'shocked'].includes(String(test.key)))
+        : process.env.GTA2_QA_CONTEXTUAL_GXT_ONLY
         ? nativeGxtTests.filter((test) => ['1117', '1407', '2818', '2819'].includes(String(test.key)))
         : nativeGxtTests;
       for (const test of selectedNativeGxtTests) {
