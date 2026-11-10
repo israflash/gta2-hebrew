@@ -47,10 +47,10 @@
       font: 400 clamp(26px, 5vh, 44px)/clamp(20px, 4.05vh, 40px) "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace;
       pointer-events: none; }
     #main-menu-hebrew[hidden] { display: none; }
-    #main-menu-hebrew span { display: block; position: relative; width: 100%; white-space: nowrap; }
+    #main-menu-hebrew span { display: block; position: relative; align-self: flex-end; width: max-content; min-width: 0; white-space: nowrap; }
     #main-menu-hebrew span.selected { color: #ed2024; }
-    #main-menu-hebrew span.selected::before { content: "▶"; position: absolute; left: -.95em; top: 50%;
-      transform: translateY(-50%); color: #ed2024; font-size: 1.05em; line-height: 1;
+    #main-menu-hebrew span.selected::before { content: "◀"; position: absolute; left: 100%; top: 50%; margin-left: .28em;
+      transform: translateY(-50%); color: #ed2024; font-size: 1.2em; line-height: 1;
       -webkit-text-stroke: .45px #fff; text-shadow: 1px 1px 0 #080705, 0 0 2px #080705; }
     #status { position: fixed; left: 1rem; bottom: 2.2rem; margin: 0; color: var(--muted); }
     #status.error { color: #ff8a8a; }

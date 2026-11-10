@@ -182,9 +182,10 @@ async function main() {
       await evaluate(`document.querySelector('#screen')?.focus()`);
       await menuKey('ArrowDown', 'ArrowDown', 0x28);
       const selected = await waitFor(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`, value => value >= 0 && value % 16 === 1, 'second Hebrew menu selection');
-      const selectedMainMenu = await evaluate(`(() => {const row=document.querySelector('#main-menu-hebrew [data-option].selected');return row?{text:row.innerText.trim(),color:getComputedStyle(row).color,cursor:getComputedStyle(row,'::before').content}:null})()`);
-      if (!selectedMainMenu || selectedMainMenu.color !== 'rgb(237, 32, 36)' || selectedMainMenu.cursor !== '"▶"') {
-        throw new Error(`the selected Hebrew start-menu row needs a visible arrow: ${JSON.stringify({selected,selectedMainMenu})}`);
+      const selectedMainMenu = await evaluate(`(() => {const row=document.querySelector('#main-menu-hebrew [data-option].selected');return row?{text:row.innerText.trim(),color:getComputedStyle(row).color,cursor:getComputedStyle(row,'::before').content,cursorPosition:getComputedStyle(row,'::before').position,cursorLeft:getComputedStyle(row,'::before').left,rect:row.getBoundingClientRect().toJSON()}:null})()`);
+      if (!selectedMainMenu || selectedMainMenu.color !== 'rgb(237, 32, 36)' || selectedMainMenu.cursor !== '"◀"' ||
+          selectedMainMenu.cursorPosition !== 'absolute' || parseFloat(selectedMainMenu.cursorLeft) + 0.5 < selectedMainMenu.rect.width) {
+        throw new Error(`the selected Hebrew start-menu row needs a cursor at the label's right edge: ${JSON.stringify({selected,selectedMainMenu})}`);
       }
       const selectionScreenshot = await capture('main-menu-hebrew-selection');
       await menuKey('ArrowUp', 'ArrowUp', 0x26);
