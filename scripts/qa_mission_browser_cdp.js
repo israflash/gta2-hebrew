@@ -460,6 +460,29 @@ async function main() {
       console.log(JSON.stringify({ contextualGxtChecks: displayed }, null, 2));
       return;
     }
+    if (process.env.GTA2_QA_TITLE_RENDER_SWEEP) {
+      const catalog = JSON.parse(await fs.readFile(path.join(__dirname, '..', 'web', 'mission-titles.he.json'), 'utf8'));
+      const titles = Object.entries(catalog.titles || {});
+      await navigate(`${BASE}?devdata&autostart`);
+      await waitFor(`typeof window.gta2?.Module?.gta2HebrewGxtDraw === 'function'`, Boolean, 'production Hebrew title renderer');
+      await waitFor(`window.gta2?.dev?.state()?.player === true`, Boolean, 'gameplay spawn for full title catalog sweep', 120000);
+      await evaluate(`document.fonts.load('900 36px "GTA2 Noto Title"')`);
+      const results = [];
+      const sampleKeys = new Set(['1975', '2957', '3840', '9002', '9004']);
+      for (const [key, record] of titles) {
+        await evaluate(`window.gta2.Module.ccall('gta2_port_set_mission_title_key','void',['number'],[${Number(key)}])`);
+        await waitFor(`(() => {const p=document.querySelector('#mission-title');return p&&!p.hidden&&p.dataset.key==='${key}'})()`, Boolean,
+          `Hebrew production title overlay for GXT ${key}`, 1500);
+        const probe = await evaluate(`(() => {const p=document.querySelector('#mission-title'),r=p.getBoundingClientRect();return {key:p.dataset.key,text:p.dataset.text,aria:p.getAttribute('aria-label'),fontSize:Number(p.dataset.fontSizeUsed),overflow:p.dataset.fitOverflow==='true',width:r.width,height:r.height,bitmapWidth:p.width,bitmapHeight:p.height,visible:!p.hidden&&p.dataset.key==='${key}'}})()`);
+        if (probe.text !== record.text || probe.aria !== record.text || !probe.visible || !probe.bitmapWidth || !probe.bitmapHeight) {
+          throw new Error(`mission title ${key} did not render its Hebrew catalog text: ${JSON.stringify({record, probe})}`);
+        }
+        const screenshot = sampleKeys.has(key) ? await capture(`title-sweep-${key}`) : null;
+        results.push({ key, source: record.source, text: record.text, fontSize: probe.fontSize, overflow: probe.overflow, screenshot });
+      }
+      console.log(JSON.stringify({ missionTitleRenderSweep: { checked: results.length, visibleHebrew: results.filter((item) => item.text && item.text !== item.source).length, overflow: results.filter((item) => item.overflow).map(({key, text, fontSize}) => ({key, text, fontSize})), samples: results.filter((item) => item.screenshot), results } }, null, 2));
+      return;
+    }
     if (process.env.GTA2_QA_TITLE_ONLY) {
       const titleKey = Number(process.env.GTA2_QA_TITLE_TEST || 9002);
       await navigate(`${BASE}?devdata&autostart`);
