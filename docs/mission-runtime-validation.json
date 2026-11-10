@@ -19,12 +19,28 @@
   "fallbackRuntime": [
     { "gxtKey": "1117", "status": "displayed-original-English", "checks": ["valid untranslated GXT placeholder", "native game text and portrait remain visible", "no blank translated layer"], "screenshot": "game/qa-screenshots/english-fallback.png" }
   ],
+  "weaponPickupHudComparison": {
+    "source": "S-Uzi Machine Gun",
+    "translation": "תת־מקלע S-Uzi",
+    "resolution": "1200x800",
+    "activationMode": "physical-pickup-collision-after-qa-teleport",
+    "hebrewScreenshot": "build/qa-pickup-collision-capture-fix/pickup-physical-collision-hebrew-0.png",
+    "englishScreenshot": "build/qa-pickup-collision-capture-fix/pickup-physical-collision-english-0.png",
+    "hebrewCenterX": 600,
+    "viewportCenterX": 600,
+    "opacity": 1,
+    "color": "rgb(157, 42, 35)",
+    "checks": ["same original physical pickup model 201 and map coordinates in both language runs", "translated name appears at the original centered HUD position", "English source appears in the same position", "no extra translated panel or gameplay modification"],
+    "note": "QA teleport was used to reach the pickup; collision and native pickup HUD path were real. This verifies a QA-assisted physical pickup, not natural traversal."
+  },
   "missionTitles": {
     "catalogued": 34,
     "injectedAndVisuallyInspected": 1,
     "observedDuringRealMission": 1,
-    "unresolved": 33,
-    "example": { "gxtKey": "1975", "source": "GET ZITZAKI!", "translation": "חילוץ זיטזאקי!", "injectionScreenshot": "game/qa-screenshots/mission-title-1975.png", "realMissionScreenshot": "game/qa-screenshots/real-downtown-mission-title.png", "realMissionStatus": "Hebrew title replaced native English during the original banner timing; engine title key probe observed 1975" }
+    "observedDuringQaAssistedMission": 1,
+    "unresolved": 32,
+    "example": { "gxtKey": "1975", "source": "GET ZITZAKI!", "translation": "חילוץ זיטזאקי!", "injectionScreenshot": "game/qa-screenshots/mission-title-1975.png", "realMissionScreenshot": "game/qa-screenshots/real-downtown-mission-title.png", "realMissionStatus": "Hebrew title replaced native English during the original banner timing; engine title key probe observed 1975" },
+    "qaAssistedExample": { "area": "Residential", "gxtKey": "2957", "source": "SINK OR SWIM!", "translation": "לשחות או לטבוע!", "activationMode": "qa-assisted-original-phone", "resolution": "1200x800", "hebrewScreenshot": "build/qa-title-residential/district-mission-title-1.png", "englishScreenshot": "build/qa-title-residential-en/district-mission-title-1.png", "checks": ["original phone mission route accepted with QA assistance", "engine title key 2957 observed at onset", "Hebrew title visible in original title position", "English source title compared at same viewport", "original orange fill and dark outline retained"] }
   },
   "uiTransitions": [
     { "status": "displayed-and-inspected", "check": "original pause menu hides the Hebrew brief layer", "screenshot": "game/qa-screenshots/pause-menu.png" },
@@ -39,5 +55,5 @@
     { "area": "Residential", "gxtKey": "6146", "status": "displayed-and-inspected", "activationMode": "qa-assisted-district-start", "checks": ["original district-start message displayed in the game brief location", "Hebrew text and blue GXT highlights visible", "speaker portrait visible", "no English duplicate"], "screenshot": "build/qa-live-district-sweep-v1.0.30/district-game-start-1.png" },
     { "area": "Industrial District", "gxtKey": "3230", "status": "displayed-and-inspected", "activationMode": "qa-assisted-district-start", "checks": ["original district-start message displayed in the game brief location", "Hebrew text visible", "speaker portrait visible", "no English duplicate"], "screenshot": "build/qa-live-district-sweep-v1.0.30/district-game-start-2.png" }
   ],
-  "notes": "Runtime menu, title, and message checks used one isolated headless Chrome process. Injected checks use the local ?devdata&autostart&brief-test=... hook, which calls gta2_dev_show_brief and queues original GXT keys through Hud_Brief_704. The title test uses ?mission-title-test=1975 and validates the title canvas. The Downtown, Residential, and Industrial original-phone missions were accepted through their actual gang phones, but all used QA unlock/respect and teleport assistance; these are not unassisted campaign playthroughs. Residential 6146 and Industrial 3230 are separate district-entry messages, not phone missions. The original mission/title timing, selected submenu, English fallback, pause state, and main menu were inspected. Keys 1600, 2306, 2026, 3727, and 1251 were injected and visually inspected. Screenshots are local ignored QA artifacts and are not included in the public build."
+  "notes": "Runtime menu, title, and message checks used one isolated headless Chrome process. Injected checks use the local ?devdata&autostart&brief-test=... hook, which calls gta2_dev_show_brief and queues original GXT keys through Hud_Brief_704. The title test uses ?mission-title-test=1975 and validates the title canvas. The Downtown, Residential, and Industrial original-phone missions were accepted through their actual gang phones, but all used QA unlock/respect and teleport assistance; these are not unassisted campaign playthroughs. Residential 6146 and Industrial 3230 are separate district-entry messages, not phone missions. The original mission/title timing, selected submenu, English fallback, pause state, and main menu were inspected. Keys 1600, 2306, 2026, 3727, and 1251 were injected and visually inspected. A Residential title key 2957 was additionally compared in English and Hebrew through the original phone/title route with QA assistance; the other 32 title keys still lack runtime visual confirmation. Screenshots are local ignored QA artifacts and are not included in the public build."
 }

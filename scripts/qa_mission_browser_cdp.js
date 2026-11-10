@@ -618,6 +618,10 @@ async function main() {
         const text=[...document.querySelectorAll('.hebrew-gxt-text')].map(n=>n.innerText.trim()).find(Boolean);
         return text||null;
       })()`, Boolean, 'weapon pickup collision to produce native translated HUD text', 10000);
+      // Pickup banners are transient. Capture immediately after the original
+      // HUD callback exposes the translated node, before later diagnostics can
+      // outlive its short draw window.
+      const hebrewScreenshot = await capture(`pickup-physical-collision-hebrew-${hebrewIndex}`);
       const hebrewLayout = await evaluate(`(() => {
         const node=[...document.querySelectorAll('.hebrew-gxt-text')].find(n=>n.innerText.trim());
         const rect=node?.getBoundingClientRect();
@@ -626,7 +630,6 @@ async function main() {
         const style=node&&getComputedStyle(node);
         return {text:node?.innerText.trim(),rect:rect?.toJSON(),canvasRect:canvasRect.toJSON(),centerDelta:rect?rect.left+rect.width/2-(canvasRect.left+canvasRect.width/2):null,opacity:style?.opacity,color:style?.color,visibility:style?.visibility,display:style?.display,zIndex:style?.zIndex,textShadow:style?.textShadow,inlineOpacity:node?.style.opacity};
       })()`);
-      const hebrewScreenshot = await capture(`pickup-physical-collision-hebrew-${hebrewIndex}`);
       let weaponSwitch = null;
       if (process.env.GTA2_QA_PICKUP_SWITCH_WEAPON) {
         const before = await evaluate(`window.gta2.dev.state()`);
@@ -815,8 +818,15 @@ async function main() {
       };
       const sweep = [];
       for (const target of targets) {
+        const language = process.env.GTA2_QA_LANGUAGE;
+        if (language && !['en', 'he'].includes(language)) throw new Error(`invalid QA language: ${language}`);
+        if (language) {
+          await navigate(BASE);
+          await waitFor(`document.readyState === 'complete'`, Boolean, 'QA language landing page', 30000);
+          await evaluate(`localStorage.setItem('gta2-port-lang', ${JSON.stringify(language)})`);
+        }
         await navigate(`${BASE}?devdata`);
-        await waitFor(`(() => {const m=window.gta2?.Module;return !!m && m.ccall('gta2_port_frontend_menu_state','number',[],[]) >= 0})()`, Boolean, `${districts[target]} original frontend menu`, 120000);
+        await waitFor(`(() => {const m=window.gta2?.Module;return !!m && m.ccall('gta2_port_frontend_menu_state','number',[],[]) >= 0 && document.documentElement.lang === ${JSON.stringify(language || 'he')}})()`, Boolean, `${districts[target]} original frontend menu`, 120000);
         await evaluate(`document.querySelector('#screen')?.focus()`);
         await wait(300);
         let state = await evaluate(`window.gta2.Module.ccall('gta2_port_frontend_menu_state','number',[],[])`);
@@ -877,17 +887,23 @@ async function main() {
         const settleMs = Math.max(0, Number(process.env.GTA2_QA_DISTRICT_SETTLE_MS) || 0);
         const sampleMs = Math.max(250, Number(process.env.GTA2_QA_DISTRICT_SAMPLE_MS) || 500);
         const settleUntil = Date.now() + settleMs;
+        let titleOnset = null;
         while (Date.now() < settleUntil) {
-          postPhoneTimeline.push(await evaluate(`(() => ({at:performance.now(),titleKey:window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[]),briefs:window.gta2.map.jobBriefs().briefs.map(({gxtKey,text})=>({gxtKey,text})),onMission:window.gta2.map.jobs().onMission}))()`));
+          const sample = await evaluate(`(() => ({at:performance.now(),titleKey:window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[]),briefs:window.gta2.map.jobBriefs().briefs.map(({gxtKey,text})=>({gxtKey,text})),onMission:window.gta2.map.jobs().onMission}))()`);
+          postPhoneTimeline.push(sample);
+          if (!titleOnset && sample.titleKey > 0) {
+            const titleDisplay = await evaluate(`(() => {const n=document.querySelector('#mission-title');return {text:n?.dataset.text||'',key:n?.dataset.key||'',hidden:!!n?.hidden,visible:!!n&&!n.hidden&&!!n.getClientRects().length,rect:n?.getBoundingClientRect().toJSON()||null}})()`);
+            titleOnset = { gxtKey: sample.titleKey, ...titleDisplay, screenshot: await capture(`district-mission-title-${target}`) };
+          }
           await wait(sampleMs);
         }
         const liveState = await evaluate(`(() => ({mission:window.gta2.map.jobs(),briefs:window.gta2.map.jobBriefs(),gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(x=>x.innerText).filter(Boolean)}))()`);
-        const title = await waitFor(`window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[])`, (v) => v > 0, `${districts[target]} native mission title`, 5000).catch(() => 0);
-        const titleScreenshot = title ? await capture(`district-mission-title-${target}`) : null;
+        const title = titleOnset?.gxtKey || await waitFor(`window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[])`, (v) => v > 0, `${districts[target]} native mission title`, 5000).catch(() => 0);
+        const titleScreenshot = titleOnset?.screenshot || (title ? await capture(`district-mission-title-${target}`) : null);
         const brief = await waitFor(visibleTranslated, Boolean, `${districts[target]} translated mission brief`, 10000).catch(() => null);
         const briefScreenshot = brief ? await capture(`district-mission-brief-${target}`) : null;
         const gxtAudit = process.env.GTA2_QA_GXT_AUDIT ? await evaluate('window.gta2GxtAudit?.snapshot() || []') : null;
-        const result = { district: districts[target], stage: current, stageSelectionMethod, mapId: initial.map?.mapId, startupOnMission: initial.jobs.onMission, startupBriefs: initial.briefs.briefs.map((item) => ({ gxtKey: item.gxtKey, face: item.face, text: item.text })), phone, phoneAccepted, postPhoneTimeline, liveState, gxtAudit, titleKey: title, brief, selectorScreenshot, gameStartScreenshot, titleScreenshot, briefScreenshot };
+        const result = { district: districts[target], stage: current, stageSelectionMethod, mapId: initial.map?.mapId, startupOnMission: initial.jobs.onMission, startupBriefs: initial.briefs.briefs.map((item) => ({ gxtKey: item.gxtKey, face: item.face, text: item.text })), phone, phoneAccepted, postPhoneTimeline, liveState, gxtAudit, titleKey: title, titleOnset, brief, selectorScreenshot, gameStartScreenshot, titleScreenshot, briefScreenshot };
         sweep.push(result);
         console.log(JSON.stringify({ districtLaunchAndMissionCheck: result }));
       }
