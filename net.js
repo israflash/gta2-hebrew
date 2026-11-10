@@ -24,7 +24,7 @@
 // catch games drifting apart), and chat {text}. Game messages
 // are binary and go straight to the core (gta2_port_net_receive).
 
-import { LANGS, lang, onLangChange, registerDict, t } from './strings.js?v=5777f8ac37';
+import { LANGS, lang, onLangChange, registerDict, t } from './strings.js?v=b9eb5b4f67';
 
 registerDict({
   en: {
@@ -206,7 +206,7 @@ const APP_ID = 'gta2-browser-port-coop-1';
 export class WebRtcTransport {
   /** The room code is also the password that encrypts the connection set-up. */
   static async create(room) {
-    const { joinRoom, selfId } = await import('./vendor/trystero/torrent.mjs?v=5777f8ac37');
+    const { joinRoom, selfId } = await import('./vendor/trystero/torrent.mjs?v=b9eb5b4f67');
     return new WebRtcTransport(joinRoom, selfId, room);
   }
 

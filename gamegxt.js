@@ -1,7 +1,7 @@
 // Translate selected native GXT text at the original DrawText coordinates.
 // The game's bitmap font has no Hebrew glyphs, so the native draw is suppressed
 // only when an exact or placeholder-aware catalog entry is available.
-import { lang } from './strings.js?v=b2f1e0aa8d';
+import { lang } from './strings.js?v=b9eb5b4f67';
 
 const clean = (value) => String(value || '').replace(/^n!/, '').replace(/^[\u2160-\u2188]+\s*/, '').replace(/#/g, '').replace(/\s+/g, ' ').trim();
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -108,7 +108,7 @@ function markup(value, baseColor) {
 }
 
 export async function bindHebrewGxtRenderer(Module, canvas) {
-  const response = await fetch('./gxt-gameplay.he.json?v=b2f1e0aa8d');
+  const response = await fetch('./gxt-gameplay.he.json?v=b9eb5b4f67');
   if (!response.ok) throw new Error(`Hebrew game GXT catalog: HTTP ${response.status}`);
   const data = await response.json();
   const resolveGxt = createGxtResolver([...(data.records || []), ...(data.directRecords || [])]);

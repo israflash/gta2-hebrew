@@ -1,4 +1,4 @@
-import { lang } from './strings.js?v=6c3c0e4d0f';
+import { lang } from './strings.js?v=b9eb5b4f67';
 
 let records = [];
 let gameplayGxtRecords = [];
@@ -91,15 +91,15 @@ export function normalizeMissionText(value) {
 export async function loadMissionTranslations() {
   if (ready) return records;
   if (!loading) loading = Promise.all([
-    fetch('./mission-translations.he.json?v=6c3c0e4d0f').then((r) => {
+    fetch('./mission-translations.he.json?v=b9eb5b4f67').then((r) => {
     if (!r.ok) throw new Error(`Mission translations: HTTP ${r.status}`);
     return r.json();
     }),
-    fetch('./mission-extras.he.json?v=6c3c0e4d0f').then((r) => {
+    fetch('./mission-extras.he.json?v=b9eb5b4f67').then((r) => {
       if (!r.ok) throw new Error(`Supplemental mission translations: HTTP ${r.status}`);
       return r.json();
     }),
-    fetch('./gxt-gameplay.he.json?v=6c3c0e4d0f').then((r) => {
+    fetch('./gxt-gameplay.he.json?v=b9eb5b4f67').then((r) => {
       if (!r.ok) throw new Error(`Gameplay GXT translations: HTTP ${r.status}`);
       return r.json();
     }),
@@ -114,7 +114,7 @@ export async function loadMissionTranslations() {
 
 export async function loadMissionTitles() {
   if (Object.keys(missionTitles).length) return missionTitles;
-  if (!missionTitlesLoading) missionTitlesLoading = fetch('./mission-titles.he.json?v=6c3c0e4d0f').then((r) => {
+  if (!missionTitlesLoading) missionTitlesLoading = fetch('./mission-titles.he.json?v=b9eb5b4f67').then((r) => {
     if (!r.ok) throw new Error(`Mission titles: HTTP ${r.status}`);
     return r.json();
   }).then((data) => { missionTitles = data.titles || {}; return missionTitles; });
