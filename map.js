@@ -4,9 +4,9 @@
 // downloaded. Read-only towards the game, apart from pausing it while the map
 // screen is open.
 
-import { lang, registerDict, t } from './strings.js?v=b9eb5b4f67';
-import { gangDisplayName } from './gang-names.js?v=b9eb5b4f67';
-import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=b9eb5b4f67';
+import { lang, registerDict, t } from './strings.js?v=7cacffbcba';
+import { gangDisplayName } from './gang-names.js?v=7cacffbcba';
+import { loadMissionTitles, loadMissionTranslations, missionText, missionTitle } from './missiontext.js?v=7cacffbcba';
 
 loadMissionTranslations().catch((err) => console.error(err));
 loadMissionTitles().catch((err) => console.error(err));
