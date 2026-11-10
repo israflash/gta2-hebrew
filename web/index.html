@@ -269,6 +269,9 @@
       direction: rtl; text-align: right; unicode-bidi: plaintext; overflow-wrap: anywhere;
       font-family: "GTA2 Impact Pixel", "GTA2 Brief Pixel", monospace; font-weight: 400; letter-spacing: -.015em;
       text-shadow: 1px 1px 0 #080705, -1px 0 #1a160e, 1px 0 #1a160e, 0 -1px #1a160e, 0 1px #1a160e; }
+    /* The game marks the active native submenu row in red. Add a compact,
+       square-edged frame so Hebrew players can identify the exact row at a glance. */
+    .hebrew-gxt-text.native-menu-selected { box-shadow: 0 0 0 1px #f4edcf, 0 0 0 4px #ed2024; }
     /* The CSS pointer avoids relying on a Hebrew-font arrow glyph and marks
        the selected RTL row at its reading start, matching the engine's red text. */
     #mission-brief-speaker { display: none; }

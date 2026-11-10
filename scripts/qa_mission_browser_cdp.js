@@ -805,7 +805,7 @@ async function main() {
     if (process.env.GTA2_QA_DISTRICT_SWEEP === '1') {
       const districts = ['Downtown', 'Residential', 'Industrial'];
       const requested = process.env.GTA2_QA_DISTRICT_INDEX;
-      const targets = requested === undefined ? [0, 1, 2] : [Number(requested)];
+      const targets = requested === undefined ? [0, 1, 2] : requested.split(',').map(Number);
       if (targets.some((n) => !Number.isInteger(n) || n < 0 || n > 2)) throw new Error(`invalid district index: ${requested}`);
       const key = async (name, code, virtualKey) => {
         await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key: name, code, windowsVirtualKeyCode: virtualKey });
@@ -875,10 +875,11 @@ async function main() {
         }
         const postPhoneTimeline = [];
         const settleMs = Math.max(0, Number(process.env.GTA2_QA_DISTRICT_SETTLE_MS) || 0);
+        const sampleMs = Math.max(250, Number(process.env.GTA2_QA_DISTRICT_SAMPLE_MS) || 500);
         const settleUntil = Date.now() + settleMs;
         while (Date.now() < settleUntil) {
           postPhoneTimeline.push(await evaluate(`(() => ({at:performance.now(),titleKey:window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[]),briefs:window.gta2.map.jobBriefs().briefs.map(({gxtKey,text})=>({gxtKey,text})),onMission:window.gta2.map.jobs().onMission}))()`));
-          await wait(500);
+          await wait(sampleMs);
         }
         const liveState = await evaluate(`(() => ({mission:window.gta2.map.jobs(),briefs:window.gta2.map.jobBriefs(),gxt:[...document.querySelectorAll('.hebrew-gxt-text')].map(x=>x.innerText).filter(Boolean)}))()`);
         const title = await waitFor(`window.gta2.Module.ccall('gta2_port_mission_title_key','number',[],[])`, (v) => v > 0, `${districts[target]} native mission title`, 5000).catch(() => 0);

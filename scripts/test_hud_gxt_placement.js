@@ -6,6 +6,7 @@ const path = require('node:path');
 
 async function main() {
   const file = path.join(__dirname, '..', 'web', 'gamegxt.js');
+  const html = fs.readFileSync(path.join(__dirname, '..', 'web', 'index.html'), 'utf8');
   const source = fs.readFileSync(file, 'utf8')
     .replace("import { lang } from './strings.js';", 'const lang = () => \'he\';');
   const { createGxtResolver, hudViewportCenter, isTopHudPickupBanner, isSelectedNativeMenuText } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
@@ -39,6 +40,8 @@ async function main() {
     'the custom Hebrew main-menu overlay keeps its existing selection handling');
   assert.equal(isSelectedNativeMenuText(-1, 5), false,
     'selected-font text outside the native menu is not recolored');
+  assert.match(html, /\.hebrew-gxt-text\.native-menu-selected\s*\{\s*box-shadow:\s*0 0 0 1px #f4edcf, 0 0 0 4px #ed2024;\s*\}/,
+    'the selected Hebrew submenu row has a high-contrast square frame using the game selection colors');
   for (const [left, width, dpr, expected] of [
     [0, 1200, 1, 600],
     [13, 1334, 1, 680],
