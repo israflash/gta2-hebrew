@@ -145,16 +145,26 @@ def main():
         source_read = bool(review.get('sourceRead'))
         context_checked = bool(review.get('contextChecked'))
         observed = bool(review.get('observedInGame'))
-        level = ('נצפה במשחק' if observed else 'הגהה הקשרית' if context_checked
+        evidence_text = str(review.get('evidence', ''))
+        follow_up = str(review.get('followUp', ''))
+        method = str(review.get('observedMethod', '')).strip()
+        if observed and not method:
+            observation_record = f'{evidence_text} {follow_up}'.lower()
+            if any(marker in observation_record for marker in ('injection', 'injected', 'gta2_dev_show', 'הזרקה', 'הוזרק')):
+                method = 'הזרקת QA; פירוט נוסף בראיית הביקורת'
+            else:
+                method = 'השיטה לא תועדה בנפרד; ראו ראיית ביקורת'
+        level = ('תצפית חזותית' if observed else 'הגהה הקשרית' if context_checked
                  else 'נקרא מול המקור' if source_read else 'לא עבר ביקורת לשונית ידנית')
         return {
             'מקור ומזהה — אימות אוטומטי': 'אומת' if auto_verified else 'לא אומת',
             'נקרא מול המקור': 'כן' if source_read else 'לא',
             'הקשר נבדק': 'כן' if context_checked else 'לא',
-            'נצפה במשחק אמיתי': 'כן' if observed else 'לא',
+            'נצפה בתצוגת המשחק/QA': 'כן' if observed else 'לא',
+            'שיטת תצפית': method,
             'רמת ביקורת': level,
-            'ראיית ביקורת/הערה': review.get('evidence', ''),
-            'בדיקה נוספת': review.get('followUp', ''),
+            'ראיית ביקורת/הערה': evidence_text,
+            'בדיקה נוספת': follow_up,
         }
 
     for row in missions:
@@ -215,8 +225,8 @@ def main():
         output.append(entry)
 
     columns = ['קטגוריה', 'אזור', 'משימה', 'דובר', 'מזהה GXT', 'מקור באנגלית', 'תרגום עברי סופי', 'הקשר/מקור',
-               'מקור ומזהה — אימות אוטומטי', 'נקרא מול המקור', 'הקשר נבדק', 'נצפה במשחק אמיתי',
-               'רמת ביקורת', 'ראיית ביקורת/הערה', 'בדיקה נוספת']
+               'מקור ומזהה — אימות אוטומטי', 'נקרא מול המקור', 'הקשר נבדק', 'נצפה בתצוגת המשחק/QA',
+               'שיטת תצפית', 'רמת ביקורת', 'ראיית ביקורת/הערה', 'בדיקה נוספת']
     destination = ROOT / 'docs/translation-review.csv'
     with destination.open('w', encoding='utf-8-sig', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=columns, lineterminator='\r\n')
@@ -225,8 +235,9 @@ def main():
     verified = sum(r['מקור ומזהה — אימות אוטומטי'] == 'אומת' for r in output)
     read = sum(r['נקרא מול המקור'] == 'כן' for r in output)
     contextual = sum(r['הקשר נבדק'] == 'כן' for r in output)
-    observed = sum(r['נצפה במשחק אמיתי'] == 'כן' for r in output)
-    print(f'wrote {len(output)} entries; auto-verified={verified}; human-read={read}; context-reviewed={contextual}; game-observed={observed}')
+    observed = sum(r['נצפה בתצוגת המשחק/QA'] == 'כן' for r in output)
+    method_recorded = sum(bool(r['שיטת תצפית']) and 'לא תועדה' not in r['שיטת תצפית'] for r in output)
+    print(f'wrote {len(output)} entries; auto-verified={verified}; human-read={read}; context-reviewed={contextual}; runtime-displayed={observed}; observation-method-recorded={method_recorded}')
 
 
 if __name__ == '__main__':

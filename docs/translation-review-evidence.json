@@ -451,18 +451,21 @@
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "מחוז Industrial נבחר דרך תפריט Play המקורי בעזרת עזר QA; ההודעה צוירה בתור המשחק המקורי ללא הזרקת טקסט.",
       "evidence": "2026-11-08: district-start QA entered Industrial using the original Play route (district selection used a QA setter because CDP arrows did not change the selector). GXT 3230 appeared in the original brief region with speaker portrait 8; updated Hebrew displayed without an English duplicate. Screenshot: game/qa-screenshots/industrial-welcome-fix/district-mission-brief-2.png. This is a live game observation with a QA-selected district, not natural progression through story unlocks."
     },
     "Residential|6146": {
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "תצוגת gameplay אחרי פתיחת מחוז Residential; ההודעה לא הוזרקה ישירות, אך רצף פתיחת המחוז הטבעי לא תועד.",
       "evidence": "2026-11-08: הודעת פתיחת Residential נקראה מול מקור GXT 6146 ונצפתה דרך מנגנון ההודעות הפעיל לאחר פתיחת האזור; תוקן ניסוח לא טבעי ל„מקום מושבם... החכמולוגים”. צילום: game/qa-screenshots/district-mission-brief-1.png."
     },
     "Residential|2272": {
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "תצוגת gameplay מקומית ללא הזרקת brief; מסלול טבעי מלא של המשימה לא תועד.",
       "evidence": "2026-11-08: כל 16 הודעות Sink or Swim! (GXT 2272–2288) נקראו מול המקור וברצף: שמירת ה-Taxi שלם, הימנעות מהרג פעיל זייבאצו, איסוף שלושת הפעילים, הצפירה, ההסעה לעגורן והיציאה לפני החיסול. תוקנו possess לעומת steal, מינוח Z-Operative/Z-Man, תעודת Z-ID והניסוח המקצועי של ד״ר לה־בראט. GXT 2272 נצפה במשימה חיה; הצילום game/qa-screenshots/district-mission-brief-1.png מציג את ההודעה לצד הדיוקן בשלוש שורות וללא אנגלית כפולה."
     },
     "Downtown|1251": {
@@ -479,12 +482,14 @@
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "משימת Downtown חיה דרך הטלפון המקורי; ללא הזרקת הודעה.",
       "evidence": "מקור ורצף נבדקו; הודעה נצפתה במשימת Downtown חיה לפי docs/translation-audit.md."
     },
     "Industrial District|3160": {
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "בדיקת QA עם בחירת מחוז וטלפורט לטלפון; ההודעה לא הוזרקה, אך זו אינה התקדמות טבעית מלאה.",
       "evidence": "2026-11-06: GXT 3160 של Shopping Mall Construction נצפה במשחק ב-game/qa-screenshots/district-mission-brief-2.png. הטקסט העברי מוצג בתחתית באזור brief המקורי, לצד דיוקן Sunbeam; צילום QA השתמש בבורר מחוז ובטלפורט לטלפון, ולכן אינו נחשב התקדמות טבעית מלאה."
     },
     "Residential|2306": {
@@ -643,6 +648,7 @@
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "כותרת במשימת Downtown חיה; ללא הזרקת כותרת.",
       "evidence": "2026-11-04: הכותרת נבדקה מול מטרת Get ZitZaki והוצגה במשימת Downtown חיה לפי docs/mission-context-review.md."
     },
     "1976": {
@@ -4539,6 +4545,7 @@
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "תצפית חיה במסך ההשהיה בזמן gameplay דרך F6; ללא הזרקת הודעת brief.",
       "evidence": "2026-11-08: שורת pgmiss צולמה במסך ההשהיה במשחק המקומי דרך F6, אחרי טעינת נכסי Hebrew GXT עדכניים. המקור עובר דרך Hud_PauseScreen_2::DrawPause_5D63B0 ומוצג עם ערך כנופיה דינמי; בצילום הופיעה השורה „משימות של יאקוזה שהושלמו: 0/7” במקום האנגלית, לצד אייקון הכנופיה ובתצוגה המקורית. צילום: game/qa-screenshots/pause-progress-gang-live.png. בדיקת משחק חיה, לא הזרקת brief.",
       "followUp": "הדינמיקה של כל שבעת ערכי ganga מכוסה בבדיקת resolver; צילום בפועל מאמת את שורת Yakuza באזור פעיל."
     },
@@ -5162,6 +5169,7 @@
       "sourceRead": true,
       "contextChecked": true,
       "observedInGame": true,
+      "observedMethod": "ערך כנופיה דינמי בתצפית החיה במסך ההשהיה דרך F6; ללא הזרקת הודעת brief.",
       "evidence": "2026-11-08: GXT Yakuza נצפה כערך הדינמי של שורת pgmiss במסך ההשהיה. מקור: Gang_144::GetArrowColourText_4BF340 → Hud_PauseScreen_2::DrawPause_5D63B0. הוצג „יאקוזה” בעברית בצילום game/qa-screenshots/pause-progress-gang-live.png; שאר ערכי הכנופיות מכוסים סטטית ובבדיקות resolver.",
       "followUp": "ללא בדיקה חזותית נפרדת לששת הערכים שאינם פעילים באזור שנפתח."
     },
